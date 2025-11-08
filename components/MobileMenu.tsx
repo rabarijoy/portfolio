@@ -1,20 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { LanguageSwitcher } from './LanguageSwitcher';
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations('nav');
 
   const menuItems = [
-    { key: 'home', href: '#hero' },
     { key: 'about', href: '#about' },
     { key: 'projects', href: '#projects' },
     { key: 'services', href: '#services' },
-    { key: 'contact', href: '#contact' },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -23,28 +20,42 @@ export function MobileMenu() {
     setIsOpen(false);
   };
 
+  // Bloquer le scroll du body quand le menu est ouvert
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup au démontage
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   return (
     <>
       {/* Hamburger Button */}
       <button
         onClick={toggleMenu}
-        className="lg:hidden relative z-50 p-2 text-gray-700 hover:text-gray-900"
+        className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center"
         aria-label="Toggle menu"
       >
-        <div className="w-6 h-5 flex flex-col justify-between">
-          <motion.span
-            animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-            className="w-full h-0.5 bg-current transition-all"
-          />
-          <motion.span
-            animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="w-full h-0.5 bg-current transition-all"
-          />
-          <motion.span
-            animate={isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-            className="w-full h-0.5 bg-current transition-all"
-          />
-        </div>
+        {isOpen ? (
+          <>
+            {/* Croix */}
+            <span className="absolute w-6 h-0.5 bg-black rotate-45"></span>
+            <span className="absolute w-6 h-0.5 bg-black -rotate-45"></span>
+          </>
+        ) : (
+          <>
+            {/* Hamburger */}
+            <span className="absolute w-6 h-0.5 bg-black -translate-y-2"></span>
+            <span className="absolute w-6 h-0.5 bg-black"></span>
+            <span className="absolute w-6 h-0.5 bg-black translate-y-2"></span>
+          </>
+        )}
       </button>
 
       {/* Mobile Menu Overlay */}
@@ -60,37 +71,55 @@ export function MobileMenu() {
               className="fixed inset-0 bg-black/50 z-40 lg:hidden"
             />
 
-            {/* Menu Panel */}
+            {/* Menu Panel - Full Screen */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-64 bg-white shadow-2xl z-40 lg:hidden"
+              className="fixed inset-0 bg-white z-40 lg:hidden overflow-hidden"
             >
-              <nav className="flex flex-col h-full pt-20 px-6">
-                <ul className="flex flex-col gap-4">
-                  {menuItems.map((item) => (
+              <nav className="flex flex-col items-center justify-center h-full px-[5vw] overflow-y-auto overscroll-contain">
+                <ul className="flex flex-col gap-2 w-full max-w-xs">
+                  {menuItems.map((item, index) => (
                     <motion.li
                       key={item.key}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.1 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
                     >
-                      <a
+                      <motion.a
                         href={item.href}
                         onClick={handleLinkClick}
-                        className="block text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors py-2"
+                        whileTap={{ scale: 0.95 }}
+                        className="block font-helvetica font-medium text-[18px] text-black tracking-tight text-center py-4 px-6 rounded-xl hover:bg-gray-50 active:bg-gray-100 transition-colors"
                       >
                         {t(item.key)}
-                      </a>
+                      </motion.a>
                     </motion.li>
                   ))}
                 </ul>
-
-                <div className="mt-8">
-                  <LanguageSwitcher />
-                </div>
+                
+                {/* Call to Action Button */}
+                <motion.div 
+                  className="mt-8 w-full max-w-xs"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: menuItems.length * 0.1 }}
+                >
+                  <motion.button
+                    onClick={() => {
+                      handleLinkClick();
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-full bg-black flex gap-2 items-center justify-center px-6 py-4 rounded-xl active:bg-gray-800 transition-colors"
+                  >
+                    <span className="font-helvetica font-medium text-[18px] text-white tracking-tight">
+                      {t('contact')}
+                    </span>
+                  </motion.button>
+                </motion.div>
               </nav>
             </motion.div>
           </>
