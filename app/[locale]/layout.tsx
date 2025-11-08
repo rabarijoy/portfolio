@@ -1,0 +1,31 @@
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import { locales } from '@/i18n';
+import { LangUpdater } from '@/components/LangUpdater';
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const isValidLocale = locales.some((l) => l === locale);
+  if (!isValidLocale) notFound();
+
+  const messages = await getMessages({ locale });
+
+  return (
+    <NextIntlClientProvider messages={messages} locale={locale}>
+      <LangUpdater locale={locale} />
+      {children}
+    </NextIntlClientProvider>
+  );
+}
+

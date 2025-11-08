@@ -1,0 +1,77 @@
+{
+  "common": {
+    "welcome": "Bienvenue",
+    "contact": "Contact",
+    "about": "À propos",
+    "projects": "Projets",
+    "services": "Services",
+    "prices": "Tarifs",
+    "portfolio": "Portfolio",
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue"
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "name": "Joy Rabari",
+    "title": "Développeur Web Full-Stack",
+    "description": "Je crée des expériences web modernes, performantes et accessibles. Spécialisé en React, Next.js et Node.js.",
+    "cta_projects": "Voir mes projets",
+    "cta_contact": "Me contacter"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "subtitle": "Passionné par le développement web et toujours en quête d'apprendre de nouvelles technologies",
+    "journey_title": "Mon parcours",
+    "journey_p1": "Avec plusieurs années d'expérience en développement web, je me spécialise dans la création d'applications web modernes et performantes.",
+    "journey_p2": "Mon expertise couvre l'ensemble du cycle de développement, du design à la mise en production, en passant par l'optimisation SEO et les tests.",
+    "journey_p3": "J'accorde une attention particulière à la qualité du code, l'expérience utilisateur et les performances.",
+    "skills_title": "Compétences techniques"
+  },
+  "portfolio": {
+    "title": "Mes projets récents",
+    "subtitle": "Découvrez une sélection de mes réalisations",
+    "view_project": "Voir le projet",
+    "view_all": "Voir tous les projets"
+  },
+  "services": {
+    "title": "Mes services",
+    "subtitle": "Des solutions complètes pour donner vie à vos projets web"
+  },
+  "prices": {
+    "title": "Tarifs",
+    "subtitle": "Des prestations adaptées à vos besoins et votre budget",
+    "from": "à partir de",
+    "on_demand": "Sur devis",
+    "popular": "Populaire",
+    "request_quote": "Demander un devis",
+    "disclaimer": "* Tous les prix sont indicatifs et peuvent varier selon les besoins spécifiques du projet"
+  },
+  "contact": {
+    "title": "Contactez-moi",
+    "subtitle": "Vous avez un projet ? Discutons-en ensemble",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé avec succès !",
+    "error": "Une erreur est survenue. Veuillez réessayer.",
+    "info_title": "Restons en contact",
+    "response_time": "Temps de réponse",
+    "response_time_desc": "Je réponds généralement sous 24h"
+  },
+  "footer": {
+    "description": "Développeur web passionné, spécialisé dans la création d'expériences web modernes et performantes.",
+    "navigation": "Navigation",
+    "social": "Restons connectés",
+    "copyright": "Tous droits réservés."
+  }
+}
+

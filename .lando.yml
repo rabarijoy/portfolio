@@ -1,0 +1,45 @@
+name: portfolio-joy
+services:
+  appserver:
+    type: node:18
+    build:
+      - npm install
+    build_as_root:
+      - npm install -g prisma tsx
+    scanner: false
+    ports:
+      - '3000:3000'
+    overrides:
+      environment:
+        NODE_ENV: development
+        DATABASE_URL: "file:./prisma/dev.db"
+        JWT_SECRET: "your-super-secret-jwt-key-change-this-in-production"
+        NEXT_PUBLIC_SITE_URL: "http://portfolio-joy.lndo.site"
+tooling:
+  npm:
+    service: appserver
+  node:
+    service: appserver
+  prisma:
+    service: appserver
+  tsx:
+    service: appserver
+  dev:
+    service: appserver
+    cmd: npm run dev
+    description: Start development server
+  'db:migrate':
+    service: appserver
+    cmd: npm run db:migrate
+    description: Run Prisma migrations
+  'db:seed':
+    service: appserver
+    cmd: npm run db:seed
+    description: Seed database
+  'db:studio':
+    service: appserver
+    cmd: npx prisma studio
+    description: Open Prisma Studio
+proxy:
+  appserver:
+    - portfolio-joy.lndo.site:3000

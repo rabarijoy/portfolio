@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// User model for admin authentication
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   // Hashed password
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Project model for portfolio items
+model Project {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  titleFr     String
+  titleEn     String
+  descriptionFr String @default("")
+  descriptionEn String @default("")
+  image       String?  // URL or path to image
+  tags        String   // Comma-separated tags
+  link        String?  // External link to project
+  githubLink  String?  // GitHub repository link
+  featured    Boolean  @default(false)
+  order       Int      @default(0) // For custom ordering
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Price model for pricing section
+model Price {
+  id          String   @id @default(cuid())
+  titleFr     String
+  titleEn     String
+  descriptionFr String @default("")
+  descriptionEn String @default("")
+  price       Float?   // Price in euros (null for "on demand")
+  category    String   @default("service") // service, package, etc.
+  order       Int      @default(0) // For custom ordering
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
