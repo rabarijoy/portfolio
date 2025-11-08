@@ -12,6 +12,13 @@ const config: Config = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
       },
+      fontFamily: {
+        'ppneuebit': ['PP NeueBit', 'sans-serif'],
+        'helvetica': ['Helvetica', 'Arial', 'sans-serif'],
+      },
+      letterSpacing: {
+        'tighter-2': '-0.02em',
+      },
     },
   },
   plugins: [],
