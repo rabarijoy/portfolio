@@ -50,15 +50,15 @@ export function Contact() {
         >
           {/* Section Title */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="font-helvetica text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {t('title')}
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="font-helvetica text-lg text-gray-600 max-w-2xl mx-auto">
               Vous avez un projet ? Discutons-en ensemble
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto font-helvetica">
             {/* Contact Info */}
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">

@@ -14,7 +14,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12">
+    <footer className="bg-gray-900 text-gray-300 py-12 font-helvetica">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About */}

@@ -16,7 +16,7 @@ export function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1">
+    <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1 font-helvetica">
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}

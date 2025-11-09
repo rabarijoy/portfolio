@@ -21,7 +21,10 @@
     "greeting": "Hello, I'm",
     "name": "Joy Rabari",
     "title": "Full-Stack Web Developer",
+    "subtitle": "Software Development Student",
     "description": "I create modern, performant and accessible web experiences. Specialized in React, Next.js and Node.js.",
+    "contact": "Contact me",
+    "downloadCV": "Download my CV",
     "cta_projects": "View my projects",
     "cta_contact": "Contact me"
   },
