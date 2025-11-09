@@ -64,10 +64,10 @@ export function Portfolio({ projects }: { projects?: Project[] }) {
         >
           {/* Section Title */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="font-helvetica text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Mes projets récents
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="font-helvetica text-lg text-gray-600 max-w-2xl mx-auto">
               Découvrez une sélection de mes réalisations
             </p>
           </div>
@@ -90,7 +90,7 @@ export function Portfolio({ projects }: { projects?: Project[] }) {
                 </div>
 
                 {/* Project Info */}
-                <div className="p-6">
+                <div className="p-6 font-helvetica">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {project.titleFr}
                   </h3>

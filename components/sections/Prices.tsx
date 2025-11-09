@@ -63,10 +63,10 @@ export function Prices({ prices }: { prices?: Price[] }) {
         >
           {/* Section Title */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="font-helvetica text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Tarifs
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="font-helvetica text-lg text-gray-600 max-w-2xl mx-auto">
               Des prestations adaptées à vos besoins et votre budget
             </p>
           </div>
@@ -81,7 +81,7 @@ export function Prices({ prices }: { prices?: Price[] }) {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
-                className={`bg-white rounded-xl shadow-lg p-8 border-2 hover:shadow-2xl transition-all ${
+                className={`bg-white rounded-xl shadow-lg p-8 border-2 hover:shadow-2xl transition-all font-helvetica ${
                   index === 1 ? 'border-blue-500' : 'border-gray-100'
                 }`}
               >
@@ -140,7 +140,7 @@ export function Prices({ prices }: { prices?: Price[] }) {
             ))}
           </div>
 
-          <div className="text-center mt-8 text-gray-600">
+          <div className="text-center mt-8 text-gray-600 font-helvetica">
             <p>* Tous les prix sont indicatifs et peuvent varier selon les besoins spécifiques du projet</p>
           </div>
         </motion.div>

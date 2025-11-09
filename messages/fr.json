@@ -21,7 +21,10 @@
     "greeting": "Bonjour, je suis",
     "name": "Joy Rabari",
     "title": "Développeur Web Full-Stack",
+    "subtitle": "Étudiant en développement logiciel",
     "description": "Je crée des expériences web modernes, performantes et accessibles. Spécialisé en React, Next.js et Node.js.",
+    "contact": "Me contacter",
+    "downloadCV": "Télécharger mon CV",
     "cta_projects": "Voir mes projets",
     "cta_contact": "Me contacter"
   },

@@ -52,10 +52,10 @@ export function Services() {
         >
           {/* Section Title */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="font-helvetica text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Mes services
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="font-helvetica text-lg text-gray-600 max-w-2xl mx-auto">
               Des solutions complètes pour donner vie à vos projets web
             </p>
           </div>
@@ -70,7 +70,7 @@ export function Services() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all"
+                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all font-helvetica"
               >
                 <div className="text-5xl mb-4">{service.icon}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">

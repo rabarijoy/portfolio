@@ -28,10 +28,10 @@ export function About() {
         >
           {/* Section Title */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="font-helvetica text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               À propos de moi
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="font-helvetica text-lg text-gray-600 max-w-2xl mx-auto">
               Passionné par le développement web et toujours en quête d'apprendre de nouvelles technologies
             </p>
           </div>
@@ -39,10 +39,10 @@ export function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Description */}
             <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              <h3 className="font-helvetica text-2xl font-semibold text-gray-900 mb-4">
                 Mon parcours
               </h3>
-              <div className="space-y-4 text-gray-600">
+              <div className="space-y-4 text-gray-600 font-helvetica">
                 <p>
                   Avec plusieurs années d'expérience en développement web, je me spécialise dans 
                   la création d'applications web modernes et performantes.
@@ -60,7 +60,7 @@ export function About() {
 
             {/* Skills */}
             <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+              <h3 className="font-helvetica text-2xl font-semibold text-gray-900 mb-6">
                 Compétences techniques
               </h3>
               <div className="space-y-4">
@@ -72,7 +72,7 @@ export function About() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <div className="flex justify-between mb-2">
+                    <div className="flex justify-between mb-2 font-helvetica">
                       <span className="font-medium text-gray-700">{skill.name}</span>
                       <span className="text-gray-500">{skill.level}%</span>
                     </div>
