@@ -2,96 +2,99 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Container } from '../ui/Container';
 import { Section } from '../ui/Section';
+import Image from 'next/image';
 
 export function About() {
-  const t = useTranslations('about');
-
-  const skills = [
-    { name: 'React & Next.js', level: 90 },
-    { name: 'TypeScript', level: 85 },
-    { name: 'Node.js', level: 80 },
-    { name: 'Tailwind CSS', level: 95 },
-    { name: 'PostgreSQL', level: 75 },
-    { name: 'Git & GitHub', level: 90 },
-  ];
+  const tHero = useTranslations('hero');
 
   return (
-    <Section id="about" background="gray">
-      <Container>
+    <Section id="about" background="gray" className="!py-0">
+      <div className="relative min-h-screen">
+        {/* Image ferrée à droite - 100% hauteur */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="absolute top-0 right-0 w-[70vw] h-full overflow-hidden"
         >
-          {/* Section Title */}
-          <div className="text-center mb-12">
-            <h2 className="font-helvetica text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              À propos de moi
-            </h2>
-            <p className="font-helvetica text-lg text-gray-600 max-w-2xl mx-auto">
-              Passionné par le développement web et toujours en quête d'apprendre de nouvelles technologies
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Description */}
-            <div>
-              <h3 className="font-helvetica text-2xl font-semibold text-gray-900 mb-4">
-                Mon parcours
-              </h3>
-              <div className="space-y-4 text-gray-600 font-helvetica">
-                <p>
-                  Avec plusieurs années d'expérience en développement web, je me spécialise dans 
-                  la création d'applications web modernes et performantes.
-                </p>
-                <p>
-                  Mon expertise couvre l'ensemble du cycle de développement, du design à la mise 
-                  en production, en passant par l'optimisation SEO et les tests.
-                </p>
-                <p>
-                  J'accorde une attention particulière à la qualité du code, l'expérience utilisateur 
-                  et les performances.
-                </p>
-              </div>
-            </div>
-
-            {/* Skills */}
-            <div>
-              <h3 className="font-helvetica text-2xl font-semibold text-gray-900 mb-6">
-                Compétences techniques
-              </h3>
-              <div className="space-y-4">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <div className="flex justify-between mb-2 font-helvetica">
-                      <span className="font-medium text-gray-700">{skill.name}</span>
-                      <span className="text-gray-500">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
-                        className="bg-blue-600 h-2 rounded-full"
-                      />
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <Image
+            src="https://images.unsplash.com/photo-1675256903382-0365348c0c7a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1335"
+            alt="Illustration"
+            fill
+            className="object-cover grayscale"
+            priority
+          />
+          {/* Gradient overlay de gauche à droite avec transitions progressives */}
+          <div 
+            className="absolute inset-0" 
+            style={{
+              background: 'linear-gradient(to right, rgb(249,250,251) 0%, rgb(249,250,251) 30%, rgba(249,250,251,0.95) 40%, rgba(249,250,251,0.85) 50%, rgba(249,250,251,0.7) 60%, rgba(249,250,251,0.5) 70%, rgba(249,250,251,0.3) 80%, rgba(249,250,251,0.1) 90%, transparent 100%)'
+            }}
+          ></div>
         </motion.div>
-      </Container>
+
+        {/* Hero Content - Title and CTA */}
+        <div className="relative z-10 px-[6vw] py-[2vh] lg:px-[7vw] lg:py-[2.5vh] min-h-screen flex items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full max-w-screen-2xl mx-auto"
+          >
+            {/* Left side - Text Content */}
+            <div className="flex flex-col gap-6 max-w-[50%]">
+              {/* Heading with blue bar */}
+              <div className="relative flex flex-col justify-center w-full">
+                {/* Blue bar positioned behind "Rabarijaona" */}
+                <div className="absolute left-0 top-[73px] w-[343px] h-[42px] bg-blue-accent z-0"></div>
+                
+                <h1 className="font-helvetica font-bold text-[56px] leading-[0.84] tracking-[-0.02em] text-black relative z-10">
+                  Aina Joy
+                </h1>
+                <h1 className="font-helvetica font-bold text-[56px] leading-[0.84] text-black relative z-10">
+                  <span className="tracking-[-0.02em]">Rabarijaona</span>
+                  <span className="tracking-[-0.1em]">.</span>
+                </h1>
+              </div>
+
+              {/* Subtitle */}
+              <div className="flex flex-col justify-center w-full">
+                <p className="font-helvetica font-bold text-[24px] leading-[1.45] tracking-[-0.005em] text-black">
+                  {tHero('subtitle')}
+                </p>
+              </div>
+
+              {/* Lorem ipsum paragraph */}
+              <div className="flex flex-col justify-center w-full">
+                <p className="font-helvetica text-[16px] leading-[1.6] text-gray-700 pr-[7vw]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+
+              {/* Buttons */}
+              <div className="flex flex-wrap gap-4 mt-4">
+                <button
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="bg-black text-white font-helvetica font-normal text-[15px] leading-[1.45] tracking-[0.005em] px-8 py-4 rounded-lg hover:bg-gray-800 transition-colors"
+                >
+                  {tHero('contact')}
+                </button>
+                <button
+                  onClick={() => {
+                    // Télécharger CV action
+                  }}
+                  className="bg-white text-black font-helvetica font-normal text-[15px] leading-[1.45] tracking-[0.005em] px-8 py-4 rounded-lg border-2 border-black hover:bg-gray-50 transition-colors"
+                >
+                  {tHero('downloadCV')}
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </Section>
   );
 }

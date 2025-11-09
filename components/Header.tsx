@@ -29,7 +29,7 @@ function PrimaryButton({ children, onClick }: { children: React.ReactNode; onCli
   );
 }
 
-function Buttons({ activeSection }: { activeSection: string }) {
+function NavLinks({ activeSection }: { activeSection: string }) {
   const t = useTranslations('nav');
 
   const navItems = [
@@ -39,7 +39,7 @@ function Buttons({ activeSection }: { activeSection: string }) {
   ];
 
   return (
-    <nav className="flex flex-wrap gap-6 items-center" data-name="Buttons">
+    <>
       {navItems.map((item) => (
         <a
           key={item.key}
@@ -51,10 +51,7 @@ function Buttons({ activeSection }: { activeSection: string }) {
           {t(item.key)}
         </a>
       ))}
-      <PrimaryButton onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-        {t('contact')}
-      </PrimaryButton>
-    </nav>
+    </>
   );
 }
 
@@ -108,6 +105,8 @@ export function Header() {
     };
   }, []);
 
+  const t = useTranslations('nav');
+
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -118,16 +117,26 @@ export function Header() {
       data-name="Header 1"
     >
       <div className="flex flex-row items-center w-full">
-        <div className="flex items-center justify-between px-[4vw] py-[2vh] lg:px-[5vw] lg:py-[2.5vh] w-full">
-          <Company />
+        <div className="grid grid-cols-3 items-center px-[4vw] py-[2vh] lg:px-[5vw] lg:py-[2.5vh] w-full">
+          {/* Logo à gauche */}
+          <div className="flex justify-start">
+            <Company />
+          </div>
           
-          {/* Desktop Navigation */}
-          <div className="hidden lg:block">
-            <Buttons activeSection={activeSection} />
+          {/* Navigation au centre - Desktop only */}
+          <nav className="hidden lg:flex gap-6 items-center justify-center">
+            <NavLinks activeSection={activeSection} />
+          </nav>
+
+          {/* CTA Contact à droite - Desktop only */}
+          <div className="hidden lg:flex justify-end">
+            <PrimaryButton onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              {t('contact')}
+            </PrimaryButton>
           </div>
 
           {/* Mobile Menu */}
-          <div className="lg:hidden">
+          <div className="lg:hidden col-span-2 flex justify-end">
             <MobileMenu activeSection={activeSection} />
           </div>
         </div>
