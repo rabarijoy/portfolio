@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
-export function MobileMenu() {
+export function MobileMenu({ activeSection }: { activeSection: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations('nav');
 
@@ -92,7 +92,11 @@ export function MobileMenu() {
                         href={item.href}
                         onClick={handleLinkClick}
                         whileTap={{ scale: 0.95 }}
-                        className="block font-helvetica font-medium text-[18px] text-black tracking-tight text-center py-4 px-6 rounded-xl hover:bg-gray-50 active:bg-gray-100 transition-colors"
+                        className={`block font-helvetica font-medium text-[18px] tracking-tight text-center py-4 px-6 rounded-xl transition-colors ${
+                          activeSection === item.key 
+                            ? 'bg-gray-100 text-black' 
+                            : 'text-black hover:bg-gray-50 active:bg-gray-100'
+                        }`}
                       >
                         {t(item.key)}
                       </motion.a>

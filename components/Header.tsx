@@ -29,7 +29,7 @@ function PrimaryButton({ children, onClick }: { children: React.ReactNode; onCli
   );
 }
 
-function Buttons() {
+function Buttons({ activeSection }: { activeSection: string }) {
   const t = useTranslations('nav');
 
   const navItems = [
@@ -44,7 +44,9 @@ function Buttons() {
         <a
           key={item.key}
           href={item.href}
-          className="font-helvetica font-medium text-[15px] text-[#989898] tracking-tight whitespace-nowrap hover:text-black transition-colors"
+          className={`font-helvetica font-medium text-[15px] tracking-tight whitespace-nowrap transition-colors ${
+            activeSection === item.key ? 'text-black' : 'text-gray-neutral hover:text-black'
+          }`}
         >
           {t(item.key)}
         </a>
@@ -58,6 +60,7 @@ function Buttons() {
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,6 +69,43 @@ export function Header() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = ['about', 'projects', 'services', 'contact'];
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            if (sections.includes(id)) {
+              setActiveSection(id);
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '-100px 0px -66%',
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      sections.forEach((id) => {
+        const element = document.getElementById(id);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
   }, []);
 
   return (
@@ -83,12 +123,12 @@ export function Header() {
           
           {/* Desktop Navigation */}
           <div className="hidden lg:block">
-            <Buttons />
+            <Buttons activeSection={activeSection} />
           </div>
 
           {/* Mobile Menu */}
           <div className="lg:hidden">
-            <MobileMenu />
+            <MobileMenu activeSection={activeSection} />
           </div>
         </div>
       </div>

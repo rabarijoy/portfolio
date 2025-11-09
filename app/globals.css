@@ -11,8 +11,42 @@
 }
 
 :root {
+  /* Couleurs principales */
   --background: #ffffff;
   --foreground: #171717;
+  --black: #000000;
+  --white: #ffffff;
+  
+  /* Couleurs d'accent */
+  --blue-accent: #6dbfff;
+  --blue-light: #60a5fa;
+  --blue-medium: #3b82f6;
+  --blue-dark: #2563eb;
+  --purple-light: #a78bfa;
+  --purple-medium: #8b5cf6;
+  
+  /* Gris */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --gray-neutral: #989898;
+  
+  /* Couleurs de succès/erreur */
+  --green-500: #22c55e;
+  --green-600: #16a34a;
+  --red-500: #ef4444;
+  --red-600: #dc2626;
+  
+  /* Couleurs de fond */
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+  --bg-shadow: rgba(0, 0, 0, 0.2);
+  --bg-shadow-light: rgba(0, 0, 0, 0.3);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,10 +56,69 @@
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: transparent;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Scrollbar personnalisée pour WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 14px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6DBFFF 0%, #4A9FE8 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(109, 191, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #5AAFFF 0%, #3A8FD8 100%);
+  box-shadow: 0 0 15px rgba(109, 191, 255, 0.8);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #6DBFFF;
+  box-shadow: 0 0 20px rgba(109, 191, 255, 1);
+}
+
+/* Effet de squish très léger aux bords */
+body.scroll-at-top ::-webkit-scrollbar-thumb {
+  transform: scaleY(0.98);
+  transform-origin: top;
+  transition: transform 0.2s ease;
+}
+
+body.scroll-at-bottom ::-webkit-scrollbar-thumb {
+  transform: scaleY(0.98);
+  transform-origin: bottom;
+  transition: transform 0.2s ease;
+}
+
+/* Scrollbar pour Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #6DBFFF transparent;
 }
 
 @layer utilities {
