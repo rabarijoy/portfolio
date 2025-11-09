@@ -43,7 +43,7 @@ export function Hero() {
             {/* Heading with blue bar */}
             <div className="relative flex flex-col justify-center w-full">
               {/* Blue bar positioned behind "Rabarijaona" */}
-              <div className="absolute left-0 top-[73px] w-[343px] h-[42px] bg-[#6dbfff] z-0" />
+              <div className="absolute left-0 top-[73px] w-[343px] h-[42px] bg-blue-accent z-0" />
               
               <h1 className="font-bold text-[56px] leading-[0.84] tracking-[-0.02em] text-black relative z-10">
                 Aina Joy
@@ -150,7 +150,7 @@ export function Hero() {
           height="40"
           viewBox="0 0 24 24"
           fill="none"
-          className="text-[#989898] group-hover:text-black transition-colors"
+          className="text-gray-neutral group-hover:text-black transition-colors"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path

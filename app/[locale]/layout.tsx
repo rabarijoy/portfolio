@@ -3,6 +3,8 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
 import { LangUpdater } from '@/components/LangUpdater';
+import { ScrollbarSquish } from '@/components/ScrollbarSquish';
+import { SmoothScroll } from '@/components/SmoothScroll';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -24,6 +26,8 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
       <LangUpdater locale={locale} />
+      <ScrollbarSquish />
+      <SmoothScroll />
       {children}
     </NextIntlClientProvider>
   );

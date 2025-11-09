@@ -11,6 +11,10 @@ const config: Config = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        black: 'var(--black)',
+        white: 'var(--white)',
+        'blue-accent': 'var(--blue-accent)',
+        'gray-neutral': 'var(--gray-neutral)',
       },
       fontFamily: {
         'ppneuebit': ['PP NeueBit', 'sans-serif'],
