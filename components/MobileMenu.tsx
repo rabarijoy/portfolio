@@ -12,7 +12,7 @@ export function MobileMenu({ activeSection }: { activeSection: string }) {
   const menuItems = [
     { key: 'about', href: '#about' },
     { key: 'projects', href: '#projects' },
-    { key: 'services', href: '#services' },
+    { key: 'career', href: '#career' },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);

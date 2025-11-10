@@ -14,7 +14,7 @@
     "home": "Accueil",
     "about": "À propos",
     "projects": "Projets",
-    "services": "Services",
+    "career": "Métiers visés",
     "contact": "Contact"
   },
   "hero": {
@@ -103,9 +103,23 @@
       }
     }
   },
-  "services": {
-    "title": "Mes services",
-    "subtitle": "Des solutions complètes pour donner vie à vos projets web"
+  "career": {
+    "title": "Métiers visés",
+    "mainRole": {
+      "title": "Développeur web",
+      "description": "Un domaine qui m'attire par sa diversité, son rythme d'évolution rapide et les possibilités de création qu'il offre. Ce métier consiste à concevoir et développer des sites et applications web, en répondant aux besoins spécifiques des clients ou des utilisateurs. Il demande une maîtrise des langages de programmation, une rigueur technique, mais aussi une certaine sensibilité à l'ergonomie et à l'expérience utilisateur."
+    },
+    "motivation": "Ce choix s'inscrit naturellement dans la continuité de ma formation en BTS SIO option SLAM, et me permet d'envisager plusieurs voies : travailler en entreprise ou évoluer en tant que freelance. Cette flexibilité est un atout majeur pour moi, car elle me laisse la liberté d'explorer différents contextes professionnels, en construisant progressivement mon expertise au fil des projets.",
+    "paths": {
+      "company": {
+        "title": "En entreprise",
+        "description": "Intégrer une équipe de développement et contribuer à des projets d'envergure dans un environnement collaboratif."
+      },
+      "freelance": {
+        "title": "En freelance",
+        "description": "Développer une activité indépendante et gérer mes propres projets avec autonomie et créativité."
+      }
+    }
   },
   "prices": {
     "title": "Tarifs",
