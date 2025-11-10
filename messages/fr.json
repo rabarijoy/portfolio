@@ -37,6 +37,33 @@
     "journey_p3": "J'accorde une attention particulière à la qualité du code, l'expérience utilisateur et les performances.",
     "skills_title": "Compétences techniques"
   },
+  "timeline": {
+    "bac": {
+      "title": "Baccalauréat général",
+      "date": "Juin 2024",
+      "description": "Spécialités Mathématiques et Sciences Économiques et Sociales – Lycée La Clairefontaine (Antananarivo)"
+    },
+    "bts": {
+      "title": "BTS SIO (SLAM)",
+      "date": "Septembre 2024 – 2026",
+      "description": "Formation à distance via le CNED sur 2 ans"
+    },
+    "audio": {
+      "title": "Formation Technicien Audio",
+      "date": "Octobre 2024 – Juin 2025",
+      "description": "Formation en parallèle (à distance) en technicien audio (mixing & mastering) – Point Blank Music School (UK)"
+    },
+    "stage1": {
+      "title": "Stage chez Apiqa Communication",
+      "date": "Mai-juin 2025",
+      "description": "Développement web full-stack : création de sites vitrines responsive, intégration de systèmes de gestion de contenu, optimisation SEO et déploiement"
+    },
+    "stage2": {
+      "title": "Stage chez Tag IP",
+      "date": "Novembre - Décembre 2025",
+      "description": "Développement d'applications métier : conception et développement d'une solution de gestion interne, API REST, base de données relationnelle"
+    }
+  },
   "portfolio": {
     "title": "Mes projets récents",
     "subtitle": "Découvrez une sélection de mes réalisations",

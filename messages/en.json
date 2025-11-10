@@ -37,6 +37,33 @@
     "journey_p3": "I pay particular attention to code quality, user experience and performance.",
     "skills_title": "Technical skills"
   },
+  "timeline": {
+    "bac": {
+      "title": "High School Diploma",
+      "date": "June 2024",
+      "description": "Specializations in Mathematics and Economic and Social Sciences – Lycée La Clairefontaine (Antananarivo)"
+    },
+    "bts": {
+      "title": "BTS SIO (SLAM)",
+      "date": "September 2024 – 2026",
+      "description": "2-year distance learning program via CNED"
+    },
+    "audio": {
+      "title": "Audio Technician Training",
+      "date": "October 2024 – June 2025",
+      "description": "Parallel distance learning in audio technician (mixing & mastering) – Point Blank Music School (UK)"
+    },
+    "stage1": {
+      "title": "Internship at Apiqa Communication",
+      "date": "May-June 2025",
+      "description": "Full-stack web development: creating responsive showcase websites, content management system integration, SEO optimization and deployment"
+    },
+    "stage2": {
+      "title": "Internship at Tag IP",
+      "date": "November - December 2025",
+      "description": "Business application development: design and development of an internal management solution, REST API, relational database"
+    }
+  },
   "portfolio": {
     "title": "My recent projects",
     "subtitle": "Discover a selection of my work",
