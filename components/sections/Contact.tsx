@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Briefcase, Link } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { Section } from '../ui/Section';
 import { Button } from '../ui/Button';
@@ -59,58 +58,7 @@ export function Contact() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto font-helvetica">
-            {/* Contact Info */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Restons en contact
-              </h3>
-
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl">
-                    ✉️
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">Email</p>
-                    <a href="mailto:rabarijaonajoy@gmail.com" className="text-blue-600 hover:underline">
-                      rabarijaonajoy@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <Briefcase size={24} className="text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">LinkedIn</p>
-                    <a href="#" className="text-blue-600 hover:underline">
-                      linkedin.com/in/joyrabari
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <Link size={24} className="text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">GitHub</p>
-                    <a href="#" className="text-blue-600 hover:underline">
-                      github.com/joyrabari
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 p-6 bg-blue-50 rounded-lg">
-                <p className="text-gray-700">
-                  <strong>Temps de réponse :</strong> Je réponds généralement sous 24h
-                </p>
-              </div>
-            </div>
-
+          <div className="max-w-2xl mx-auto font-helvetica">
             {/* Contact Form */}
             <div className="bg-white p-8 rounded-xl shadow-lg">
               <form onSubmit={handleSubmit} className="space-y-6">
