@@ -21,41 +21,41 @@ export function Skills() {
       icon: Layers,
       titleKey: 'development.title',
       itemsKey: 'development.items',
-      gradient: 'from-purple-50 to-white',
-      borderColor: 'border-purple-500',
-      iconBg: 'bg-purple-500',
+      gradient: 'from-blue-50 to-white',
+      borderColor: 'border-blue-accent',
+      iconBg: 'bg-blue-accent',
     },
     {
       icon: Database,
       titleKey: 'databases.title',
       itemsKey: 'databases.items',
-      gradient: 'from-green-50 to-white',
-      borderColor: 'border-green-500',
-      iconBg: 'bg-green-500',
+      gradient: 'from-blue-50 to-white',
+      borderColor: 'border-blue-accent',
+      iconBg: 'bg-blue-accent',
     },
     {
       icon: TestTube,
       titleKey: 'quality.title',
       itemsKey: 'quality.items',
-      gradient: 'from-orange-50 to-white',
-      borderColor: 'border-orange-500',
-      iconBg: 'bg-orange-500',
+      gradient: 'from-blue-50 to-white',
+      borderColor: 'border-blue-accent',
+      iconBg: 'bg-blue-accent',
     },
     {
       icon: FileCode,
       titleKey: 'design.title',
       itemsKey: 'design.items',
-      gradient: 'from-pink-50 to-white',
-      borderColor: 'border-pink-500',
-      iconBg: 'bg-pink-500',
+      gradient: 'from-blue-50 to-white',
+      borderColor: 'border-blue-accent',
+      iconBg: 'bg-blue-accent',
     },
     {
       icon: GitBranch,
       titleKey: 'collaboration.title',
       itemsKey: 'collaboration.items',
-      gradient: 'from-indigo-50 to-white',
-      borderColor: 'border-indigo-500',
-      iconBg: 'bg-indigo-500',
+      gradient: 'from-blue-50 to-white',
+      borderColor: 'border-blue-accent',
+      iconBg: 'bg-blue-accent',
     },
   ];
 
@@ -101,7 +101,7 @@ export function Skills() {
                 <ul className="space-y-2">
                   {t.raw(category.itemsKey).map((item: string, itemIndex: number) => (
                     <li key={itemIndex} className="flex items-start gap-2">
-                      <div className={`w-1.5 h-1.5 rounded-full ${category.iconBg.replace('bg-', 'bg-')} mt-2 flex-shrink-0`} />
+                      <div className="w-1.5 h-1.5 rounded-full bg-blue-accent mt-2 flex-shrink-0" />
                       <span className="font-helvetica text-[15px] lg:text-[16px] leading-[1.6] text-gray-700">
                         {item}
                       </span>

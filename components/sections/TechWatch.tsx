@@ -14,18 +14,18 @@ export function TechWatch() {
       titleKey: 'ai.title',
       descriptionKey: 'ai.description',
       pointsKey: 'ai.points',
-      gradient: 'from-purple-50 to-white',
-      borderColor: 'border-purple-500',
-      iconBg: 'bg-purple-500',
+      gradient: 'from-blue-50 to-white',
+      borderColor: 'border-blue-accent',
+      iconBg: 'bg-blue-accent',
     },
     {
       icon: Shield,
       titleKey: 'cybersecurity.title',
       descriptionKey: 'cybersecurity.description',
       pointsKey: 'cybersecurity.points',
-      gradient: 'from-red-50 to-white',
-      borderColor: 'border-red-500',
-      iconBg: 'bg-red-500',
+      gradient: 'from-blue-50 to-white',
+      borderColor: 'border-blue-accent',
+      iconBg: 'bg-blue-accent',
     },
   ];
 
@@ -75,7 +75,7 @@ export function TechWatch() {
                 <ul className="space-y-3">
                   {t.raw(topic.pointsKey).map((point: string, pointIndex: number) => (
                     <li key={pointIndex} className="flex items-start gap-3">
-                      <div className={`w-2 h-2 rounded-full ${topic.iconBg} mt-2 flex-shrink-0`} />
+                      <div className="w-2 h-2 rounded-full bg-blue-accent mt-2 flex-shrink-0" />
                       <span className="font-helvetica text-[15px] lg:text-[16px] leading-[1.6] text-gray-700">
                         {point}
                       </span>
