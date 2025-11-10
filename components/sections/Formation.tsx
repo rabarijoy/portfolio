@@ -20,11 +20,6 @@ export function Formation() {
             className="flex flex-col"
           >
             <div className="mb-6">
-              <div className="inline-block px-4 py-2 bg-blue-50 rounded-full mb-4">
-                <span className="font-helvetica font-medium text-[14px] text-blue-accent">
-                  {t('training.badge')}
-                </span>
-              </div>
               <h2 className="font-helvetica font-bold text-[36px] lg:text-[42px] leading-[1.1] tracking-[-0.02em] text-black mb-6">
                 {t('training.title')}
               </h2>
@@ -56,7 +51,7 @@ export function Formation() {
                     <h4 className="font-helvetica font-bold text-[16px] text-black mb-3">
                       {t('training.description.skills_title')}
                     </h4>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2 mb-6">
                       {['skill1', 'skill2', 'skill3', 'skill4'].map((skill, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <div className="w-2 h-2 rounded-full bg-blue-accent mt-2 flex-shrink-0" />
@@ -68,6 +63,17 @@ export function Formation() {
                     </ul>
                   </div>
                 </div>
+                <a
+                  href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-services-informatiques-aux-organisations-option-b-solutions-logicielles-et-applications-metiers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-helvetica font-medium text-[15px] text-blue-accent hover:text-blue-600 transition-colors"
+                >
+                  {t('training.see_more')}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
               </div>
 
               <div className="bg-gray-50 rounded-2xl p-6 lg:p-8">
@@ -90,11 +96,6 @@ export function Formation() {
             className="flex flex-col"
           >
             <div className="mb-6">
-              <div className="inline-block px-4 py-2 bg-blue-50 rounded-full mb-4">
-                <span className="font-helvetica font-medium text-[14px] text-blue-accent">
-                  {t('careers.badge')}
-                </span>
-              </div>
               <h2 className="font-helvetica font-bold text-[36px] lg:text-[42px] leading-[1.1] tracking-[-0.02em] text-black mb-6">
                 {t('careers.title')}
               </h2>
@@ -129,11 +130,20 @@ export function Formation() {
                     <h4 className="font-helvetica font-bold text-[16px] text-black mb-2">
                       {t('careers.main.skills_title')}
                     </h4>
-                    <p className="font-helvetica text-[15px] lg:text-[16px] leading-[1.6] text-gray-600">
+                    <p className="font-helvetica text-[15px] lg:text-[16px] leading-[1.6] text-gray-600 mb-6">
                       {t('careers.main.skills_text')}
                     </p>
                   </div>
                 </div>
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 font-helvetica font-medium text-[15px] text-blue-accent hover:text-blue-600 transition-colors"
+                >
+                  {t('careers.see_more')}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
               </div>
 
               <div className="bg-gray-50 rounded-2xl p-6 lg:p-8">

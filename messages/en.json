@@ -122,7 +122,8 @@
       "stages": {
         "title": "Professional Experience",
         "text": "It also allowed me to discover the professional world through internships in companies spread over the two years of training."
-      }
+      },
+      "see_more": "See more"
     },
     "careers": {
       "badge": "Career Goals",
@@ -138,7 +139,8 @@
       "vision": {
         "title": "My Vision",
         "text": "This choice naturally follows from my BTS SIO SLAM training, and allows me to consider several paths: working in a company or evolving as a freelancer. This flexibility is a major asset for me, as it gives me the freedom to explore different professional contexts."
-      }
+      },
+      "see_more": "See more"
     }
   },
   "services": {
