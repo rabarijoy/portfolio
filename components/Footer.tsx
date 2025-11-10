@@ -1,16 +1,17 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { Github, Linkedin, Mail, LucideIcon } from 'lucide-react';
 import { Container } from './ui/Container';
 
 export function Footer() {
   const t = useTranslations('common');
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = [
-    { name: 'GitHub', href: '#', icon: '🔗' },
-    { name: 'LinkedIn', href: '#', icon: '💼' },
-    { name: 'Email', href: 'mailto:rabarijaonajoy@gmail.com', icon: '✉️' },
+  const socialLinks: { name: string; href: string; icon: LucideIcon }[] = [
+    { name: 'GitHub', href: '#', icon: Github },
+    { name: 'LinkedIn', href: '#', icon: Linkedin },
+    { name: 'Email', href: 'mailto:rabarijaonajoy@gmail.com', icon: Mail },
   ];
 
   return (
@@ -56,16 +57,19 @@ export function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Restons connectés</h4>
             <div className="flex gap-4">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors text-xl"
-                  aria-label={link.name}
-                >
-                  {link.icon}
-                </a>
-              ))}
+              {socialLinks.map((link) => {
+                const IconComponent = link.icon;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+                    aria-label={link.name}
+                  >
+                    <IconComponent size={20} className="text-gray-300" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>

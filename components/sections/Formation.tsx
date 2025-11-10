@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { GraduationCap, Code } from 'lucide-react';
 import { Section } from '../ui/Section';
 
 export function Formation() {
@@ -28,8 +29,8 @@ export function Formation() {
             <div className="flex flex-col gap-6">
               <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-accent rounded-2xl p-6 lg:p-8">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-blue-accent flex items-center justify-center text-white text-[24px]">
-                    🎓
+                  <div className="w-12 h-12 rounded-xl bg-blue-accent flex items-center justify-center text-white">
+                    <GraduationCap size={24} />
                   </div>
                   <h3 className="font-helvetica font-bold text-[24px] lg:text-[28px] text-black">
                     {t('training.degree.name')}
@@ -104,8 +105,8 @@ export function Formation() {
             <div className="flex flex-col gap-6">
               <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-accent rounded-2xl p-6 lg:p-8">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-blue-accent flex items-center justify-center text-white text-[24px]">
-                    💻
+                  <div className="w-12 h-12 rounded-xl bg-blue-accent flex items-center justify-center text-white">
+                    <Code size={24} />
                   </div>
                   <h3 className="font-helvetica font-bold text-[24px] lg:text-[28px] text-black">
                     {t('careers.main.title')}

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { Smartphone, Palette, Rocket, ShoppingBag, Bot, BarChart, LucideIcon } from 'lucide-react';
 import { Section } from '../ui/Section';
 
 interface Project {
@@ -11,7 +12,7 @@ interface Project {
   description: string;
   tags: string[];
   category: string;
-  emoji: string;
+  icon: LucideIcon;
   gradient: string;
 }
 
@@ -34,7 +35,7 @@ export function Portfolio() {
       description: t('projects.mobile.description'),
       tags: ['React Native', 'TypeScript', 'Firebase'],
       category: 'mobile',
-      emoji: '📱',
+      icon: Smartphone,
       gradient: 'linear-gradient(135deg, #6dbfff 0%, #4a9eff 100%)',
     },
     {
@@ -43,7 +44,7 @@ export function Portfolio() {
       description: t('projects.design.description'),
       tags: ['Figma', 'CSS', 'Storybook'],
       category: 'design',
-      emoji: '🎨',
+      icon: Palette,
       gradient: 'linear-gradient(135deg, #ff6b9d 0%, #c454d0 100%)',
     },
     {
@@ -52,7 +53,7 @@ export function Portfolio() {
       description: t('projects.saas.description'),
       tags: ['Vue.js', 'Node.js', 'PostgreSQL'],
       category: 'web',
-      emoji: '🚀',
+      icon: Rocket,
       gradient: 'linear-gradient(135deg, #ffd166 0%, #ff8c42 100%)',
     },
     {
@@ -61,7 +62,7 @@ export function Portfolio() {
       description: t('projects.ecommerce.description'),
       tags: ['Next.js', 'Stripe', 'Tailwind'],
       category: 'web',
-      emoji: '💼',
+      icon: ShoppingBag,
       gradient: 'linear-gradient(135deg, #06ffa5 0%, #00d4aa 100%)',
     },
     {
@@ -70,7 +71,7 @@ export function Portfolio() {
       description: t('projects.ai.description'),
       tags: ['Python', 'TensorFlow', 'FastAPI'],
       category: 'ai',
-      emoji: '🤖',
+      icon: Bot,
       gradient: 'linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%)',
     },
     {
@@ -79,7 +80,7 @@ export function Portfolio() {
       description: t('projects.analytics.description'),
       tags: ['React', 'D3.js', 'WebSocket'],
       category: 'ai',
-      emoji: '📊',
+      icon: BarChart,
       gradient: 'linear-gradient(135deg, #fb923c 0%, #f97316 100%)',
     },
   ];
@@ -131,11 +132,14 @@ export function Portfolio() {
             >
                 {/* Project Image */}
                 <div 
-                  className="w-full h-[240px] flex items-center justify-center text-[72px] font-light text-white/90 relative overflow-hidden group"
+                  className="w-full h-[240px] flex items-center justify-center relative overflow-hidden group"
                   style={{ background: project.gradient }}
                 >
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.2)_0%,transparent_60%)]" />
-                  <span className="relative z-10 group-hover:scale-105 transition-transform duration-400">{project.emoji}</span>
+                  <project.icon 
+                    size={72} 
+                    className="relative z-10 text-white/90 group-hover:scale-105 transition-transform duration-400" 
+                  />
                 </div>
 
                 {/* Project Content */}
