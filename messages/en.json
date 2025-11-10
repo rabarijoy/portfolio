@@ -65,10 +65,43 @@
     }
   },
   "portfolio": {
-    "title": "My recent projects",
-    "subtitle": "Discover a selection of my work",
+    "title": "Projects",
+    "subtitle": "Discover a selection of my recent work",
     "view_project": "View project",
-    "view_all": "View all projects"
+    "view_all": "View all projects",
+    "filters": {
+      "all": "All",
+      "web": "Web",
+      "mobile": "Mobile",
+      "design": "Design",
+      "ai": "AI & Data"
+    },
+    "projects": {
+      "mobile": {
+        "title": "Mobile Application",
+        "description": "An intuitive application offering a smooth and modern user experience."
+      },
+      "design": {
+        "title": "Design System",
+        "description": "A complete design system to ensure visual consistency."
+      },
+      "saas": {
+        "title": "SaaS Platform",
+        "description": "Complete cloud solution with advanced analytics dashboard."
+      },
+      "ecommerce": {
+        "title": "E-commerce Website",
+        "description": "High-performance online store with complete payment management."
+      },
+      "ai": {
+        "title": "AI Assistant",
+        "description": "Intelligent assistant based on machine learning."
+      },
+      "analytics": {
+        "title": "Analytics Dashboard",
+        "description": "Real-time data visualization with interactive charts."
+      }
+    }
   },
   "services": {
     "title": "My services",

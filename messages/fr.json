@@ -65,10 +65,43 @@
     }
   },
   "portfolio": {
-    "title": "Mes projets récents",
-    "subtitle": "Découvrez une sélection de mes réalisations",
+    "title": "Projects",
+    "subtitle": "Découvrez une sélection de mes réalisations récentes",
     "view_project": "Voir le projet",
-    "view_all": "Voir tous les projets"
+    "view_all": "Voir tous les projets",
+    "filters": {
+      "all": "Tous",
+      "web": "Web",
+      "mobile": "Mobile",
+      "design": "Design",
+      "ai": "IA & Data"
+    },
+    "projects": {
+      "mobile": {
+        "title": "Application Mobile",
+        "description": "Une application intuitive offrant une expérience utilisateur fluide et moderne."
+      },
+      "design": {
+        "title": "Design System",
+        "description": "Un système de design complet pour assurer la cohérence visuelle."
+      },
+      "saas": {
+        "title": "Plateforme SaaS",
+        "description": "Solution cloud complète avec tableau de bord analytique avancé."
+      },
+      "ecommerce": {
+        "title": "Site E-commerce",
+        "description": "Boutique en ligne performante avec gestion complète des paiements."
+      },
+      "ai": {
+        "title": "IA Assistant",
+        "description": "Assistant intelligent basé sur l'apprentissage automatique."
+      },
+      "analytics": {
+        "title": "Dashboard Analytics",
+        "description": "Visualisation de données en temps réel avec graphiques interactifs."
+      }
+    }
   },
   "services": {
     "title": "Mes services",
