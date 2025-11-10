@@ -147,32 +147,81 @@
     "title": "Mes services",
     "subtitle": "Des solutions complètes pour donner vie à vos projets web"
   },
-  "competences": {
+  "skills": {
     "title": "Mes compétences",
-    "subtitle": "Un aperçu de mes compétences techniques et méthodologiques",
-    "languages": "Maîtrise des langages de programmation : C#, PHP, HTML, CSS, JavaScript, Java, Python",
-    "development": "Développement d'applications web, mobiles et client/serveur",
-    "databases": "Gestion de bases de données : MySQL, PostgreSQL, MongoDB",
-    "practices": "Application des bonnes pratiques de qualité logicielle (KISS, DRY, SOLID)",
-    "testing": "Réalisation de tests unitaires et fonctionnels",
-    "analysis": "Analyse de code",
-    "design": "Conception avec Merise, UML",
-    "collaboration": "Travail collaboratif avec GitHub"
+    "subtitle": "Un ensemble de compétences techniques acquises durant ma formation et mes projets personnels",
+    "languages": {
+      "title": "Langages",
+      "items": [
+        "C#",
+        "PHP",
+        "HTML / CSS",
+        "JavaScript",
+        "Java",
+        "Python"
+      ]
+    },
+    "development": {
+      "title": "Développement",
+      "items": [
+        "Applications web",
+        "Applications mobiles",
+        "Applications client/serveur"
+      ]
+    },
+    "databases": {
+      "title": "Bases de données",
+      "items": [
+        "MySQL",
+        "PostgreSQL",
+        "MongoDB"
+      ]
+    },
+    "quality": {
+      "title": "Qualité logicielle",
+      "items": [
+        "KISS, DRY, SOLID",
+        "Tests unitaires",
+        "Tests fonctionnels",
+        "Analyse de code"
+      ]
+    },
+    "design": {
+      "title": "Conception",
+      "items": [
+        "Merise",
+        "UML"
+      ]
+    },
+    "collaboration": {
+      "title": "Collaboration",
+      "items": [
+        "GitHub",
+        "Travail en équipe",
+        "Méthodologies agiles"
+      ]
+    }
   },
-  "veille": {
+  "techWatch": {
     "title": "Ma veille informationnelle",
-    "subtitle": "Les domaines que je suis activement pour rester à jour avec les dernières tendances technologiques",
+    "subtitle": "Je me tiens informé des dernières tendances et innovations technologiques",
     "ai": {
       "title": "Intelligence Artificielle",
-      "line1": "Je suis régulièrement les avancées en intelligence artificielle, notamment dans le domaine du machine learning et du deep learning.",
-      "line2": "Je m'intéresse aux applications pratiques de l'IA dans le développement web, comme les assistants de code, l'optimisation automatique et l'amélioration de l'expérience utilisateur.",
-      "line3": "Je me tiens informé des nouveaux frameworks et outils IA qui peuvent améliorer ma productivité et la qualité de mes développements."
+      "description": "L'IA révolutionne le développement logiciel et ouvre de nouvelles possibilités passionnantes.",
+      "points": [
+        "Suivi des avancées en apprentissage automatique et deep learning",
+        "Exploration des outils d'IA générative (ChatGPT, GitHub Copilot) pour améliorer la productivité",
+        "Veille sur l'intégration de l'IA dans les applications web modernes"
+      ]
     },
-    "cybersecurite": {
+    "cybersecurity": {
       "title": "Cybersécurité",
-      "line1": "La sécurité est une préoccupation majeure dans tous mes projets. Je suis les bonnes pratiques et les dernières vulnérabilités découvertes.",
-      "line2": "Je me forme continuellement sur les techniques de sécurisation des applications web, la gestion des authentifications et la protection des données.",
-      "line3": "Je reste vigilant sur les nouvelles menaces et les solutions de protection pour garantir la sécurité de mes développements et ceux de mes clients."
+      "description": "La sécurité est un enjeu majeur dans le développement d'applications modernes.",
+      "points": [
+        "Veille sur les vulnérabilités courantes (OWASP Top 10) et les bonnes pratiques de sécurisation",
+        "Suivi des techniques de protection des données et de la vie privée (RGPD)",
+        "Apprentissage des méthodes d'authentification sécurisée et de gestion des accès"
+      ]
     }
   },
   "prices": {

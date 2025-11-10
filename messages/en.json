@@ -147,32 +147,81 @@
     "title": "My services",
     "subtitle": "Complete solutions to bring your web projects to life"
   },
-  "competences": {
+  "skills": {
     "title": "My Skills",
-    "subtitle": "An overview of my technical and methodological skills",
-    "languages": "Mastery of programming languages: C#, PHP, HTML, CSS, JavaScript, Java, Python",
-    "development": "Development of web, mobile and client/server applications",
-    "databases": "Database management: MySQL, PostgreSQL, MongoDB",
-    "practices": "Application of software quality best practices (KISS, DRY, SOLID)",
-    "testing": "Unit and functional testing",
-    "analysis": "Code analysis",
-    "design": "Design with Merise, UML",
-    "collaboration": "Collaborative work with GitHub"
+    "subtitle": "A set of technical skills acquired during my training and personal projects",
+    "languages": {
+      "title": "Languages",
+      "items": [
+        "C#",
+        "PHP",
+        "HTML / CSS",
+        "JavaScript",
+        "Java",
+        "Python"
+      ]
+    },
+    "development": {
+      "title": "Development",
+      "items": [
+        "Web applications",
+        "Mobile applications",
+        "Client/server applications"
+      ]
+    },
+    "databases": {
+      "title": "Databases",
+      "items": [
+        "MySQL",
+        "PostgreSQL",
+        "MongoDB"
+      ]
+    },
+    "quality": {
+      "title": "Software Quality",
+      "items": [
+        "KISS, DRY, SOLID",
+        "Unit testing",
+        "Functional testing",
+        "Code analysis"
+      ]
+    },
+    "design": {
+      "title": "Design",
+      "items": [
+        "Merise",
+        "UML"
+      ]
+    },
+    "collaboration": {
+      "title": "Collaboration",
+      "items": [
+        "GitHub",
+        "Teamwork",
+        "Agile methodologies"
+      ]
+    }
   },
-  "veille": {
-    "title": "My Information Watch",
-    "subtitle": "The areas I actively follow to stay up to date with the latest technological trends",
+  "techWatch": {
+    "title": "My Tech Watch",
+    "subtitle": "I keep myself informed about the latest trends and technological innovations",
     "ai": {
       "title": "Artificial Intelligence",
-      "line1": "I regularly follow advances in artificial intelligence, particularly in machine learning and deep learning.",
-      "line2": "I am interested in practical applications of AI in web development, such as code assistants, automatic optimization and improving user experience.",
-      "line3": "I stay informed about new AI frameworks and tools that can improve my productivity and the quality of my developments."
+      "description": "AI is revolutionizing software development and opening exciting new possibilities.",
+      "points": [
+        "Following advances in machine learning and deep learning",
+        "Exploring generative AI tools (ChatGPT, GitHub Copilot) to improve productivity",
+        "Monitoring AI integration in modern web applications"
+      ]
     },
-    "cybersecurite": {
+    "cybersecurity": {
       "title": "Cybersecurity",
-      "line1": "Security is a major concern in all my projects. I follow best practices and the latest discovered vulnerabilities.",
-      "line2": "I continuously train on web application security techniques, authentication management and data protection.",
-      "line3": "I remain vigilant about new threats and protection solutions to ensure the security of my developments and those of my clients."
+      "description": "Security is a major challenge in modern application development.",
+      "points": [
+        "Monitoring common vulnerabilities (OWASP Top 10) and security best practices",
+        "Following data protection and privacy techniques (GDPR)",
+        "Learning secure authentication methods and access management"
+      ]
     }
   },
   "prices": {
