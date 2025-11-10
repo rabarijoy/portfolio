@@ -40,25 +40,27 @@ export function Footer() {
           {/* Colonne droite */}
           <div className="flex flex-col gap-3">
             {/* Contact */}
-            <a 
-              href="mailto:rabarijaonajoy@gmail.com" 
-              className="flex items-center gap-2 text-gray-700 hover:text-blue-accent transition-colors group"
-            >
-              <Mail size={16} className="text-gray-500 group-hover:text-blue-accent transition-colors" />
-              <span className="font-helvetica text-[15px] lg:text-[16px]">
-                rabarijaonajoy@gmail.com
-              </span>
-            </a>
-            
-            <a 
-              href="tel:+261343260892" 
-              className="flex items-center gap-2 text-gray-700 hover:text-blue-accent transition-colors group"
-            >
-              <Phone size={16} className="text-gray-500 group-hover:text-blue-accent transition-colors" />
-              <span className="font-helvetica text-[15px] lg:text-[16px]">
-                +261 34 32 608 92
-              </span>
-            </a>
+            <div className="flex flex-col gap-3">
+              <a 
+                href="mailto:rabarijaonajoy@gmail.com" 
+                className="flex items-center gap-2 text-gray-700 hover:text-blue-accent transition-colors group"
+              >
+                <Mail size={16} className="text-gray-500 group-hover:text-blue-accent transition-colors" />
+                <span className="font-helvetica text-[15px] lg:text-[16px]">
+                  rabarijaonajoy@gmail.com
+                </span>
+              </a>
+              
+              <a 
+                href="tel:+261343260892" 
+                className="flex items-center gap-2 text-gray-700 hover:text-blue-accent transition-colors group"
+              >
+                <Phone size={16} className="text-gray-500 group-hover:text-blue-accent transition-colors" />
+                <span className="font-helvetica text-[15px] lg:text-[16px]">
+                  +261 34 32 608 92
+                </span>
+              </a>
+            </div>
 
             {/* Réseaux sociaux */}
             <div className="flex items-center gap-4">

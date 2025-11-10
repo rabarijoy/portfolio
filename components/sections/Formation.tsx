@@ -21,10 +21,12 @@ export function Formation() {
             className="flex flex-col"
           >
             <div className="mb-6">
-              <h2 className="font-helvetica font-bold text-[36px] lg:text-[42px] leading-[1.1] tracking-[-0.02em] text-black mb-4">
-                {t('training.title')}
-              </h2>
-              <div className="w-full h-[5px] bg-black mb-6" />
+              <div className="flex flex-col items-start mb-6">
+                <h2 className="font-helvetica font-bold text-[36px] lg:text-[42px] leading-[1.1] tracking-[-0.02em] text-black mb-4">
+                  {t('training.title')}
+                </h2>
+                <div className="h-[5px] bg-black w-[calc(100%+20px)]" />
+              </div>
             </div>
 
             <div className="flex flex-col gap-6">
@@ -98,10 +100,12 @@ export function Formation() {
             className="flex flex-col"
           >
             <div className="mb-6">
-              <h2 className="font-helvetica font-bold text-[36px] lg:text-[42px] leading-[1.1] tracking-[-0.02em] text-black mb-4">
-                {t('careers.title')}
-              </h2>
-              <div className="w-full h-[5px] bg-black mb-6" />
+              <div className="flex flex-col items-start mb-6">
+                <h2 className="font-helvetica font-bold text-[36px] lg:text-[42px] leading-[1.1] tracking-[-0.02em] text-black mb-4">
+                  {t('careers.title')}
+                </h2>
+                <div className="h-[5px] bg-black w-[calc(100%+20px)]" />
+              </div>
             </div>
 
             <div className="flex flex-col gap-6">
