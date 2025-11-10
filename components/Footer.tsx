@@ -20,7 +20,7 @@ export function Footer() {
 
       {/* Contenu du footer avec overflow-hidden pour masquer ce qui dépasse après le copyright */}
       <div className="relative z-10 overflow-hidden">
-        <div className="max-w-screen-2xl mx-auto px-[6vw] lg:px-[7vw] py-8 lg:py-10">
+        <div className="max-w-screen-2xl mx-auto px-[6vw] lg:px-[7vw] py-8 lg:py-10 pb-0">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-8">
           {/* Colonne gauche */}
           <div className="flex flex-col gap-4">
@@ -94,8 +94,8 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <div className="mt-6 pt-6" id="footer-copyright">
-            <p className="font-helvetica text-[14px] text-gray-500 text-center">
+          <div className="mt-6 pt-6 pb-0 mb-0" id="footer-copyright">
+            <p className="font-helvetica text-[14px] text-gray-500 text-center mb-0 pb-0">
               &copy; {currentYear} Aina Joy Rabarijaona
             </p>
           </div>

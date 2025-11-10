@@ -95,10 +95,10 @@ export function Portfolio() {
         {/* Section Header */}
         <div className="text-center mb-[60px]">
           <div className="flex flex-col items-center mb-[16px]">
-            <h2 className="font-helvetica text-[40px] lg:text-[56px] font-semibold tracking-[-0.02em] mb-4 text-black">
+            <h2 className="font-ppneuebit text-[55px] lg:text-[70px] leading-[1.1] mb-2 text-black relative inline-block">
               {t('title')}
+              <div className="absolute bottom-[-8px] left-[-8px] right-[-8px] h-[5px] bg-black" />
             </h2>
-            <div className="h-[5px] bg-black w-[calc(100%+40px)]" />
           </div>
           <p className="font-helvetica text-[19px] lg:text-[21px] font-normal text-gray-500 max-w-[600px] mx-auto">
             {t('subtitle')}

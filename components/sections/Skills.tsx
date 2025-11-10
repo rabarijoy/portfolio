@@ -70,10 +70,10 @@ export function Skills() {
           className="text-center mb-12"
         >
           <div className="flex flex-col items-center mb-4">
-            <h2 className="font-helvetica font-bold text-[36px] lg:text-[42px] leading-[1.1] tracking-[-0.02em] text-black mb-4">
+            <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2 relative inline-block">
               {t('title')}
+              <div className="absolute bottom-[-8px] left-[-8px] right-[-8px] h-[5px] bg-black" />
             </h2>
-            <div className="h-[5px] bg-black w-[calc(100%+40px)]" />
           </div>
           <p className="font-helvetica text-[17px] lg:text-[19px] leading-[1.6] text-gray-600 max-w-3xl mx-auto">
             {t('subtitle')}

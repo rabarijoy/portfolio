@@ -52,10 +52,10 @@ export function Contact() {
           {/* Section Title */}
           <div className="text-center mb-12">
             <div className="flex flex-col items-center mb-4">
-              <h2 className="font-helvetica text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] mb-2 text-gray-900 relative inline-block">
                 {t('title')}
+                <div className="absolute bottom-[-8px] left-[-8px] right-[-8px] h-[5px] bg-black" />
               </h2>
-              <div className="h-[5px] bg-black w-[calc(100%+40px)]" />
             </div>
             <p className="font-helvetica text-lg text-gray-600 max-w-2xl mx-auto">
               Vous avez un projet ? Discutons-en ensemble
