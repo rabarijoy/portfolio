@@ -70,12 +70,11 @@ export function Skills() {
           className="text-center mb-12"
         >
           <div className="flex flex-col items-center mb-4">
-            <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2">
+            <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-6">
               &lt;compétences&gt;
             </h2>
+            <div className="h-[5px] bg-gray-50 w-[180px]" />
           </div>
-          {/* Ligne décorative discrète */}
-          <div className="w-full h-[1px] bg-black mb-8 opacity-20" />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

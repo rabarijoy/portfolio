@@ -22,11 +22,10 @@ export function Formation() {
           >
             <div className="mb-6">
               <div className="flex flex-col items-start mb-6">
-                <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2">
+                <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-4">
                   &lt;formation&gt;
                 </h2>
-                {/* Ligne décorative discrète */}
-                <div className="w-[200px] h-[1px] bg-gray-200 mt-4" />
+                <div className="h-[5px] bg-black w-[160px] opacity-25" />
               </div>
             </div>
 
@@ -102,11 +101,10 @@ export function Formation() {
           >
             <div className="mb-6">
               <div className="flex flex-col items-start mb-6">
-                <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2">
+                <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-4">
                   &lt;projet_professionnel&gt;
                 </h2>
-                {/* Ligne décorative discrète */}
-                <div className="w-[200px] h-[1px] bg-black mt-4 opacity-20" />
+                <div className="h-[5px] bg-gray-50 w-[200px]" />
               </div>
             </div>
 
