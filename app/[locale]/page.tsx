@@ -1,6 +1,7 @@
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
+import { Timeline } from '@/components/sections/Timeline';
 import { Portfolio } from '@/components/sections/Portfolio';
 import { Services } from '@/components/sections/Services';
 import { Prices } from '@/components/sections/Prices';
@@ -14,6 +15,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <About />
+        <Timeline />
         <Portfolio />
         <Services />
         <Prices />
