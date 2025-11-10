@@ -40,11 +40,12 @@ export function TechWatch() {
           className="text-center mb-12"
         >
           <div className="flex flex-col items-center mb-4">
-            <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2 relative inline-block">
+            <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2">
               &lt;veille_informationnelle&gt;
-              <div className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 h-[5px] bg-black w-[380px] lg:w-[450px]" />
             </h2>
           </div>
+          {/* Ligne décorative discrète */}
+          <div className="w-full h-[1px] bg-gray-200 mb-8" />
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">

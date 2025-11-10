@@ -95,11 +95,12 @@ export function Portfolio() {
         {/* Section Header */}
         <div className="text-center mb-[60px]">
           <div className="flex flex-col items-center mb-[16px]">
-            <h2 className="font-ppneuebit text-[55px] lg:text-[70px] leading-[1.1] mb-2 text-black relative inline-block">
+            <h2 className="font-ppneuebit text-[55px] lg:text-[70px] leading-[1.1] mb-2 text-black">
               &lt;projets&gt;
-              <div className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 h-[5px] bg-black w-[380px] lg:w-[450px]" />
             </h2>
           </div>
+          {/* Ligne décorative discrète */}
+          <div className="w-full h-[1px] bg-gray-200 mb-[40px]" />
 
           {/* Filter Buttons */}
           <div className="flex justify-center gap-[12px] flex-wrap mt-[40px] mb-[20px]">
