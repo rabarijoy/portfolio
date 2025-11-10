@@ -14,7 +14,7 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
-    "career": "Career",
+    "services": "Services",
     "contact": "Contact"
   },
   "hero": {
@@ -103,23 +103,43 @@
       }
     }
   },
-  "career": {
-    "title": "Career Goals",
-    "mainRole": {
-      "title": "Web Developer",
-      "description": "A field that attracts me for its diversity, rapid pace of evolution, and creative possibilities it offers. This profession involves designing and developing websites and web applications, meeting the specific needs of clients or users. It requires mastery of programming languages, technical rigor, but also a certain sensitivity to ergonomics and user experience."
-    },
-    "motivation": "This choice naturally follows from my training in BTS SIO option SLAM, and allows me to envision several paths: working in a company or evolving as a freelancer. This flexibility is a major asset for me, as it gives me the freedom to explore different professional contexts, gradually building my expertise through projects.",
-    "paths": {
-      "company": {
-        "title": "In a company",
-        "description": "Join a development team and contribute to large-scale projects in a collaborative environment."
+  "formation": {
+    "training": {
+      "badge": "Education",
+      "title": "My Training",
+      "degree": {
+        "name": "BTS SIO – SLAM",
+        "subtitle": "IT Services for Organizations, Software Solutions and Business Applications option"
       },
-      "freelance": {
-        "title": "Freelance",
-        "description": "Develop an independent activity and manage my own projects with autonomy and creativity."
+      "description": {
+        "intro": "This training allows me to acquire solid skills in web and software development, database management, cybersecurity and teamwork.",
+        "skills_title": "Acquired skills:",
+        "skill1": "Web and software development (front-end and back-end)",
+        "skill2": "Database management and design",
+        "skill3": "Cybersecurity and security best practices",
+        "skill4": "Teamwork and agile methodologies"
+      }
+    },
+    "careers": {
+      "badge": "Career Goals",
+      "title": "My Professional Project",
+      "main": {
+        "title": "Web Developer",
+        "description": "A field that attracts me with its diversity, rapid pace of evolution and creative possibilities it offers.",
+        "missions_title": "Missions",
+        "missions_text": "Design and develop websites and web applications, meeting the specific needs of clients or users.",
+        "skills_title": "Skills",
+        "skills_text": "Mastery of programming languages, technical rigor, sensitivity to ergonomics and user experience."
+      },
+      "vision": {
+        "title": "My Vision",
+        "text": "This choice naturally follows from my BTS SIO SLAM training, and allows me to consider several paths: working in a company or evolving as a freelancer. This flexibility is a major asset for me, as it gives me the freedom to explore different professional contexts."
       }
     }
+  },
+  "services": {
+    "title": "My services",
+    "subtitle": "Complete solutions to bring your web projects to life"
   },
   "prices": {
     "title": "Pricing",

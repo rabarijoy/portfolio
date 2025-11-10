@@ -3,7 +3,7 @@ import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
 import { Timeline } from '@/components/sections/Timeline';
 import { Portfolio } from '@/components/sections/Portfolio';
-import { Career } from '@/components/sections/Career';
+import { Formation } from '@/components/sections/Formation';
 import { Prices } from '@/components/sections/Prices';
 import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/Footer';
@@ -17,7 +17,7 @@ export default function HomePage() {
         <About />
         <Timeline />
         <Portfolio />
-        <Career />
+        <Formation />
         <Prices />
         <Contact />
       </main>

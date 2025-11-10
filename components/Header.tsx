@@ -36,7 +36,7 @@ function NavLinks({ activeSection }: { activeSection: string }) {
   const navItems = [
     { key: 'about', href: '#about' },
     { key: 'projects', href: '#projects' },
-    { key: 'career', href: '#career' },
+    { key: 'services', href: '#services' },
   ];
 
   return (
@@ -70,7 +70,7 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    const sections = ['about', 'projects', 'career', 'contact'];
+    const sections = ['about', 'projects', 'services', 'contact'];
     
     const observer = new IntersectionObserver(
       (entries) => {

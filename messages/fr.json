@@ -14,7 +14,7 @@
     "home": "Accueil",
     "about": "À propos",
     "projects": "Projets",
-    "career": "Métiers visés",
+    "services": "Services",
     "contact": "Contact"
   },
   "hero": {
@@ -103,23 +103,43 @@
       }
     }
   },
-  "career": {
-    "title": "Métiers visés",
-    "mainRole": {
-      "title": "Développeur web",
-      "description": "Un domaine qui m'attire par sa diversité, son rythme d'évolution rapide et les possibilités de création qu'il offre. Ce métier consiste à concevoir et développer des sites et applications web, en répondant aux besoins spécifiques des clients ou des utilisateurs. Il demande une maîtrise des langages de programmation, une rigueur technique, mais aussi une certaine sensibilité à l'ergonomie et à l'expérience utilisateur."
-    },
-    "motivation": "Ce choix s'inscrit naturellement dans la continuité de ma formation en BTS SIO option SLAM, et me permet d'envisager plusieurs voies : travailler en entreprise ou évoluer en tant que freelance. Cette flexibilité est un atout majeur pour moi, car elle me laisse la liberté d'explorer différents contextes professionnels, en construisant progressivement mon expertise au fil des projets.",
-    "paths": {
-      "company": {
-        "title": "En entreprise",
-        "description": "Intégrer une équipe de développement et contribuer à des projets d'envergure dans un environnement collaboratif."
+  "formation": {
+    "training": {
+      "badge": "Formation",
+      "title": "Ma formation",
+      "degree": {
+        "name": "BTS SIO – SLAM",
+        "subtitle": "Services Informatiques aux Organisations, option Solutions Logicielles et Applications Métiers"
       },
-      "freelance": {
-        "title": "En freelance",
-        "description": "Développer une activité indépendante et gérer mes propres projets avec autonomie et créativité."
+      "description": {
+        "intro": "Cette formation me permet d'acquérir des compétences solides en développement web et logiciel, en gestion de bases de données, en cybersécurité et en travail en équipe.",
+        "skills_title": "Compétences acquises :",
+        "skill1": "Développement web et logiciel (front-end et back-end)",
+        "skill2": "Gestion et conception de bases de données",
+        "skill3": "Cybersécurité et bonnes pratiques de sécurisation",
+        "skill4": "Travail en équipe et méthodologies agiles"
+      }
+    },
+    "careers": {
+      "badge": "Métiers visés",
+      "title": "Mon projet professionnel",
+      "main": {
+        "title": "Développeur Web",
+        "description": "Un domaine qui m'attire par sa diversité, son rythme d'évolution rapide et les possibilités de création qu'il offre.",
+        "missions_title": "Les missions",
+        "missions_text": "Concevoir et développer des sites et applications web, en répondant aux besoins spécifiques des clients ou des utilisateurs.",
+        "skills_title": "Les compétences",
+        "skills_text": "Maîtrise des langages de programmation, rigueur technique, sensibilité à l'ergonomie et à l'expérience utilisateur."
+      },
+      "vision": {
+        "title": "Ma vision",
+        "text": "Ce choix s'inscrit naturellement dans la continuité de ma formation en BTS SIO option SLAM, et me permet d'envisager plusieurs voies : travailler en entreprise ou évoluer en tant que freelance. Cette flexibilité est un atout majeur pour moi, car elle me laisse la liberté d'explorer différents contextes professionnels."
       }
     }
+  },
+  "services": {
+    "title": "Mes services",
+    "subtitle": "Des solutions complètes pour donner vie à vos projets web"
   },
   "prices": {
     "title": "Tarifs",
