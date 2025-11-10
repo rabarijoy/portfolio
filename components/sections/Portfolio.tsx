@@ -97,6 +97,7 @@ export function Portfolio() {
           <h2 className="font-helvetica text-[40px] lg:text-[56px] font-semibold tracking-[-0.02em] mb-[16px] text-black">
             {t('title')}
           </h2>
+          <div className="w-full h-[5px] bg-black mb-[16px]" />
           <p className="font-helvetica text-[19px] lg:text-[21px] font-normal text-gray-500 max-w-[600px] mx-auto">
             {t('subtitle')}
           </p>

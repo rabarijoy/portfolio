@@ -54,6 +54,7 @@ export function Contact() {
             <h2 className="font-helvetica text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {t('title')}
             </h2>
+            <div className="w-full h-[5px] bg-black mb-4" />
             <p className="font-helvetica text-lg text-gray-600 max-w-2xl mx-auto">
               Vous avez un projet ? Discutons-en ensemble
             </p>

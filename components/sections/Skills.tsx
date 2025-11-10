@@ -72,6 +72,7 @@ export function Skills() {
           <h2 className="font-helvetica font-bold text-[36px] lg:text-[42px] leading-[1.1] tracking-[-0.02em] text-black mb-4">
             {t('title')}
           </h2>
+          <div className="w-full h-[5px] bg-black mb-4" />
           <p className="font-helvetica text-[17px] lg:text-[19px] leading-[1.6] text-gray-600 max-w-3xl mx-auto">
             {t('subtitle')}
           </p>
