@@ -14,7 +14,7 @@ interface TimelineItemData {
 export function Timeline() {
   const t = useTranslations('timeline');
   const [activeIndex, setActiveIndex] = useState(0);
-  const [progressHeight, setProgressHeight] = useState(0);
+  const [progressHeight, setProgressHeight] = useState('0px');
   const timelineRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -81,17 +81,18 @@ export function Timeline() {
       if (itemRefs.current[0] && itemRefs.current[closestIndex]) {
         const firstItem = itemRefs.current[0];
         const activeItem = itemRefs.current[closestIndex];
-        const lastItem = itemRefs.current[itemRefs.current.length - 1];
         
-        const firstItemTop = firstItem.getBoundingClientRect().top + scrollY;
-        const activeItemTop = activeItem.getBoundingClientRect().top + scrollY;
-        const lastItemTop = lastItem.getBoundingClientRect().top + scrollY;
-        const totalHeight = lastItemTop - firstItemTop;
+        // Dots are positioned at top: 8px from item top, plus 8px to reach center (radius)
+        const dotCenterOffset = 16;
         
-        // Calculate progress to reach the active item's dot
-        const progressToActive = ((activeItemTop - firstItemTop) / totalHeight) * 100;
+        // Get the absolute Y position of each dot's center
+        const firstDotCenter = firstItem.getBoundingClientRect().top + scrollY + dotCenterOffset;
+        const activeDotCenter = activeItem.getBoundingClientRect().top + scrollY + dotCenterOffset;
         
-        setProgressHeight(Math.min(Math.max(progressToActive, 0), 100));
+        // Calculate the exact distance in pixels from first dot to active dot
+        const distanceToActive = activeDotCenter - firstDotCenter;
+        
+        setProgressHeight(`${Math.max(distanceToActive, 0)}px`);
       }
     };
 
@@ -121,7 +122,7 @@ export function Timeline() {
             <div 
               className="absolute left-[20px] lg:left-[30px] top-0 w-[2px] bg-blue-accent"
               style={{ 
-                height: `${progressHeight}%`,
+                height: progressHeight,
                 transition: 'height 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
               }}
             />
