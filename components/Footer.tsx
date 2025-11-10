@@ -1,19 +1,19 @@
 'use client';
 
-import { Linkedin, Github, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, MapPin } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gray-50 pt-12 pb-0 font-helvetica overflow-visible">
+    <footer className="relative bg-gray-50 pt-12 pb-2 font-helvetica overflow-visible">
       {/* Ellipse bleue floue en bas - au-dessus des fonds mais derrière le contenu */}
       <div 
-        className="absolute bottom-0 left-0 w-full h-[140px] md:h-[180px] bg-blue-accent rounded-full transform translate-y-[80%] blur-[100px] z-[0] will-change-[filter] overflow-visible"
+        className="absolute bottom-0 left-0 w-full h-[140px] md:h-[180px] bg-blue-accent rounded-full transform translate-y-[80%] blur-[100px] z-[1] will-change-[filter] overflow-visible"
         style={{ borderRadius: '100%' }}
       />
       
-      <div className="relative z-10 max-w-screen-2xl mx-auto px-[6vw] lg:px-[7vw] pb-4">
+      <div className="relative z-[2] max-w-screen-2xl mx-auto px-[6vw] lg:px-[7vw]">
         {/* Contenu principal avec alignement gauche/droite */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-start gap-8 md:gap-12 mb-6">
           {/* Colonne gauche */}
