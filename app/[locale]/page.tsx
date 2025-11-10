@@ -8,6 +8,7 @@ import { Skills } from '@/components/sections/Skills';
 import { TechWatch } from '@/components/sections/TechWatch';
 import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/Footer';
+import { SectionDivider } from '@/components/ui/SectionDivider';
 
 export default function HomePage() {
   return (
@@ -17,10 +18,12 @@ export default function HomePage() {
         <Hero />
         <About />
         <Timeline />
+        <SectionDivider color="black" />
         <Portfolio />
         <Formation />
         <Skills />
         <TechWatch />
+        <SectionDivider color="gray" />
         <Contact />
       </main>
       <Footer />

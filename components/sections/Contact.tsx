@@ -52,10 +52,9 @@ export function Contact() {
           {/* Section Title */}
           <div className="text-center mb-12">
             <div className="flex flex-col items-center mb-4">
-              <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] mb-6 text-gray-900">
+              <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] mb-2 text-gray-900">
                 &lt;contact&gt;
               </h2>
-              <div className="h-[5px] bg-gray-50 w-[150px]" />
             </div>
           </div>
 

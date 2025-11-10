@@ -95,10 +95,9 @@ export function Portfolio() {
         {/* Section Header */}
         <div className="text-center mb-[60px]">
           <div className="flex flex-col items-center mb-[16px]">
-            <h2 className="font-ppneuebit text-[55px] lg:text-[70px] leading-[1.1] mb-6 text-black">
+            <h2 className="font-ppneuebit text-[55px] lg:text-[70px] leading-[1.1] mb-2 text-black">
               &lt;projets&gt;
             </h2>
-            <div className="h-[5px] bg-black w-[200px] opacity-30" />
           </div>
 
           {/* Filter Buttons */}
