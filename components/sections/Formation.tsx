@@ -31,35 +31,52 @@ export function Formation() {
             </div>
 
             <div className="flex flex-col gap-6">
-              <div className="relative pl-6 border-l-4 border-blue-accent">
-                <h3 className="font-helvetica font-bold text-[20px] lg:text-[24px] text-black mb-3">
-                  {t('training.degree.name')}
-                </h3>
-                <p className="font-helvetica text-[15px] lg:text-[17px] leading-[1.7] text-gray-600">
+              <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-accent rounded-2xl p-6 lg:p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-blue-accent flex items-center justify-center text-white text-[24px]">
+                    🎓
+                  </div>
+                  <h3 className="font-helvetica font-bold text-[24px] lg:text-[28px] text-black">
+                    {t('training.degree.name')}
+                  </h3>
+                </div>
+
+                <p className="font-helvetica text-[15px] lg:text-[17px] leading-[1.7] text-gray-700 mb-6">
                   {t('training.degree.subtitle')}
                 </p>
+
+                <div className="space-y-4">
+                  <div>
+                    <p className="font-helvetica text-[15px] lg:text-[17px] leading-[1.7] text-gray-700 mb-4">
+                      {t('training.description.intro')}
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-helvetica font-bold text-[16px] text-black mb-3">
+                      {t('training.description.skills_title')}
+                    </h4>
+                    <ul className="space-y-2">
+                      {['skill1', 'skill2', 'skill3', 'skill4'].map((skill, index) => (
+                        <li key={index} className="flex items-start gap-3">
+                          <div className="w-2 h-2 rounded-full bg-blue-accent mt-2 flex-shrink-0" />
+                          <span className="font-helvetica text-[15px] lg:text-[16px] leading-[1.6] text-gray-600">
+                            {t(`training.description.${skill}`)}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
 
               <div className="bg-gray-50 rounded-2xl p-6 lg:p-8">
-                <p className="font-helvetica text-[15px] lg:text-[17px] leading-[1.7] text-gray-700 mb-6">
-                  {t('training.description.intro')}
+                <h4 className="font-helvetica font-bold text-[18px] text-black mb-4">
+                  {t('training.stages.title')}
+                </h4>
+                <p className="font-helvetica text-[15px] lg:text-[17px] leading-[1.7] text-gray-700">
+                  {t('training.stages.text')}
                 </p>
-                
-                <div className="space-y-3">
-                  <h4 className="font-helvetica font-bold text-[16px] text-black mb-3">
-                    {t('training.description.skills_title')}
-                  </h4>
-                  <ul className="space-y-2">
-                    {['skill1', 'skill2', 'skill3', 'skill4'].map((skill, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-blue-accent mt-2 flex-shrink-0" />
-                        <span className="font-helvetica text-[15px] lg:text-[16px] leading-[1.6] text-gray-700">
-                          {t(`training.description.${skill}`)}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
             </div>
           </motion.div>
@@ -73,8 +90,8 @@ export function Formation() {
             className="flex flex-col"
           >
             <div className="mb-6">
-              <div className="inline-block px-4 py-2 bg-gray-100 rounded-full mb-4">
-                <span className="font-helvetica font-medium text-[14px] text-gray-700">
+              <div className="inline-block px-4 py-2 bg-blue-50 rounded-full mb-4">
+                <span className="font-helvetica font-medium text-[14px] text-blue-accent">
                   {t('careers.badge')}
                 </span>
               </div>
