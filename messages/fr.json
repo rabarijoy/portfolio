@@ -65,7 +65,7 @@
     }
   },
   "portfolio": {
-    "title": "<mes_projets>",
+    "title": "<projets>",
     "subtitle": "Découvrez une sélection de mes réalisations récentes",
     "view_project": "Voir le projet",
     "view_all": "Voir tous les projets",
@@ -106,7 +106,7 @@
   "formation": {
     "training": {
       "badge": "Formation",
-      "title": "<ma_formation>",
+      "title": "<formation>",
       "degree": {
         "name": "BTS SIO – SLAM",
         "subtitle": "Services Informatiques aux Organisations, option Solutions Logicielles et Applications Métiers"
@@ -127,7 +127,7 @@
     },
     "careers": {
       "badge": "Métiers visés",
-      "title": "<mon_projet_professionnel>",
+      "title": "<projet_professionnel>",
       "main": {
         "title": "Développeur Web",
         "description": "Un domaine qui m'attire par sa diversité, son rythme d'évolution rapide et les possibilités de création qu'il offre.",
@@ -148,7 +148,7 @@
     "subtitle": "Des solutions complètes pour donner vie à vos projets web"
   },
   "skills": {
-    "title": "<mes_compétences>",
+    "title": "<compétences>",
     "subtitle": "Un ensemble de compétences techniques acquises durant ma formation et mes projets personnels",
     "languages": {
       "title": "Langages",
@@ -203,7 +203,7 @@
     }
   },
   "techWatch": {
-    "title": "<ma_veille_informationnelle>",
+    "title": "<veille_informationnelle>",
     "subtitle": "Je me tiens informé des dernières tendances et innovations technologiques",
     "ai": {
       "title": "Intelligence Artificielle",
@@ -234,7 +234,7 @@
     "disclaimer": "* Tous les prix sont indicatifs et peuvent varier selon les besoins spécifiques du projet"
   },
   "contact": {
-    "title": "<contactez_moi>",
+    "title": "<contact>",
     "subtitle": "Vous avez un projet ? Discutons-en ensemble",
     "name": "Nom",
     "email": "Email",
