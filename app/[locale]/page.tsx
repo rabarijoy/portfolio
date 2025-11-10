@@ -4,8 +4,8 @@ import { About } from '@/components/sections/About';
 import { Timeline } from '@/components/sections/Timeline';
 import { Portfolio } from '@/components/sections/Portfolio';
 import { Formation } from '@/components/sections/Formation';
-import { Skills } from '@/components/sections/Skills';
-import { Watch } from '@/components/sections/Watch';
+import { Competences } from '@/components/sections/Competences';
+import { Veille } from '@/components/sections/Veille';
 import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/Footer';
 
@@ -19,8 +19,8 @@ export default function HomePage() {
         <Timeline />
         <Portfolio />
         <Formation />
-        <Skills />
-        <Watch />
+        <Competences />
+        <Veille />
         <Contact />
       </main>
       <Footer />

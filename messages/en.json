@@ -147,6 +147,34 @@
     "title": "My services",
     "subtitle": "Complete solutions to bring your web projects to life"
   },
+  "competences": {
+    "title": "My Skills",
+    "subtitle": "An overview of my technical and methodological skills",
+    "languages": "Mastery of programming languages: C#, PHP, HTML, CSS, JavaScript, Java, Python",
+    "development": "Development of web, mobile and client/server applications",
+    "databases": "Database management: MySQL, PostgreSQL, MongoDB",
+    "practices": "Application of software quality best practices (KISS, DRY, SOLID)",
+    "testing": "Unit and functional testing",
+    "analysis": "Code analysis",
+    "design": "Design with Merise, UML",
+    "collaboration": "Collaborative work with GitHub"
+  },
+  "veille": {
+    "title": "My Information Watch",
+    "subtitle": "The areas I actively follow to stay up to date with the latest technological trends",
+    "ai": {
+      "title": "Artificial Intelligence",
+      "line1": "I regularly follow advances in artificial intelligence, particularly in machine learning and deep learning.",
+      "line2": "I am interested in practical applications of AI in web development, such as code assistants, automatic optimization and improving user experience.",
+      "line3": "I stay informed about new AI frameworks and tools that can improve my productivity and the quality of my developments."
+    },
+    "cybersecurite": {
+      "title": "Cybersecurity",
+      "line1": "Security is a major concern in all my projects. I follow best practices and the latest discovered vulnerabilities.",
+      "line2": "I continuously train on web application security techniques, authentication management and data protection.",
+      "line3": "I remain vigilant about new threats and protection solutions to ensure the security of my developments and those of my clients."
+    }
+  },
   "prices": {
     "title": "Pricing",
     "subtitle": "Services adapted to your needs and budget",

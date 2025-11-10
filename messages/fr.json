@@ -147,6 +147,34 @@
     "title": "Mes services",
     "subtitle": "Des solutions complètes pour donner vie à vos projets web"
   },
+  "competences": {
+    "title": "Mes compétences",
+    "subtitle": "Un aperçu de mes compétences techniques et méthodologiques",
+    "languages": "Maîtrise des langages de programmation : C#, PHP, HTML, CSS, JavaScript, Java, Python",
+    "development": "Développement d'applications web, mobiles et client/serveur",
+    "databases": "Gestion de bases de données : MySQL, PostgreSQL, MongoDB",
+    "practices": "Application des bonnes pratiques de qualité logicielle (KISS, DRY, SOLID)",
+    "testing": "Réalisation de tests unitaires et fonctionnels",
+    "analysis": "Analyse de code",
+    "design": "Conception avec Merise, UML",
+    "collaboration": "Travail collaboratif avec GitHub"
+  },
+  "veille": {
+    "title": "Ma veille informationnelle",
+    "subtitle": "Les domaines que je suis activement pour rester à jour avec les dernières tendances technologiques",
+    "ai": {
+      "title": "Intelligence Artificielle",
+      "line1": "Je suis régulièrement les avancées en intelligence artificielle, notamment dans le domaine du machine learning et du deep learning.",
+      "line2": "Je m'intéresse aux applications pratiques de l'IA dans le développement web, comme les assistants de code, l'optimisation automatique et l'amélioration de l'expérience utilisateur.",
+      "line3": "Je me tiens informé des nouveaux frameworks et outils IA qui peuvent améliorer ma productivité et la qualité de mes développements."
+    },
+    "cybersecurite": {
+      "title": "Cybersécurité",
+      "line1": "La sécurité est une préoccupation majeure dans tous mes projets. Je suis les bonnes pratiques et les dernières vulnérabilités découvertes.",
+      "line2": "Je me forme continuellement sur les techniques de sécurisation des applications web, la gestion des authentifications et la protection des données.",
+      "line3": "Je reste vigilant sur les nouvelles menaces et les solutions de protection pour garantir la sécurité de mes développements et ceux de mes clients."
+    }
+  },
   "prices": {
     "title": "Tarifs",
     "subtitle": "Des prestations adaptées à vos besoins et votre budget",
