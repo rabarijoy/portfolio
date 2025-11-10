@@ -7,15 +7,21 @@ export function Footer() {
 
   return (
     <footer className="relative bg-gray-50 font-helvetica">
+      {/* Ligne noire de séparation en haut - même padding que la navbar */}
+      <div className="px-[4vw] lg:px-[5vw]">
+        <div className="w-full h-[5px] bg-black" />
+      </div>
+
       {/* Ellipse bleue floue en bas - au-dessus du fond mais en dessous du contenu */}
       <div 
         className="absolute bottom-0 left-0 w-full h-[180px] bg-blue-accent rounded-full transform translate-y-1/2 blur-[100px] will-change-[filter] pointer-events-none"
         style={{ zIndex: 1 }}
       />
 
-      {/* Contenu du footer */}
-      <div className="relative z-10 max-w-screen-2xl mx-auto px-[6vw] lg:px-[7vw] py-12 lg:py-16">
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 lg:gap-12">
+      {/* Contenu du footer avec overflow-hidden pour masquer ce qui dépasse après le copyright */}
+      <div className="relative z-10 overflow-hidden">
+        <div className="max-w-screen-2xl mx-auto px-[6vw] lg:px-[7vw] py-12 lg:py-16">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 lg:gap-12">
           {/* Colonne gauche */}
           <div className="flex flex-col gap-4">
             <div>
@@ -85,13 +91,14 @@ export function Footer() {
               </a>
             </div>
           </div>
-        </div>
+          </div>
 
-        {/* Copyright */}
-        <div className="mt-8 pt-8 border-t border-gray-200">
-          <p className="font-helvetica text-[14px] text-gray-500 text-center">
-            &copy; {currentYear} Aina Joy Rabarijaona. Tous droits réservés.
-          </p>
+          {/* Copyright */}
+          <div className="mt-8 pt-8 border-t border-gray-200" id="footer-copyright">
+            <p className="font-helvetica text-[14px] text-gray-500 text-center">
+              &copy; {currentYear} Aina Joy Rabarijaona. Tous droits réservés.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

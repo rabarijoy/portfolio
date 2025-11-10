@@ -11,7 +11,7 @@ import { Footer } from '@/components/Footer';
 
 export default function HomePage() {
   return (
-    <>
+    <div className="overflow-hidden">
       <Header />
       <main>
         <Hero />
@@ -24,7 +24,7 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 
