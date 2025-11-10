@@ -1,76 +1,74 @@
 'use client';
 
-import { Mail, Phone, Linkedin, Github } from 'lucide-react';
+import { Linkedin, Github } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative mt-8 pt-8 pb-6 border-t border-gray-800 font-helvetica overflow-visible">
+    <footer className="relative mt-16 pt-12 pb-4 font-helvetica overflow-visible">
       <div className="max-w-screen-2xl mx-auto px-[6vw] lg:px-[7vw]">
-        {/* Contact et Réseaux sociaux */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-6">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-            <div className="flex items-center gap-2">
-              <Mail size={16} className="text-gray-600" />
-              <a 
-                href="mailto:rabarijaonajoy@gmail.com" 
-                className="text-[14px] text-gray-800 hover:text-blue-accent transition-colors"
-              >
-                rabarijaonajoy@gmail.com
-              </a>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              <Phone size={16} className="text-gray-600" />
-              <a 
-                href="tel:+261343260892" 
-                className="text-[14px] text-gray-800 hover:text-blue-accent transition-colors"
-              >
-                +261 34 32 608 92
-              </a>
-            </div>
+        {/* Contenu principal centré */}
+        <div className="flex flex-col items-center gap-8 text-center">
+          {/* Contact */}
+          <div className="flex flex-col items-center gap-3">
+            <a 
+              href="mailto:rabarijaonajoy@gmail.com" 
+              className="text-[15px] text-gray-700 hover:text-gray-900 transition-colors"
+            >
+              rabarijaonajoy@gmail.com
+            </a>
+            <a 
+              href="tel:+261343260892" 
+              className="text-[15px] text-gray-700 hover:text-gray-900 transition-colors"
+            >
+              +261 34 32 608 92
+            </a>
           </div>
 
-          <div className="flex items-center gap-4">
+          {/* Réseaux sociaux */}
+          <div className="flex items-center gap-6">
             <a 
               href="https://linkedin.com/in/joyrabari" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-blue-accent transition-colors"
+              className="text-gray-500 hover:text-gray-900 transition-colors"
               aria-label="LinkedIn"
             >
-              <Linkedin size={18} />
+              <Linkedin size={20} />
             </a>
             <a 
               href="https://github.com/joyrabari" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-blue-accent transition-colors"
+              className="text-gray-500 hover:text-gray-900 transition-colors"
               aria-label="GitHub"
             >
-              <Github size={18} />
+              <Github size={20} />
             </a>
           </div>
-        </div>
 
-        {/* Mentions légales et Copyright */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-gray-200">
-          <div className="flex flex-wrap justify-center sm:justify-start gap-4 text-[12px] text-gray-600">
-            <a href="#" className="hover:text-blue-accent transition-colors">
+          {/* Séparateur */}
+          <div className="w-12 h-px bg-gray-300" />
+
+          {/* Mentions légales */}
+          <div className="flex flex-wrap justify-center items-center gap-6 text-[13px] text-gray-500">
+            <a href="#" className="hover:text-gray-900 transition-colors">
               Mentions légales
             </a>
-            <span className="hidden sm:inline">•</span>
-            <a href="#" className="hover:text-blue-accent transition-colors">
+            <span className="text-gray-300">•</span>
+            <a href="#" className="hover:text-gray-900 transition-colors">
               Politique de confidentialité
             </a>
-            <span className="hidden sm:inline">•</span>
-            <a href="#" className="hover:text-blue-accent transition-colors">
+            <span className="text-gray-300">•</span>
+            <a href="#" className="hover:text-gray-900 transition-colors">
               CGU
             </a>
           </div>
-          <p className="text-[12px] text-gray-600 text-center sm:text-right">
-            &copy; {currentYear} Joy Rabari. Tous droits réservés.
+
+          {/* Copyright */}
+          <p className="text-[12px] text-gray-400">
+            &copy; {currentYear} Joy Rabari
           </p>
         </div>
       </div>
