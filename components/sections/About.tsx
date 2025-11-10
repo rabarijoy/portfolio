@@ -46,19 +46,19 @@ export function About() {
           >
             {/* Left side - Text Content */}
             <div className="flex flex-col gap-6 max-w-[50%]">
-              {/* Heading with blue bar */}
-              <div className="relative flex flex-col justify-center w-full">
-                {/* Blue bar positioned behind "Rabarijaona" */}
-                <div className="absolute left-0 top-[73px] w-[343px] h-[42px] bg-blue-accent z-0"></div>
-                
-                <h1 className="font-helvetica font-bold text-[56px] leading-[0.84] tracking-[-0.02em] text-black relative z-10">
-                  Aina Joy
-                </h1>
-                <h1 className="font-helvetica font-bold text-[56px] leading-[0.84] text-black relative z-10">
-                  <span className="tracking-[-0.02em]">Rabarijaona</span>
-                  <span className="tracking-[-0.1em]">.</span>
-                </h1>
-              </div>
+            {/* Heading with blue bar */}
+            <div className="relative flex flex-col justify-center w-full">
+              {/* Blue bar positioned behind "Rabarijaona" */}
+              <div className="absolute left-0 top-[42px] md:top-[73px] w-[200px] md:w-[343px] h-[24px] md:h-[42px] bg-blue-accent z-0"></div>
+              
+              <h1 className="font-helvetica font-bold text-[32px] md:text-[56px] leading-[0.84] tracking-[-0.02em] text-black relative z-10 whitespace-nowrap">
+                Aina Joy
+              </h1>
+              <h1 className="font-helvetica font-bold text-[32px] md:text-[56px] leading-[0.84] text-black relative z-10 whitespace-nowrap">
+                <span className="tracking-[-0.02em]">Rabarijaona</span>
+                <span className="tracking-[-0.1em]">.</span>
+              </h1>
+            </div>
 
               {/* Subtitle */}
               <div className="flex flex-col justify-center w-full">

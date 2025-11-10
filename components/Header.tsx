@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { MobileMenu } from './MobileMenu';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 function Company() {
   return (
@@ -128,8 +129,9 @@ export function Header() {
             <NavLinks activeSection={activeSection} />
           </nav>
 
-          {/* CTA Contact à droite - Desktop only */}
-          <div className="hidden lg:flex justify-end">
+          {/* CTA Contact et Language Switcher à droite - Desktop only */}
+          <div className="hidden lg:flex justify-end items-center gap-4">
+            <LanguageSwitcher />
             <PrimaryButton onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
               {t('contact')}
             </PrimaryButton>

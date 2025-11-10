@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export function MobileMenu({ activeSection }: { activeSection: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -124,6 +125,16 @@ export function MobileMenu({ activeSection }: { activeSection: string }) {
                     </span>
                   </motion.button>
                 </motion.div>
+
+                     {/* Language Switcher */}
+                     <motion.div 
+                       className="mt-6 w-full max-w-xs"
+                       initial={{ opacity: 0, y: 20 }}
+                       animate={{ opacity: 1, y: 0 }}
+                       transition={{ delay: (menuItems.length + 1) * 0.1 }}
+                     >
+                       <LanguageSwitcher mobile={true} />
+                     </motion.div>
               </nav>
             </motion.div>
           </>
