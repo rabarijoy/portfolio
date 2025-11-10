@@ -97,7 +97,7 @@ export function Portfolio() {
           <div className="flex flex-col items-center mb-[16px]">
             <h2 className="font-ppneuebit text-[55px] lg:text-[70px] leading-[1.1] mb-2 text-black relative inline-block">
               &lt;projets&gt;
-              <div className="absolute bottom-[-8px] left-0 right-0 h-[5px] bg-black" style={{ width: 'calc(100% + 16px)', left: '-8px' }} />
+              <div className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 h-[5px] bg-black w-[380px] lg:w-[450px]" />
             </h2>
           </div>
 

@@ -42,7 +42,7 @@ export function TechWatch() {
           <div className="flex flex-col items-center mb-4">
             <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2 relative inline-block">
               &lt;veille_informationnelle&gt;
-              <div className="absolute bottom-[-8px] left-0 right-0 h-[5px] bg-black" style={{ width: 'calc(100% + 16px)', left: '-8px' }} />
+              <div className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 h-[5px] bg-black w-[380px] lg:w-[450px]" />
             </h2>
           </div>
         </motion.div>
