@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <main className="overflow-visible">
+      <main>
         <Hero />
         <About />
         <Timeline />
