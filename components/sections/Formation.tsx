@@ -23,8 +23,8 @@ export function Formation() {
             <div className="mb-6">
               <div className="flex flex-col items-start mb-6">
                 <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2 relative inline-block">
-                  {t('training.title')}
-                  <div className="absolute bottom-[-8px] left-0 right-[-8px] h-[5px] bg-black" />
+                  &lt;formation&gt;
+                  <div className="absolute bottom-[-8px] left-0 right-0 h-[5px] bg-black" style={{ width: 'calc(100% + 16px)' }} />
                 </h2>
               </div>
             </div>
@@ -102,8 +102,8 @@ export function Formation() {
             <div className="mb-6">
               <div className="flex flex-col items-start mb-6">
                 <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2 relative inline-block">
-                  {t('careers.title')}
-                  <div className="absolute bottom-[-8px] left-0 right-[-8px] h-[5px] bg-black" />
+                  &lt;projet_professionnel&gt;
+                  <div className="absolute bottom-[-8px] left-0 right-0 h-[5px] bg-black" style={{ width: 'calc(100% + 16px)' }} />
                 </h2>
               </div>
             </div>

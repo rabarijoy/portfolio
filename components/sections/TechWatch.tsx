@@ -41,13 +41,10 @@ export function TechWatch() {
         >
           <div className="flex flex-col items-center mb-4">
             <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2 relative inline-block">
-              {t('title')}
-              <div className="absolute bottom-[-8px] left-[-8px] right-[-8px] h-[5px] bg-black" />
+              &lt;veille_informationnelle&gt;
+              <div className="absolute bottom-[-8px] left-0 right-0 h-[5px] bg-black" style={{ width: 'calc(100% + 16px)', left: '-8px' }} />
             </h2>
           </div>
-          <p className="font-helvetica text-[17px] lg:text-[19px] leading-[1.6] text-gray-600 max-w-3xl mx-auto">
-            {t('subtitle')}
-          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">

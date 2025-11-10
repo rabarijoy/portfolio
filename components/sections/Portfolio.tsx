@@ -96,13 +96,10 @@ export function Portfolio() {
         <div className="text-center mb-[60px]">
           <div className="flex flex-col items-center mb-[16px]">
             <h2 className="font-ppneuebit text-[55px] lg:text-[70px] leading-[1.1] mb-2 text-black relative inline-block">
-              {t('title')}
-              <div className="absolute bottom-[-8px] left-[-8px] right-[-8px] h-[5px] bg-black" />
+              &lt;projets&gt;
+              <div className="absolute bottom-[-8px] left-0 right-0 h-[5px] bg-black" style={{ width: 'calc(100% + 16px)', left: '-8px' }} />
             </h2>
           </div>
-          <p className="font-helvetica text-[19px] lg:text-[21px] font-normal text-gray-500 max-w-[600px] mx-auto">
-            {t('subtitle')}
-          </p>
 
           {/* Filter Buttons */}
           <div className="flex justify-center gap-[12px] flex-wrap mt-[40px] mb-[20px]">

@@ -53,13 +53,10 @@ export function Contact() {
           <div className="text-center mb-12">
             <div className="flex flex-col items-center mb-4">
               <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] mb-2 text-gray-900 relative inline-block">
-                {t('title')}
-                <div className="absolute bottom-[-8px] left-[-8px] right-[-8px] h-[5px] bg-black" />
+                &lt;contact&gt;
+                <div className="absolute bottom-[-8px] left-0 right-0 h-[5px] bg-black" style={{ width: 'calc(100% + 16px)', left: '-8px' }} />
               </h2>
             </div>
-            <p className="font-helvetica text-lg text-gray-600 max-w-2xl mx-auto">
-              Vous avez un projet ? Discutons-en ensemble
-            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto font-helvetica">
