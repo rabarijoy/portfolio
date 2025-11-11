@@ -5,14 +5,8 @@ import { Mail, Phone, Linkedin, Github, MapPin } from 'lucide-react';
 export function Footer() {
   return (
     <footer className="relative bg-gray-50 font-helvetica">
-      {/* Ellipse bleue en bas - centrée verticalement sur le bas de la page */}
-      <div 
-        className="absolute bottom-0 left-0 w-full h-[180px] bg-blue-accent rounded-full transform translate-y-1/2 pointer-events-none"
-        style={{ zIndex: 1 }}
-      />
-
       {/* Ligne noire de séparation en haut - même padding que la navbar */}
-      <div className="px-[4vw] lg:px-[5vw] relative z-10">
+      <div className="px-[4vw] lg:px-[5vw]">
         <div className="w-full h-[5px] bg-black" />
       </div>
 

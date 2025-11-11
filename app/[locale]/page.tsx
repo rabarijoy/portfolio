@@ -32,6 +32,14 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
+      {/* Ellipse colorée en bas de l'écran */}
+      <div 
+        className="fixed bottom-0 left-0 right-0 w-full h-[200px] bg-blue-accent rounded-full transform translate-y-1/2 pointer-events-none"
+        style={{ 
+          zIndex: 0,
+          borderRadius: '50% 50% 0 0 / 100% 100% 0 0'
+        }}
+      />
     </>
   );
 }
