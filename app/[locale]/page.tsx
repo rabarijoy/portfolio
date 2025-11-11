@@ -34,7 +34,7 @@ export default function HomePage() {
       <Footer />
       {/* Ellipse colorée en bas de l'écran */}
       <div 
-        className="absolute bottom-0 left-0 right-0 w-full h-[200px] bg-blue-accent rounded-full transform translate-y-1/2 pointer-events-none"
+        className="absolute bottom-0 left-0 right-0 w-full h-[200px] bg-blue-accent rounded-full transform translate-y-1/2 blur-[100px] pointer-events-none will-change-[filter]"
         style={{ 
           zIndex: 0,
           borderRadius: '50% 50% 0 0 / 100% 100% 0 0'
