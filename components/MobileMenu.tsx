@@ -13,13 +13,22 @@ export function MobileMenu({ activeSection }: { activeSection: string }) {
     { key: 'about', href: '#about' },
     { key: 'projects', href: '#projects' },
     { key: 'formation', href: '#formation' },
-    { key: 'contact', href: '#contact' },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href?: string) => {
+    e.preventDefault();
     setIsOpen(false);
+    const targetHref = href || (e.currentTarget as HTMLAnchorElement).href.split('#')[1];
+    if (targetHref) {
+      const element = document.querySelector(`#${targetHref}`);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
   };
 
   // Bloquer le scroll du body quand le menu est ouvert
@@ -92,7 +101,7 @@ export function MobileMenu({ activeSection }: { activeSection: string }) {
                     >
                       <motion.a
                         href={item.href}
-                        onClick={handleLinkClick}
+                        onClick={(e) => handleLinkClick(e, item.href.replace('#', ''))}
                         whileTap={{ scale: 0.95 }}
                         className={`block font-helvetica font-medium text-[18px] tracking-tight text-center py-4 px-6 rounded-xl transition-colors ${
                           activeSection === item.key 

@@ -37,8 +37,15 @@ function NavLinks({ activeSection }: { activeSection: string }) {
     { key: 'about', href: '#about' },
     { key: 'projects', href: '#projects' },
     { key: 'formation', href: '#formation' },
-    { key: 'contact', href: '#contact' },
   ];
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
     <>
@@ -46,6 +53,7 @@ function NavLinks({ activeSection }: { activeSection: string }) {
         <a
           key={item.key}
           href={item.href}
+          onClick={(e) => handleClick(e, item.href)}
           className={`font-helvetica font-medium text-[15px] tracking-tight whitespace-nowrap transition-colors ${
             activeSection === item.key ? 'text-black' : 'text-gray-neutral hover:text-black'
           }`}
