@@ -12,7 +12,7 @@ import { SectionDivider } from '@/components/ui/SectionDivider';
 
 export default function HomePage() {
   return (
-    <>
+    <div className="relative min-h-screen">
       <Header />
       <main>
         <Hero />
@@ -40,7 +40,7 @@ export default function HomePage() {
           borderRadius: '50% 50% 0 0 / 100% 100% 0 0'
         }}
       />
-    </>
+    </div>
   );
 }
 
