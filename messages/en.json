@@ -14,7 +14,8 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
-    "services": "Services",
+    "formation": "Training",
+    "tech-watch": "Tech Watch",
     "contact": "Contact"
   },
   "hero": {
