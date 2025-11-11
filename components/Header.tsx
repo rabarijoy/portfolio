@@ -126,7 +126,7 @@ export function Header() {
       }`}
       style={{
         boxShadow: isScrolled 
-          ? '0 2px 12px rgba(109, 191, 255, 0.12)' 
+          ? '0 2px 12px rgba(109, 191, 255, 0.06)' 
           : 'none'
       }}
       data-name="Header 1"
