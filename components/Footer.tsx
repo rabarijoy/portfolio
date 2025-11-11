@@ -3,8 +3,6 @@
 import { Mail, Phone, Linkedin, Github, MapPin } from 'lucide-react';
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="relative bg-gray-50 font-helvetica pb-0 mb-0">
       {/* Ligne noire de séparation en haut - même padding que la navbar */}
