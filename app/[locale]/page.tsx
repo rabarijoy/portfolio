@@ -9,7 +9,6 @@ import { TechWatch } from '@/components/sections/TechWatch';
 import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/Footer';
 import { SectionDivider } from '@/components/ui/SectionDivider';
-import { MajorSection } from '@/components/ui/MajorSection';
 
 export default function HomePage() {
   return (
@@ -17,41 +16,20 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
-        
         {/* Grande section : À propos */}
-        <MajorSection id="about">
-          <About />
-          <Timeline />
-        </MajorSection>
-        
+        <About />
+        <Timeline />
         <SectionDivider color="gray" />
-        
         {/* Grande section : Projets */}
-        <MajorSection id="projects">
-          <Portfolio />
-        </MajorSection>
-        
+        <Portfolio />
         <SectionDivider color="gray" />
-        
         {/* Grande section : Formation */}
-        <MajorSection id="formation">
-          <Formation />
-          <Skills />
-        </MajorSection>
-        
+        <Formation />
+        <Skills />
+        <TechWatch />
         <SectionDivider color="gray" />
-        
-        {/* Grande section : Veille */}
-        <MajorSection id="tech-watch">
-          <TechWatch />
-        </MajorSection>
-        
-        <SectionDivider color="gray" />
-        
         {/* Grande section : Contact */}
-        <MajorSection id="contact">
-          <Contact />
-        </MajorSection>
+        <Contact />
       </main>
       <Footer />
     </>

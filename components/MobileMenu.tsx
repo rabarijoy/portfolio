@@ -13,7 +13,6 @@ export function MobileMenu({ activeSection }: { activeSection: string }) {
     { key: 'about', href: '#about' },
     { key: 'projects', href: '#projects' },
     { key: 'formation', href: '#formation' },
-    { key: 'tech-watch', href: '#tech-watch' },
     { key: 'contact', href: '#contact' },
   ];
 

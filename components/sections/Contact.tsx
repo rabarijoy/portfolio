@@ -41,7 +41,7 @@ export function Contact() {
   };
 
   return (
-    <Section id="contact" background="gray">
+    <Section id="contact" background="white">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 50 }}

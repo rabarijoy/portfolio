@@ -30,7 +30,7 @@ export function TechWatch() {
   ];
 
   return (
-    <Section id="tech-watch" background="gray" className="py-[80px]">
+    <Section id="tech-watch" background="white" className="py-[80px]">
       <div className="max-w-screen-2xl mx-auto px-[6vw] lg:px-[7vw]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
