@@ -92,13 +92,6 @@ export function Footer() {
             </div>
           </div>
           </div>
-
-          {/* Copyright */}
-          <div className="mt-6 pt-6" id="footer-copyright">
-            <p className="font-helvetica text-[14px] text-gray-500 text-center">
-              &copy; {currentYear} Aina Joy Rabarijaona
-            </p>
-          </div>
         </div>
       </div>
     </footer>
