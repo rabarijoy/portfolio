@@ -32,12 +32,13 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
-      {/* Conteneur pour masquer la partie inférieure de l'ellipse */}
+      {/* Conteneur pour masquer la moitié inférieure de l'ellipse */}
       <div className="absolute bottom-0 left-0 right-0 h-[100px] overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
         {/* Ellipse colorée en bas de l'écran */}
         <div 
-          className="absolute bottom-0 left-0 right-0 w-full h-[200px] bg-blue-accent rounded-full transform translate-y-1/2 blur-[100px] will-change-[filter] opacity-60"
+          className="absolute bottom-0 left-0 right-0 w-full h-[200px] bg-blue-accent rounded-full blur-[100px] will-change-[filter] opacity-60"
           style={{ 
+            transform: 'translateY(50%)',
             borderRadius: '50% 50% 0 0 / 100% 100% 0 0'
           }}
         />
