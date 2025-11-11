@@ -7,9 +7,9 @@ interface MajorSectionProps {
 
 export function MajorSection({ id, children }: MajorSectionProps) {
   return (
-    <div id={id} className="scroll-mt-20">
+    <section id={id} className="relative">
       {children}
-    </div>
+    </section>
   );
 }
 
