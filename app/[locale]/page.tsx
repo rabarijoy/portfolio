@@ -12,39 +12,36 @@ import { SectionDivider } from '@/components/ui/SectionDivider';
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen">
-      <div className="relative overflow-hidden">
-        <Header />
-        <main>
-          <Hero />
-          {/* Grande section : À propos */}
-          <About />
-          <Timeline />
-          <SectionDivider color="gray" />
-          {/* Grande section : Projets */}
-          <Portfolio />
-          <SectionDivider color="gray" />
-          {/* Grande section : Formation */}
-          <Formation />
-          <Skills />
-          <TechWatch />
-          <SectionDivider color="gray" />
-          {/* Grande section : Contact */}
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-      {/* Conteneur pour masquer uniquement la moitié inférieure de l'ellipse */}
-      <div className="absolute bottom-0 left-0 right-0 h-[100px] overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
-        {/* Ellipse colorée en bas de l'écran */}
-        <div 
-          className="absolute bottom-0 left-0 right-0 w-full h-[200px] bg-blue-accent rounded-full blur-[100px] will-change-[filter] opacity-60"
-          style={{ 
-            transform: 'translateY(50%)',
-            borderRadius: '50% 50% 0 0 / 100% 100% 0 0'
-          }}
-        />
-      </div>
+    <div className="relative min-h-screen overflow-x-hidden">
+      <Header />
+      <main>
+        <Hero />
+        {/* Grande section : À propos */}
+        <About />
+        <Timeline />
+        <SectionDivider color="gray" />
+        {/* Grande section : Projets */}
+        <Portfolio />
+        <SectionDivider color="gray" />
+        {/* Grande section : Formation */}
+        <Formation />
+        <Skills />
+        <TechWatch />
+        <SectionDivider color="gray" />
+        {/* Grande section : Contact */}
+        <Contact />
+      </main>
+      <Footer />
+      {/* Ellipse colorée en bas de l'écran */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 w-full h-[200px] bg-blue-accent rounded-full blur-[100px] pointer-events-none will-change-[filter] opacity-60"
+        style={{ 
+          zIndex: 0,
+          transform: 'translateY(50%)',
+          clipPath: 'inset(0 0 50% 0)',
+          borderRadius: '50% 50% 0 0 / 100% 100% 0 0'
+        }}
+      />
     </div>
   );
 }
