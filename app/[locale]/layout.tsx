@@ -5,6 +5,7 @@ import { locales } from '@/i18n';
 import { LangUpdater } from '@/components/LangUpdater';
 import { ScrollbarSquish } from '@/components/ScrollbarSquish';
 import { SmoothScroll } from '@/components/SmoothScroll';
+import { PersonStructuredData } from '@/components/StructuredData';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -25,6 +26,7 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
+      <PersonStructuredData />
       <LangUpdater locale={locale} />
       <ScrollbarSquish />
       <SmoothScroll />

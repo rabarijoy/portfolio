@@ -6,21 +6,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes = [
     { path: '', priority: 1.0, changeFrequency: 'weekly' as const },
-    { path: '#about', priority: 0.9, changeFrequency: 'monthly' as const },
-    { path: '#projects', priority: 0.9, changeFrequency: 'weekly' as const },
-    { path: '#formation', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '#contact', priority: 0.8, changeFrequency: 'monthly' as const },
   ];
+
+  const projectIds = ['1', '2', '3', '4', '5', '6'];
 
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
   locales.forEach((locale) => {
+    // Main routes
     routes.forEach((route) => {
       sitemapEntries.push({
         url: `${baseUrl}/${locale}${route.path}`,
         lastModified: new Date(),
         changeFrequency: route.changeFrequency,
         priority: route.priority,
+      });
+    });
+
+    // Project pages
+    projectIds.forEach((id) => {
+      sitemapEntries.push({
+        url: `${baseUrl}/${locale}/projects/${id}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.7,
       });
     });
   });

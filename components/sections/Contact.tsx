@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Mail, Linkedin, Github } from 'lucide-react';
+import { Mail, Linkedin, Github, Phone, CheckCircle, XCircle } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { Section } from '../ui/Section';
 import { Button } from '../ui/Button';
@@ -16,24 +16,31 @@ export function Contact() {
     message: '',
     honeypot: '', // Anti-spam field
   });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [touched, setTouched] = useState<{ [key: string]: boolean }>({});
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const validateField = (name: string, value: string) => {
     let error = '';
-    if (name === 'name' && !value.trim()) {
-      error = 'Le nom est requis';
-    } else if (name === 'email') {
-      if (!value.trim()) {
+    if (name === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!value) {
         error = 'L\'email est requis';
-      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      } else if (!emailRegex.test(value)) {
         error = 'Format d\'email invalide';
       }
-    } else if (name === 'message' && !value.trim()) {
-      error = 'Le message est requis';
-    } else if (name === 'message' && value.trim().length < 10) {
-      error = 'Le message doit contenir au moins 10 caractères';
+    } else if (name === 'name') {
+      if (!value.trim()) {
+        error = 'Le nom est requis';
+      } else if (value.trim().length < 2) {
+        error = 'Le nom doit contenir au moins 2 caractères';
+      }
+    } else if (name === 'message') {
+      if (!value.trim()) {
+        error = 'Le message est requis';
+      } else if (value.trim().length < 10) {
+        error = 'Le message doit contenir au moins 10 caractères';
+      }
     }
     return error;
   };
@@ -48,9 +55,7 @@ export function Contact() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    
-    // Clear error when user starts typing
-    if (touched[name] && errors[name]) {
+    if (touched[name]) {
       const error = validateField(name, value);
       setErrors({ ...errors, [name]: error });
     }
@@ -58,23 +63,6 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validate all fields
-    const newErrors: { [key: string]: string } = {};
-    Object.keys(formData).forEach(key => {
-      if (key !== 'honeypot') {
-        const error = validateField(key, formData[key as keyof typeof formData]);
-        if (error) newErrors[key] = error;
-      }
-    });
-    
-    setTouched({ name: true, email: true, message: true });
-    setErrors(newErrors);
-    
-    if (Object.keys(newErrors).length > 0) {
-      return;
-    }
-
     setStatus('sending');
 
     try {
@@ -87,8 +75,6 @@ export function Contact() {
       if (response.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '', honeypot: '' });
-        setErrors({});
-        setTouched({});
       } else {
         setStatus('error');
       }
@@ -119,91 +105,88 @@ export function Contact() {
             {/* Contact Info */}
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Restons en contact
+                {t('info_title')}
               </h3>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail size={20} className="text-blue-accent" />
+              <div className="space-y-5">
+                <a 
+                  href="mailto:rabarijaonajoy@gmail.com" 
+                  className="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors group"
+                >
+                  <div className="w-12 h-12 bg-blue-accent/10 rounded-xl flex items-center justify-center group-hover:bg-blue-accent transition-colors">
+                    <Mail size={20} className="text-blue-accent group-hover:text-white transition-colors" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-helvetica font-semibold text-[15px] text-gray-900 mb-1">Email</p>
-                    <a 
-                      href="mailto:rabarijaonajoy@gmail.com" 
-                      className="font-helvetica text-[16px] text-blue-accent hover:text-blue-600 transition-colors inline-flex items-center gap-2 group"
-                    >
-                      <span>rabarijaonajoy@gmail.com</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 group-hover:opacity-100 transition-opacity">
-                        <path d="M7 17L17 7M7 7h10v10"/>
-                      </svg>
-                    </a>
+                    <p className="font-semibold text-gray-900 mb-1">Email</p>
+                    <p className="text-blue-accent group-hover:text-blue-600 transition-colors">
+                      rabarijaonajoy@gmail.com
+                    </p>
                   </div>
-                </div>
+                </a>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Linkedin size={20} className="text-blue-accent" />
+                <a 
+                  href="https://www.linkedin.com/in/joyrabari"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors group"
+                >
+                  <div className="w-12 h-12 bg-blue-accent/10 rounded-xl flex items-center justify-center group-hover:bg-blue-accent transition-colors">
+                    <Linkedin size={20} className="text-blue-accent group-hover:text-white transition-colors" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-helvetica font-semibold text-[15px] text-gray-900 mb-1">LinkedIn</p>
-                    <a 
-                      href="https://www.linkedin.com/in/joyrabari" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-helvetica text-[16px] text-blue-accent hover:text-blue-600 transition-colors inline-flex items-center gap-2 group"
-                    >
-                      <span>linkedin.com/in/joyrabari</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 group-hover:opacity-100 transition-opacity">
-                        <path d="M7 17L17 7M7 7h10v10"/>
-                      </svg>
-                    </a>
+                    <p className="font-semibold text-gray-900 mb-1">LinkedIn</p>
+                    <p className="text-blue-accent group-hover:text-blue-600 transition-colors">
+                      linkedin.com/in/joyrabari
+                    </p>
                   </div>
-                </div>
+                </a>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Github size={20} className="text-blue-accent" />
+                <a 
+                  href="https://github.com/rabarijoy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors group"
+                >
+                  <div className="w-12 h-12 bg-blue-accent/10 rounded-xl flex items-center justify-center group-hover:bg-blue-accent transition-colors">
+                    <Github size={20} className="text-blue-accent group-hover:text-white transition-colors" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-helvetica font-semibold text-[15px] text-gray-900 mb-1">GitHub</p>
-                    <a 
-                      href="https://github.com/rabarijoy" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-helvetica text-[16px] text-blue-accent hover:text-blue-600 transition-colors inline-flex items-center gap-2 group"
-                    >
-                      <span>github.com/rabarijoy</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 group-hover:opacity-100 transition-opacity">
-                        <path d="M7 17L17 7M7 7h10v10"/>
-                      </svg>
-                    </a>
+                    <p className="font-semibold text-gray-900 mb-1">GitHub</p>
+                    <p className="text-blue-accent group-hover:text-blue-600 transition-colors">
+                      github.com/rabarijoy
+                    </p>
                   </div>
-                </div>
+                </a>
+
+                <a 
+                  href="tel:+261343260892" 
+                  className="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors group"
+                >
+                  <div className="w-12 h-12 bg-blue-accent/10 rounded-xl flex items-center justify-center group-hover:bg-blue-accent transition-colors">
+                    <Phone size={20} className="text-blue-accent group-hover:text-white transition-colors" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-semibold text-gray-900 mb-1">Téléphone</p>
+                    <p className="text-blue-accent group-hover:text-blue-600 transition-colors">
+                      +261 34 32 608 92
+                    </p>
+                  </div>
+                </a>
               </div>
 
-              <div className="mt-8 p-6 bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-xl">
+              <div className="mt-8 p-6 bg-blue-50/50 rounded-xl border border-blue-accent/20">
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-blue-accent flex items-center justify-center flex-shrink-0">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="12" r="10"/>
-                      <polyline points="12 6 12 12 16 14"/>
-                    </svg>
-                  </div>
+                  <CheckCircle size={20} className="text-blue-accent mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="font-helvetica font-semibold text-[15px] text-gray-900 mb-1">
-                      {t('response_time')}
-                    </p>
-                    <p className="font-helvetica text-[14px] text-gray-600 leading-relaxed">
-                      {t('response_time_desc')}
-                    </p>
+                    <p className="font-semibold text-gray-900 mb-1">{t('response_time')}</p>
+                    <p className="text-gray-700 text-sm">{t('response_time_desc')}</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Honeypot field (hidden) */}
                 <input
@@ -217,7 +200,7 @@ export function Contact() {
                 />
 
                 <div>
-                  <label htmlFor="name" className="block font-helvetica text-[15px] font-medium text-gray-900 mb-2">
+                  <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
                     {t('name')} <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -228,20 +211,23 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`w-full px-4 py-3 font-helvetica text-[15px] border rounded-xl transition-all duration-200 ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-accent focus:border-transparent transition-all ${
                       errors.name && touched.name
-                        ? 'border-red-300 focus:ring-2 focus:ring-red-500 focus:border-red-500'
-                        : 'border-gray-300 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent'
+                        ? 'border-red-300 bg-red-50/50'
+                        : 'border-gray-300 bg-white'
                     }`}
                     placeholder="Votre nom complet"
                   />
                   {errors.name && touched.name && (
-                    <p className="mt-1.5 text-[13px] text-red-500 font-helvetica">{errors.name}</p>
+                    <p className="mt-1.5 text-sm text-red-600 flex items-center gap-1">
+                      <XCircle size={14} />
+                      {errors.name}
+                    </p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block font-helvetica text-[15px] font-medium text-gray-900 mb-2">
+                  <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
                     {t('email')} <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -252,20 +238,23 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`w-full px-4 py-3 font-helvetica text-[15px] border rounded-xl transition-all duration-200 ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-accent focus:border-transparent transition-all ${
                       errors.email && touched.email
-                        ? 'border-red-300 focus:ring-2 focus:ring-red-500 focus:border-red-500'
-                        : 'border-gray-300 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent'
+                        ? 'border-red-300 bg-red-50/50'
+                        : 'border-gray-300 bg-white'
                     }`}
                     placeholder="votre@email.com"
                   />
                   {errors.email && touched.email && (
-                    <p className="mt-1.5 text-[13px] text-red-500 font-helvetica">{errors.email}</p>
+                    <p className="mt-1.5 text-sm text-red-600 flex items-center gap-1">
+                      <XCircle size={14} />
+                      {errors.email}
+                    </p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block font-helvetica text-[15px] font-medium text-gray-900 mb-2">
+                  <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
                     {t('message')} <span className="text-red-500">*</span>
                   </label>
                   <textarea
@@ -276,31 +265,31 @@ export function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`w-full px-4 py-3 font-helvetica text-[15px] border rounded-xl transition-all duration-200 resize-none ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-accent focus:border-transparent resize-none transition-all ${
                       errors.message && touched.message
-                        ? 'border-red-300 focus:ring-2 focus:ring-red-500 focus:border-red-500'
-                        : 'border-gray-300 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent'
+                        ? 'border-red-300 bg-red-50/50'
+                        : 'border-gray-300 bg-white'
                     }`}
-                    placeholder="Décrivez votre projet en détail..."
+                    placeholder="Décrivez votre projet ou votre demande..."
                   />
                   {errors.message && touched.message && (
-                    <p className="mt-1.5 text-[13px] text-red-500 font-helvetica">{errors.message}</p>
-                  )}
-                  {formData.message && !errors.message && (
-                    <p className="mt-1.5 text-[13px] text-gray-500 font-helvetica">
-                      {formData.message.length} caractère{formData.message.length > 1 ? 's' : ''}
+                    <p className="mt-1.5 text-sm text-red-600 flex items-center gap-1">
+                      <XCircle size={14} />
+                      {errors.message}
                     </p>
                   )}
                 </div>
 
                 {status === 'success' && (
-                  <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
+                  <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-xl flex items-center gap-2">
+                    <CheckCircle size={18} />
                     {t('success')}
                   </div>
                 )}
 
                 {status === 'error' && (
-                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl flex items-center gap-2">
+                    <XCircle size={18} />
                     {t('error')}
                   </div>
                 )}

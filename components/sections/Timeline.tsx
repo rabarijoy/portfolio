@@ -111,12 +111,12 @@ export function Timeline() {
 
   return (
     <Section id="timeline" background="white" className="!py-[80px] lg:!py-[100px]">
-      <div className="max-w-screen-2xl mx-auto px-[6vw] lg:px-[7vw]">
+      <div className="max-w-screen-xl mx-auto px-[20px] lg:px-[40px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left: Timeline */}
           <div ref={timelineRef} className="relative pl-[80px] lg:pl-[100px]">
             {/* Timeline line */}
-            <div className="absolute left-[20px] lg:left-[30px] top-0 w-[2px] h-full bg-blue-accent opacity-20" />
+            <div className="absolute left-[20px] lg:left-[30px] top-0 w-[2px] h-full bg-blue-accent/30" />
             
             {/* Progress bar */}
             <div 

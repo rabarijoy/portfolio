@@ -168,7 +168,7 @@ export function Portfolio() {
                     {t('view_project')}
                     <span className="ml-[8px] text-[20px] transition-all duration-300 group-hover:ml-[12px]">→</span>
                   </div>
-                </div>
+                  </div>
               </motion.a>
             ))}
         </div>

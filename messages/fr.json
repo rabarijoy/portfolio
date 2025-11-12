@@ -212,20 +212,20 @@
         {
           "type": "article",
           "title": "Article sur l'IA générative",
-          "description": "Mon analyse des outils d'IA pour le développement",
-          "url": "#"
+          "url": "#",
+          "description": "Mon analyse des outils d'IA pour le développement"
         },
         {
           "type": "note",
           "title": "Notes de veille - IA 2024",
-          "description": "Synthèse des tendances et innovations",
-          "downloadUrl": "#"
+          "downloadUrl": "#",
+          "description": "Document PDF téléchargeable"
         },
         {
           "type": "reading",
           "title": "Liste de lectures recommandées",
-          "description": "Ressources essentielles sur le machine learning",
-          "url": "#"
+          "url": "#",
+          "description": "Ressources essentielles sur l'IA"
         }
       ]
     },
@@ -235,21 +235,21 @@
       "resources": [
         {
           "type": "article",
-          "title": "Commentaire sur OWASP Top 10",
-          "description": "Mon analyse des vulnérabilités courantes",
-          "url": "#"
+          "title": "Bonnes pratiques de sécurisation",
+          "url": "#",
+          "description": "Guide pratique OWASP Top 10"
         },
         {
           "type": "note",
-          "title": "Notes de veille - Sécurité 2024",
-          "description": "Bonnes pratiques et techniques de protection",
-          "downloadUrl": "#"
+          "title": "Notes de veille - Cybersécurité",
+          "downloadUrl": "#",
+          "description": "Document PDF téléchargeable"
         },
         {
           "type": "reading",
-          "title": "Ressources sur le RGPD",
-          "description": "Guide pratique pour la protection des données",
-          "url": "#"
+          "title": "Ressources RGPD",
+          "url": "#",
+          "description": "Liens vers les meilleures ressources"
         }
       ]
     }

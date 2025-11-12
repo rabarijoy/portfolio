@@ -1,27 +1,38 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://portfolio-joy.vercel.app';
+
 export const metadata: Metadata = {
   title: {
     default: 'Portfolio - Aina Joy Rabarijaona',
-    template: '%s | Aina Joy Rabarijaona',
+    template: '%s | Portfolio - Aina Joy Rabarijaona',
   },
   description: 'Portfolio professionnel de Aina Joy Rabarijaona, développeur web spécialisé en développement d\'applications web modernes et performantes.',
-  keywords: ['développeur web', 'portfolio', 'React', 'Next.js', 'TypeScript', 'développement web'],
+  keywords: ['développeur web', 'portfolio', 'React', 'Next.js', 'TypeScript', 'Madagascar'],
   authors: [{ name: 'Aina Joy Rabarijaona' }],
   creator: 'Aina Joy Rabarijaona',
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://portfolio-joy.vercel.app',
+    url: baseUrl,
     siteName: 'Portfolio - Aina Joy Rabarijaona',
     title: 'Portfolio - Aina Joy Rabarijaona',
-    description: 'Portfolio professionnel de Aina Joy Rabarijaona, développeur web',
+    description: 'Portfolio professionnel de Aina Joy Rabarijaona, développeur web spécialisé en développement d\'applications web modernes et performantes.',
+    images: [
+      {
+        url: `${baseUrl}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Portfolio - Aina Joy Rabarijaona',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Portfolio - Aina Joy Rabarijaona',
     description: 'Portfolio professionnel de Aina Joy Rabarijaona, développeur web',
+    images: [`${baseUrl}/og-image.jpg`],
   },
   robots: {
     index: true,
@@ -34,6 +45,10 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    // Add Google Search Console verification if needed
+    // google: 'your-google-verification-code',
+  },
 };
 
 export default function RootLayout({
@@ -41,32 +56,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const personSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Aina Joy Rabarijaona',
-    jobTitle: 'Développeur Web',
-    email: 'rabarijaonajoy@gmail.com',
-    url: 'https://portfolio-joy.vercel.app',
-    sameAs: [
-      'https://www.linkedin.com/in/joyrabari',
-      'https://github.com/rabarijoy',
-    ],
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Antananarivo',
-      addressCountry: 'MG',
-    },
-  };
-
   return (
-    <html suppressHydrationWarning lang="fr">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-        />
-      </head>
+    <html suppressHydrationWarning>
       <body className="overflow-x-hidden">{children}</body>
     </html>
   );

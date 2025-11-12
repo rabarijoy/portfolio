@@ -211,21 +211,21 @@
       "resources": [
         {
           "type": "article",
-          "title": "Article on Generative AI",
-          "description": "My analysis of AI tools for development",
-          "url": "#"
+          "title": "Article on generative AI",
+          "url": "#",
+          "description": "My analysis of AI tools for development"
         },
         {
           "type": "note",
-          "title": "Tech Watch Notes - AI 2024",
-          "description": "Summary of trends and innovations",
-          "downloadUrl": "#"
+          "title": "Tech watch notes - AI 2024",
+          "downloadUrl": "#",
+          "description": "Downloadable PDF document"
         },
         {
           "type": "reading",
-          "title": "Recommended Reading List",
-          "description": "Essential resources on machine learning",
-          "url": "#"
+          "title": "Recommended reading list",
+          "url": "#",
+          "description": "Essential AI resources"
         }
       ]
     },
@@ -235,21 +235,21 @@
       "resources": [
         {
           "type": "article",
-          "title": "Commentary on OWASP Top 10",
-          "description": "My analysis of common vulnerabilities",
-          "url": "#"
+          "title": "Security best practices",
+          "url": "#",
+          "description": "OWASP Top 10 practical guide"
         },
         {
           "type": "note",
-          "title": "Tech Watch Notes - Security 2024",
-          "description": "Best practices and protection techniques",
-          "downloadUrl": "#"
+          "title": "Tech watch notes - Cybersecurity",
+          "downloadUrl": "#",
+          "description": "Downloadable PDF document"
         },
         {
           "type": "reading",
-          "title": "GDPR Resources",
-          "description": "Practical guide for data protection",
-          "url": "#"
+          "title": "GDPR resources",
+          "url": "#",
+          "description": "Links to the best resources"
         }
       ]
     }
