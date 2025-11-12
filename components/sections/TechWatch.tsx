@@ -58,6 +58,15 @@ export function TechWatch() {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className={`bg-gradient-to-br ${topic.gradient} border-2 ${topic.borderColor} rounded-2xl p-6 lg:p-8`}
               >
+                {/* Image placeholder - Veille informationnelle - TODO: Replace with actual image URL */}
+                <div className="w-full h-[180px] lg:h-[220px] rounded-xl overflow-hidden mb-6">
+                  <img 
+                    src="https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44b09ba67a96c63cc2c2ad4b.jpg"
+                    alt={t(topic.titleKey)}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
                 <div className="flex items-center gap-3 mb-4">
                   <div className={`w-12 h-12 rounded-xl ${topic.iconBg} flex items-center justify-center text-white`}>
                     <IconComponent size={24} />

@@ -29,6 +29,15 @@ export function Formation() {
             </div>
 
             <div className="flex flex-col gap-6">
+              {/* Image placeholder - Formation - TODO: Replace with actual image URL */}
+              <div className="w-full h-[200px] lg:h-[250px] rounded-2xl overflow-hidden mb-6">
+                <img 
+                  src="https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44b09ba67a96c63cc2c2ad4b.jpg"
+                  alt="Formation"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
               <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-accent rounded-2xl p-6 lg:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-blue-accent flex items-center justify-center text-white">
@@ -107,6 +116,15 @@ export function Formation() {
             </div>
 
             <div className="flex flex-col gap-6">
+              {/* Image placeholder - Projet professionnel - TODO: Replace with actual image URL */}
+              <div className="w-full h-[200px] lg:h-[250px] rounded-2xl overflow-hidden mb-6">
+                <img 
+                  src="https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44b09ba67a96c63cc2c2ad4b.jpg"
+                  alt="Projet professionnel"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
               <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-accent rounded-2xl p-6 lg:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-blue-accent flex items-center justify-center text-white">

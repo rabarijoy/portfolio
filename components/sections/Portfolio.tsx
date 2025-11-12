@@ -129,15 +129,12 @@ export function Portfolio() {
               whileHover={{ y: -8 }}
               className="group bg-[#fbfbfd] rounded-[18px] overflow-hidden cursor-pointer border border-gray-200 transition-all duration-400 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-blue-accent"
             >
-                {/* Project Image */}
-                <div 
-                  className="w-full h-[240px] flex items-center justify-center relative overflow-hidden group"
-                  style={{ background: project.gradient }}
-                >
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.2)_0%,transparent_60%)]" />
-                  <project.icon 
-                    size={72} 
-                    className="relative z-10 text-white/90 group-hover:scale-105 transition-transform duration-400" 
+                {/* Project Image - TODO: Replace placeholder with actual project image */}
+                <div className="w-full h-[240px] relative overflow-hidden group">
+                  <img 
+                    src="https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44b09ba67a96c63cc2c2ad4b.jpg"
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400"
                   />
                 </div>
 
