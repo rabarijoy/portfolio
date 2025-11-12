@@ -4,7 +4,7 @@ import { Mail, Phone, Linkedin, Github, MapPin } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="relative bg-gray-50 font-helvetica">
+    <footer className="relative bg-white font-helvetica">
       {/* Ligne noire de séparation en haut - même padding que la navbar */}
       <div className="px-[4vw] lg:px-[5vw]">
         <div className="w-full h-[5px] bg-black" />
