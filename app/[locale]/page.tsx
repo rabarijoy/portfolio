@@ -38,7 +38,9 @@ export default function HomePage() {
         style={{ 
           zIndex: 0,
           transform: 'translateY(50%)',
-          borderRadius: '50% 50% 0 0 / 100% 100% 0 0'
+          borderRadius: '50% 50% 0 0 / 100% 100% 0 0',
+          maskImage: 'linear-gradient(to bottom, black 50%, transparent 50%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 50%)'
         }}
       />
     </div>
