@@ -36,13 +36,13 @@ export function About() {
         </motion.div>
 
         {/* Hero Content - Title and CTA */}
-        <div className="relative z-10 px-[6vw] py-[2vh] lg:px-[7vw] lg:py-[2.5vh] min-h-screen flex items-center">
+        <div className="relative z-10 min-h-screen flex items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="w-full max-w-screen-2xl mx-auto"
+            className="w-full max-w-screen-xl mx-auto px-[20px] lg:px-[40px] py-[2vh] lg:py-[2.5vh]"
           >
             {/* Left side - Text Content */}
             <div className="flex flex-col gap-6 max-w-[50%]">

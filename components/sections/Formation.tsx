@@ -14,7 +14,7 @@ export function Formation() {
 
   return (
     <Section id="formation" background="white" className="py-[80px]">
-      <div className="max-w-screen-2xl mx-auto px-[6vw] lg:px-[7vw]">
+      <div className="max-w-screen-xl mx-auto px-[20px] lg:px-[40px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
           {/* Colonne gauche : Ma formation */}
           <motion.div

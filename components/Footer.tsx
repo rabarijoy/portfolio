@@ -5,14 +5,14 @@ import { Mail, Phone, Linkedin, Github, MapPin } from 'lucide-react';
 export function Footer() {
   return (
     <footer className="relative bg-white font-helvetica">
-      {/* Ligne noire de séparation en haut - même padding que la navbar */}
-      <div className="px-[4vw] lg:px-[5vw]">
+      {/* Ligne noire de séparation en haut */}
+      <div className="max-w-screen-xl mx-auto px-[20px] lg:px-[40px]">
         <div className="w-full h-[5px] bg-black" />
       </div>
 
       {/* Contenu du footer */}
       <div className="relative z-10 overflow-hidden">
-        <div className="max-w-screen-2xl mx-auto px-[6vw] lg:px-[7vw] py-8 lg:py-10">
+        <div className="max-w-screen-xl mx-auto px-[20px] lg:px-[40px] py-8 lg:py-10">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-8">
           {/* Colonne gauche */}
           <div className="flex flex-col gap-4">

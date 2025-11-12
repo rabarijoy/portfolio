@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Mail, Linkedin, Github, Phone, CheckCircle, XCircle } from 'lucide-react';
-import { Container } from '../ui/Container';
 import { Section } from '../ui/Section';
 import { Button } from '../ui/Button';
 
@@ -85,7 +84,7 @@ export function Contact() {
 
   return (
     <Section id="contact" background="white">
-      <Container>
+      <div className="max-w-screen-xl mx-auto px-[20px] lg:px-[40px]">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -101,7 +100,7 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto font-helvetica">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 font-helvetica">
             {/* Contact Info */}
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
@@ -305,7 +304,7 @@ export function Contact() {
             </div>
           </div>
         </motion.div>
-      </Container>
+      </div>
     </Section>
   );
 }

@@ -61,7 +61,7 @@ export function Skills() {
 
   return (
     <Section id="skills" background="gray" className="py-[80px]">
-      <div className="max-w-screen-2xl mx-auto px-[6vw] lg:px-[7vw]">
+      <div className="max-w-screen-xl mx-auto px-[20px] lg:px-[40px]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

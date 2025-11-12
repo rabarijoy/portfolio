@@ -28,8 +28,8 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col items-center justify-center bg-white pt-20 px-[5vw] relative">
-      <div className="w-full max-w-screen-2xl mx-auto flex-1 flex items-center justify-center">
+    <section id="hero" className="min-h-screen flex flex-col items-center justify-center bg-white pt-20 relative">
+      <div className="w-full max-w-screen-xl mx-auto px-[20px] lg:px-[40px] flex-1 flex items-center justify-center">
         {/* Image/Animation with 3D Effect - Centered */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
