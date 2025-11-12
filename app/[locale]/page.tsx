@@ -12,7 +12,7 @@ import { SectionDivider } from '@/components/ui/SectionDivider';
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
+    <div className="relative min-h-screen">
       <Header />
       <main>
         <Hero />
