@@ -5,6 +5,9 @@ import { useTranslations } from 'next-intl';
 import { Bot, Shield } from 'lucide-react';
 import { Section } from '../ui/Section';
 
+// Images placeholder - À remplacer par les vraies images
+const TECHWATCH_IMAGE_PLACEHOLDER = 'https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44b09ba67a96c63cc2c2ad4b.jpg';
+
 export function TechWatch() {
   const t = useTranslations('techWatch');
 
@@ -56,25 +59,26 @@ export function TechWatch() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className={`bg-gradient-to-br ${topic.gradient} border-2 ${topic.borderColor} rounded-2xl p-6 lg:p-8`}
+                className="flex flex-col gap-6"
               >
-                {/* Image placeholder - Veille informationnelle - TODO: Replace with actual image URL */}
-                <div className="w-full h-[180px] lg:h-[220px] rounded-xl overflow-hidden mb-6">
+                {/* Image placeholder - Veille informationnelle */}
+                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.08)] group">
                   <img 
-                    src="https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44b09ba67a96c63cc2c2ad4b.jpg"
+                    src={TECHWATCH_IMAGE_PLACEHOLDER}
                     alt={t(topic.titleKey)}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
                 </div>
-                
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-12 h-12 rounded-xl ${topic.iconBg} flex items-center justify-center text-white`}>
-                    <IconComponent size={24} />
+
+                <div className={`bg-gradient-to-br ${topic.gradient} border-2 ${topic.borderColor} rounded-2xl p-6 lg:p-8`}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-12 h-12 rounded-xl ${topic.iconBg} flex items-center justify-center text-white`}>
+                      <IconComponent size={24} />
+                    </div>
+                    <h3 className="font-helvetica font-bold text-[24px] lg:text-[28px] text-black">
+                      {t(topic.titleKey)}
+                    </h3>
                   </div>
-                  <h3 className="font-helvetica font-bold text-[24px] lg:text-[28px] text-black">
-                    {t(topic.titleKey)}
-                  </h3>
-                </div>
 
                 <p className="font-helvetica text-[15px] lg:text-[17px] leading-[1.7] text-gray-700 mb-6">
                   {t(topic.descriptionKey)}
@@ -90,6 +94,7 @@ export function TechWatch() {
                     </li>
                   ))}
                 </ul>
+                </div>
               </motion.div>
             );
           })}

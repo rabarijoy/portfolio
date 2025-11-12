@@ -5,6 +5,10 @@ import { useTranslations } from 'next-intl';
 import { GraduationCap, Code } from 'lucide-react';
 import { Section } from '../ui/Section';
 
+// Images placeholder - À remplacer par les vraies images
+const FORMATION_IMAGE_PLACEHOLDER = 'https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44b09ba67a96c63cc2c2ad4b.jpg';
+const CAREER_IMAGE_PLACEHOLDER = 'https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44b09ba67a96c63cc2c2ad4b.jpg';
+
 export function Formation() {
   const t = useTranslations('formation');
 
@@ -29,15 +33,15 @@ export function Formation() {
             </div>
 
             <div className="flex flex-col gap-6">
-              {/* Image placeholder - Formation - TODO: Replace with actual image URL */}
-              <div className="w-full h-[200px] lg:h-[250px] rounded-2xl overflow-hidden mb-6">
+              {/* Image placeholder - Formation */}
+              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
                 <img 
-                  src="https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44b09ba67a96c63cc2c2ad4b.jpg"
+                  src={FORMATION_IMAGE_PLACEHOLDER}
                   alt="Formation"
                   className="w-full h-full object-cover"
                 />
               </div>
-              
+
               <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-accent rounded-2xl p-6 lg:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-blue-accent flex items-center justify-center text-white">
@@ -116,15 +120,15 @@ export function Formation() {
             </div>
 
             <div className="flex flex-col gap-6">
-              {/* Image placeholder - Projet professionnel - TODO: Replace with actual image URL */}
-              <div className="w-full h-[200px] lg:h-[250px] rounded-2xl overflow-hidden mb-6">
+              {/* Image placeholder - Projet professionnel */}
+              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
                 <img 
-                  src="https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44b09ba67a96c63cc2c2ad4b.jpg"
+                  src={CAREER_IMAGE_PLACEHOLDER}
                   alt="Projet professionnel"
                   className="w-full h-full object-cover"
                 />
               </div>
-              
+
               <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-accent rounded-2xl p-6 lg:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-blue-accent flex items-center justify-center text-white">

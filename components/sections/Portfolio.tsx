@@ -6,6 +6,9 @@ import { useTranslations } from 'next-intl';
 import { Smartphone, Palette, Rocket, ShoppingBag, Bot, BarChart, LucideIcon } from 'lucide-react';
 import { Section } from '../ui/Section';
 
+// Image placeholder - À remplacer par les vraies images des projets
+const PROJECT_IMAGE_PLACEHOLDER = 'https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44b09ba67a96c63cc2c2ad4b.jpg';
+
 interface Project {
   id: string;
   title: string;
@@ -129,12 +132,12 @@ export function Portfolio() {
               whileHover={{ y: -8 }}
               className="group bg-[#fbfbfd] rounded-[18px] overflow-hidden cursor-pointer border border-gray-200 transition-all duration-400 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-blue-accent"
             >
-                {/* Project Image - TODO: Replace placeholder with actual project image */}
-                <div className="w-full h-[240px] relative overflow-hidden group">
+                {/* Project Image */}
+                <div className="w-full h-[240px] relative overflow-hidden rounded-t-[18px] bg-gray-100">
                   <img 
-                    src="https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44b09ba67a96c63cc2c2ad4b.jpg"
+                    src={PROJECT_IMAGE_PLACEHOLDER}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
                 </div>
 
