@@ -208,19 +208,49 @@
     "ai": {
       "title": "Artificial Intelligence",
       "description": "AI is revolutionizing software development and opening exciting new possibilities.",
-      "points": [
-        "Following advances in machine learning and deep learning",
-        "Exploring generative AI tools (ChatGPT, GitHub Copilot) to improve productivity",
-        "Monitoring AI integration in modern web applications"
+      "resources": [
+        {
+          "type": "article",
+          "title": "Article on Generative AI",
+          "description": "My analysis of AI tools for development",
+          "url": "#"
+        },
+        {
+          "type": "note",
+          "title": "Tech Watch Notes - AI 2024",
+          "description": "Summary of trends and innovations",
+          "downloadUrl": "#"
+        },
+        {
+          "type": "reading",
+          "title": "Recommended Reading List",
+          "description": "Essential resources on machine learning",
+          "url": "#"
+        }
       ]
     },
     "cybersecurity": {
       "title": "Cybersecurity",
       "description": "Security is a major challenge in modern application development.",
-      "points": [
-        "Monitoring common vulnerabilities (OWASP Top 10) and security best practices",
-        "Following data protection and privacy techniques (GDPR)",
-        "Learning secure authentication methods and access management"
+      "resources": [
+        {
+          "type": "article",
+          "title": "Commentary on OWASP Top 10",
+          "description": "My analysis of common vulnerabilities",
+          "url": "#"
+        },
+        {
+          "type": "note",
+          "title": "Tech Watch Notes - Security 2024",
+          "description": "Best practices and protection techniques",
+          "downloadUrl": "#"
+        },
+        {
+          "type": "reading",
+          "title": "GDPR Resources",
+          "description": "Practical guide for data protection",
+          "url": "#"
+        }
       ]
     }
   },

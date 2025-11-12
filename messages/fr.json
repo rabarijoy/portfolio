@@ -208,19 +208,49 @@
     "ai": {
       "title": "Intelligence Artificielle",
       "description": "L'IA révolutionne le développement logiciel et ouvre de nouvelles possibilités passionnantes.",
-      "points": [
-        "Suivi des avancées en apprentissage automatique et deep learning",
-        "Exploration des outils d'IA générative (ChatGPT, GitHub Copilot) pour améliorer la productivité",
-        "Veille sur l'intégration de l'IA dans les applications web modernes"
+      "resources": [
+        {
+          "type": "article",
+          "title": "Article sur l'IA générative",
+          "description": "Mon analyse des outils d'IA pour le développement",
+          "url": "#"
+        },
+        {
+          "type": "note",
+          "title": "Notes de veille - IA 2024",
+          "description": "Synthèse des tendances et innovations",
+          "downloadUrl": "#"
+        },
+        {
+          "type": "reading",
+          "title": "Liste de lectures recommandées",
+          "description": "Ressources essentielles sur le machine learning",
+          "url": "#"
+        }
       ]
     },
     "cybersecurity": {
       "title": "Cybersécurité",
       "description": "La sécurité est un enjeu majeur dans le développement d'applications modernes.",
-      "points": [
-        "Veille sur les vulnérabilités courantes (OWASP Top 10) et les bonnes pratiques de sécurisation",
-        "Suivi des techniques de protection des données et de la vie privée (RGPD)",
-        "Apprentissage des méthodes d'authentification sécurisée et de gestion des accès"
+      "resources": [
+        {
+          "type": "article",
+          "title": "Commentaire sur OWASP Top 10",
+          "description": "Mon analyse des vulnérabilités courantes",
+          "url": "#"
+        },
+        {
+          "type": "note",
+          "title": "Notes de veille - Sécurité 2024",
+          "description": "Bonnes pratiques et techniques de protection",
+          "downloadUrl": "#"
+        },
+        {
+          "type": "reading",
+          "title": "Ressources sur le RGPD",
+          "description": "Guide pratique pour la protection des données",
+          "url": "#"
+        }
       ]
     }
   },

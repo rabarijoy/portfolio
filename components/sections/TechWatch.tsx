@@ -2,11 +2,18 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Bot, Shield } from 'lucide-react';
+import { Bot, Shield, BookOpen, FileText, ExternalLink, Download } from 'lucide-react';
 import { Section } from '../ui/Section';
 
 // Images placeholder - À remplacer par les vraies images
 const TECHWATCH_IMAGE_PLACEHOLDER = 'https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44b09ba67a96c63cc2c2ad4b.jpg';
+
+interface Resource {
+  type: 'article' | 'note' | 'reading';
+  title: string;
+  url?: string;
+  downloadUrl?: string;
+}
 
 export function TechWatch() {
   const t = useTranslations('techWatch');
@@ -16,7 +23,7 @@ export function TechWatch() {
       icon: Bot,
       titleKey: 'ai.title',
       descriptionKey: 'ai.description',
-      pointsKey: 'ai.points',
+      resourcesKey: 'ai.resources',
       gradient: 'from-blue-50 to-white',
       borderColor: 'border-blue-accent',
       iconBg: 'bg-blue-accent',
@@ -25,7 +32,7 @@ export function TechWatch() {
       icon: Shield,
       titleKey: 'cybersecurity.title',
       descriptionKey: 'cybersecurity.description',
-      pointsKey: 'cybersecurity.points',
+      resourcesKey: 'cybersecurity.resources',
       gradient: 'from-blue-50 to-white',
       borderColor: 'border-blue-accent',
       iconBg: 'bg-blue-accent',
@@ -80,20 +87,53 @@ export function TechWatch() {
                     </h3>
                   </div>
 
-                <p className="font-helvetica text-[15px] lg:text-[17px] leading-[1.7] text-gray-700 mb-6">
-                  {t(topic.descriptionKey)}
-                </p>
+                  <p className="font-helvetica text-[15px] lg:text-[17px] leading-[1.7] text-gray-700 mb-6">
+                    {t(topic.descriptionKey)}
+                  </p>
 
-                <ul className="space-y-3">
-                  {t.raw(topic.pointsKey).map((point: string, pointIndex: number) => (
-                    <li key={pointIndex} className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-blue-accent mt-2 flex-shrink-0" />
-                      <span className="font-helvetica text-[15px] lg:text-[16px] leading-[1.6] text-gray-700">
-                        {point}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                  {/* Resources Section */}
+                  <div className="space-y-4">
+                    <h4 className="font-helvetica font-semibold text-[16px] text-black mb-3">
+                      Ressources
+                    </h4>
+                    <div className="space-y-3">
+                      {t.raw(topic.resourcesKey).map((resource: any, resourceIndex: number) => (
+                        <a
+                          key={resourceIndex}
+                          href={resource.url || resource.downloadUrl || '#'}
+                          target={resource.url ? '_blank' : undefined}
+                          rel={resource.url ? 'noopener noreferrer' : undefined}
+                          download={resource.downloadUrl ? true : undefined}
+                          className="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white transition-all duration-200 group border border-transparent hover:border-blue-accent/30"
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-blue-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-accent transition-colors">
+                            {resource.type === 'article' && (
+                              <ExternalLink size={16} className="text-blue-accent group-hover:text-white transition-colors" />
+                            )}
+                            {resource.type === 'note' && (
+                              <FileText size={16} className="text-blue-accent group-hover:text-white transition-colors" />
+                            )}
+                            {resource.type === 'reading' && (
+                              <BookOpen size={16} className="text-blue-accent group-hover:text-white transition-colors" />
+                            )}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="font-helvetica font-medium text-[15px] text-gray-900 group-hover:text-blue-accent transition-colors">
+                              {resource.title}
+                            </p>
+                            {resource.description && (
+                              <p className="font-helvetica text-[13px] text-gray-500 mt-0.5">
+                                {resource.description}
+                              </p>
+                            )}
+                          </div>
+                          {resource.downloadUrl && (
+                            <Download size={16} className="text-gray-400 group-hover:text-blue-accent transition-colors flex-shrink-0" />
+                          )}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             );

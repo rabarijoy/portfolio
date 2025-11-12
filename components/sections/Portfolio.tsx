@@ -124,13 +124,14 @@ export function Portfolio() {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] mt-[50px]">
           {filteredProjects.map((project, index) => (
-            <motion.div
+            <motion.a
               key={project.id}
+              href={`#project-${project.id}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
               whileHover={{ y: -8 }}
-              className="group bg-[#fbfbfd] rounded-[18px] overflow-hidden cursor-pointer border border-gray-200 transition-all duration-400 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-blue-accent"
+              className="group bg-[#fbfbfd] rounded-[18px] overflow-hidden cursor-pointer border border-gray-200 transition-all duration-400 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-blue-accent block"
             >
                 {/* Project Image */}
                 <div className="w-full h-[240px] relative overflow-hidden rounded-t-[18px] bg-gray-100">
@@ -162,16 +163,13 @@ export function Portfolio() {
                     ))}
                   </div>
 
-                  {/* Link */}
-                  <a
-                    href="#"
-                    className="font-helvetica inline-flex items-center text-blue-accent text-[17px] font-medium transition-all duration-300 hover:text-blue-600 hover:translate-x-[4px]"
-                  >
+                  {/* Link - visible only on hover */}
+                  <div className="font-helvetica inline-flex items-center text-blue-accent text-[17px] font-medium transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-x-[-8px] group-hover:translate-x-0">
                     {t('view_project')}
                     <span className="ml-[8px] text-[20px] transition-all duration-300 group-hover:ml-[12px]">→</span>
-                  </a>
+                  </div>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
         </div>
 
