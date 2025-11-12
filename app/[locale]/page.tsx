@@ -38,7 +38,6 @@ export default function HomePage() {
         style={{ 
           zIndex: 0,
           transform: 'translateY(50%)',
-          clipPath: 'inset(0 0 50% 0)',
           borderRadius: '50% 50% 0 0 / 100% 100% 0 0'
         }}
       />
