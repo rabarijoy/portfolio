@@ -12,7 +12,7 @@ import { SectionDivider } from '@/components/ui/SectionDivider';
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen overflow-hidden">
       <Header />
       <main>
         <Hero />
@@ -32,15 +32,12 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
-      {/* Ellipse colorée en bas de l'écran - moitié supérieure visible */}
+      {/* Ellipse colorée en bas de l'écran */}
       <div 
-        className="absolute bottom-0 left-0 right-0 w-full h-[200px] bg-blue-accent rounded-full blur-[100px] pointer-events-none will-change-[filter] opacity-60"
+        className="absolute bottom-0 left-0 right-0 w-full h-[100px] bg-blue-accent blur-[100px] pointer-events-none will-change-[filter] opacity-60"
         style={{ 
           zIndex: 0,
-          transform: 'translateY(50%)',
-          borderRadius: '50% 50% 0 0 / 100% 100% 0 0',
-          maskImage: 'linear-gradient(to bottom, black 50%, transparent 50%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 50%)'
+          borderRadius: '50% 50% 0 0 / 100% 100% 0 0'
         }}
       />
     </div>
