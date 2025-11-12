@@ -32,7 +32,7 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
-      {/* Ellipse colorée en bas de l'écran */}
+      {/* Ellipse colorée en bas de l'écran - moitié supérieure visible */}
       <div 
         className="absolute bottom-0 left-0 right-0 w-full h-[200px] bg-blue-accent rounded-full blur-[100px] pointer-events-none will-change-[filter] opacity-60"
         style={{ 
