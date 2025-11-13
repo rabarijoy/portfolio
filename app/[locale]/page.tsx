@@ -4,8 +4,6 @@ import { About } from '@/components/sections/About';
 import { Timeline } from '@/components/sections/Timeline';
 import { Portfolio } from '@/components/sections/Portfolio';
 import { Formation } from '@/components/sections/Formation';
-import { Skills } from '@/components/sections/Skills';
-import { TechWatch } from '@/components/sections/TechWatch';
 import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/Footer';
 import { SectionDivider } from '@/components/ui/SectionDivider';
@@ -25,8 +23,6 @@ export default function HomePage() {
         <SectionDivider color="gray" />
         {/* Grande section : Formation */}
         <Formation />
-        <Skills />
-        <TechWatch />
         <SectionDivider color="gray" />
         {/* Grande section : Contact */}
         <Contact />
