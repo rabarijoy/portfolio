@@ -35,48 +35,30 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="relative w-full max-w-[650px]"
-          style={{ perspective: '1000px' }}
+          className="relative w-full max-w-[650px] perspective-1000"
         >
           <div
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="relative cursor-pointer w-full"
+            className="relative cursor-pointer w-full aspect-[1011/588] [transform-style:preserve-3d] transition-transform duration-300 ease-out"
             style={{
-              aspectRatio: '1011 / 588',
-              transformStyle: 'preserve-3d',
-              transition: 'transform 0.3s ease-out',
               transform: `rotateX(${cardRotation.rotateX}deg) rotateY(${cardRotation.rotateY}deg)`,
             }}
           >
             {/* Card Face */}
-            <div
-              className="absolute inset-0 shadow-2xl overflow-hidden"
-              style={{
-                backfaceVisibility: 'hidden',
-                borderRadius: '30px',
-              }}
-            >
+            <div className="absolute inset-0 shadow-2xl overflow-hidden [backface-visibility:hidden] rounded-[30px]">
               <Image
                 src="/assets/id-card.png"
                 alt="ID Card"
                 width={1011}
                 height={588}
-                className="w-full h-full"
-                style={{ objectFit: 'fill' }}
+                className="w-full h-full object-fill"
                 priority
               />
             </div>
             
             {/* Card Shadow */}
-            <div
-              className="absolute inset-0 bg-black/20 -z-10"
-              style={{
-                filter: 'blur(20px)',
-                transform: 'translateZ(-10px) scale(0.95)',
-                borderRadius: '30px',
-              }}
-            />
+            <div className="absolute inset-0 bg-black/20 -z-10 blur-[20px] rounded-[30px]" style={{ transform: 'translateZ(-10px) scale(0.95)' }} />
           </div>
         </motion.div>
       </div>

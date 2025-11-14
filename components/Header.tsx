@@ -122,13 +122,8 @@ export function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white' : 'bg-transparent'
+        isScrolled ? 'bg-white shadow-header-scrolled' : 'bg-transparent'
       }`}
-      style={{
-        boxShadow: isScrolled 
-          ? '0 2px 12px rgba(109, 191, 255, 0.06)' 
-          : 'none'
-      }}
       data-name="Header 1"
     >
       <div className="flex flex-row items-center w-full">

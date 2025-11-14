@@ -27,12 +27,7 @@ export function About() {
             priority
           />
           {/* Gradient overlay de gauche à droite avec transitions progressives */}
-          <div 
-            className="absolute inset-0" 
-            style={{
-              background: 'linear-gradient(to right, rgb(249,250,251) 0%, rgb(249,250,251) 30%, rgba(249,250,251,0.95) 40%, rgba(249,250,251,0.85) 50%, rgba(249,250,251,0.7) 60%, rgba(249,250,251,0.5) 70%, rgba(249,250,251,0.3) 80%, rgba(249,250,251,0.1) 90%, transparent 100%)'
-            }}
-          ></div>
+          <div className="absolute inset-0 bg-gradient-about-overlay"></div>
         </motion.div>
 
         {/* Hero Content - Title and CTA */}

@@ -23,6 +23,12 @@ const config: Config = {
       letterSpacing: {
         'tighter-2': '-0.02em',
       },
+      boxShadow: {
+        'header-scrolled': '0 2px 12px rgba(109, 191, 255, 0.06)',
+      },
+      borderRadius: {
+        'ellipse-top': '50% 50% 0 0 / 100% 100% 0 0',
+      },
     },
   },
   plugins: [],

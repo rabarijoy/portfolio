@@ -120,10 +120,9 @@ export function Timeline() {
             
             {/* Progress bar */}
             <div 
-              className="absolute left-[20px] lg:left-[30px] top-0 w-[2px] bg-blue-accent"
+              className="absolute left-[20px] lg:left-[30px] top-0 w-[2px] bg-blue-accent transition-[height] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
               style={{ 
                 height: progressHeight,
-                transition: 'height 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
               }}
             />
 
