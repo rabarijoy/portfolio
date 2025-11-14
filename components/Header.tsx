@@ -9,10 +9,7 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 function Company() {
   return (
     <a href="#" className="flex gap-2 items-center cursor-pointer" data-name="Company">
-      <div 
-        className="font-ppneuebit text-[27px] leading-[1.45] tracking-tighter-2 transition-transform hover:scale-105"
-        style={{ color: 'var(--theme-text-primary)', transition: 'color 0.3s ease' }}
-      >
+      <div className="font-ppneuebit text-[27px] leading-[1.45] tracking-tighter-2 transition-transform hover:scale-105" style={{ color: 'var(--theme-text-primary)', transition: 'color 0.4s ease-out' }}>
         <p>&lt;aina joy&gt;</p>
       </div>
     </a>
@@ -23,21 +20,10 @@ function PrimaryButton({ children, onClick }: { children: React.ReactNode; onCli
   return (
     <button
       onClick={onClick}
-      className="flex gap-2 items-center justify-center px-4 py-2.5 rounded-xl transition-colors"
-      style={{
-        backgroundColor: 'var(--theme-text-primary)',
-        color: 'var(--theme-bg-primary)',
-        transition: 'background-color 0.3s ease, color 0.3s ease'
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.opacity = '0.9';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.opacity = '1';
-      }}
+      className="bg-black flex gap-2 items-center justify-center px-4 py-2.5 rounded-xl hover:bg-gray-800 transition-colors"
       data-name="Primary button"
     >
-      <span className="font-helvetica font-medium text-[15px] tracking-tight whitespace-nowrap">
+      <span className="font-helvetica font-medium text-[15px] text-white tracking-tight whitespace-nowrap">
         {children}
       </span>
     </button>
@@ -68,13 +54,13 @@ function NavLinks({ activeSection }: { activeSection: string }) {
           key={item.key}
           href={item.href}
           onClick={(e) => handleClick(e, item.href)}
-          style={{
-            color: activeSection === item.key 
-              ? 'var(--theme-text-primary)' 
-              : 'var(--theme-text-tertiary)',
-            transition: 'color 0.3s ease'
+          className="font-helvetica font-medium text-[15px] tracking-tight whitespace-nowrap transition-colors"
+          style={{ 
+            color: activeSection === item.key ? 'var(--theme-text-primary)' : 'var(--theme-text-tertiary)',
+            transition: 'color 0.4s ease-out'
           }}
-          className="font-helvetica font-medium text-[15px] tracking-tight whitespace-nowrap transition-colors hover:opacity-80"
+          onMouseEnter={(e) => e.currentTarget.style.color = 'var(--theme-text-primary)'}
+          onMouseLeave={(e) => e.currentTarget.style.color = activeSection === item.key ? 'var(--theme-text-primary)' : 'var(--theme-text-tertiary)'}
         >
           {t(item.key)}
         </a>
@@ -142,11 +128,11 @@ export function Header() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
         backgroundColor: isScrolled ? 'var(--theme-surface)' : 'transparent',
-        color: 'var(--theme-text-primary)',
+        backdropFilter: isScrolled ? 'blur(10px)' : 'none',
         boxShadow: isScrolled 
           ? '0 2px 12px rgba(109, 191, 255, 0.06)' 
           : 'none',
-        transition: 'background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease'
+        transition: 'background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.3s ease'
       }}
       data-name="Header 1"
     >

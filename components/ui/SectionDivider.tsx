@@ -3,7 +3,7 @@ interface SectionDividerProps {
 }
 
 export function SectionDivider({ color = 'black' }: SectionDividerProps) {
-  const getColor = () => {
+  const getDividerColor = () => {
     if (color === 'black') {
       return 'var(--theme-divider)';
     }
@@ -13,11 +13,11 @@ export function SectionDivider({ color = 'black' }: SectionDividerProps) {
   return (
     <div className="px-[4vw] lg:px-[5vw] py-0">
       <div 
-        className="w-full h-[5px]"
-        style={{
-          backgroundColor: getColor(),
-          transition: 'background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
-        }}
+        className="w-full h-[5px]" 
+        style={{ 
+          backgroundColor: getDividerColor(),
+          transition: 'background-color 0.4s ease-out'
+        }} 
       />
     </div>
   );

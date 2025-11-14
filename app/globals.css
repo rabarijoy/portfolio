@@ -47,27 +47,6 @@
   --bg-overlay: rgba(0, 0, 0, 0.5);
   --bg-shadow: rgba(0, 0, 0, 0.2);
   --bg-shadow-light: rgba(0, 0, 0, 0.3);
-  
-  /* Theme variables - dynamically updated by ThemeProvider */
-  --theme-bg-primary: #ffffff;
-  --theme-bg-secondary: #f9fafb;
-  --theme-bg-tertiary: #f3f4f6;
-  --theme-text-primary: #000000;
-  --theme-text-secondary: #171717;
-  --theme-text-tertiary: #6b7280;
-  --theme-accent: #6dbfff;
-  --theme-accent-hover: #5aa5ff;
-  --theme-accent-light: #e0f2fe;
-  --theme-border: #e5e7eb;
-  --theme-divider: #e5e7eb;
-  --theme-surface: #ffffff;
-  --theme-surface-hover: #f9fafb;
-  --theme-ellipse: #6dbfff;
-  
-  /* Transition properties for smooth theme changes */
-  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -90,11 +69,35 @@ html {
 }
 
 body {
-  color: var(--theme-text-primary);
-  background: var(--theme-bg-primary);
+  color: var(--theme-text-primary, var(--foreground));
+  background: var(--theme-bg-primary, var(--background));
   font-family: Helvetica, Arial, sans-serif;
-  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--theme-text-transition, color 0.4s ease-out);
+}
+
+/* Application du thème dynamique avec transition fluide pour le background */
+html {
+  background-color: var(--theme-bg-primary, #ffffff);
+  transition: var(--theme-bg-transition, background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+/* Variables de thème par défaut (seront remplacées dynamiquement) */
+:root {
+  --theme-bg-primary: #ffffff;
+  --theme-bg-secondary: #f9fafb;
+  --theme-bg-tertiary: #f3f4f6;
+  --theme-text-primary: #000000;
+  --theme-text-secondary: #171717;
+  --theme-text-tertiary: #4b5563;
+  --theme-accent: #6dbfff;
+  --theme-accent-hover: #4a9eff;
+  --theme-border: #e5e7eb;
+  --theme-divider: #d1d5db;
+  --theme-surface: #ffffff;
+  --theme-surface-hover: #f9fafb;
+  --theme-ellipse: #6dbfff;
+  --theme-bg-transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --theme-text-transition: color 0.4s ease-out;
 }
 
 /* Scrollbar personnalisée pour WebKit (Chrome, Safari, Edge) */
