@@ -92,32 +92,32 @@ export function Contact() {
           transition={{ duration: 0.6 }}
         >
           {/* Section Title */}
-          <div className="text-center mb-12">
-            <div className="flex flex-col items-center mb-4">
-              <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] mb-2 text-gray-900">
+          <div className="section-header">
+            <div className="section-header-title">
+              <h2 className="title-section">
                 &lt;contact&gt;
               </h2>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 font-helvetica">
+          <div className="grid-contact">
             {/* Contact Info */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <h3 className="subtitle-section">
                 {t('info_title')}
               </h3>
 
-              <div className="space-y-5">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <a 
                   href="mailto:rabarijaonajoy@gmail.com" 
-                  className="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors group"
+                  className="card-contact-info"
                 >
-                  <div className="w-12 h-12 bg-blue-accent/10 rounded-xl flex items-center justify-center group-hover:bg-blue-accent transition-colors">
-                    <Mail size={20} className="text-blue-accent group-hover:text-white transition-colors" />
+                  <div className="card-contact-icon-wrapper">
+                    <Mail size={20} className="card-contact-icon" />
                   </div>
-                  <div className="flex-1">
-                    <p className="font-semibold text-gray-900 mb-1">Email</p>
-                    <p className="text-blue-accent group-hover:text-blue-600 transition-colors">
+                  <div className="card-contact-content">
+                    <p className="card-contact-label">Email</p>
+                    <p className="card-contact-value">
                       rabarijaonajoy@gmail.com
                     </p>
                   </div>
@@ -127,14 +127,14 @@ export function Contact() {
                   href="https://www.linkedin.com/in/joyrabari"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors group"
+                  className="card-contact-info"
                 >
-                  <div className="w-12 h-12 bg-blue-accent/10 rounded-xl flex items-center justify-center group-hover:bg-blue-accent transition-colors">
-                    <Linkedin size={20} className="text-blue-accent group-hover:text-white transition-colors" />
+                  <div className="card-contact-icon-wrapper">
+                    <Linkedin size={20} className="card-contact-icon" />
                   </div>
-                  <div className="flex-1">
-                    <p className="font-semibold text-gray-900 mb-1">LinkedIn</p>
-                    <p className="text-blue-accent group-hover:text-blue-600 transition-colors">
+                  <div className="card-contact-content">
+                    <p className="card-contact-label">LinkedIn</p>
+                    <p className="card-contact-value">
                       linkedin.com/in/joyrabari
                     </p>
                   </div>
@@ -144,14 +144,14 @@ export function Contact() {
                   href="https://github.com/rabarijoy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors group"
+                  className="card-contact-info"
                 >
-                  <div className="w-12 h-12 bg-blue-accent/10 rounded-xl flex items-center justify-center group-hover:bg-blue-accent transition-colors">
-                    <Github size={20} className="text-blue-accent group-hover:text-white transition-colors" />
+                  <div className="card-contact-icon-wrapper">
+                    <Github size={20} className="card-contact-icon" />
                   </div>
-                  <div className="flex-1">
-                    <p className="font-semibold text-gray-900 mb-1">GitHub</p>
-                    <p className="text-blue-accent group-hover:text-blue-600 transition-colors">
+                  <div className="card-contact-content">
+                    <p className="card-contact-label">GitHub</p>
+                    <p className="card-contact-value">
                       github.com/rabarijoy
                     </p>
                   </div>
@@ -159,34 +159,34 @@ export function Contact() {
 
                 <a 
                   href="tel:+261343260892" 
-                  className="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors group"
+                  className="card-contact-info"
                 >
-                  <div className="w-12 h-12 bg-blue-accent/10 rounded-xl flex items-center justify-center group-hover:bg-blue-accent transition-colors">
-                    <Phone size={20} className="text-blue-accent group-hover:text-white transition-colors" />
+                  <div className="card-contact-icon-wrapper">
+                    <Phone size={20} className="card-contact-icon" />
                   </div>
-                  <div className="flex-1">
-                    <p className="font-semibold text-gray-900 mb-1">Téléphone</p>
-                    <p className="text-blue-accent group-hover:text-blue-600 transition-colors">
+                  <div className="card-contact-content">
+                    <p className="card-contact-label">Téléphone</p>
+                    <p className="card-contact-value">
                       +261 34 32 608 92
                     </p>
                   </div>
                 </a>
               </div>
 
-              <div className="mt-8 p-6 bg-blue-50/50 rounded-xl border border-blue-accent/20">
-                <div className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-blue-accent mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">{t('response_time')}</p>
-                    <p className="text-gray-700 text-sm">{t('response_time_desc')}</p>
+              <div className="info-response-time">
+                <div className="info-response-time-content">
+                  <CheckCircle size={20} className="info-response-time-icon" />
+                  <div className="info-response-time-text">
+                    <p className="info-response-time-title">{t('response_time')}</p>
+                    <p className="info-response-time-desc">{t('response_time_desc')}</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="form-container">
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                 {/* Honeypot field (hidden) */}
                 <input
                   type="text"
@@ -198,9 +198,9 @@ export function Contact() {
                   autoComplete="off"
                 />
 
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
-                    {t('name')} <span className="text-red-500">*</span>
+                <div className="form-group">
+                  <label htmlFor="name" className="form-label form-label-required">
+                    {t('name')}
                   </label>
                   <input
                     type="text"
@@ -210,24 +210,20 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-accent focus:border-transparent transition-all ${
-                      errors.name && touched.name
-                        ? 'border-red-300 bg-red-50/50'
-                        : 'border-gray-300 bg-white'
-                    }`}
+                    className={`form-input ${errors.name && touched.name ? 'form-input-error' : ''}`}
                     placeholder="Votre nom complet"
                   />
                   {errors.name && touched.name && (
-                    <p className="mt-1.5 text-sm text-red-600 flex items-center gap-1">
+                    <p className="form-error">
                       <XCircle size={14} />
                       {errors.name}
                     </p>
                   )}
                 </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
-                    {t('email')} <span className="text-red-500">*</span>
+                <div className="form-group">
+                  <label htmlFor="email" className="form-label form-label-required">
+                    {t('email')}
                   </label>
                   <input
                     type="email"
@@ -237,24 +233,20 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-accent focus:border-transparent transition-all ${
-                      errors.email && touched.email
-                        ? 'border-red-300 bg-red-50/50'
-                        : 'border-gray-300 bg-white'
-                    }`}
+                    className={`form-input ${errors.email && touched.email ? 'form-input-error' : ''}`}
                     placeholder="votre@email.com"
                   />
                   {errors.email && touched.email && (
-                    <p className="mt-1.5 text-sm text-red-600 flex items-center gap-1">
+                    <p className="form-error">
                       <XCircle size={14} />
                       {errors.email}
                     </p>
                   )}
                 </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
-                    {t('message')} <span className="text-red-500">*</span>
+                <div className="form-group">
+                  <label htmlFor="message" className="form-label form-label-required">
+                    {t('message')}
                   </label>
                   <textarea
                     id="message"
@@ -264,15 +256,11 @@ export function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-accent focus:border-transparent resize-none transition-all ${
-                      errors.message && touched.message
-                        ? 'border-red-300 bg-red-50/50'
-                        : 'border-gray-300 bg-white'
-                    }`}
+                    className={`form-textarea ${errors.message && touched.message ? 'form-textarea-error' : ''}`}
                     placeholder="Décrivez votre projet ou votre demande..."
                   />
                   {errors.message && touched.message && (
-                    <p className="mt-1.5 text-sm text-red-600 flex items-center gap-1">
+                    <p className="form-error">
                       <XCircle size={14} />
                       {errors.message}
                     </p>
@@ -280,26 +268,26 @@ export function Contact() {
                 </div>
 
                 {status === 'success' && (
-                  <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-xl flex items-center gap-2">
+                  <div className="form-message-success">
                     <CheckCircle size={18} />
                     {t('success')}
                   </div>
                 )}
 
                 {status === 'error' && (
-                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl flex items-center gap-2">
+                  <div className="form-message-error">
                     <XCircle size={18} />
                     {t('error')}
                   </div>
                 )}
 
-                <Button
+                <button
                   type="submit"
-                  fullWidth
+                  className="form-submit"
                   disabled={status === 'sending'}
                 >
                   {status === 'sending' ? t('sending') : t('send')}
-                </Button>
+                </button>
               </form>
             </div>
           </div>

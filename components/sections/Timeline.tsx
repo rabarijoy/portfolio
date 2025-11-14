@@ -111,16 +111,16 @@ export function Timeline() {
 
   return (
     <Section id="timeline" background="white" className="!py-[120px] lg:!py-[140px]">
-      <div className="max-w-screen-xl mx-auto px-[20px] lg:px-[40px]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div className="container">
+        <div className="timeline-grid">
           {/* Left: Timeline */}
-          <div ref={timelineRef} className="relative pl-[80px] lg:pl-[100px]">
+          <div ref={timelineRef} className="timeline-container">
             {/* Timeline line */}
-            <div className="absolute left-[20px] lg:left-[30px] top-0 w-[2px] h-full bg-blue-accent/30" />
+            <div className="timeline-line" />
             
             {/* Progress bar */}
             <div 
-              className="absolute left-[20px] lg:left-[30px] top-0 w-[2px] bg-blue-accent transition-[height] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
+              className="timeline-progress"
               style={{ 
                 height: progressHeight,
               }}
@@ -132,16 +132,12 @@ export function Timeline() {
               key={index}
               ref={(el) => { itemRefs.current[index] = el; }}
               onClick={() => handleItemClick(index)}
-              className={`relative mb-[100px] lg:mb-[120px] last:mb-[60px] lg:last:mb-[80px] transition-all duration-600 cursor-pointer ${
-                activeIndex === index ? 'opacity-100' : 'opacity-40'
-              }`}
+              className={`timeline-item ${activeIndex === index ? '' : 'timeline-item-inactive'}`}
             >
               {/* Dot */}
               <div
-                className={`absolute -left-[68px] lg:-left-[78px] top-[8px] w-[16px] h-[16px] rounded-full border-[3px] border-white transition-all duration-400 ${
-                  activeIndex === index
-                    ? 'bg-blue-accent scale-[1.3] shadow-[0_0_0_8px_rgba(109,191,255,0.2)]'
-                    : 'bg-gray-neutral'
+                className={`timeline-dot ${
+                  activeIndex === index ? 'timeline-dot-active' : ''
                 }`}
               />
 
@@ -153,18 +149,18 @@ export function Timeline() {
                 transition={{ duration: 0.6 }}
               >
                 <h2
-                  className={`font-helvetica font-bold text-[24px] lg:text-[32px] leading-[1.2] tracking-[-0.5px] mb-[8px] lg:mb-[10px] transition-colors duration-400 ${
-                    activeIndex === index ? 'text-blue-accent' : 'text-black'
+                  className={`timeline-title ${
+                    activeIndex === index ? 'timeline-title-active' : ''
                   }`}
                 >
                   {item.title}
                 </h2>
                 
-                <p className="font-helvetica font-normal text-[15px] lg:text-[16px] leading-[1.4] text-gray-neutral mb-[10px] lg:mb-[12px]">
+                <p className="timeline-date">
                   {item.date}
                 </p>
                 
-                <p className="font-helvetica font-normal text-[14px] lg:text-[16px] leading-[1.6] text-gray-600 max-w-[550px]">
+                <p className="timeline-description">
                   {item.description}
                 </p>
               </motion.div>
@@ -173,22 +169,23 @@ export function Timeline() {
           </div>
 
           {/* Right: Sticky Image */}
-          <div className="hidden lg:block sticky top-24 h-fit">
+          <div className="timeline-image-wrapper">
             <motion.div
               key={activeIndex}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
-              className="relative w-full aspect-[4/3] rounded-[20px] bg-gradient-to-br from-gray-100 to-gray-50 shadow-lg overflow-hidden"
+              className="timeline-image"
             >
-              <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-helvetica text-center px-8">
+              <div className="timeline-image-placeholder">
                 <div>
-                  <div className="text-[16px] mb-2">[Image illustrative]</div>
-                  <div className="text-[14px] font-bold text-blue-accent">{timelineData[activeIndex]?.title}</div>
+                  <div className="timeline-image-label">[Image illustrative]</div>
+                  <div className="timeline-image-title">{timelineData[activeIndex]?.title}</div>
                 </div>
               </div>
             </motion.div>
           </div>
+        </div>
         </div>
       </div>
     </Section>

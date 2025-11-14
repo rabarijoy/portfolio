@@ -61,22 +61,22 @@ export function Skills() {
 
   return (
     <Section id="skills" background="gray" className="py-[80px]">
-      <div className="max-w-screen-xl mx-auto px-[20px] lg:px-[40px]">
+      <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="section-header"
         >
-          <div className="flex flex-col items-center mb-4">
-            <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2">
+          <div className="section-header-title">
+            <h2 className="title-section">
               &lt;compétences&gt;
             </h2>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid-skills">
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon;
             return (
@@ -86,22 +86,22 @@ export function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`bg-gradient-to-br ${category.gradient} border-2 ${category.borderColor} rounded-2xl p-6`}
+                className="card-skill"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-12 h-12 rounded-xl ${category.iconBg} flex items-center justify-center text-white`}>
+                <div className="card-skill-header">
+                  <div className="card-skill-icon">
                     <IconComponent size={24} />
                   </div>
-                  <h3 className="font-helvetica font-bold text-[20px] lg:text-[22px] text-black">
+                  <h3 className="card-skill-title">
                     {t(category.titleKey)}
                   </h3>
                 </div>
 
-                <ul className="space-y-2">
+                <ul className="card-skill-list">
                   {t.raw(category.itemsKey).map((item: string, itemIndex: number) => (
-                    <li key={itemIndex} className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-blue-accent mt-2 flex-shrink-0" />
-                      <span className="font-helvetica text-[15px] lg:text-[16px] leading-[1.6] text-gray-700">
+                    <li key={itemIndex} className="card-skill-item">
+                      <div className="card-skill-bullet" />
+                      <span className="card-skill-text">
                         {item}
                       </span>
                     </li>

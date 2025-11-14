@@ -95,25 +95,25 @@ export function Portfolio() {
 
   return (
     <Section id="projects" background="white" className="!py-[120px] lg:!py-[140px]" withSubtleSeparator>
-      <div className="max-w-screen-xl mx-auto px-[20px] lg:px-[40px]">
+      <div className="container">
         {/* Section Header */}
-        <div className="text-center mb-[60px]">
-          <div className="flex flex-col items-center mb-[16px]">
-            <h2 className="font-ppneuebit text-[55px] lg:text-[70px] leading-[1.1] mb-2 text-black">
+        <div className="section-header-center">
+          <div className="section-header-center-title">
+            <h2 className="title-section-large">
               &lt;projets&gt;
             </h2>
           </div>
 
           {/* Filter Buttons */}
-          <div className="flex justify-center gap-[12px] flex-wrap mt-[40px] mb-[20px]">
+          <div className="filter-buttons">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`font-helvetica px-[24px] py-[10px] rounded-[24px] text-[15px] font-medium transition-all duration-300 ${
+                className={`btn-filter ${
                   activeCategory === category.id
-                    ? 'bg-blue-accent text-white'
-                    : 'bg-gray-100 text-black hover:bg-gray-200 hover:-translate-y-[2px]'
+                    ? 'btn-filter-active'
+                    : 'btn-filter-inactive'
                 }`}
               >
                 {category.label}
@@ -123,7 +123,7 @@ export function Portfolio() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] mt-[50px]">
+        <div className="grid-projects">
           {filteredProjects.map((project, index) => (
             <motion.a
               key={project.id}
@@ -132,32 +132,31 @@ export function Portfolio() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
               whileHover={{ y: -8 }}
-              className="group bg-[#fbfbfd] rounded-[18px] overflow-hidden cursor-pointer border border-gray-200 transition-all duration-400 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-blue-accent block"
+              className="card-project"
             >
                 {/* Project Image */}
-                <div className="w-full h-[240px] relative overflow-hidden rounded-t-[18px] bg-gray-100">
+                <div className="card-project-image">
                   <img 
                     src={PROJECT_IMAGE_PLACEHOLDER}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
                 </div>
 
                 {/* Project Content */}
-                <div className="p-[30px]">
-                  <h3 className="font-helvetica text-[28px] font-semibold mb-[12px] text-black">
+                <div className="card-project-content">
+                  <h3 className="title-card">
                     {project.title}
                   </h3>
-                  <p className="font-helvetica text-[17px] text-gray-500 mb-[20px] leading-[1.5]">
+                  <p className="text-card-description">
                     {project.description}
                   </p>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-[8px] mb-[20px]">
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="font-helvetica px-[14px] py-[6px] bg-gray-100 rounded-[20px] text-[13px] text-black font-medium transition-all duration-300 group-hover:bg-blue-50 group-hover:text-blue-600"
+                        className="tag"
                       >
                         {tag}
                       </span>
@@ -165,9 +164,9 @@ export function Portfolio() {
                   </div>
 
                   {/* Link - visible only on hover */}
-                  <div className="font-helvetica inline-flex items-center text-blue-accent text-[17px] font-medium transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-x-[-8px] group-hover:translate-x-0">
+                  <div className="link-view-project">
                     {t('view_project')}
-                    <span className="ml-[8px] text-[20px] transition-all duration-300 group-hover:ml-[12px]">→</span>
+                    <span className="link-view-project-arrow">→</span>
                   </div>
                   </div>
               </motion.a>
@@ -175,12 +174,12 @@ export function Portfolio() {
         </div>
 
         {/* View More on GitHub Button */}
-        <div className="text-center mt-[60px]">
+        <div style={{ textAlign: 'center', marginTop: '60px' }}>
           <a
             href="https://github.com/rabarijoy"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-[12px] font-helvetica px-[32px] py-[14px] bg-black text-white text-[17px] font-medium rounded-[12px] transition-all duration-300 hover:bg-gray-800 hover:-translate-y-[2px] hover:shadow-lg"
+            className="btn-github"
           >
             <span>Voir plus de projets sur GitHub</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -190,70 +189,52 @@ export function Portfolio() {
         </div>
 
         {/* Skills Section */}
-        <div className="mt-[100px]">
+        <div style={{ marginTop: '100px' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="section-header"
           >
-            <div className="flex flex-col items-center mb-4">
-              <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2">
+            <div className="section-header-title">
+              <h2 className="title-section">
                 &lt;compétences&gt;
               </h2>
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid-skills">
             {[
               {
                 icon: Code2,
                 titleKey: 'languages.title',
                 itemsKey: 'languages.items',
-                gradient: 'from-blue-50 to-white',
-                borderColor: 'border-blue-accent',
-                iconBg: 'bg-blue-accent',
               },
               {
                 icon: Layers,
                 titleKey: 'development.title',
                 itemsKey: 'development.items',
-                gradient: 'from-blue-50 to-white',
-                borderColor: 'border-blue-accent',
-                iconBg: 'bg-blue-accent',
               },
               {
                 icon: Database,
                 titleKey: 'databases.title',
                 itemsKey: 'databases.items',
-                gradient: 'from-blue-50 to-white',
-                borderColor: 'border-blue-accent',
-                iconBg: 'bg-blue-accent',
               },
               {
                 icon: TestTube,
                 titleKey: 'quality.title',
                 itemsKey: 'quality.items',
-                gradient: 'from-blue-50 to-white',
-                borderColor: 'border-blue-accent',
-                iconBg: 'bg-blue-accent',
               },
               {
                 icon: FileCode,
                 titleKey: 'design.title',
                 itemsKey: 'design.items',
-                gradient: 'from-blue-50 to-white',
-                borderColor: 'border-blue-accent',
-                iconBg: 'bg-blue-accent',
               },
               {
                 icon: GitBranch,
                 titleKey: 'collaboration.title',
                 itemsKey: 'collaboration.items',
-                gradient: 'from-blue-50 to-white',
-                borderColor: 'border-blue-accent',
-                iconBg: 'bg-blue-accent',
               },
             ].map((category, index) => {
               const IconComponent = category.icon;
@@ -264,22 +245,22 @@ export function Portfolio() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`bg-gradient-to-br ${category.gradient} border-2 ${category.borderColor} rounded-2xl p-6`}
+                  className="card-skill"
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className={`w-12 h-12 rounded-xl ${category.iconBg} flex items-center justify-center text-white`}>
+                  <div className="card-skill-header">
+                    <div className="card-skill-icon">
                       <IconComponent size={24} />
                     </div>
-                    <h3 className="font-helvetica font-bold text-[20px] lg:text-[22px] text-black">
+                    <h3 className="card-skill-title">
                       {tSkills(category.titleKey)}
                     </h3>
                   </div>
 
-                  <ul className="space-y-2">
+                  <ul className="card-skill-list">
                     {tSkills.raw(category.itemsKey).map((item: string, itemIndex: number) => (
-                      <li key={itemIndex} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-accent mt-2 flex-shrink-0" />
-                        <span className="font-helvetica text-[15px] lg:text-[16px] leading-[1.6] text-gray-700">
+                      <li key={itemIndex} className="card-skill-item">
+                        <div className="card-skill-bullet" />
+                        <span className="card-skill-text">
                           {item}
                         </span>
                       </li>

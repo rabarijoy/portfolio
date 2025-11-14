@@ -28,37 +28,37 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col items-center justify-center bg-white pt-20 relative">
-      <div className="w-full max-w-screen-xl mx-auto px-[20px] lg:px-[40px] flex-1 flex items-center justify-center">
+    <section id="hero" className="hero-section">
+      <div className="hero-container">
         {/* Image/Animation with 3D Effect - Centered */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="relative w-full max-w-[650px] perspective-1000"
+          className="hero-card-wrapper"
         >
           <div
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="relative cursor-pointer w-full aspect-[1011/588] [transform-style:preserve-3d] transition-transform duration-300 ease-out"
+            className="hero-card"
             style={{
               transform: `rotateX(${cardRotation.rotateX}deg) rotateY(${cardRotation.rotateY}deg)`,
             }}
           >
             {/* Card Face */}
-            <div className="absolute inset-0 shadow-2xl overflow-hidden [backface-visibility:hidden] rounded-[30px]">
+            <div className="hero-card-face">
               <Image
                 src="/assets/id-card.png"
                 alt="ID Card"
                 width={1011}
                 height={588}
-                className="w-full h-full object-fill"
+                className="hero-card-image"
                 priority
               />
             </div>
             
             {/* Card Shadow */}
-            <div className="absolute inset-0 bg-black/20 -z-10 blur-[20px] rounded-[30px]" style={{ transform: 'translateZ(-10px) scale(0.95)' }} />
+            <div className="hero-card-shadow" style={{ transform: 'translateZ(-10px) scale(0.95)' }} />
           </div>
         </motion.div>
       </div>
@@ -69,7 +69,7 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.8 }}
         onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer group"
+        className="hero-scroll-indicator"
         aria-label="Scroll to next section"
       >
         <motion.svg
@@ -79,7 +79,7 @@ export function Hero() {
           height="40"
           viewBox="0 0 24 24"
           fill="none"
-          className="text-gray-neutral group-hover:text-black transition-colors"
+          className="hero-scroll-icon"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path

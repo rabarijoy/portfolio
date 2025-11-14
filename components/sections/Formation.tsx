@@ -15,8 +15,8 @@ export function Formation() {
 
   return (
     <Section id="formation" background="white" className="py-[120px] lg:py-[140px]" withSubtleSeparator>
-      <div className="max-w-screen-xl mx-auto px-[20px] lg:px-[40px]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
+      <div className="container">
+        <div className="formation-grid">
           {/* Colonne gauche : Ma formation */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -25,54 +25,53 @@ export function Formation() {
             transition={{ duration: 0.6 }}
             className="flex flex-col"
           >
-            <div className="mb-6">
-              <div className="flex flex-col items-start mb-6">
-                <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2">
+            <div style={{ marginBottom: '24px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '24px' }}>
+                <h2 className="title-section">
                   &lt;formation&gt;
                 </h2>
               </div>
             </div>
 
-            <div className="flex flex-col gap-6">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               {/* Image placeholder - Formation */}
-              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <div className="formation-image">
                 <img 
                   src={FORMATION_IMAGE_PLACEHOLDER}
                   alt="Formation"
-                  className="w-full h-full object-cover"
                 />
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-accent rounded-2xl p-6 lg:p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-blue-accent flex items-center justify-center text-white">
+              <div className="card-formation">
+                <div className="card-formation-header">
+                  <div className="card-formation-icon">
                     <GraduationCap size={24} />
                   </div>
-                  <h3 className="font-helvetica font-bold text-[24px] lg:text-[28px] text-black">
+                  <h3 className="card-formation-title">
                     {t('training.degree.name')}
                   </h3>
                 </div>
 
-                <p className="font-helvetica text-[15px] lg:text-[17px] leading-[1.7] text-gray-700 mb-6">
+                <p className="formation-info-text" style={{ marginBottom: '24px' }}>
                   {t('training.degree.subtitle')}
                 </p>
 
-                <div className="space-y-4">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div>
-                    <p className="font-helvetica text-[15px] lg:text-[17px] leading-[1.7] text-gray-700 mb-4">
+                    <p className="formation-info-text" style={{ marginBottom: '16px' }}>
                       {t('training.description.intro')}
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="font-helvetica font-bold text-[16px] text-black mb-3">
+                    <h4 style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, fontSize: '16px', color: '#000000', marginBottom: '12px' }}>
                       {t('training.description.skills_title')}
                     </h4>
-                    <ul className="space-y-2 mb-6">
+                    <ul style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
                       {['skill1', 'skill2', 'skill3', 'skill4'].map((skill, index) => (
-                        <li key={index} className="flex items-start gap-3">
-                          <div className="w-2 h-2 rounded-full bg-blue-accent mt-2 flex-shrink-0" />
-                          <span className="font-helvetica text-[15px] lg:text-[16px] leading-[1.6] text-gray-600">
+                        <li key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                          <div className="card-skill-bullet" style={{ width: '8px', height: '8px', marginTop: '8px' }} />
+                          <span className="card-skill-text">
                             {t(`training.description.${skill}`)}
                           </span>
                         </li>
@@ -84,7 +83,7 @@ export function Formation() {
                   href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-services-informatiques-aux-organisations-option-b-solutions-logicielles-et-applications-metiers"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-helvetica font-medium text-[15px] text-blue-accent hover:text-blue-600 transition-colors"
+                  className="formation-link"
                 >
                   {t('training.see_more')}
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -93,11 +92,11 @@ export function Formation() {
                 </a>
               </div>
 
-              <div className="bg-gray-50 rounded-2xl p-6 lg:p-8">
-                <h4 className="font-helvetica font-bold text-[18px] text-black mb-4">
+              <div className="formation-info-box">
+                <h4 className="formation-info-title">
                   {t('training.stages.title')}
                 </h4>
-                <p className="font-helvetica text-[15px] lg:text-[17px] leading-[1.7] text-gray-700">
+                <p className="formation-info-text">
                   {t('training.stages.text')}
                 </p>
               </div>
@@ -112,60 +111,59 @@ export function Formation() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col"
           >
-            <div className="mb-6">
-              <div className="flex flex-col items-start mb-6">
-                <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2">
+            <div style={{ marginBottom: '24px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '24px' }}>
+                <h2 className="title-section">
                   &lt;projet_professionnel&gt;
                 </h2>
               </div>
             </div>
 
-            <div className="flex flex-col gap-6">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               {/* Image placeholder - Projet professionnel */}
-              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <div className="formation-image">
                 <img 
                   src={CAREER_IMAGE_PLACEHOLDER}
                   alt="Projet professionnel"
-                  className="w-full h-full object-cover"
                 />
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-accent rounded-2xl p-6 lg:p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-blue-accent flex items-center justify-center text-white">
+              <div className="card-formation">
+                <div className="card-formation-header">
+                  <div className="card-formation-icon">
                     <Code size={24} />
                   </div>
-                  <h3 className="font-helvetica font-bold text-[24px] lg:text-[28px] text-black">
+                  <h3 className="card-formation-title">
                     {t('careers.main.title')}
                   </h3>
                 </div>
 
-                <p className="font-helvetica text-[15px] lg:text-[17px] leading-[1.7] text-gray-700 mb-6">
+                <p className="formation-info-text" style={{ marginBottom: '24px' }}>
                   {t('careers.main.description')}
                 </p>
 
-                <div className="space-y-4">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div>
-                    <h4 className="font-helvetica font-bold text-[16px] text-black mb-2">
+                    <h4 style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, fontSize: '16px', color: '#000000', marginBottom: '8px' }}>
                       {t('careers.main.missions_title')}
                     </h4>
-                    <p className="font-helvetica text-[15px] lg:text-[16px] leading-[1.6] text-gray-600">
+                    <p className="card-skill-text">
                       {t('careers.main.missions_text')}
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="font-helvetica font-bold text-[16px] text-black mb-2">
+                    <h4 style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, fontSize: '16px', color: '#000000', marginBottom: '8px' }}>
                       {t('careers.main.skills_title')}
                     </h4>
-                    <p className="font-helvetica text-[15px] lg:text-[16px] leading-[1.6] text-gray-600 mb-6">
+                    <p className="card-skill-text" style={{ marginBottom: '24px' }}>
                       {t('careers.main.skills_text')}
                     </p>
                   </div>
                 </div>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 font-helvetica font-medium text-[15px] text-blue-accent hover:text-blue-600 transition-colors"
+                  className="formation-link"
                 >
                   {t('careers.see_more')}
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -174,11 +172,11 @@ export function Formation() {
                 </a>
               </div>
 
-              <div className="bg-gray-50 rounded-2xl p-6 lg:p-8">
-                <h4 className="font-helvetica font-bold text-[18px] text-black mb-4">
+              <div className="formation-info-box">
+                <h4 className="formation-info-title">
                   {t('careers.vision.title')}
                 </h4>
-                <p className="font-helvetica text-[15px] lg:text-[17px] leading-[1.7] text-gray-700">
+                <p className="formation-info-text">
                   {t('careers.vision.text')}
                 </p>
               </div>
@@ -187,22 +185,22 @@ export function Formation() {
         </div>
 
         {/* TechWatch Section */}
-        <div className="mt-[100px]">
+        <div style={{ marginTop: '100px' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="section-header"
           >
-            <div className="flex flex-col items-center mb-4">
-              <h2 className="font-ppneuebit text-[50px] lg:text-[58px] leading-[1.1] text-black mb-2">
+            <div className="section-header-title">
+              <h2 className="title-section">
                 &lt;veille_informationnelle&gt;
               </h2>
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="techwatch-grid">
             {[
               {
                 icon: Bot,
@@ -234,34 +232,33 @@ export function Formation() {
                   className="flex flex-col gap-6"
                 >
                   {/* Image placeholder - Veille informationnelle */}
-                  <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.08)] group">
+                  <div className="formation-image image-placeholder-hover">
                     <img 
                       src={FORMATION_IMAGE_PLACEHOLDER}
                       alt={tTechWatch(topic.titleKey)}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                   </div>
 
-                  <div className={`bg-gradient-to-br ${topic.gradient} border-2 ${topic.borderColor} rounded-2xl p-6 lg:p-8`}>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className={`w-12 h-12 rounded-xl ${topic.iconBg} flex items-center justify-center text-white`}>
+                  <div className="card-formation">
+                    <div className="card-formation-header">
+                      <div className="card-formation-icon">
                         <IconComponent size={24} />
                       </div>
-                      <h3 className="font-helvetica font-bold text-[24px] lg:text-[28px] text-black">
+                      <h3 className="card-formation-title">
                         {tTechWatch(topic.titleKey)}
                       </h3>
                     </div>
 
-                    <p className="font-helvetica text-[15px] lg:text-[17px] leading-[1.7] text-gray-700 mb-6">
+                    <p className="formation-info-text" style={{ marginBottom: '24px' }}>
                       {tTechWatch(topic.descriptionKey)}
                     </p>
 
                     {/* Resources Section */}
-                    <div className="space-y-4">
-                      <h4 className="font-helvetica font-semibold text-[16px] text-black mb-3">
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                      <h4 style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 600, fontSize: '16px', color: '#000000', marginBottom: '12px' }}>
                         Ressources
                       </h4>
-                      <div className="space-y-3">
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                         {tTechWatch.raw(topic.resourcesKey).map((resource: any, resourceIndex: number) => (
                           <a
                             key={resourceIndex}
@@ -269,31 +266,31 @@ export function Formation() {
                             target={resource.url ? '_blank' : undefined}
                             rel={resource.url ? 'noopener noreferrer' : undefined}
                             download={resource.downloadUrl ? true : undefined}
-                            className="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white transition-all duration-200 group border border-transparent hover:border-blue-accent/30"
+                            className="techwatch-resource"
                           >
-                            <div className="w-8 h-8 rounded-lg bg-blue-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-accent transition-colors">
+                            <div className="techwatch-resource-icon-wrapper">
                               {resource.type === 'article' && (
-                                <ExternalLink size={16} className="text-blue-accent group-hover:text-white transition-colors" />
+                                <ExternalLink size={16} className="techwatch-resource-icon" />
                               )}
                               {resource.type === 'note' && (
-                                <FileText size={16} className="text-blue-accent group-hover:text-white transition-colors" />
+                                <FileText size={16} className="techwatch-resource-icon" />
                               )}
                               {resource.type === 'reading' && (
-                                <BookOpen size={16} className="text-blue-accent group-hover:text-white transition-colors" />
+                                <BookOpen size={16} className="techwatch-resource-icon" />
                               )}
                             </div>
-                            <div className="flex-1 min-w-0">
-                              <p className="font-helvetica font-medium text-[15px] text-gray-900 group-hover:text-blue-accent transition-colors">
+                            <div className="techwatch-resource-content">
+                              <p className="techwatch-resource-title">
                                 {resource.title}
                               </p>
                               {resource.description && (
-                                <p className="font-helvetica text-[13px] text-gray-500 mt-0.5">
+                                <p className="techwatch-resource-description">
                                   {resource.description}
                                 </p>
                               )}
                             </div>
                             {resource.downloadUrl && (
-                              <Download size={16} className="text-gray-400 group-hover:text-blue-accent transition-colors flex-shrink-0" />
+                              <Download size={16} className="techwatch-resource-download" />
                             )}
                           </a>
                         ))}
@@ -303,6 +300,7 @@ export function Formation() {
                 </motion.div>
               );
             })}
+            </div>
           </div>
         </div>
       </div>
