@@ -94,7 +94,7 @@ export function Portfolio() {
     : projects.filter(p => p.category === activeCategory);
 
   return (
-    <Section id="projects" background="white" className="!py-[80px] lg:!py-[100px]">
+    <Section id="projects" background="white" className="!py-[120px] lg:!py-[140px]" withSubtleSeparator>
       <div className="max-w-screen-xl mx-auto px-[20px] lg:px-[40px]">
         {/* Section Header */}
         <div className="text-center mb-[60px]">

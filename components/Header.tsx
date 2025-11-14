@@ -9,7 +9,7 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 function Company() {
   return (
     <a href="#" className="flex gap-2 items-center cursor-pointer" data-name="Company">
-      <div className="font-ppneuebit text-[27px] leading-[1.45] tracking-tighter-2 transition-transform hover:scale-105" style={{ color: 'var(--theme-text-primary)', transition: 'color 0.4s ease-out' }}>
+      <div className="font-ppneuebit text-[27px] leading-[1.45] tracking-tighter-2 text-black transition-transform hover:scale-105">
         <p>&lt;aina joy&gt;</p>
       </div>
     </a>
@@ -54,13 +54,9 @@ function NavLinks({ activeSection }: { activeSection: string }) {
           key={item.key}
           href={item.href}
           onClick={(e) => handleClick(e, item.href)}
-          className="font-helvetica font-medium text-[15px] tracking-tight whitespace-nowrap transition-colors"
-          style={{ 
-            color: activeSection === item.key ? 'var(--theme-text-primary)' : 'var(--theme-text-tertiary)',
-            transition: 'color 0.4s ease-out'
-          }}
-          onMouseEnter={(e) => e.currentTarget.style.color = 'var(--theme-text-primary)'}
-          onMouseLeave={(e) => e.currentTarget.style.color = activeSection === item.key ? 'var(--theme-text-primary)' : 'var(--theme-text-tertiary)'}
+          className={`font-helvetica font-medium text-[15px] tracking-tight whitespace-nowrap transition-colors ${
+            activeSection === item.key ? 'text-black' : 'text-gray-neutral hover:text-black'
+          }`}
         >
           {t(item.key)}
         </a>
@@ -125,14 +121,13 @@ export function Header() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white' : 'bg-transparent'
+      }`}
       style={{
-        backgroundColor: isScrolled ? 'var(--theme-surface)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(10px)' : 'none',
         boxShadow: isScrolled 
           ? '0 2px 12px rgba(109, 191, 255, 0.06)' 
-          : 'none',
-        transition: 'background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.3s ease'
+          : 'none'
       }}
       data-name="Header 1"
     >
