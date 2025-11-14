@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Component Library */
+@import './components.css';
+
 @font-face {
   font-family: 'PP NeueBit';
   src: url('/assets/fonts/ppneuebit-bold.otf') format('opentype');

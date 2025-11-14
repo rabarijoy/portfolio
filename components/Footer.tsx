@@ -4,85 +4,85 @@ import { Mail, Phone, Linkedin, Github, MapPin } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="relative bg-white font-helvetica">
+    <footer className="footer">
       {/* Ligne noire de séparation en haut */}
-      <div className="max-w-screen-xl mx-auto px-[20px] lg:px-[40px]">
-        <div className="w-full h-[5px] bg-black" />
+      <div className="footer-separator">
+        <div className="footer-separator-line" />
       </div>
 
       {/* Contenu du footer */}
-      <div className="relative z-10 overflow-hidden">
-        <div className="max-w-screen-xl mx-auto px-[20px] lg:px-[40px] py-8 lg:py-10">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-8">
-          {/* Colonne gauche */}
-          <div className="flex flex-col gap-4">
-            <div>
-              <h3 className="font-helvetica font-bold text-[20px] lg:text-[22px] text-black mb-2">
-                Aina Joy Rabarijaona
-              </h3>
-              <div className="flex items-center gap-2 text-gray-600">
-                <MapPin size={16} className="text-gray-500" />
-                <span className="font-helvetica text-[15px] lg:text-[16px]">
-                  Antananarivo, Madagascar
-                </span>
+      <div className="footer-content">
+        <div className="footer-inner">
+          <div className="footer-grid">
+            {/* Colonne gauche */}
+            <div className="footer-left">
+              <div>
+                <h3 className="footer-name">
+                  Aina Joy Rabarijaona
+                </h3>
+                <div className="footer-location">
+                  <MapPin size={16} className="footer-location-icon" />
+                  <span className="footer-location-text">
+                    Antananarivo, Madagascar
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Colonne droite */}
-          <div className="flex flex-col gap-3">
-            {/* Contact */}
-            <div className="flex flex-col gap-3">
-              <a 
-                href="mailto:rabarijaonajoy@gmail.com" 
-                className="flex items-center gap-2 text-gray-700 hover:text-blue-accent transition-colors group"
-              >
-                <Mail size={16} className="text-gray-500 group-hover:text-blue-accent transition-colors" />
-                <span className="font-helvetica text-[15px] lg:text-[16px]">
-                  rabarijaonajoy@gmail.com
-                </span>
-              </a>
-              
-              <a 
-                href="tel:+261343260892" 
-                className="flex items-center gap-2 text-gray-700 hover:text-blue-accent transition-colors group"
-              >
-                <Phone size={16} className="text-gray-500 group-hover:text-blue-accent transition-colors" />
-                <span className="font-helvetica text-[15px] lg:text-[16px]">
-                  +261 34 32 608 92
-                </span>
-              </a>
-            </div>
+            {/* Colonne droite */}
+            <div className="footer-right">
+              {/* Contact */}
+              <div className="footer-contact-group">
+                <a 
+                  href="mailto:rabarijaonajoy@gmail.com" 
+                  className="footer-link"
+                >
+                  <Mail size={16} className="footer-link-icon" />
+                  <span className="footer-link-text">
+                    rabarijaonajoy@gmail.com
+                  </span>
+                </a>
+                
+                <a 
+                  href="tel:+261343260892" 
+                  className="footer-link"
+                >
+                  <Phone size={16} className="footer-link-icon" />
+                  <span className="footer-link-text">
+                    +261 34 32 608 92
+                  </span>
+                </a>
+              </div>
 
-            {/* Réseaux sociaux */}
-            <div className="flex items-center gap-4">
-              <a
-                href="https://www.linkedin.com/in/joyrabari"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-700 hover:text-blue-accent transition-colors group"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} className="text-gray-500 group-hover:text-blue-accent transition-colors" />
-                <span className="font-helvetica text-[15px] lg:text-[16px]">
-                  LinkedIn
-                </span>
-              </a>
-              
-              <a
-                href="https://github.com/rabarijoy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-700 hover:text-blue-accent transition-colors group"
-                aria-label="GitHub"
-              >
-                <Github size={18} className="text-gray-500 group-hover:text-blue-accent transition-colors" />
-                <span className="font-helvetica text-[15px] lg:text-[16px]">
-                  GitHub
-                </span>
-              </a>
+              {/* Réseaux sociaux */}
+              <div className="footer-social">
+                <a
+                  href="https://www.linkedin.com/in/joyrabari"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={18} className="footer-link-icon" />
+                  <span className="footer-link-text">
+                    LinkedIn
+                  </span>
+                </a>
+                
+                <a
+                  href="https://github.com/rabarijoy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                  aria-label="GitHub"
+                >
+                  <Github size={18} className="footer-link-icon" />
+                  <span className="footer-link-text">
+                    GitHub
+                  </span>
+                </a>
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
