@@ -151,7 +151,7 @@ export function TechStackGrid() {
     };
 
     updateAnimations();
-  }, [mousePos]);
+  }, [mousePos, technologies]);
 
   return (
     <div className="tech-stack-container">
@@ -183,6 +183,10 @@ export function TechStackGrid() {
                   }
                 }}
                 className="tech-stack-icon-wrapper"
+                style={{
+                  opacity: 0,
+                  transform: 'scale(0.8)',
+                }}
               >
                 <IconComponent size={32} className="tech-stack-icon" />
               </div>
