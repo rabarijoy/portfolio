@@ -103,11 +103,18 @@
 /* Card Title - Apple Style (for project cards) */
 .title-card-apple {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 28px;
-  font-weight: 600;
+  font-size: 32px;
+  font-weight: 700;
   color: #ffffff;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+@media (min-width: 1024px) {
+  .title-card-apple {
+    font-size: 36px;
+  }
 }
 
 /* Card Description */
@@ -122,11 +129,49 @@
 /* Card Description - Apple Style (for project cards) */
 .text-card-description-apple {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
-  margin-bottom: 0;
+  line-height: 1.6;
+  margin-bottom: 16px;
   font-weight: 400;
+}
+
+@media (min-width: 1024px) {
+  .text-card-description-apple {
+    font-size: 17px;
+  }
+}
+
+/* Card Click Indicator */
+.card-project-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card-project:hover .card-project-indicator {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 1);
+  transform: translateX(4px);
+}
+
+.card-project-indicator-icon {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.card-project:hover .card-project-indicator-icon {
+  transform: translateX(2px);
 }
 
 /* Section Subtitle */
@@ -345,6 +390,36 @@
 .card-project:hover .card-project-content {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Mobile and Tablet: Always show hover state */
+@media (max-width: 1023px) {
+  .card-project-overlay {
+    opacity: 1;
+  }
+
+  .card-project-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-project:hover .card-project-overlay {
+    opacity: 1;
+  }
+
+  .card-project:hover .card-project-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-project:hover .card-project-image img {
+    transform: scale(1);
+  }
+
+  .card-project:hover {
+    transform: scale(1);
+    box-shadow: none;
+  }
 }
 
 /* Skill Card */

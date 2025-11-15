@@ -151,6 +151,11 @@ export function Portfolio() {
                 <p className="text-card-description-apple">
                   {project.description}
                 </p>
+                {/* Click Indicator */}
+                <div className="card-project-indicator">
+                  <span>Voir le projet</span>
+                  <span className="card-project-indicator-icon">→</span>
+                </div>
               </div>
             </motion.a>
           ))}
