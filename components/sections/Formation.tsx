@@ -83,12 +83,14 @@ export function Formation() {
                   href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-services-informatiques-aux-organisations-option-b-solutions-logicielles-et-applications-metiers"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="formation-link"
+                  className="btn-tertiary"
                 >
-                  {t('training.see_more')}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
+                  <span>{t('training.see_more')}</span>
+                  <span className="btn-tertiary-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </span>
                 </a>
               </div>
 
@@ -163,12 +165,14 @@ export function Formation() {
                 </div>
                 <a
                   href="#"
-                  className="formation-link"
+                  className="btn-tertiary"
                 >
-                  {t('careers.see_more')}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
+                  <span>{t('careers.see_more')}</span>
+                  <span className="btn-tertiary-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </span>
                 </a>
               </div>
 
