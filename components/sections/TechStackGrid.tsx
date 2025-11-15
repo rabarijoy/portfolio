@@ -3,14 +3,14 @@
 import { useState, useEffect, useRef } from 'react';
 import {
   SiHtml5, SiCss3, SiJavascript, SiPhp, SiJava, SiCsharp,
-  SiReact, SiSymfony, SiTailwindcss, SiAlpinejs, SiPhoenixframework,
+  SiReact, SiSymfony, SiTailwindcss,
   SiPostgresql, SiSqlite,
   SiGit, SiGithub, SiGitlab, SiNpm, SiDocker,
-  SiWordpress, SiDrupal, SiWebflow, SiFramer,
+  SiWordpress, SiDrupal, SiWebflow,
   SiJson, SiVercel, SiFigma,
 } from 'react-icons/si';
 import { 
-  Database, Package, Box, Globe, FileJson, Zap, Code2, Layers
+  Database, Package, Box, Globe, FileJson, Zap, Code2, Layers, Flame
 } from 'lucide-react';
 
 interface TechItem {
@@ -48,9 +48,9 @@ export function TechStackGrid() {
     { id: 'react', name: 'React', color: '#61DAFB', icon: SiReact },
     { id: 'symfony', name: 'Symfony', color: '#000000', icon: SiSymfony },
     { id: 'tailwind', name: 'Tailwind', color: '#06B6D4', icon: SiTailwindcss },
-    { id: 'alpine', name: 'Alpine.js', color: '#8BC0D0', icon: SiAlpinejs },
-    { id: 'phoenix', name: 'Phoenix', color: '#FD4F00', icon: SiPhoenixframework },
-    { id: 'phoenix-live', name: 'LiveView', color: '#FD4F00', icon: SiPhoenixframework },
+    { id: 'alpine', name: 'Alpine.js', color: '#8BC0D0', icon: Code2 },
+    { id: 'phoenix', name: 'Phoenix', color: '#FD4F00', icon: Flame },
+    { id: 'phoenix-live', name: 'LiveView', color: '#FD4F00', icon: Flame },
     
     // Bases de données
     { id: 'postgresql', name: 'PostgreSQL', color: '#336791', icon: SiPostgresql },
@@ -69,7 +69,7 @@ export function TechStackGrid() {
     { id: 'wordpress', name: 'WordPress', color: '#21759B', icon: SiWordpress },
     { id: 'drupal', name: 'Drupal', color: '#0678BE', icon: SiDrupal },
     { id: 'webflow', name: 'Webflow', color: '#4353FF', icon: SiWebflow },
-    { id: 'framer', name: 'Framer', color: '#0055FF', icon: SiFramer },
+    { id: 'framer', name: 'Framer', color: '#0055FF', icon: Layers },
     
     // APIs & Formats
     { id: 'rest', name: 'REST API', color: '#FF6B6B', icon: Zap },
