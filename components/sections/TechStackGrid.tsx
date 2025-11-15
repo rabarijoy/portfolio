@@ -162,19 +162,41 @@ export function TechStackGrid() {
 
   const getOpacity = (iconX: number, iconY: number) => {
     const distance = getDistance(mousePos.x, mousePos.y, iconX, iconY);
-    const threshold = 150;
+    const threshold = 200; // Augmenté pour inclure les carrés adjacents
+    const closeThreshold = 80; // Zone très proche (carré directement sous le curseur)
     
-    if (distance > threshold) return 0;
-    return 1 - (distance / threshold);
+    // Carré directement sous le curseur : opacité maximale
+    if (distance <= closeThreshold) return 1;
+    
+    // Carrés adjacents : opacité élevée avec transition fluide
+    if (distance <= threshold) {
+      // Opacité minimale de 0.7 pour les carrés adjacents, maximale pour le proche
+      const baseOpacity = 0.7;
+      const additionalOpacity = (1 - baseOpacity) * (1 - (distance - closeThreshold) / (threshold - closeThreshold));
+      return baseOpacity + additionalOpacity;
+    }
+    
+    // Carrés lointains : invisibles
+    return 0;
   };
 
   const getScale = (iconX: number, iconY: number) => {
     const distance = getDistance(mousePos.x, mousePos.y, iconX, iconY);
-    const threshold = 150;
+    const threshold = 200;
+    const closeThreshold = 80;
     
-    if (distance > threshold) return 0.8;
-    const scale = 0.8 + (1 - distance / threshold) * 0.3;
-    return Math.min(scale, 1.1);
+    // Carré directement sous le curseur : scale maximal
+    if (distance <= closeThreshold) return 1.15;
+    
+    // Carrés adjacents : scale élevé
+    if (distance <= threshold) {
+      const baseScale = 0.95;
+      const additionalScale = (1.15 - baseScale) * (1 - (distance - closeThreshold) / (threshold - closeThreshold));
+      return baseScale + additionalScale;
+    }
+    
+    // Carrés lointains : scale réduit
+    return 0.7;
   };
 
   return (

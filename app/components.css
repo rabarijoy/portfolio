@@ -771,7 +771,7 @@
   height: 80vh;
   min-height: 500px;
   max-height: 90vh;
-  background-color: #f9fafb;
+  background-color: transparent;
   overflow: hidden;
 }
 
@@ -784,7 +784,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease-out;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
