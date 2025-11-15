@@ -39,7 +39,6 @@ export function TechStackGrid() {
 
   const gridCols = 6; // Nombre de colonnes réduit
   const gridRows = 8; // Nombre de lignes
-  const cellSize = 140; // Taille des cellules agrandie
 
   useEffect(() => {
     const updatePadding = () => {
@@ -168,7 +167,7 @@ export function TechStackGrid() {
 
   useEffect(() => {
     setIcons(calculateIcons());
-  }, [horizontalPadding, gridCols, gridRows, cellSize]);
+  }, [horizontalPadding, gridCols, gridRows]);
 
   const getDistance = (x1: number, y1: number, x2: number, y2: number) => {
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
