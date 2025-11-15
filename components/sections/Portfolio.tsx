@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Code2, Database, TestTube, GitBranch, FileCode, Layers } from 'lucide-react';
 import { Section } from '../ui/Section';
+import { TechStackGrid } from './TechStackGrid';
 
 // Image placeholder - À remplacer par les vraies images des projets
 const PROJECT_IMAGE_PLACEHOLDER = 'https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44b09ba67a96c63cc2c2ad4b.jpg';
@@ -19,7 +19,6 @@ interface Project {
 
 export function Portfolio() {
   const t = useTranslations('portfolio');
-  const tSkills = useTranslations('skills');
   const [activeCategory, setActiveCategory] = useState('all');
 
   const categories = [
@@ -162,89 +161,24 @@ export function Portfolio() {
           </a>
         </div>
 
-        {/* Skills Section */}
-        <div className="skills-section">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="section-header"
-          >
-            <div className="section-header-title">
-              <h2 className="title-section">
-                &lt;compétences&gt;
-              </h2>
-            </div>
-          </motion.div>
+         {/* Tech Stack Grid Section */}
+         <div className="skills-section">
+           <motion.div
+             initial={{ opacity: 0, y: 30 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.6 }}
+             className="section-header"
+           >
+             <div className="section-header-title">
+               <h2 className="title-section">
+                 &lt;compétences&gt;
+               </h2>
+             </div>
+           </motion.div>
 
-          <div className="grid-skills">
-            {[
-              {
-                icon: Code2,
-                titleKey: 'languages.title',
-                itemsKey: 'languages.items',
-              },
-              {
-                icon: Layers,
-                titleKey: 'development.title',
-                itemsKey: 'development.items',
-              },
-              {
-                icon: Database,
-                titleKey: 'databases.title',
-                itemsKey: 'databases.items',
-              },
-              {
-                icon: TestTube,
-                titleKey: 'quality.title',
-                itemsKey: 'quality.items',
-              },
-              {
-                icon: FileCode,
-                titleKey: 'design.title',
-                itemsKey: 'design.items',
-              },
-              {
-                icon: GitBranch,
-                titleKey: 'collaboration.title',
-                itemsKey: 'collaboration.items',
-              },
-            ].map((category, index) => {
-              const IconComponent = category.icon;
-              return (
-                <motion.div
-                  key={category.titleKey}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="card-skill"
-                >
-                  <div className="card-skill-header">
-                    <div className="card-skill-icon">
-                      <IconComponent size={24} />
-                    </div>
-                    <h3 className="card-skill-title">
-                      {tSkills(category.titleKey)}
-                    </h3>
-                  </div>
-
-                  <ul className="card-skill-list">
-                    {tSkills.raw(category.itemsKey).map((item: string, itemIndex: number) => (
-                      <li key={itemIndex} className="card-skill-item">
-                        <div className="card-skill-bullet" />
-                        <span className="card-skill-text">
-                          {item}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
+           <TechStackGrid />
+         </div>
       </div>
     </Section>
   );
