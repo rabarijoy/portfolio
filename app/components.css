@@ -215,15 +215,16 @@
 /* Section Subtitle */
 .subtitle-section {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b7280;
+  margin-bottom: 0;
+  margin-top: 8px;
 }
 
 @media (min-width: 1024px) {
   .subtitle-section {
-    font-size: 22px;
+    font-size: 18px;
   }
 }
 
