@@ -38,6 +38,7 @@ export function TechStackGrid() {
   }, []);
 
   // Calculer dynamiquement le nombre de colonnes en fonction de l'espace disponible
+  // avec un gap de 5px et en alignant les carrés extérieurs avec les limites
   const calculateGridCols = (): number => {
     if (typeof window === 'undefined') return 6;
     const containerMaxWidth = 1280;
@@ -46,11 +47,15 @@ export function TechStackGrid() {
     const padding = viewportWidth >= 1024 ? 40 : 20;
     const availableWidth = actualWidth - (padding * 2);
     const squareSize = 120;
-    const gap = 5;
+    const targetGap = 5;
     
-    // Calculer combien de carrés peuvent tenir : (availableWidth + gap) / (squareSize + gap)
-    const maxCols = Math.floor((availableWidth + gap) / (squareSize + gap));
-    return Math.max(4, Math.min(maxCols, 8)); // Entre 4 et 8 colonnes
+    // Calculer combien de carrés peuvent tenir avec le gap cible
+    // availableWidth = n * squareSize + (n - 1) * gap
+    // availableWidth = n * squareSize + n * gap - gap
+    // availableWidth + gap = n * (squareSize + gap)
+    // n = (availableWidth + gap) / (squareSize + gap)
+    const maxCols = Math.floor((availableWidth + targetGap) / (squareSize + targetGap));
+    return Math.max(4, Math.min(maxCols, 10)); // Entre 4 et 10 colonnes
   };
 
   const [gridCols, setGridCols] = useState(6);
@@ -132,6 +137,7 @@ export function TechStackGrid() {
     // Largeur totale disponible pour la grille
     const gridTotalWidth = rightEdge - leftEdge;
     const squareSize = 120; // Taille des carrés en CSS
+    const targetGap = 5; // Gap cible de 5px
     
     // Calculer le gap pour que les carrés extérieurs soient alignés avec les limites
     // Le premier carré commence au padding gauche, le dernier se termine au padding droit
@@ -142,6 +148,7 @@ export function TechStackGrid() {
       : 0;
     
     // Position de départ : centre du premier carré (aligné à gauche)
+    // Le bord gauche du premier carré est à leftEdge
     const startX = leftEdge + squareSize / 2;
     
     // Position verticale : centrer dans le conteneur
