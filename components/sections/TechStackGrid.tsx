@@ -116,17 +116,25 @@ export function TechStackGrid() {
     // Largeur totale disponible pour la grille
     const gridTotalWidth = rightEdge - leftEdge;
     
-    // Espacement entre les carrés - calculé horizontalement pour remplir toute la largeur
+    // Espacement fixe entre les carrés
+    const gapBetweenSquares = 5; // Espacement régulier de 5px
     const squareSize = 120; // Taille des carrés en CSS
-    const totalSquaresWidth = gridCols * squareSize;
-    const gapBetweenSquares = (gridTotalWidth - totalSquaresWidth) / (gridCols - 1);
     
-    // Position de départ horizontale : le centre du premier carré (aligné à gauche)
-    const startX = leftEdge + squareSize / 2;
+    // Calculer la largeur totale de la grille avec le gap fixe
+    const gridWidthWithGap = gridCols * squareSize + (gridCols - 1) * gapBetweenSquares;
     
-    // Position de départ verticale : utiliser le même espacement que l'horizontal
+    // Centrer la grille horizontalement
+    const startX = leftEdge + (gridTotalWidth - gridWidthWithGap) / 2 + squareSize / 2;
+    
+    // Position verticale : centrer dans le conteneur
+    const containerHeight = typeof window !== 'undefined' 
+      ? Math.min(window.innerHeight * 0.8, 90 * window.innerHeight / 100) 
+      : 800;
     const topPadding = 50;
-    const startY = topPadding + squareSize / 2;
+    const bottomPadding = 100; // Pour le hint
+    const availableHeight = containerHeight - topPadding - bottomPadding;
+    const gridHeightWithGap = gridRows * squareSize + (gridRows - 1) * gapBetweenSquares;
+    const startY = topPadding + (availableHeight - gridHeightWithGap) / 2 + squareSize / 2;
 
     const icons: GridIcon[] = [];
     for (let row = 0; row < gridRows; row++) {
@@ -136,9 +144,9 @@ export function TechStackGrid() {
         const techIndex = (row * gridCols + col) % techList.length;
         const tech = techList[techIndex];
 
-        // Position X : startX + (col * (taille carré + gap))
+        // Position X : startX + (col * (taille carré + gap uniforme))
         const x = startX + col * (squareSize + gapBetweenSquares);
-        // Position Y : startY + (row * (taille carré + gap)) - même espacement que l'horizontal
+        // Position Y : startY + (row * (taille carré + gap uniforme))
         const y = startY + row * (squareSize + gapBetweenSquares);
 
         icons.push({
