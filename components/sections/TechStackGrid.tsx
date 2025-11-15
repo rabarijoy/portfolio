@@ -224,21 +224,46 @@ export function TechStackGrid() {
   const containerContentLeft = containerLeftEdge + containerPadding;
   const startX = containerContentLeft + gridTotalWidth / 2;
 
+  // Calculer le nombre total de cases nécessaires pour un rectangle parfait
+  const totalCells = gridConfig.cols * gridConfig.rows;
   const icons: GridIcon[] = [];
+  
+  // Créer les cases avec icônes (35 au maximum)
   for (let i = 0; i < 35; i++) {
     const row = Math.floor(i / gridConfig.cols);
     const col = i % gridConfig.cols;
-    const special = specialIcons[i.toString()];
-    const techIndex = i % techList.length;
-    const tech = techList[techIndex];
+    
+    // Vérifier si cette case est dans les limites de la grille
+    if (row < gridConfig.rows && col < gridConfig.cols) {
+      const special = specialIcons[i.toString()];
+      const techIndex = i % techList.length;
+      const tech = techList[techIndex];
+      
+      icons.push({
+        id: i,
+        x: startX - gridTotalWidth / 2 + col * (cellSize + gap) + cellSize / 2,
+        y: row * (cellSize + gap) + cellSize / 2 + startY,
+        bg: special?.bg || tech.color,
+        icon: special?.icon || tech.icon,
+        color: special?.color || '#ffffff',
+        isEmpty: false,
+      });
+    }
+  }
+  
+  // Compléter avec des cases vides si nécessaire
+  for (let i = 35; i < totalCells; i++) {
+    const row = Math.floor(i / gridConfig.cols);
+    const col = i % gridConfig.cols;
     
     icons.push({
       id: i,
       x: startX - gridTotalWidth / 2 + col * (cellSize + gap) + cellSize / 2,
       y: row * (cellSize + gap) + cellSize / 2 + startY,
-      bg: special?.bg || tech.color,
-      icon: special?.icon || tech.icon,
-      color: special?.color || '#ffffff',
+      bg: '#9ca3af', // Gris pour les cases vides
+      icon: () => null, // Pas d'icône
+      color: '#ffffff',
+      isEmpty: true,
     });
   }
 
@@ -247,7 +272,9 @@ export function TechStackGrid() {
   };
 
   // Calculer les distances et trier pour trouver les 5 plus proches
-  const iconsWithDistance = icons.map(icon => ({
+  // Exclure les cases vides du calcul de distance
+  const activeIcons = icons.filter(icon => !icon.isEmpty);
+  const iconsWithDistance = activeIcons.map(icon => ({
     ...icon,
     distance: getDistance(mousePos.x, mousePos.y, icon.x, icon.y)
   })).sort((a, b) => (a.distance || 0) - (b.distance || 0));
@@ -266,6 +293,27 @@ export function TechStackGrid() {
     <div className="tech-stack-absolute-container">
       {/* Carrés de fond gris qui clignotent */}
       {icons.map((icon) => {
+        // Les cases vides sont toujours visibles et ne clignotent pas
+        if (icon.isEmpty) {
+          return (
+            <div
+              key={`bg-${icon.id}`}
+              className="tech-stack-background-square"
+              style={{
+                left: `${icon.x}px`,
+                top: `${icon.y}px`,
+                width: `${cellSize}px`,
+                height: `${cellSize}px`,
+                transform: 'translate(-50%, -50%)',
+                opacity: 0.18, // Opacité fixe pour les cases vides
+                backgroundColor: '#9ca3af',
+                boxShadow: 'none',
+                pointerEvents: 'none', // Pas d'interaction
+              }}
+            />
+          );
+        }
+        
         const isVisible = closestFive.has(icon.id);
         const isBlink = blinkStates[icon.id];
         
@@ -289,6 +337,11 @@ export function TechStackGrid() {
       
       {/* Icônes colorées qui apparaissent au hover */}
       {icons.map((icon) => {
+        // Les cases vides n'ont pas d'icône colorée
+        if (icon.isEmpty) {
+          return null;
+        }
+        
         const isVisible = closestFive.has(icon.id);
         const opacity = isVisible ? 1 : 0;
         const scale = isVisible ? 1 : 0.8;
