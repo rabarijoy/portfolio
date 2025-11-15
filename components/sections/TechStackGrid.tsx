@@ -101,34 +101,43 @@ export function TechStackGrid() {
     '1-5': { bg: '#E34F26', icon: SiHtml5, color: '#ffffff' },
   };
 
-  // Calculer la largeur disponible et centrer la grille
-  const containerMaxWidth = 1280;
-  const availableWidth = typeof window !== 'undefined' 
-    ? Math.min(window.innerWidth, containerMaxWidth) - (horizontalPadding * 2)
-    : containerMaxWidth - (horizontalPadding * 2);
-  const gridWidth = gridCols * cellSize;
-  const startX = (availableWidth - gridWidth) / 2 + horizontalPadding;
+  // Calculer les positions des icônes
+  const calculateIcons = (): GridIcon[] => {
+    const containerMaxWidth = 1280;
+    const availableWidth = typeof window !== 'undefined' 
+      ? Math.min(window.innerWidth, containerMaxWidth) - (horizontalPadding * 2)
+      : containerMaxWidth - (horizontalPadding * 2);
+    const gridWidth = gridCols * cellSize;
+    const startX = (availableWidth - gridWidth) / 2 + horizontalPadding;
 
-  const icons: GridIcon[] = [];
-  for (let row = 0; row < gridRows; row++) {
-    for (let col = 0; col < gridCols; col++) {
-      const key = `${row}-${col}`;
-      const special = specialIcons[key];
-      const techIndex = (row * gridCols + col) % techList.length;
-      const tech = techList[techIndex];
+    const icons: GridIcon[] = [];
+    for (let row = 0; row < gridRows; row++) {
+      for (let col = 0; col < gridCols; col++) {
+        const key = `${row}-${col}`;
+        const special = specialIcons[key];
+        const techIndex = (row * gridCols + col) % techList.length;
+        const tech = techList[techIndex];
 
-      icons.push({
-        id: key,
-        row,
-        col,
-        x: startX + col * cellSize + cellSize / 2,
-        y: row * cellSize + cellSize / 2 + 50,
-        bg: special?.bg || tech.color,
-        icon: special?.icon || tech.icon,
-        color: special?.color || '#ffffff',
-      });
+        icons.push({
+          id: key,
+          row,
+          col,
+          x: startX + col * cellSize + cellSize / 2,
+          y: row * cellSize + cellSize / 2 + 50,
+          bg: special?.bg || tech.color,
+          icon: special?.icon || tech.icon,
+          color: special?.color || '#ffffff',
+        });
+      }
     }
-  }
+    return icons;
+  };
+
+  const [icons, setIcons] = useState<GridIcon[]>([]);
+
+  useEffect(() => {
+    setIcons(calculateIcons());
+  }, [horizontalPadding]);
 
   const getDistance = (x1: number, y1: number, x2: number, y2: number) => {
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
