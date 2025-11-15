@@ -352,6 +352,12 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* GitHub Button Container */
+.github-button-container {
+  text-align: center;
+  margin-top: 60px;
+}
+
 /* ============================================
    3. CARDS & CONTAINERS
    ============================================ */
@@ -733,6 +739,11 @@
   .grid-projects {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* Skills Section */
+.skills-section {
+  margin-top: 100px;
 }
 
 .grid-skills {
