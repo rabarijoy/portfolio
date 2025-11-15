@@ -146,8 +146,7 @@ export function TechStackGrid() {
 
   return (
     <div className="tech-stack-container">
-      <div className="container">
-        <div className="tech-stack-grid">
+      <div className="tech-stack-grid">
         {technologies.map((tech) => {
           const IconComponent = tech.icon;
           return (
@@ -167,7 +166,6 @@ export function TechStackGrid() {
             </div>
           );
         })}
-        </div>
       </div>
       
       <div className="tech-stack-hint">
