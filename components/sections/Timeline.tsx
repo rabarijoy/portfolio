@@ -110,7 +110,7 @@ export function Timeline() {
   }, []);
 
   return (
-    <Section id="timeline" background="white" className="!py-[120px] lg:!py-[140px]">
+    <Section id="timeline" background="white">
       <div className="container">
         <div className="timeline-grid">
           {/* Left: Timeline */}

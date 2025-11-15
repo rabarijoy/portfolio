@@ -60,7 +60,7 @@ export function Skills() {
   ];
 
   return (
-    <Section id="skills" background="gray" className="py-[80px]">
+    <Section id="skills" background="gray">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -14,7 +14,7 @@ export function Formation() {
   const tTechWatch = useTranslations('techWatch');
 
   return (
-    <Section id="formation" background="white" className="py-[120px] lg:py-[140px]" withSubtleSeparator>
+    <Section id="formation" background="white" withSubtleSeparator>
       <div className="container">
         <div className="formation-grid">
           {/* Colonne gauche : Ma formation */}

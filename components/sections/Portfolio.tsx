@@ -79,7 +79,7 @@ export function Portfolio() {
     : projects.filter(p => p.category === activeCategory);
 
   return (
-    <Section id="projects" background="white" className="!py-[120px] lg:!py-[140px]" withSubtleSeparator>
+    <Section id="projects" background="white" withSubtleSeparator>
       <div className="container">
         {/* Section Header */}
         <div className="section-header-center">

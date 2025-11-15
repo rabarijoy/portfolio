@@ -18,7 +18,7 @@ export function Section({ children, id, className = '', background = 'white', wi
   return (
     <section 
       id={id} 
-      className={`relative ${backgrounds[background]} ${className} ${
+      className={`section-base relative ${backgrounds[background]} ${className} ${
         withSubtleSeparator ? 'before:content-[""] before:absolute before:top-0 before:left-0 before:right-0 before:h-[0.5px] before:bg-gradient-to-r before:from-transparent before:via-gray-200/30 before:to-transparent' : ''
       }`}
     >

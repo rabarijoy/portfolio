@@ -83,7 +83,7 @@ export function Contact() {
   };
 
   return (
-    <Section id="contact" background="white" className="py-[120px] lg:py-[140px]" withSubtleSeparator>
+    <Section id="contact" background="white" withSubtleSeparator>
       <div className="max-w-screen-xl mx-auto px-[20px] lg:px-[40px]">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
