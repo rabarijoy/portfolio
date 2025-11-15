@@ -155,8 +155,10 @@
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  will-change: transform;
 }
 
 .card-project:hover .card-project-indicator {
@@ -187,10 +189,12 @@
   background-color: rgba(109, 191, 255, 0.1);
   border-radius: 20px;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(109, 191, 255, 0.2);
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
   text-decoration: none;
   cursor: pointer;
+  will-change: transform;
 }
 
 .btn-tertiary:hover {
