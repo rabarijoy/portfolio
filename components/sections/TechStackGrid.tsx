@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import {
-  SiHtml5, SiCss3, SiJavascript, SiPhp, SiJava, SiCsharp,
+  SiHtml5, SiCss3, SiJavascript, SiPhp,
   SiReact, SiSymfony, SiTailwindcss,
-  SiPostgresql, SiSqlite,
+  SiPostgresql, SiSqlite, SiClickhouse,
   SiGit, SiGithub, SiGitlab, SiNpm, SiDocker,
   SiWordpress, SiDrupal, SiWebflow,
   SiJson, SiVercel, SiFigma,
@@ -41,8 +41,8 @@ export function TechStackGrid() {
     { id: 'js', name: 'JavaScript', color: '#F7DF1E', icon: SiJavascript },
     { id: 'php', name: 'PHP', color: '#777BB4', icon: SiPhp },
     { id: 'sql', name: 'SQL', color: '#336791', icon: Database },
-    { id: 'java', name: 'Java', color: '#ED8B00', icon: SiJava },
-    { id: 'csharp', name: 'C#', color: '#239120', icon: SiCsharp },
+    { id: 'java', name: 'Java', color: '#ED8B00', icon: Code2 },
+    { id: 'csharp', name: 'C#', color: '#239120', icon: Code2 },
     
     // Frameworks
     { id: 'react', name: 'React', color: '#61DAFB', icon: SiReact },
@@ -55,7 +55,7 @@ export function TechStackGrid() {
     // Bases de données
     { id: 'postgresql', name: 'PostgreSQL', color: '#336791', icon: SiPostgresql },
     { id: 'sqlite', name: 'SQLite', color: '#003B57', icon: SiSqlite },
-    { id: 'clickhouse', name: 'ClickHouse', color: '#FFCC02', icon: Database },
+    { id: 'clickhouse', name: 'ClickHouse', color: '#FFCC02', icon: SiClickhouse },
     
     // Outils de développement
     { id: 'git', name: 'Git', color: '#F05032', icon: SiGit },
