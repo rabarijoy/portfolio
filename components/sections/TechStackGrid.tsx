@@ -23,6 +23,7 @@ interface TechItem {
 export function TechStackGrid() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+  const iconRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -89,19 +90,28 @@ export function TechStackGrid() {
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
   };
 
-  const getOpacity = (iconX: number, iconY: number) => {
+  const getIconOpacity = (iconX: number, iconY: number) => {
     const distance = getDistance(mousePos.x, mousePos.y, iconX, iconY);
-    const threshold = 180;
+    const threshold = 150;
     
-    // Cases lointaines : invisibles (opacité 0)
+    // Icônes lointaines : invisibles
     if (distance > threshold) return 0;
-    // Cases proches : opacité progressive de 0 à 1
+    // Icônes proches : opacité progressive de 0 à 1
     return 1 - (distance / threshold);
+  };
+
+  const getIconScale = (iconX: number, iconY: number) => {
+    const distance = getDistance(mousePos.x, mousePos.y, iconX, iconY);
+    const threshold = 150;
+    
+    if (distance > threshold) return 0.8;
+    const scale = 0.8 + (1 - distance / threshold) * 0.4;
+    return Math.min(scale, 1.2);
   };
 
   const getBackgroundColor = (iconX: number, iconY: number, originalColor: string) => {
     const distance = getDistance(mousePos.x, mousePos.y, iconX, iconY);
-    const threshold = 180;
+    const threshold = 150;
     
     // Si la case est loin, utiliser un gris très clair
     if (distance > threshold) {
@@ -109,15 +119,6 @@ export function TechStackGrid() {
     }
     // Sinon, utiliser la couleur originale
     return originalColor;
-  };
-
-  const getScale = (iconX: number, iconY: number) => {
-    const distance = getDistance(mousePos.x, mousePos.y, iconX, iconY);
-    const threshold = 180;
-    
-    if (distance > threshold) return 0.9;
-    const scale = 0.9 + (1 - distance / threshold) * 0.2;
-    return Math.min(scale, 1.1);
   };
 
   // Update animations on mouse move
@@ -129,14 +130,22 @@ export function TechStackGrid() {
           const iconX = rect.left + rect.width / 2;
           const iconY = rect.top + rect.height / 2;
           
-          const opacity = getOpacity(iconX, iconY);
-          const scale = getScale(iconX, iconY);
+          // Mettre à jour la couleur de fond du carré
           const tech = technologies.find(t => t.id === id);
-          const backgroundColor = tech ? getBackgroundColor(iconX, iconY, tech.color) : '#f5f5f5';
+          if (tech) {
+            const backgroundColor = getBackgroundColor(iconX, iconY, tech.color);
+            element.style.backgroundColor = backgroundColor;
+          }
           
-          element.style.opacity = opacity.toString();
-          element.style.transform = `scale(${scale})`;
-          element.style.backgroundColor = backgroundColor;
+          // Mettre à jour l'opacité et le scale de l'icône
+          const iconElement = iconRefs.current.get(id);
+          if (iconElement) {
+            const iconOpacity = getIconOpacity(iconX, iconY);
+            const iconScale = getIconScale(iconX, iconY);
+            
+            iconElement.style.opacity = iconOpacity.toString();
+            iconElement.style.transform = `scale(${iconScale})`;
+          }
         }
       });
     };
@@ -160,9 +169,23 @@ export function TechStackGrid() {
                 }
               }}
               className="tech-stack-item"
+              style={{
+                backgroundColor: '#f5f5f5', // Gris très clair par défaut
+              }}
               aria-label={tech.name}
             >
-              <IconComponent size={48} className="tech-stack-icon" />
+              <div
+                ref={(el) => {
+                  if (el) {
+                    iconRefs.current.set(tech.id, el);
+                  } else {
+                    iconRefs.current.delete(tech.id);
+                  }
+                }}
+                className="tech-stack-icon-wrapper"
+              >
+                <IconComponent size={32} className="tech-stack-icon" />
+              </div>
             </div>
           );
         })}
