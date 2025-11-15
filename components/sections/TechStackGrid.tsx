@@ -116,19 +116,21 @@ export function TechStackGrid() {
     // Largeur totale disponible pour la grille
     const gridTotalWidth = rightEdge - leftEdge;
     
-    // Espacement entre les carrés pour remplir toute la largeur
-    const squareSize = 120; // Taille des carrés en CSS
-    const totalSquaresWidth = gridCols * squareSize;
-    const gapHorizontal = (gridTotalWidth - totalSquaresWidth) / (gridCols - 1);
-    
-    // Calculer l'espacement vertical de la même manière
+    // Hauteur disponible pour la grille
     const containerHeight = typeof window !== 'undefined' 
       ? Math.min(window.innerHeight * 0.8, 90 * window.innerHeight / 100) 
-      : 800; // Fallback pour SSR
-    const topPadding = 50; // Padding vertical en haut
-    const bottomPadding = 100; // Padding vertical en bas (pour le hint)
+      : 800;
+    const topPadding = 50;
+    const bottomPadding = 100; // Pour le hint
     const availableHeight = containerHeight - topPadding - bottomPadding;
+    
+    // Espacement entre les carrés
+    const squareSize = 120; // Taille des carrés en CSS
+    const totalSquaresWidth = gridCols * squareSize;
     const totalSquaresHeight = gridRows * squareSize;
+    
+    // Calculer les gaps horizontal et vertical
+    const gapHorizontal = (gridTotalWidth - totalSquaresWidth) / (gridCols - 1);
     const gapVertical = (availableHeight - totalSquaresHeight) / (gridRows - 1);
     
     // Utiliser le même gap pour les deux directions (prendre le minimum pour garantir que tout rentre)
