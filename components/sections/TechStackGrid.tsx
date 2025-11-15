@@ -119,13 +119,12 @@ export function TechStackGrid() {
     // Espacement entre les carrés pour remplir toute la largeur
     const squareSize = 120; // Taille des carrés en CSS
     const totalSquaresWidth = gridCols * squareSize;
-    const gapHorizontal = (gridTotalWidth - totalSquaresWidth) / (gridCols - 1);
+    const gapBetweenSquares = (gridTotalWidth - totalSquaresWidth) / (gridCols - 1);
     
     // Position de départ horizontale : le centre du premier carré
     const startX = leftEdge + squareSize / 2;
 
     // Calculer l'espacement vertical de la même manière
-    // Utiliser la hauteur du container pour calculer l'espacement vertical
     const containerHeight = typeof window !== 'undefined' 
       ? Math.min(window.innerHeight * 0.8, 90 * window.innerHeight / 100) 
       : 800; // Fallback pour SSR
@@ -147,7 +146,7 @@ export function TechStackGrid() {
         const tech = techList[techIndex];
 
         // Position X : startX + (col * (taille carré + gap horizontal))
-        const x = startX + col * (squareSize + gapHorizontal);
+        const x = startX + col * (squareSize + gapBetweenSquares);
         // Position Y : startY + (row * (taille carré + gap vertical))
         const y = startY + row * (squareSize + gapVertical);
 
