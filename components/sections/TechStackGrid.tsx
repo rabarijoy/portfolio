@@ -21,6 +21,7 @@ interface GridIcon {
   icon: React.ComponentType<{ size?: number; className?: string }>;
   color: string;
   distance?: number;
+  isEmpty?: boolean; // Case vide pour compléter la grille
 }
 
 export function TechStackGrid() {
