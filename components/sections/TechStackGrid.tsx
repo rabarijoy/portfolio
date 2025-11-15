@@ -215,6 +215,11 @@ export function TechStackGrid() {
   // Pas de centrage vertical - la grille commence directement en haut
   const startY = cellSize / 2;
 
+  // Position de départ horizontale : centrer la grille dans le container
+  const gridTotalWidth = gridConfig.cols * cellSize + (gridConfig.cols - 1) * gap;
+  const containerLeftOffset = (screenWidth - Math.min(screenWidth, containerMaxWidth)) / 2 + containerPadding;
+  const startX = containerLeftOffset + gridTotalWidth / 2;
+
   const icons: GridIcon[] = [];
   for (let i = 0; i < 35; i++) {
     const row = Math.floor(i / gridConfig.cols);
@@ -222,10 +227,10 @@ export function TechStackGrid() {
     const special = specialIcons[i.toString()];
     const techIndex = i % techList.length;
     const tech = techList[techIndex];
-
+    
     icons.push({
       id: i,
-      x: col * (cellSize + gap) + cellSize / 2 + 40,
+      x: startX - gridTotalWidth / 2 + col * (cellSize + gap) + cellSize / 2,
       y: row * (cellSize + gap) + cellSize / 2 + startY,
       bg: special?.bg || tech.color,
       icon: special?.icon || tech.icon,
