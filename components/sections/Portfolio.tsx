@@ -161,24 +161,25 @@ export function Portfolio() {
           </a>
         </div>
 
-         {/* Tech Stack Grid Section */}
-         <div className="tech-stack-section-wrapper">
-           <motion.div
-             initial={{ opacity: 0, y: 30 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ duration: 0.6 }}
-             className="section-header"
-           >
-             <div className="section-header-title">
-               <h2 className="title-section">
-                 &lt;compétences&gt;
-               </h2>
-             </div>
-           </motion.div>
+      </div>
 
-           <TechStackGrid />
-         </div>
+      {/* Tech Stack Grid Section - Outside container for full width */}
+      <div className="tech-stack-section-wrapper">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="section-header"
+        >
+          <div className="section-header-title">
+            <h2 className="title-section">
+              &lt;compétences&gt;
+            </h2>
+          </div>
+        </motion.div>
+
+        <TechStackGrid />
       </div>
     </Section>
   );

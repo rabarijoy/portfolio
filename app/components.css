@@ -765,11 +765,20 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  max-width: 100%;
+  overflow: visible;
 }
 
 .tech-stack-section-wrapper .section-header {
   margin-bottom: 0;
   margin-top: 0;
+  padding: 0 20px;
+}
+
+@media (min-width: 1024px) {
+  .tech-stack-section-wrapper .section-header {
+    padding: 0 40px;
+  }
 }
 
 .tech-stack-section-wrapper .section-header-title {
