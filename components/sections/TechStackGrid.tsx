@@ -272,7 +272,7 @@ export function TechStackGrid() {
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
   };
 
-  // Calculer les distances et trier pour trouver les 5 plus proches
+  // Calculer les distances et trouver le carré directement sous le curseur + les 5 plus proches
   // Exclure les cases vides du calcul de distance
   const activeIcons = icons.filter(icon => !icon.isEmpty);
   const iconsWithDistance = activeIcons.map(icon => ({
@@ -280,14 +280,15 @@ export function TechStackGrid() {
     distance: getDistance(mousePos.x, mousePos.y, icon.x, icon.y)
   })).sort((a, b) => (a.distance || 0) - (b.distance || 0));
 
-  const closestFive = new Set(iconsWithDistance.slice(0, 5).map(icon => icon.id));
+  // Le carré directement sous le curseur (le plus proche) + les 5 autres plus proches = 6 au total
+  const closestSix = new Set(iconsWithDistance.slice(0, 6).map(icon => icon.id));
 
   const getOpacity = (iconId: number) => {
-    return closestFive.has(iconId) ? 1 : 0;
+    return closestSix.has(iconId) ? 1 : 0;
   };
 
   const getScale = (iconId: number) => {
-    return closestFive.has(iconId) ? 1 : 0.8;
+    return closestSix.has(iconId) ? 1 : 0.8;
   };
 
   return (
@@ -315,7 +316,7 @@ export function TechStackGrid() {
           );
         }
         
-        const isVisible = closestFive.has(icon.id);
+        const isVisible = closestSix.has(icon.id);
         const isBlink = blinkStates[icon.id];
         
         return (
@@ -343,7 +344,7 @@ export function TechStackGrid() {
           return null;
         }
         
-        const isVisible = closestFive.has(icon.id);
+        const isVisible = closestSix.has(icon.id);
         const opacity = isVisible ? 1 : 0;
         const scale = isVisible ? 1 : 0.8;
         const IconComponent = icon.icon;
@@ -367,9 +368,6 @@ export function TechStackGrid() {
         );
       })}
       
-      <div className="tech-stack-hint-absolute">
-        Déplacez votre souris pour révéler les icônes
-      </div>
     </div>
   );
 }

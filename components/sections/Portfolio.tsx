@@ -176,6 +176,9 @@ export function Portfolio() {
             <h2 className="title-section">
               &lt;compétences&gt;
             </h2>
+            <p className="subtitle-section">
+              Survolez pour découvrir
+            </p>
           </div>
         </motion.div>
 
