@@ -116,35 +116,17 @@ export function TechStackGrid() {
     // Largeur totale disponible pour la grille
     const gridTotalWidth = rightEdge - leftEdge;
     
-    // Hauteur disponible pour la grille
-    const containerHeight = typeof window !== 'undefined' 
-      ? Math.min(window.innerHeight * 0.8, 90 * window.innerHeight / 100) 
-      : 800;
-    const topPadding = 50;
-    const bottomPadding = 100; // Pour le hint
-    const availableHeight = containerHeight - topPadding - bottomPadding;
-    
-    // Espacement entre les carrés
+    // Espacement entre les carrés - calculé horizontalement pour remplir toute la largeur
     const squareSize = 120; // Taille des carrés en CSS
     const totalSquaresWidth = gridCols * squareSize;
-    const totalSquaresHeight = gridRows * squareSize;
+    const gapBetweenSquares = (gridTotalWidth - totalSquaresWidth) / (gridCols - 1);
     
-    // Calculer les gaps horizontal et vertical
-    const gapHorizontal = (gridTotalWidth - totalSquaresWidth) / (gridCols - 1);
-    const gapVertical = (availableHeight - totalSquaresHeight) / (gridRows - 1);
+    // Position de départ horizontale : le centre du premier carré (aligné à gauche)
+    const startX = leftEdge + squareSize / 2;
     
-    // Utiliser le même gap pour les deux directions (prendre le minimum pour garantir que tout rentre)
-    const gapBetweenSquares = Math.min(gapHorizontal, gapVertical);
-    
-    // Recalculer les positions pour centrer avec le gap uniforme
-    const gridWidthWithUniformGap = gridCols * squareSize + (gridCols - 1) * gapBetweenSquares;
-    const gridHeightWithUniformGap = gridRows * squareSize + (gridRows - 1) * gapBetweenSquares;
-    
-    // Position de départ horizontale : centrer avec le gap uniforme
-    const startX = leftEdge + (gridTotalWidth - gridWidthWithUniformGap) / 2 + squareSize / 2;
-    
-    // Position de départ verticale : centrer avec le gap uniforme
-    const startY = topPadding + (availableHeight - gridHeightWithUniformGap) / 2 + squareSize / 2;
+    // Position de départ verticale : utiliser le même espacement que l'horizontal
+    const topPadding = 50;
+    const startY = topPadding + squareSize / 2;
 
     const icons: GridIcon[] = [];
     for (let row = 0; row < gridRows; row++) {
@@ -154,9 +136,9 @@ export function TechStackGrid() {
         const techIndex = (row * gridCols + col) % techList.length;
         const tech = techList[techIndex];
 
-        // Position X : startX + (col * (taille carré + gap uniforme))
+        // Position X : startX + (col * (taille carré + gap))
         const x = startX + col * (squareSize + gapBetweenSquares);
-        // Position Y : startY + (row * (taille carré + gap uniforme))
+        // Position Y : startY + (row * (taille carré + gap)) - même espacement que l'horizontal
         const y = startY + row * (squareSize + gapBetweenSquares);
 
         icons.push({
