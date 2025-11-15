@@ -183,7 +183,8 @@ export function TechStackGrid() {
 
   // Calculer la hauteur totale de la grille
   const totalGridHeight = gridConfig.rows * cellSize + (gridConfig.rows - 1) * gap;
-  const startY = typeof window !== 'undefined' ? (window.innerHeight - totalGridHeight) / 2 : 400;
+  // Pas de centrage vertical - la grille commence directement en haut
+  const startY = cellSize / 2;
 
   const icons: GridIcon[] = [];
   for (let i = 0; i < 35; i++) {
