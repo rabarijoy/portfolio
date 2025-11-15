@@ -782,6 +782,12 @@
    5. NAVIGATION
    ============================================ */
 
+/* Blur Effect Utility */
+.blur-backdrop {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
 /* Header */
 .header {
   position: fixed;
@@ -789,11 +795,13 @@
   left: 0;
   right: 0;
   z-index: 50;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header-scrolled {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 2px 12px rgba(109, 191, 255, 0.06);
 }
 

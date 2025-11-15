@@ -88,7 +88,7 @@ export function MobileMenu({ activeSection }: { activeSection: string }) {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed inset-0 bg-white z-40 lg:hidden overflow-hidden"
+              className="fixed inset-0 bg-white/95 blur-backdrop z-40 lg:hidden overflow-hidden"
             >
               <nav className="flex flex-col items-center justify-center h-full px-[5vw] overflow-y-auto overscroll-contain">
                 <ul className="flex flex-col gap-2 w-full max-w-xs">
