@@ -37,12 +37,29 @@ export function TechStackGrid() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const gridCols = 6; // Nombre de colonnes réduit
+  // Calculer dynamiquement le nombre de colonnes en fonction de l'espace disponible
+  const calculateGridCols = (): number => {
+    if (typeof window === 'undefined') return 6;
+    const containerMaxWidth = 1280;
+    const viewportWidth = window.innerWidth;
+    const actualWidth = Math.min(viewportWidth, containerMaxWidth);
+    const padding = viewportWidth >= 1024 ? 40 : 20;
+    const availableWidth = actualWidth - (padding * 2);
+    const squareSize = 120;
+    const gap = 5;
+    
+    // Calculer combien de carrés peuvent tenir : (availableWidth + gap) / (squareSize + gap)
+    const maxCols = Math.floor((availableWidth + gap) / (squareSize + gap));
+    return Math.max(4, Math.min(maxCols, 8)); // Entre 4 et 8 colonnes
+  };
+
+  const [gridCols, setGridCols] = useState(6);
   const gridRows = 8; // Nombre de lignes
 
   useEffect(() => {
     const updatePadding = () => {
       setHorizontalPadding(window.innerWidth >= 1024 ? 40 : 20);
+      setGridCols(calculateGridCols());
     };
     updatePadding();
     window.addEventListener('resize', updatePadding);
@@ -122,8 +139,9 @@ export function TechStackGrid() {
     // Calculer la largeur totale de la grille avec le gap fixe
     const gridWidthWithGap = gridCols * squareSize + (gridCols - 1) * gapBetweenSquares;
     
-    // Centrer la grille horizontalement
-    const startX = leftEdge + (gridTotalWidth - gridWidthWithGap) / 2 + squareSize / 2;
+    // Aligner les carrés extérieurs avec les limites du container
+    // Le premier carré commence au padding gauche, le dernier se termine au padding droit
+    const startX = leftEdge + squareSize / 2;
     
     // Position verticale : centrer dans le conteneur
     const containerHeight = typeof window !== 'undefined' 
@@ -174,6 +192,7 @@ export function TechStackGrid() {
   };
 
   const getOpacity = (iconX: number, iconY: number) => {
+    // Utiliser directement la position de la souris (déjà centrée)
     const distance = getDistance(mousePos.x, mousePos.y, iconX, iconY);
     const threshold = 200; // Augmenté pour inclure les carrés adjacents
     const closeThreshold = 80; // Zone très proche (carré directement sous le curseur)
@@ -194,6 +213,7 @@ export function TechStackGrid() {
   };
 
   const getScale = (iconX: number, iconY: number) => {
+    // Utiliser directement la position de la souris (déjà centrée)
     const distance = getDistance(mousePos.x, mousePos.y, iconX, iconY);
     const threshold = 200;
     const closeThreshold = 80;
