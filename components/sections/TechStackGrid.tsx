@@ -1,9 +1,16 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import {
+  SiHtml5, SiCss3, SiJavascript, SiPhp, SiJava, SiCsharp,
+  SiReact, SiSymfony, SiTailwindcss, SiAlpinejs, SiPhoenixframework,
+  SiPostgresql, SiSqlite,
+  SiGit, SiGithub, SiGitlab, SiNpm, SiDocker,
+  SiWordpress, SiDrupal, SiWebflow, SiFramer,
+  SiJson, SiVercel, SiFigma,
+} from 'react-icons/si';
 import { 
-  Code2, Database, GitBranch, Package, Box, 
-  Globe, FileJson, Zap, Palette, Layers
+  Database, Package, Box, Globe, FileJson, Zap, Code2, Layers
 } from 'lucide-react';
 
 interface TechItem {
@@ -26,55 +33,55 @@ export function TechStackGrid() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Technologies avec leurs couleurs officielles
+  // Technologies avec leurs couleurs officielles et logos
   const technologies: TechItem[] = [
     // Langages
-    { id: 'html', name: 'HTML', color: '#E34F26', icon: Code2 },
-    { id: 'css', name: 'CSS', color: '#1572B6', icon: Code2 },
-    { id: 'js', name: 'JavaScript', color: '#F7DF1E', icon: Code2 },
-    { id: 'php', name: 'PHP', color: '#777BB4', icon: Code2 },
+    { id: 'html', name: 'HTML', color: '#E34F26', icon: SiHtml5 },
+    { id: 'css', name: 'CSS', color: '#1572B6', icon: SiCss3 },
+    { id: 'js', name: 'JavaScript', color: '#F7DF1E', icon: SiJavascript },
+    { id: 'php', name: 'PHP', color: '#777BB4', icon: SiPhp },
     { id: 'sql', name: 'SQL', color: '#336791', icon: Database },
-    { id: 'java', name: 'Java', color: '#ED8B00', icon: Code2 },
-    { id: 'csharp', name: 'C#', color: '#239120', icon: Code2 },
+    { id: 'java', name: 'Java', color: '#ED8B00', icon: SiJava },
+    { id: 'csharp', name: 'C#', color: '#239120', icon: SiCsharp },
     
     // Frameworks
-    { id: 'react', name: 'React', color: '#61DAFB', icon: Layers },
-    { id: 'symfony', name: 'Symfony', color: '#000000', icon: Layers },
-    { id: 'tailwind', name: 'Tailwind', color: '#06B6D4', icon: Palette },
-    { id: 'alpine', name: 'Alpine.js', color: '#8BC0D0', icon: Layers },
-    { id: 'phoenix', name: 'Phoenix', color: '#FD4F00', icon: Layers },
-    { id: 'phoenix-live', name: 'LiveView', color: '#FD4F00', icon: Layers },
+    { id: 'react', name: 'React', color: '#61DAFB', icon: SiReact },
+    { id: 'symfony', name: 'Symfony', color: '#000000', icon: SiSymfony },
+    { id: 'tailwind', name: 'Tailwind', color: '#06B6D4', icon: SiTailwindcss },
+    { id: 'alpine', name: 'Alpine.js', color: '#8BC0D0', icon: SiAlpinejs },
+    { id: 'phoenix', name: 'Phoenix', color: '#FD4F00', icon: SiPhoenixframework },
+    { id: 'phoenix-live', name: 'LiveView', color: '#FD4F00', icon: SiPhoenixframework },
     
     // Bases de données
-    { id: 'postgresql', name: 'PostgreSQL', color: '#336791', icon: Database },
-    { id: 'sqlite', name: 'SQLite', color: '#003B57', icon: Database },
+    { id: 'postgresql', name: 'PostgreSQL', color: '#336791', icon: SiPostgresql },
+    { id: 'sqlite', name: 'SQLite', color: '#003B57', icon: SiSqlite },
     { id: 'clickhouse', name: 'ClickHouse', color: '#FFCC02', icon: Database },
     
     // Outils de développement
-    { id: 'git', name: 'Git', color: '#F05032', icon: GitBranch },
-    { id: 'github', name: 'GitHub', color: '#181717', icon: GitBranch },
-    { id: 'gitlab', name: 'GitLab', color: '#FC6D26', icon: GitBranch },
-    { id: 'npm', name: 'npm', color: '#CB3837', icon: Package },
-    { id: 'docker', name: 'Docker', color: '#2496ED', icon: Box },
+    { id: 'git', name: 'Git', color: '#F05032', icon: SiGit },
+    { id: 'github', name: 'GitHub', color: '#181717', icon: SiGithub },
+    { id: 'gitlab', name: 'GitLab', color: '#FC6D26', icon: SiGitlab },
+    { id: 'npm', name: 'npm', color: '#CB3837', icon: SiNpm },
+    { id: 'docker', name: 'Docker', color: '#2496ED', icon: SiDocker },
     { id: 'lando', name: 'Lando', color: '#3B82F6', icon: Box },
     
     // CMS & Design
-    { id: 'wordpress', name: 'WordPress', color: '#21759B', icon: Globe },
-    { id: 'drupal', name: 'Drupal', color: '#0678BE', icon: Globe },
-    { id: 'webflow', name: 'Webflow', color: '#4353FF', icon: Globe },
-    { id: 'framer', name: 'Framer', color: '#0055FF', icon: Palette },
+    { id: 'wordpress', name: 'WordPress', color: '#21759B', icon: SiWordpress },
+    { id: 'drupal', name: 'Drupal', color: '#0678BE', icon: SiDrupal },
+    { id: 'webflow', name: 'Webflow', color: '#4353FF', icon: SiWebflow },
+    { id: 'framer', name: 'Framer', color: '#0055FF', icon: SiFramer },
     
     // APIs & Formats
     { id: 'rest', name: 'REST API', color: '#FF6B6B', icon: Zap },
     { id: 'api', name: 'API', color: '#4ECDC4', icon: Zap },
-    { id: 'json', name: 'JSON', color: '#000000', icon: FileJson },
+    { id: 'json', name: 'JSON', color: '#000000', icon: SiJson },
     
     // Déploiement & Outils
-    { id: 'vercel', name: 'Vercel', color: '#000000', icon: Globe },
+    { id: 'vercel', name: 'Vercel', color: '#000000', icon: SiVercel },
     { id: 'cursor', name: 'Cursor', color: '#000000', icon: Code2 },
     { id: 'sonnet', name: 'Sonnet', color: '#000000', icon: Zap },
     { id: 'gpt', name: 'GPT', color: '#10A37F', icon: Zap },
-    { id: 'figma', name: 'Figma', color: '#F24E1E', icon: Palette },
+    { id: 'figma', name: 'Figma', color: '#F24E1E', icon: SiFigma },
     { id: 'uml', name: 'UML', color: '#E34F26', icon: Layers },
   ];
 
