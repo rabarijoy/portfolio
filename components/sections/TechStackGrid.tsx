@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   SiHtml5, SiCss3, SiJavascript, SiPhp,
   SiReact, SiSymfony, SiTailwindcss,
@@ -28,9 +28,21 @@ export function TechStackGrid() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [horizontalPadding, setHorizontalPadding] = useState(40);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        // Position relative au conteneur pour un calcul précis
+        setMousePos({ 
+          x: e.clientX - rect.left, 
+          y: e.clientY - rect.top 
+        });
+      } else {
+        // Fallback si le conteneur n'est pas encore monté
+        setMousePos({ x: e.clientX, y: e.clientY });
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -241,7 +253,7 @@ export function TechStackGrid() {
   };
 
   return (
-    <div className="tech-stack-absolute-container">
+    <div ref={containerRef} className="tech-stack-absolute-container">
       {icons.map((icon) => {
         const IconComponent = icon.icon;
         const opacity = getOpacity(icon.x, icon.y);
