@@ -102,13 +102,27 @@ export function TechStackGrid() {
   };
 
   // Calculer les positions des icônes
+  // Les carrés les plus à gauche et à droite doivent être alignés avec les limites du container
   const calculateIcons = (): GridIcon[] => {
     const containerMaxWidth = 1280;
-    const availableWidth = typeof window !== 'undefined' 
-      ? Math.min(window.innerWidth, containerMaxWidth) - (horizontalPadding * 2)
-      : containerMaxWidth - (horizontalPadding * 2);
-    const gridWidth = gridCols * cellSize;
-    const startX = (availableWidth - gridWidth) / 2 + horizontalPadding;
+    const viewportWidth = typeof window !== 'undefined' ? window.innerWidth : containerMaxWidth;
+    const actualWidth = Math.min(viewportWidth, containerMaxWidth);
+    
+    // Position du premier carré (gauche) = padding gauche
+    // Position du dernier carré (droite) = largeur totale - padding droit
+    const leftEdge = horizontalPadding;
+    const rightEdge = actualWidth - horizontalPadding;
+    
+    // Largeur totale disponible pour la grille
+    const gridTotalWidth = rightEdge - leftEdge;
+    
+    // Espacement entre les carrés pour remplir toute la largeur
+    const squareSize = 120; // Taille des carrés en CSS
+    const totalSquaresWidth = gridCols * squareSize;
+    const gapBetweenSquares = (gridTotalWidth - totalSquaresWidth) / (gridCols - 1);
+    
+    // Position de départ : le centre du premier carré
+    const startX = leftEdge + squareSize / 2;
 
     const icons: GridIcon[] = [];
     for (let row = 0; row < gridRows; row++) {
@@ -118,11 +132,14 @@ export function TechStackGrid() {
         const techIndex = (row * gridCols + col) % techList.length;
         const tech = techList[techIndex];
 
+        // Position X : startX + (col * (taille carré + gap))
+        const x = startX + col * (squareSize + gapBetweenSquares);
+
         icons.push({
           id: key,
           row,
           col,
-          x: startX + col * cellSize + cellSize / 2,
+          x: x,
           y: row * cellSize + cellSize / 2 + 50,
           bg: special?.bg || tech.color,
           icon: special?.icon || tech.icon,
@@ -137,7 +154,7 @@ export function TechStackGrid() {
 
   useEffect(() => {
     setIcons(calculateIcons());
-  }, [horizontalPadding]);
+  }, [horizontalPadding, gridCols, gridRows, cellSize]);
 
   const getDistance = (x1: number, y1: number, x2: number, y2: number) => {
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
