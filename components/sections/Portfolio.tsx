@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Smartphone, Palette, Rocket, ShoppingBag, Bot, BarChart, LucideIcon, Code2, Database, TestTube, GitBranch, FileCode, Layers } from 'lucide-react';
+import { Code2, Database, TestTube, GitBranch, FileCode, Layers } from 'lucide-react';
 import { Section } from '../ui/Section';
 
 // Image placeholder - À remplacer par les vraies images des projets
@@ -15,8 +15,6 @@ interface Project {
   description: string;
   tags: string[];
   category: string;
-  icon: LucideIcon;
-  gradient: string;
 }
 
 export function Portfolio() {
@@ -39,8 +37,6 @@ export function Portfolio() {
       description: t('projects.mobile.description'),
       tags: ['React Native', 'TypeScript', 'Firebase'],
       category: 'mobile',
-      icon: Smartphone,
-      gradient: 'linear-gradient(135deg, #6dbfff 0%, #4a9eff 100%)',
     },
     {
       id: '2',
@@ -48,8 +44,6 @@ export function Portfolio() {
       description: t('projects.design.description'),
       tags: ['Figma', 'CSS', 'Storybook'],
       category: 'design',
-      icon: Palette,
-      gradient: 'linear-gradient(135deg, #ff6b9d 0%, #c454d0 100%)',
     },
     {
       id: '3',
@@ -57,8 +51,6 @@ export function Portfolio() {
       description: t('projects.saas.description'),
       tags: ['Vue.js', 'Node.js', 'PostgreSQL'],
       category: 'web',
-      icon: Rocket,
-      gradient: 'linear-gradient(135deg, #ffd166 0%, #ff8c42 100%)',
     },
     {
       id: '4',
@@ -66,8 +58,6 @@ export function Portfolio() {
       description: t('projects.ecommerce.description'),
       tags: ['Next.js', 'Stripe', 'Tailwind'],
       category: 'web',
-      icon: ShoppingBag,
-      gradient: 'linear-gradient(135deg, #06ffa5 0%, #00d4aa 100%)',
     },
     {
       id: '5',
@@ -75,8 +65,6 @@ export function Portfolio() {
       description: t('projects.ai.description'),
       tags: ['Python', 'TensorFlow', 'FastAPI'],
       category: 'ai',
-      icon: Bot,
-      gradient: 'linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%)',
     },
     {
       id: '6',
@@ -84,8 +72,6 @@ export function Portfolio() {
       description: t('projects.analytics.description'),
       tags: ['React', 'D3.js', 'WebSocket'],
       category: 'ai',
-      icon: BarChart,
-      gradient: 'linear-gradient(135deg, #fb923c 0%, #f97316 100%)',
     },
   ];
 
@@ -124,7 +110,7 @@ export function Portfolio() {
 
         {/* Projects Grid */}
         <div className="grid-projects">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project) => (
             <motion.a
               key={project.id}
               href={`#project-${project.id}`}
@@ -162,7 +148,7 @@ export function Portfolio() {
         </div>
 
         {/* View More on GitHub Button */}
-        <div style={{ textAlign: 'center', marginTop: '60px' }}>
+        <div className="github-button-container">
           <a
             href="https://github.com/rabarijoy"
             target="_blank"
@@ -177,7 +163,7 @@ export function Portfolio() {
         </div>
 
         {/* Skills Section */}
-        <div style={{ marginTop: '100px' }}>
+        <div className="skills-section">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
