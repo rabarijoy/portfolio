@@ -131,16 +131,17 @@ export function TechStackGrid() {
     
     // Largeur totale disponible pour la grille
     const gridTotalWidth = rightEdge - leftEdge;
-    
-    // Espacement fixe entre les carrés
-    const gapBetweenSquares = 5; // Espacement régulier de 5px
     const squareSize = 120; // Taille des carrés en CSS
     
-    // Calculer la largeur totale de la grille avec le gap fixe
-    const gridWidthWithGap = gridCols * squareSize + (gridCols - 1) * gapBetweenSquares;
-    
-    // Aligner les carrés extérieurs avec les limites du container
+    // Calculer le gap pour que les carrés extérieurs soient alignés avec les limites
     // Le premier carré commence au padding gauche, le dernier se termine au padding droit
+    // gap = (gridTotalWidth - gridCols * squareSize) / (gridCols - 1)
+    const totalSquaresWidth = gridCols * squareSize;
+    const gapBetweenSquares = gridCols > 1 
+      ? (gridTotalWidth - totalSquaresWidth) / (gridCols - 1)
+      : 0;
+    
+    // Position de départ : centre du premier carré (aligné à gauche)
     const startX = leftEdge + squareSize / 2;
     
     // Position verticale : centrer dans le conteneur
