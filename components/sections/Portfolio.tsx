@@ -131,46 +131,29 @@ export function Portfolio() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              whileHover={{ y: -8 }}
               className="card-project"
             >
-                {/* Project Image */}
-                <div className="card-project-image">
-                  <img 
-                    src={PROJECT_IMAGE_PLACEHOLDER}
-                    alt={project.title}
-                  />
-                </div>
+              {/* Project Image */}
+              <div className="card-project-image">
+                <img 
+                  src={PROJECT_IMAGE_PLACEHOLDER}
+                  alt={project.title}
+                />
+                {/* Gradient Overlay */}
+                <div className="card-project-overlay"></div>
+              </div>
 
-                {/* Project Content */}
-                <div className="card-project-content">
-                  <h3 className="title-card">
-                    {project.title}
-                  </h3>
-                  <p className="text-card-description">
-                    {project.description}
-                  </p>
-
-                  {/* Tags */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="tag"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Link - visible only on hover */}
-                  <div className="link-view-project">
-                    {t('view_project')}
-                    <span className="link-view-project-arrow">→</span>
-                  </div>
-                  </div>
-              </motion.a>
-            ))}
+              {/* Project Content - Visible on hover */}
+              <div className="card-project-content">
+                <h3 className="title-card-apple">
+                  {project.title}
+                </h3>
+                <p className="text-card-description-apple">
+                  {project.description}
+                </p>
+              </div>
+            </motion.a>
+          ))}
         </div>
 
         {/* View More on GitHub Button */}

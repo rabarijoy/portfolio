@@ -100,6 +100,16 @@
   margin-bottom: 12px;
 }
 
+/* Card Title - Apple Style (for project cards) */
+.title-card-apple {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
 /* Card Description */
 .text-card-description {
   font-family: Helvetica, Arial, sans-serif;
@@ -107,6 +117,16 @@
   color: #6b7280;
   margin-bottom: 20px;
   line-height: 1.5;
+}
+
+/* Card Description - Apple Style (for project cards) */
+.text-card-description-apple {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  margin-bottom: 0;
+  font-weight: 400;
 }
 
 /* Section Subtitle */
@@ -253,47 +273,78 @@
    3. CARDS & CONTAINERS
    ============================================ */
 
-/* Project Card */
+/* Project Card - Apple Style */
 .card-project {
-  background-color: #fbfbfd;
-  border-radius: 18px;
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid #e5e7eb;
-  transition: all 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   display: block;
   text-decoration: none;
   color: inherit;
+  background-color: #000000;
 }
 
 .card-project:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  border-color: var(--blue-accent);
-  transform: translateY(-8px);
+  transform: scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
 .card-project-image {
   width: 100%;
-  height: 240px;
+  height: 100%;
   position: relative;
   overflow: hidden;
-  border-radius: 18px 18px 0 0;
-  background-color: #f3f4f6;
 }
 
 .card-project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease-out;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
 .card-project:hover .card-project-image img {
   transform: scale(1.05);
 }
 
+.card-project-overlay {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 40%, transparent 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.card-project:hover .card-project-overlay {
+  opacity: 1;
+}
+
 .card-project-content {
-  padding: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 35px 30px;
+  z-index: 2;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.card-project:hover .card-project-content {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Skill Card */
