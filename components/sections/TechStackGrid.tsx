@@ -119,11 +119,8 @@ export function TechStackGrid() {
     // Espacement entre les carrés pour remplir toute la largeur
     const squareSize = 120; // Taille des carrés en CSS
     const totalSquaresWidth = gridCols * squareSize;
-    const gapBetweenSquares = (gridTotalWidth - totalSquaresWidth) / (gridCols - 1);
+    const gapHorizontal = (gridTotalWidth - totalSquaresWidth) / (gridCols - 1);
     
-    // Position de départ horizontale : le centre du premier carré
-    const startX = leftEdge + squareSize / 2;
-
     // Calculer l'espacement vertical de la même manière
     const containerHeight = typeof window !== 'undefined' 
       ? Math.min(window.innerHeight * 0.8, 90 * window.innerHeight / 100) 
@@ -134,8 +131,18 @@ export function TechStackGrid() {
     const totalSquaresHeight = gridRows * squareSize;
     const gapVertical = (availableHeight - totalSquaresHeight) / (gridRows - 1);
     
-    // Position de départ verticale : le centre du premier carré
-    const startY = topPadding + squareSize / 2;
+    // Utiliser le même gap pour les deux directions (prendre le minimum pour garantir que tout rentre)
+    const gapBetweenSquares = Math.min(gapHorizontal, gapVertical);
+    
+    // Recalculer les positions pour centrer avec le gap uniforme
+    const gridWidthWithUniformGap = gridCols * squareSize + (gridCols - 1) * gapBetweenSquares;
+    const gridHeightWithUniformGap = gridRows * squareSize + (gridRows - 1) * gapBetweenSquares;
+    
+    // Position de départ horizontale : centrer avec le gap uniforme
+    const startX = leftEdge + (gridTotalWidth - gridWidthWithUniformGap) / 2 + squareSize / 2;
+    
+    // Position de départ verticale : centrer avec le gap uniforme
+    const startY = topPadding + (availableHeight - gridHeightWithUniformGap) / 2 + squareSize / 2;
 
     const icons: GridIcon[] = [];
     for (let row = 0; row < gridRows; row++) {
@@ -145,10 +152,10 @@ export function TechStackGrid() {
         const techIndex = (row * gridCols + col) % techList.length;
         const tech = techList[techIndex];
 
-        // Position X : startX + (col * (taille carré + gap horizontal))
+        // Position X : startX + (col * (taille carré + gap uniforme))
         const x = startX + col * (squareSize + gapBetweenSquares);
-        // Position Y : startY + (row * (taille carré + gap vertical))
-        const y = startY + row * (squareSize + gapVertical);
+        // Position Y : startY + (row * (taille carré + gap uniforme))
+        const y = startY + row * (squareSize + gapBetweenSquares);
 
         icons.push({
           id: key,
