@@ -215,10 +215,14 @@ export function TechStackGrid() {
   // Pas de centrage vertical - la grille commence directement en haut
   const startY = cellSize / 2;
 
-  // Position de départ horizontale : centrer la grille dans le container
+  // Position de départ horizontale : aligner exactement avec le container
+  // Le container a max-width: 1280px, margin: 0 auto, padding: 20px/40px
+  // Le contenu du container commence à : (screenWidth - min(screenWidth, 1280)) / 2 + padding
   const gridTotalWidth = gridConfig.cols * cellSize + (gridConfig.cols - 1) * gap;
-  const containerLeftOffset = (screenWidth - Math.min(screenWidth, containerMaxWidth)) / 2 + containerPadding;
-  const startX = containerLeftOffset + gridTotalWidth / 2;
+  const containerActualWidth = Math.min(screenWidth, containerMaxWidth);
+  const containerLeftEdge = (screenWidth - containerActualWidth) / 2;
+  const containerContentLeft = containerLeftEdge + containerPadding;
+  const startX = containerContentLeft + gridTotalWidth / 2;
 
   const icons: GridIcon[] = [];
   for (let i = 0; i < 35; i++) {

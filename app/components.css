@@ -762,7 +762,7 @@
 
 /* Tech Stack Section Wrapper */
 .tech-stack-section-wrapper {
-  margin: 0;
+  margin-top: 100px;
   padding: 0;
   width: 100%;
   max-width: 100%;
@@ -770,19 +770,25 @@
 }
 
 .tech-stack-section-wrapper .section-header {
-  margin-bottom: 0;
+  margin-bottom: 60px;
   margin-top: 0;
-  padding: 0 20px;
+  padding: 0;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 @media (min-width: 1024px) {
   .tech-stack-section-wrapper .section-header {
-    padding: 0 40px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
 .tech-stack-section-wrapper .section-header-title {
-  margin-bottom: 0;
+  margin-bottom: 16px;
 }
 
 .grid-skills {
