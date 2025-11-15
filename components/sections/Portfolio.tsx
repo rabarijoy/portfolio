@@ -162,7 +162,7 @@ export function Portfolio() {
         </div>
 
          {/* Tech Stack Grid Section */}
-         <div className="skills-section">
+         <div className="tech-stack-section-wrapper">
            <motion.div
              initial={{ opacity: 0, y: 30 }}
              whileInView={{ opacity: 1, y: 0 }}

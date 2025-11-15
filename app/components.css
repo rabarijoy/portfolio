@@ -760,9 +760,11 @@
   }
 }
 
-/* Skills Section */
-.skills-section {
-  margin-top: 100px;
+/* Tech Stack Section Wrapper */
+.tech-stack-section-wrapper {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .grid-skills {
@@ -791,7 +793,9 @@
   min-height: 500px;
   max-height: 90vh;
   background-color: transparent;
-  overflow: hidden;
+  overflow: visible;
+  padding: 0;
+  margin: 0;
 }
 
 .tech-stack-absolute-item {
