@@ -34,16 +34,40 @@ export function TechStackGrid() {
     };
 
     const updateGrid = () => {
-      const width = window.innerWidth - 80; // 40px padding de chaque côté
-      const height = window.innerHeight;
+      // Calculer la largeur disponible exacte du container (même que section projets)
+      const screenWidth = window.innerWidth;
+      const containerMaxWidth = 1280;
+      const containerPadding = screenWidth >= 1024 ? 40 : 20; // Même padding que .container
       
-      // Calculer le nombre de colonnes optimal
-      const minCellSize = 80;
-      const maxCellSize = 120;
+      // Largeur disponible = min(screenWidth, containerMaxWidth) - 2 * padding
+      const availableWidth = Math.min(screenWidth, containerMaxWidth) - (2 * containerPadding);
       
-      let cols = Math.floor(width / maxCellSize);
-      cols = Math.max(5, Math.min(cols, 10)); // Entre 5 et 10 colonnes
+      // Calculer le nombre de colonnes pour remplir exactement cet espace
+      // gap = 10 (fixe), cellSize sera calculé après
+      // On veut maximiser le nombre de colonnes tout en gardant un cellSize raisonnable
+      // Formule: availableWidth = cols * cellSize + (cols - 1) * gap
+      // On itère pour trouver le meilleur nombre de colonnes
+      const gap = 10; // Écart fixe entre les carrés
+      const minCellSize = 60; // Taille minimale acceptable
+      const maxCellSize = 150; // Taille maximale acceptable
       
+      let bestCols = 5;
+      let bestCellSize = 0;
+      
+      // Tester différentes valeurs de colonnes pour trouver la meilleure
+      for (let testCols = 5; testCols <= 15; testCols++) {
+        const totalGapSpace = gap * (testCols - 1);
+        const testCellSize = (availableWidth - totalGapSpace) / testCols;
+        
+        if (testCellSize >= minCellSize && testCellSize <= maxCellSize) {
+          if (testCellSize > bestCellSize) {
+            bestCellSize = testCellSize;
+            bestCols = testCols;
+          }
+        }
+      }
+      
+      const cols = bestCols;
       const rows = Math.ceil(35 / cols);
       
       setGridConfig({ cols, rows });
@@ -176,7 +200,12 @@ export function TechStackGrid() {
 
   const gap = 10; // Écart fixe entre les carrés
 
-  const containerWidth = typeof window !== 'undefined' ? window.innerWidth - 80 : 1200;
+  // Calculer la largeur disponible exacte du container (même que section projets)
+  const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1200;
+  const containerMaxWidth = 1280;
+  const containerPadding = screenWidth >= 1024 ? 40 : 20; // Même padding que .container
+  
+  const containerWidth = Math.min(screenWidth, containerMaxWidth) - (2 * containerPadding);
   const totalGapSpace = gap * (gridConfig.cols - 1);
   const availableSpace = containerWidth - totalGapSpace;
   const cellSize = availableSpace / gridConfig.cols;
