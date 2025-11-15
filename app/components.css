@@ -777,15 +777,19 @@
 
 .tech-stack-absolute-item {
   position: absolute;
-  width: 120px;
-  height: 120px;
-  border-radius: 20px;
+  border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
   cursor: pointer;
+}
+
+.tech-stack-background-square {
+  position: absolute;
+  border-radius: 16px;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tech-stack-hint-absolute {

@@ -26,6 +26,7 @@ interface GridIcon {
 export function TechStackGrid() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [gridConfig, setGridConfig] = useState({ cols: 7, rows: 5 });
+  const [blinkStates, setBlinkStates] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -57,6 +58,70 @@ export function TechStackGrid() {
       window.removeEventListener('resize', updateGrid);
     };
   }, []);
+
+  // Gérer le clignotement aléatoire avec effet ripple
+  useEffect(() => {
+    const triggerRipple = (startIndex: number) => {
+      const visited = new Set<number>();
+      const queue: Array<{index: number, delay: number}> = [{index: startIndex, delay: 0}];
+      
+      while (queue.length > 0) {
+        const {index, delay} = queue.shift()!;
+        
+        if (visited.has(index) || index < 0 || index >= 35) continue;
+        visited.add(index);
+        
+        setTimeout(() => {
+          setBlinkStates(prev => ({
+            ...prev,
+            [index]: true
+          }));
+          
+          setTimeout(() => {
+            setBlinkStates(prev => ({
+              ...prev,
+              [index]: false
+            }));
+          }, 250);
+        }, delay);
+        
+        // Ajouter les voisins avec un délai
+        const row = Math.floor(index / gridConfig.cols);
+        const col = index % gridConfig.cols;
+        
+        const neighbors = [
+          index - 1, // gauche
+          index + 1, // droite
+          index - gridConfig.cols, // haut
+          index + gridConfig.cols, // bas
+        ];
+        
+        neighbors.forEach(neighbor => {
+          const neighborRow = Math.floor(neighbor / gridConfig.cols);
+          const neighborCol = neighbor % gridConfig.cols;
+          
+          // Vérifier que c'est bien un voisin adjacent
+          if (Math.abs(neighborRow - row) + Math.abs(neighborCol - col) === 1) {
+            if (!visited.has(neighbor) && neighbor >= 0 && neighbor < 35) {
+              queue.push({index: neighbor, delay: delay + 60});
+            }
+          }
+        });
+      }
+    };
+    
+    const interval = setInterval(() => {
+      const randomStart = Math.floor(Math.random() * 35);
+      triggerRipple(randomStart);
+    }, 4000); // Démarrer une nouvelle vague toutes les 4 secondes
+    
+    // Démarrer une première vague après un délai aléatoire
+    setTimeout(() => {
+      triggerRipple(Math.floor(Math.random() * 35));
+    }, Math.random() * 2000);
+    
+    return () => clearInterval(interval);
+  }, [gridConfig.cols]);
 
   // Technologies avec leurs couleurs officielles
   const techList = [
@@ -116,6 +181,10 @@ export function TechStackGrid() {
   const availableSpace = containerWidth - totalGapSpace;
   const cellSize = availableSpace / gridConfig.cols;
 
+  // Calculer la hauteur totale de la grille
+  const totalGridHeight = gridConfig.rows * cellSize + (gridConfig.rows - 1) * gap;
+  const startY = typeof window !== 'undefined' ? (window.innerHeight - totalGridHeight) / 2 : 400;
+
   const icons: GridIcon[] = [];
   for (let i = 0; i < 35; i++) {
     const row = Math.floor(i / gridConfig.cols);
@@ -127,7 +196,7 @@ export function TechStackGrid() {
     icons.push({
       id: i,
       x: col * (cellSize + gap) + cellSize / 2 + 40,
-      y: row * (cellSize + gap) + cellSize / 2 + 50,
+      y: row * (cellSize + gap) + cellSize / 2 + startY,
       bg: special?.bg || tech.color,
       icon: special?.icon || tech.icon,
       color: special?.color || '#ffffff',
@@ -156,10 +225,35 @@ export function TechStackGrid() {
 
   return (
     <div className="tech-stack-absolute-container">
+      {/* Carrés de fond gris qui clignotent */}
       {icons.map((icon) => {
+        const isVisible = closestFive.has(icon.id);
+        const isBlink = blinkStates[icon.id];
+        
+        return (
+          <div
+            key={`bg-${icon.id}`}
+            className="tech-stack-background-square"
+            style={{
+              left: `${icon.x}px`,
+              top: `${icon.y}px`,
+              width: `${cellSize}px`,
+              height: `${cellSize}px`,
+              transform: 'translate(-50%, -50%)',
+              opacity: isVisible ? 0 : (isBlink ? 0.4 : 0.18),
+              backgroundColor: '#9ca3af',
+              boxShadow: isBlink ? '0 4px 12px rgba(0,0,0,0.1)' : 'none',
+            }}
+          />
+        );
+      })}
+      
+      {/* Icônes colorées qui apparaissent au hover */}
+      {icons.map((icon) => {
+        const isVisible = closestFive.has(icon.id);
+        const opacity = isVisible ? 1 : 0;
+        const scale = isVisible ? 1 : 0.8;
         const IconComponent = icon.icon;
-        const opacity = getOpacity(icon.id);
-        const scale = getScale(icon.id);
         
         return (
           <div
