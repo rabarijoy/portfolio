@@ -788,20 +788,20 @@
   cursor: pointer;
 }
 
-.tech-stack-hint {
+.tech-stack-hint-absolute {
   position: absolute;
-  bottom: 20px;
+  bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
-  color: #6b7280;
+  color: #9ca3af;
   text-align: center;
   pointer-events: none;
 }
 
 @media (max-width: 767px) {
-  .tech-stack-hint {
+  .tech-stack-hint-absolute {
     display: none;
   }
 }
