@@ -186,7 +186,6 @@ export function Timeline() {
             </motion.div>
           </div>
         </div>
-        </div>
       </div>
     </Section>
   );
