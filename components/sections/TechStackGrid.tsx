@@ -205,7 +205,7 @@ export function TechStackGrid() {
               }}
               aria-label={tech.name}
             >
-              <IconComponent size={48} className="tech-stack-icon" />
+              <IconComponent className="tech-stack-icon" />
             </div>
           );
         })}
