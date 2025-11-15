@@ -119,10 +119,24 @@ export function TechStackGrid() {
     // Espacement entre les carrés pour remplir toute la largeur
     const squareSize = 120; // Taille des carrés en CSS
     const totalSquaresWidth = gridCols * squareSize;
-    const gapBetweenSquares = (gridTotalWidth - totalSquaresWidth) / (gridCols - 1);
+    const gapHorizontal = (gridTotalWidth - totalSquaresWidth) / (gridCols - 1);
     
-    // Position de départ : le centre du premier carré
+    // Position de départ horizontale : le centre du premier carré
     const startX = leftEdge + squareSize / 2;
+
+    // Calculer l'espacement vertical de la même manière
+    // Utiliser la hauteur du container pour calculer l'espacement vertical
+    const containerHeight = typeof window !== 'undefined' 
+      ? Math.min(window.innerHeight * 0.8, 90 * window.innerHeight / 100) 
+      : 800; // Fallback pour SSR
+    const topPadding = 50; // Padding vertical en haut
+    const bottomPadding = 100; // Padding vertical en bas (pour le hint)
+    const availableHeight = containerHeight - topPadding - bottomPadding;
+    const totalSquaresHeight = gridRows * squareSize;
+    const gapVertical = (availableHeight - totalSquaresHeight) / (gridRows - 1);
+    
+    // Position de départ verticale : le centre du premier carré
+    const startY = topPadding + squareSize / 2;
 
     const icons: GridIcon[] = [];
     for (let row = 0; row < gridRows; row++) {
@@ -132,15 +146,17 @@ export function TechStackGrid() {
         const techIndex = (row * gridCols + col) % techList.length;
         const tech = techList[techIndex];
 
-        // Position X : startX + (col * (taille carré + gap))
-        const x = startX + col * (squareSize + gapBetweenSquares);
+        // Position X : startX + (col * (taille carré + gap horizontal))
+        const x = startX + col * (squareSize + gapHorizontal);
+        // Position Y : startY + (row * (taille carré + gap vertical))
+        const y = startY + row * (squareSize + gapVertical);
 
         icons.push({
           id: key,
           row,
           col,
           x: x,
-          y: row * cellSize + cellSize / 2 + 50,
+          y: y,
           bg: special?.bg || tech.color,
           icon: special?.icon || tech.icon,
           color: special?.color || '#ffffff',
