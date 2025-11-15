@@ -651,7 +651,7 @@
 
 /* Section Base - Espacement uniforme entre sections */
 /* Chaque section a 70px de padding en haut et en bas */
-/* Quand deux sections se suivent, l'espacement total = 70px (bas première) + 70px (haut seconde) = 140px */
+/* Entre deux sections consécutives : padding-bottom de la première (70px) + padding-top de la seconde (70px) = 140px total */
 .section-base {
   position: relative;
   padding-top: 70px;
@@ -665,13 +665,8 @@
   }
 }
 
-/* Supprimer le padding-top des sections consécutives pour éviter le cumul */
-/* L'espacement visible entre deux sections = padding-bottom de la première (70px) */
-/* Le padding-top de la seconde est supprimé, donc l'espace total = 70px + 70px (padding interne de la seconde) = 140px */
-.section-base + .section-base {
-  padding-top: 0;
-  margin-top: 70px;
-}
+/* Les sections consécutives gardent leur padding-top pour avoir 140px d'espacement total */
+/* Pas besoin de modifier car le cumul donne exactement 140px (70px + 70px) */
 
 /* Section Container (legacy - pour compatibilité) */
 .section {
