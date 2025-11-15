@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import {
   SiHtml5, SiCss3, SiJavascript, SiPhp,
   SiReact, SiSymfony, SiTailwindcss,
@@ -14,73 +14,48 @@ import {
 } from 'lucide-react';
 
 interface GridIcon {
-  id: string;
-  row: number;
-  col: number;
+  id: number;
   x: number;
   y: number;
   bg: string;
   icon: React.ComponentType<{ size?: number; className?: string }>;
   color: string;
+  distance?: number;
 }
 
 export function TechStackGrid() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [horizontalPadding, setHorizontalPadding] = useState(40);
-
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [gridConfig, setGridConfig] = useState({ cols: 7, rows: 5 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        // Position relative au conteneur pour un calcul précis
-        setMousePos({ 
-          x: e.clientX - rect.left, 
-          y: e.clientY - rect.top 
-        });
-      } else {
-        // Fallback si le conteneur n'est pas encore monté
-        setMousePos({ x: e.clientX, y: e.clientY });
-      }
+      setMousePos({ x: e.clientX, y: e.clientY });
     };
 
+    const updateGrid = () => {
+      const width = window.innerWidth - 80; // 40px padding de chaque côté
+      const height = window.innerHeight;
+      
+      // Calculer le nombre de colonnes optimal
+      const minCellSize = 80;
+      const maxCellSize = 120;
+      
+      let cols = Math.floor(width / maxCellSize);
+      cols = Math.max(5, Math.min(cols, 10)); // Entre 5 et 10 colonnes
+      
+      const rows = Math.ceil(35 / cols);
+      
+      setGridConfig({ cols, rows });
+    };
+
+    updateGrid();
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  // Calculer dynamiquement le nombre de colonnes en fonction de l'espace disponible
-  // avec un gap de 5px et en alignant les carrés extérieurs avec les limites
-  const calculateGridCols = (): number => {
-    if (typeof window === 'undefined') return 6;
-    const containerMaxWidth = 1280;
-    const viewportWidth = window.innerWidth;
-    const actualWidth = Math.min(viewportWidth, containerMaxWidth);
-    const padding = viewportWidth >= 1024 ? 40 : 20;
-    const availableWidth = actualWidth - (padding * 2);
-    const squareSize = 120;
-    const targetGap = 5;
+    window.addEventListener('resize', updateGrid);
     
-    // Calculer combien de carrés peuvent tenir avec le gap cible
-    // availableWidth = n * squareSize + (n - 1) * gap
-    // availableWidth = n * squareSize + n * gap - gap
-    // availableWidth + gap = n * (squareSize + gap)
-    // n = (availableWidth + gap) / (squareSize + gap)
-    const maxCols = Math.floor((availableWidth + targetGap) / (squareSize + targetGap));
-    return Math.max(4, Math.min(maxCols, 10)); // Entre 4 et 10 colonnes
-  };
-
-  const [gridCols, setGridCols] = useState(6);
-  const gridRows = 8; // Nombre de lignes
-
-  useEffect(() => {
-    const updatePadding = () => {
-      setHorizontalPadding(window.innerWidth >= 1024 ? 40 : 20);
-      setGridCols(calculateGridCols());
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', updateGrid);
     };
-    updatePadding();
-    window.addEventListener('resize', updatePadding);
-    return () => window.removeEventListener('resize', updatePadding);
   }, []);
 
   // Technologies avec leurs couleurs officielles
@@ -123,141 +98,68 @@ export function TechStackGrid() {
   ];
 
   const specialIcons: Record<string, { bg: string; icon: React.ComponentType<{ size?: number; className?: string }>; color: string }> = {
-    '2-5': { bg: '#61DAFB', icon: SiReact, color: '#ffffff' },
-    '3-2': { bg: '#000000', icon: SiSymfony, color: '#ffffff' },
-    '4-6': { bg: '#F05032', icon: SiGit, color: '#ffffff' },
-    '2-1': { bg: '#06B6D4', icon: SiTailwindcss, color: '#ffffff' },
-    '5-4': { bg: '#2496ED', icon: SiDocker, color: '#ffffff' },
-    '3-5': { bg: '#000000', icon: SiVercel, color: '#ffffff' },
-    '6-3': { bg: '#F24E1E', icon: SiFigma, color: '#ffffff' },
-    '6-5': { bg: '#336791', icon: SiPostgresql, color: '#ffffff' },
-    '1-5': { bg: '#E34F26', icon: SiHtml5, color: '#ffffff' },
+    '0': { bg: '#61DAFB', icon: SiReact, color: '#ffffff' },
+    '5': { bg: '#000000', icon: SiSymfony, color: '#ffffff' },
+    '10': { bg: '#F05032', icon: SiGit, color: '#ffffff' },
+    '2': { bg: '#06B6D4', icon: SiTailwindcss, color: '#ffffff' },
+    '15': { bg: '#2496ED', icon: SiDocker, color: '#ffffff' },
+    '8': { bg: '#000000', icon: SiVercel, color: '#ffffff' },
+    '20': { bg: '#F24E1E', icon: SiFigma, color: '#ffffff' },
+    '25': { bg: '#336791', icon: SiPostgresql, color: '#ffffff' },
+    '12': { bg: '#E34F26', icon: SiHtml5, color: '#ffffff' },
   };
 
-  // Calculer les positions des icônes
-  // Les carrés les plus à gauche et à droite doivent être alignés avec les limites du container
-  const calculateIcons = (): GridIcon[] => {
-    const containerMaxWidth = 1280;
-    const viewportWidth = typeof window !== 'undefined' ? window.innerWidth : containerMaxWidth;
-    const actualWidth = Math.min(viewportWidth, containerMaxWidth);
-    
-    // Position du premier carré (gauche) = padding gauche
-    // Position du dernier carré (droite) = largeur totale - padding droit
-    const leftEdge = horizontalPadding;
-    const rightEdge = actualWidth - horizontalPadding;
-    
-    // Largeur totale disponible pour la grille
-    const gridTotalWidth = rightEdge - leftEdge;
-    const squareSize = 120; // Taille des carrés en CSS
-    const targetGap = 5; // Gap cible de 5px
-    
-    // Calculer le gap pour que les carrés extérieurs soient alignés avec les limites
-    // Le premier carré commence au padding gauche, le dernier se termine au padding droit
-    // gap = (gridTotalWidth - gridCols * squareSize) / (gridCols - 1)
-    const totalSquaresWidth = gridCols * squareSize;
-    const gapBetweenSquares = gridCols > 1 
-      ? (gridTotalWidth - totalSquaresWidth) / (gridCols - 1)
-      : 0;
-    
-    // Position de départ : centre du premier carré (aligné à gauche)
-    // Le bord gauche du premier carré est à leftEdge
-    const startX = leftEdge + squareSize / 2;
-    
-    // Position verticale : centrer dans le conteneur
-    const containerHeight = typeof window !== 'undefined' 
-      ? Math.min(window.innerHeight * 0.8, 90 * window.innerHeight / 100) 
-      : 800;
-    const topPadding = 50;
-    const bottomPadding = 100; // Pour le hint
-    const availableHeight = containerHeight - topPadding - bottomPadding;
-    const gridHeightWithGap = gridRows * squareSize + (gridRows - 1) * gapBetweenSquares;
-    const startY = topPadding + (availableHeight - gridHeightWithGap) / 2 + squareSize / 2;
+  const gap = 10; // Écart fixe entre les carrés
 
-    const icons: GridIcon[] = [];
-    for (let row = 0; row < gridRows; row++) {
-      for (let col = 0; col < gridCols; col++) {
-        const key = `${row}-${col}`;
-        const special = specialIcons[key];
-        const techIndex = (row * gridCols + col) % techList.length;
-        const tech = techList[techIndex];
+  const containerWidth = typeof window !== 'undefined' ? window.innerWidth - 80 : 1200;
+  const totalGapSpace = gap * (gridConfig.cols - 1);
+  const availableSpace = containerWidth - totalGapSpace;
+  const cellSize = availableSpace / gridConfig.cols;
 
-        // Position X : startX + (col * (taille carré + gap uniforme))
-        const x = startX + col * (squareSize + gapBetweenSquares);
-        // Position Y : startY + (row * (taille carré + gap uniforme))
-        const y = startY + row * (squareSize + gapBetweenSquares);
+  const icons: GridIcon[] = [];
+  for (let i = 0; i < 35; i++) {
+    const row = Math.floor(i / gridConfig.cols);
+    const col = i % gridConfig.cols;
+    const special = specialIcons[i.toString()];
+    const techIndex = i % techList.length;
+    const tech = techList[techIndex];
 
-        icons.push({
-          id: key,
-          row,
-          col,
-          x: x,
-          y: y,
-          bg: special?.bg || tech.color,
-          icon: special?.icon || tech.icon,
-          color: special?.color || '#ffffff',
-        });
-      }
-    }
-    return icons;
-  };
-
-  const [icons, setIcons] = useState<GridIcon[]>([]);
-
-  useEffect(() => {
-    setIcons(calculateIcons());
-  }, [horizontalPadding, gridCols, gridRows]);
+    icons.push({
+      id: i,
+      x: col * (cellSize + gap) + cellSize / 2 + 40,
+      y: row * (cellSize + gap) + cellSize / 2 + 50,
+      bg: special?.bg || tech.color,
+      icon: special?.icon || tech.icon,
+      color: special?.color || '#ffffff',
+    });
+  }
 
   const getDistance = (x1: number, y1: number, x2: number, y2: number) => {
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
   };
 
-  const getOpacity = (iconX: number, iconY: number) => {
-    // Utiliser directement la position de la souris (déjà centrée)
-    const distance = getDistance(mousePos.x, mousePos.y, iconX, iconY);
-    const threshold = 200; // Augmenté pour inclure les carrés adjacents
-    const closeThreshold = 80; // Zone très proche (carré directement sous le curseur)
-    
-    // Carré directement sous le curseur : opacité maximale
-    if (distance <= closeThreshold) return 1;
-    
-    // Carrés adjacents : opacité élevée avec transition fluide
-    if (distance <= threshold) {
-      // Opacité minimale de 0.7 pour les carrés adjacents, maximale pour le proche
-      const baseOpacity = 0.7;
-      const additionalOpacity = (1 - baseOpacity) * (1 - (distance - closeThreshold) / (threshold - closeThreshold));
-      return baseOpacity + additionalOpacity;
-    }
-    
-    // Carrés lointains : invisibles
-    return 0;
+  // Calculer les distances et trier pour trouver les 5 plus proches
+  const iconsWithDistance = icons.map(icon => ({
+    ...icon,
+    distance: getDistance(mousePos.x, mousePos.y, icon.x, icon.y)
+  })).sort((a, b) => (a.distance || 0) - (b.distance || 0));
+
+  const closestFive = new Set(iconsWithDistance.slice(0, 5).map(icon => icon.id));
+
+  const getOpacity = (iconId: number) => {
+    return closestFive.has(iconId) ? 1 : 0;
   };
 
-  const getScale = (iconX: number, iconY: number) => {
-    // Utiliser directement la position de la souris (déjà centrée)
-    const distance = getDistance(mousePos.x, mousePos.y, iconX, iconY);
-    const threshold = 200;
-    const closeThreshold = 80;
-    
-    // Carré directement sous le curseur : scale maximal
-    if (distance <= closeThreshold) return 1.15;
-    
-    // Carrés adjacents : scale élevé
-    if (distance <= threshold) {
-      const baseScale = 0.95;
-      const additionalScale = (1.15 - baseScale) * (1 - (distance - closeThreshold) / (threshold - closeThreshold));
-      return baseScale + additionalScale;
-    }
-    
-    // Carrés lointains : scale réduit
-    return 0.7;
+  const getScale = (iconId: number) => {
+    return closestFive.has(iconId) ? 1 : 0.8;
   };
 
   return (
-    <div ref={containerRef} className="tech-stack-absolute-container">
+    <div className="tech-stack-absolute-container">
       {icons.map((icon) => {
         const IconComponent = icon.icon;
-        const opacity = getOpacity(icon.x, icon.y);
-        const scale = getScale(icon.x, icon.y);
+        const opacity = getOpacity(icon.id);
+        const scale = getScale(icon.id);
         
         return (
           <div
@@ -266,12 +168,14 @@ export function TechStackGrid() {
             style={{
               left: `${icon.x}px`,
               top: `${icon.y}px`,
+              width: `${cellSize}px`,
+              height: `${cellSize}px`,
               transform: `translate(-50%, -50%) scale(${scale})`,
               opacity: opacity,
               backgroundColor: icon.bg,
             }}
           >
-            <IconComponent size={64} style={{ color: icon.color }} />
+            <IconComponent size={Math.floor(cellSize * 0.4)} style={{ color: icon.color }} />
           </div>
         );
       })}
