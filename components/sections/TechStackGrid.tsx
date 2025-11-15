@@ -26,6 +26,7 @@ interface GridIcon {
 
 export function TechStackGrid() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [horizontalPadding, setHorizontalPadding] = useState(40);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -36,8 +37,18 @@ export function TechStackGrid() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const gridSize = 12;
-  const cellSize = 90;
+  const gridCols = 6; // Nombre de colonnes réduit
+  const gridRows = 8; // Nombre de lignes
+  const cellSize = 140; // Taille des cellules agrandie
+
+  useEffect(() => {
+    const updatePadding = () => {
+      setHorizontalPadding(window.innerWidth >= 1024 ? 40 : 20);
+    };
+    updatePadding();
+    window.addEventListener('resize', updatePadding);
+    return () => window.removeEventListener('resize', updatePadding);
+  }, []);
 
   // Technologies avec leurs couleurs officielles
   const techList = [
@@ -90,19 +101,27 @@ export function TechStackGrid() {
     '1-5': { bg: '#E34F26', icon: SiHtml5, color: '#ffffff' },
   };
 
+  // Calculer la largeur disponible et centrer la grille
+  const containerMaxWidth = 1280;
+  const availableWidth = typeof window !== 'undefined' 
+    ? Math.min(window.innerWidth, containerMaxWidth) - (horizontalPadding * 2)
+    : containerMaxWidth - (horizontalPadding * 2);
+  const gridWidth = gridCols * cellSize;
+  const startX = (availableWidth - gridWidth) / 2 + horizontalPadding;
+
   const icons: GridIcon[] = [];
-  for (let row = 0; row < gridSize; row++) {
-    for (let col = 0; col < gridSize; col++) {
+  for (let row = 0; row < gridRows; row++) {
+    for (let col = 0; col < gridCols; col++) {
       const key = `${row}-${col}`;
       const special = specialIcons[key];
-      const techIndex = (row * gridSize + col) % techList.length;
+      const techIndex = (row * gridCols + col) % techList.length;
       const tech = techList[techIndex];
 
       icons.push({
         id: key,
         row,
         col,
-        x: col * cellSize + cellSize / 2 + 150,
+        x: startX + col * cellSize + cellSize / 2,
         y: row * cellSize + cellSize / 2 + 50,
         bg: special?.bg || tech.color,
         icon: special?.icon || tech.icon,
@@ -151,7 +170,7 @@ export function TechStackGrid() {
               backgroundColor: icon.bg,
             }}
           >
-            <IconComponent size={48} style={{ color: icon.color }} />
+            <IconComponent size={64} style={{ color: icon.color }} />
           </div>
         );
       })}

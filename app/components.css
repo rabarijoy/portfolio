@@ -777,9 +777,9 @@
 
 .tech-stack-absolute-item {
   position: absolute;
-  width: 80px;
-  height: 80px;
-  border-radius: 16px;
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
