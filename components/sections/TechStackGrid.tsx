@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import {
   SiHtml5, SiCss3, SiJavascript, SiPhp,
   SiReact, SiSymfony, SiTailwindcss,
@@ -89,37 +89,81 @@ export function TechStackGrid() {
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
   };
 
-  const getOpacity = (iconX: number, iconY: number) => {
-    const distance = getDistance(mousePos.x, mousePos.y, iconX, iconY);
-    const threshold = 200;
-    
-    if (distance > threshold) return 0.3;
-    return 0.3 + (1 - distance / threshold) * 0.7;
+  // Générer des gris aléatoires pour les cases vides
+  const generateLightGray = () => {
+    const base = 240; // Base très claire
+    const variation = Math.random() * 15; // Variation de 0 à 15
+    const grayValue = Math.floor(base - variation);
+    return `rgb(${grayValue}, ${grayValue}, ${grayValue})`;
   };
 
-  const getScale = (iconX: number, iconY: number) => {
-    const distance = getDistance(mousePos.x, mousePos.y, iconX, iconY);
-    const threshold = 200;
+  // Créer une grille complète avec cases vides (mémorisée pour éviter les re-renders)
+  const allCells = useMemo(() => {
+    const gridCols = 8; // Plus de colonnes pour une grille plus dense
+    const gridRows = 6;
+    const totalCells = gridCols * gridRows;
     
-    if (distance > threshold) return 0.85;
-    const scale = 0.85 + (1 - distance / threshold) * 0.25;
-    return Math.min(scale, 1.1);
-  };
+    // Créer un tableau de toutes les cases
+    const cells: Array<{ id: string; tech?: TechItem; isEmpty: boolean; grayColor?: string }> = [];
+    
+    // Placer les technologies de manière aléatoire mais équilibrée
+    const techPositions = new Set<number>();
+    const shuffledTechs = [...technologies].sort(() => Math.random() - 0.5);
+    
+    shuffledTechs.forEach((tech) => {
+      let position;
+      let attempts = 0;
+      do {
+        position = Math.floor(Math.random() * totalCells);
+        attempts++;
+        if (attempts > 100) break; // Sécurité pour éviter les boucles infinies
+      } while (techPositions.has(position));
+      techPositions.add(position);
+    });
+
+    // Remplir toutes les cases
+    for (let i = 0; i < totalCells; i++) {
+      if (techPositions.has(i)) {
+        const positionIndex = Array.from(techPositions).indexOf(i);
+        cells.push({
+          id: `cell-${i}`,
+          tech: shuffledTechs[positionIndex],
+          isEmpty: false,
+        });
+      } else {
+        cells.push({
+          id: `cell-${i}`,
+          isEmpty: true,
+          grayColor: generateLightGray(),
+        });
+      }
+    }
+    
+    return cells;
+  }, []); // Seulement calculé une fois au montage
 
   // Update animations on mouse move
   useEffect(() => {
     const updateAnimations = () => {
+      const threshold = 180;
+      
       itemRefs.current.forEach((element, id) => {
         if (element) {
           const rect = element.getBoundingClientRect();
           const iconX = rect.left + rect.width / 2;
           const iconY = rect.top + rect.height / 2;
           
-          const opacity = getOpacity(iconX, iconY);
-          const scale = getScale(iconX, iconY);
+          const distance = getDistance(mousePos.x, mousePos.y, iconX, iconY);
+          
+          // Seules les icônes proches sont visibles
+          const opacity = distance > threshold ? 0 : 1 - (distance / threshold);
+          
+          // Scale animation
+          const scale = distance > threshold ? 0.9 : 0.9 + (1 - distance / threshold) * 0.3;
+          const finalScale = Math.min(scale, 1.2);
           
           element.style.opacity = opacity.toString();
-          element.style.transform = `scale(${scale})`;
+          element.style.transform = `scale(${finalScale})`;
         }
       });
     };
@@ -130,7 +174,20 @@ export function TechStackGrid() {
   return (
     <div className="tech-stack-container">
       <div className="tech-stack-grid">
-        {technologies.map((tech) => {
+        {allCells.map((cell) => {
+          if (cell.isEmpty) {
+            return (
+              <div
+                key={cell.id}
+                className="tech-stack-item tech-stack-item-empty"
+                style={{
+                  backgroundColor: cell.grayColor,
+                }}
+              />
+            );
+          }
+
+          const tech = cell.tech!;
           const IconComponent = tech.icon;
           return (
             <div
@@ -148,7 +205,7 @@ export function TechStackGrid() {
               }}
               aria-label={tech.name}
             >
-              <IconComponent size={32} className="tech-stack-icon" />
+              <IconComponent size={48} className="tech-stack-icon" />
             </div>
           );
         })}
