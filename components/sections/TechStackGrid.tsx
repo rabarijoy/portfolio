@@ -79,13 +79,36 @@ export function TechStackGrid() {
       setGridConfig({ cols, rows });
     };
 
+    // Gérer la visibilité de la page pour réinitialiser l'état
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // Page cachée : réinitialiser l'état
+        setHoveredIconId(null);
+        setMousePos({ x: 0, y: 0 });
+      } else {
+        // Page visible : réinitialiser et mettre à jour la grille
+        setHoveredIconId(null);
+        updateGrid();
+      }
+    };
+
+    // Gérer le focus de la fenêtre
+    const handleWindowFocus = () => {
+      setHoveredIconId(null);
+      updateGrid();
+    };
+
     updateGrid();
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('resize', updateGrid);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('focus', handleWindowFocus);
     
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', updateGrid);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('focus', handleWindowFocus);
     };
   }, []);
 
