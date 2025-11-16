@@ -827,16 +827,15 @@
   position: absolute;
   border-radius: 22%;
   box-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 1px 2px rgba(0, 0, 0, 0.1),
     0 4px 8px rgba(0, 0, 0, 0.08),
-    0 12px 24px rgba(0, 0, 0, 0.12),
-    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    0 8px 16px rgba(0, 0, 0, 0.06),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  position: relative;
   overflow: hidden;
 }
 
@@ -848,22 +847,13 @@
   right: 0;
   height: 40%;
   background: linear-gradient(
-    180deg,
+    to bottom,
     rgba(255, 255, 255, 0.25) 0%,
     rgba(255, 255, 255, 0.1) 50%,
     rgba(255, 255, 255, 0) 100%
   );
-  border-radius: 22% 22% 0 0;
   pointer-events: none;
-}
-
-.tech-stack-absolute-item:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.08),
-    0 8px 16px rgba(0, 0, 0, 0.12),
-    0 16px 32px rgba(0, 0, 0, 0.15),
-    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  border-radius: inherit;
 }
 
 .tech-stack-background-square {
@@ -871,9 +861,8 @@
   border-radius: 22%;
   transition: opacity 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.04),
-    0 4px 8px rgba(0, 0, 0, 0.06),
-    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .tech-stack-hint-absolute {
