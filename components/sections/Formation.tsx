@@ -235,6 +235,7 @@ export function Formation() {
                     src={FORMATION_IMAGE_PLACEHOLDER}
                     alt={tTechWatch(topic.titleKey)}
                   />
+                  <div className="techwatch-card-image-cutout"></div>
                   <div className="techwatch-card-arrow">→</div>
                 </div>
                 <div className="techwatch-card-content">

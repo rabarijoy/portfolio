@@ -2161,7 +2161,6 @@
   border-radius: 30px;
   margin-bottom: 25px;
   overflow: visible;
-  z-index: 1;
 }
 
 @media (min-width: 768px) {
@@ -2177,6 +2176,19 @@
   border-radius: 30px;
   position: relative;
   z-index: 1;
+}
+
+/* Cercle blanc pour l'effet de creusement */
+.techwatch-card-image-cutout {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 70px;
+  height: 70px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
 }
 
 .techwatch-card-tag {
@@ -2195,8 +2207,8 @@
 
 .techwatch-card-arrow {
   position: absolute;
-  bottom: -30px;
-  right: -30px;
+  bottom: -25px;
+  right: -25px;
   width: 60px;
   height: 60px;
   background-color: #000;
@@ -2209,7 +2221,7 @@
   cursor: pointer;
   transition: transform 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  z-index: 20;
+  z-index: 3;
 }
 
 .techwatch-card-arrow:hover {
