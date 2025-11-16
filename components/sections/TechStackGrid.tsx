@@ -28,8 +28,11 @@ export function TechStackGrid() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [gridConfig, setGridConfig] = useState({ cols: 7, rows: 5 });
   const [blinkStates, setBlinkStates] = useState<Record<number, boolean>>({});
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
+    
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
     };
@@ -202,7 +205,8 @@ export function TechStackGrid() {
   const gap = 10; // Écart fixe entre les carrés
 
   // Calculer la largeur disponible exacte du container (même que section projets)
-  const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1200;
+  // Utiliser une valeur par défaut pour le SSR pour éviter l'hydration mismatch
+  const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1280;
   const containerMaxWidth = 1280;
   const containerPadding = screenWidth >= 1024 ? 40 : 20; // Même padding que .container
   
@@ -290,6 +294,11 @@ export function TechStackGrid() {
   const getScale = (iconId: number) => {
     return closestSix.has(iconId) ? 1 : 0.8;
   };
+
+  // Ne pas rendre avant que le client soit monté pour éviter l'hydration mismatch
+  if (!isClient) {
+    return <div className="tech-stack-absolute-container" style={{ minHeight: '500px' }} />;
+  }
 
   return (
     <div className="tech-stack-absolute-container">
