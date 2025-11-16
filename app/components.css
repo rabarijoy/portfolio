@@ -868,9 +868,8 @@
 /* Tech Stack Tooltip */
 .tech-stack-tooltip {
   position: absolute;
-  bottom: calc(100% + 12px);
-  left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -100%);
+  margin-bottom: 8px;
   padding: 8px 12px;
   background-color: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
@@ -906,11 +905,11 @@
 @keyframes tooltipFadeIn {
   from {
     opacity: 0;
-    transform: translateX(-50%) translateY(4px);
+    transform: translate(-50%, calc(-100% + 4px));
   }
   to {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translate(-50%, -100%);
   }
 }
 

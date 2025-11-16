@@ -345,6 +345,8 @@ export function TechStackGrid() {
               backgroundColor: '#9ca3af',
               boxShadow: isBlink ? '0 4px 12px rgba(0,0,0,0.1)' : 'none',
             }}
+            onMouseEnter={() => setHoveredIconId(icon.id)}
+            onMouseLeave={() => setHoveredIconId(null)}
           />
         );
       })}
@@ -373,19 +375,28 @@ export function TechStackGrid() {
               transform: `translate(-50%, -50%) scale(${scale})`,
               opacity: opacity,
               backgroundColor: icon.bg,
+              pointerEvents: isVisible ? 'auto' : 'none',
             }}
             onMouseEnter={() => setHoveredIconId(icon.id)}
             onMouseLeave={() => setHoveredIconId(null)}
           >
             <IconComponent size={Math.floor(cellSize * 0.4)} style={{ color: icon.color }} />
-            {hoveredIconId === icon.id && icon.name && (
-              <div className="tech-stack-tooltip">
-                {icon.name}
-              </div>
-            )}
           </div>
         );
       })}
+      
+      {/* Tooltip - affiché au-dessus de l'icône survolée */}
+      {hoveredIconId !== null && icons[hoveredIconId] && !icons[hoveredIconId].isEmpty && icons[hoveredIconId].name && (
+        <div
+          className="tech-stack-tooltip"
+          style={{
+            left: `${icons[hoveredIconId].x}px`,
+            top: `${icons[hoveredIconId].y - cellSize / 2 - 12}px`,
+          }}
+        >
+          {icons[hoveredIconId].name}
+        </div>
+      )}
       
     </div>
   );
