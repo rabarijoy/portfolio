@@ -2181,8 +2181,8 @@
 /* Cercle blanc pour l'effet de creusement */
 .techwatch-card-image-cutout {
   position: absolute;
-  bottom: -30px;
-  right: -30px;
+  bottom: -35px;
+  right: -35px;
   width: 70px;
   height: 70px;
   background-color: #ffffff;
@@ -2207,8 +2207,8 @@
 
 .techwatch-card-arrow {
   position: absolute;
-  bottom: -25px;
-  right: -25px;
+  bottom: -30px;
+  right: -30px;
   width: 60px;
   height: 60px;
   background-color: #000;
