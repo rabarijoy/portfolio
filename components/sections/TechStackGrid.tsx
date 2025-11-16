@@ -364,8 +364,8 @@ export function TechStackGrid() {
     const totalCells = gridConfig.cols * gridConfig.rows;
     const iconsArray: GridIcon[] = [];
     
-    // Créer les cases avec icônes (32 au maximum)
-    for (let i = 0; i < 32; i++) {
+    // Créer les cases avec icônes (exactement 32, pas de cases vides)
+    for (let i = 0; i < totalIcons && i < totalCells; i++) {
       const row = Math.floor(i / gridConfig.cols);
       const col = i % gridConfig.cols;
       
