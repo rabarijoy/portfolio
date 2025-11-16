@@ -203,10 +203,8 @@
     }
   },
   "techWatch": {
-    "title": "Veille technologique",
+    "title": "Je me tiens informé des dernières tendances technologiques",
     "subtitle": "Je me tiens informé des dernières tendances et innovations technologiques",
-    "tag": "Veille",
-    "mainTitle": "Espace pour l'innovation, les résolveurs de problèmes et les développeurs",
     "ai": {
       "title": "Intelligence Artificielle",
       "description": "L'IA révolutionne le développement logiciel et ouvre de nouvelles possibilités passionnantes.",

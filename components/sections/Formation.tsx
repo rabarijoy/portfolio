@@ -195,68 +195,59 @@ export function Formation() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="section-header"
           >
-            {/* Tag */}
-            <div className="techwatch-tag">
-              {tTechWatch('tag')}
-            </div>
-
-            {/* Main Title */}
-            <h1 className="techwatch-title-large">
-              {tTechWatch('mainTitle')}
-            </h1>
-
-            {/* Cards Grid */}
-            <div className="techwatch-cards-grid">
-              {[
-                {
-                  titleKey: 'ai.title',
-                  descriptionKey: 'ai.description',
-                  tag: 'ai.tag',
-                },
-                {
-                  titleKey: 'cybersecurity.title',
-                  descriptionKey: 'cybersecurity.description',
-                  tag: 'cybersecurity.tag',
-                },
-                {
-                  titleKey: 'ai.title',
-                  descriptionKey: 'ai.description',
-                  tag: 'ai.tag',
-                },
-              ].map((topic, index) => (
-                <motion.div
-                  key={`${topic.titleKey}-${index}`}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="techwatch-card"
-                >
-                  <div className="techwatch-card-image">
-                    <img 
-                      src={FORMATION_IMAGE_PLACEHOLDER}
-                      alt={tTechWatch(topic.titleKey)}
-                    />
-                    <div className="techwatch-card-tag">
-                      {tTechWatch(topic.tag)}
-                    </div>
-                    <div className="techwatch-card-arrow">→</div>
-                  </div>
-                  <div className="techwatch-card-content">
-                    <h2 className="techwatch-card-title">
-                      {tTechWatch(topic.titleKey)}
-                    </h2>
-                    {tTechWatch(topic.descriptionKey) && (
-                      <p className="techwatch-card-description">
-                        {tTechWatch(topic.descriptionKey)}
-                      </p>
-                    )}
-                  </div>
-                </motion.div>
-              ))}
+            <div className="section-header-title" style={{ alignItems: 'flex-start', textAlign: 'left' }}>
+              <h2 className="title-section">
+                {tTechWatch('title')}
+              </h2>
             </div>
           </motion.div>
+
+          {/* Cards Grid */}
+          <div className="techwatch-cards-grid">
+            {[
+              {
+                titleKey: 'ai.title',
+                descriptionKey: 'ai.description',
+              },
+              {
+                titleKey: 'cybersecurity.title',
+                descriptionKey: 'cybersecurity.description',
+              },
+              {
+                titleKey: 'ai.title',
+                descriptionKey: 'ai.description',
+              },
+            ].map((topic, index) => (
+              <motion.div
+                key={`${topic.titleKey}-${index}`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="techwatch-card"
+              >
+                <div className="techwatch-card-image">
+                  <img 
+                    src={FORMATION_IMAGE_PLACEHOLDER}
+                    alt={tTechWatch(topic.titleKey)}
+                  />
+                  <div className="techwatch-card-arrow">→</div>
+                </div>
+                <div className="techwatch-card-content">
+                  <h2 className="techwatch-card-title">
+                    {tTechWatch(topic.titleKey)}
+                  </h2>
+                  {tTechWatch(topic.descriptionKey) && (
+                    <p className="techwatch-card-description">
+                      {tTechWatch(topic.descriptionKey)}
+                    </p>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </Section>
