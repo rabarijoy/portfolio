@@ -20,7 +20,7 @@ export function About() {
           className="about-image-wrapper"
         >
           <Image
-            src="/assets/hero.png"
+            src="/assets/hero.jpeg"
             alt="Illustration"
             fill
             className="about-image"
