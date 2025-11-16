@@ -2178,7 +2178,23 @@
   z-index: 1;
 }
 
-/* Cercle blanc pour l'effet de creusement - retiré, remplacé par SVG */
+/* Conteneur du bouton avec coin arrondi pour l'effet de creusement */
+.techwatch-card-arrow-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70px;
+  height: 70px;
+  background-color: #F9F8F6;
+  border-top-left-radius: 50%;
+  padding: 10px;
+  margin-right: -10px;
+  margin-bottom: -10px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .techwatch-card-tag {
   position: absolute;
@@ -2195,57 +2211,36 @@
 }
 
 .techwatch-card-arrow {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 80px;
-  height: 80px;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background-color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  z-index: 3;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.techwatch-card-arrow:hover {
+  opacity: 0.9;
+}
+
+.techwatch-card-arrow-icon {
+  width: 31px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.techwatch-card-arrow svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.techwatch-card-arrow-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.techwatch-card-arrow-bg-white {
-  z-index: 1;
-}
-
-.techwatch-card-arrow-bg-black {
-  z-index: 2;
-}
-
-.techwatch-card-arrow-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 31px;
-  height: 28px;
-  z-index: 2;
-}
-
 .techwatch-card-arrow-icon svg {
   width: 100%;
   height: 100%;
-}
-
-.techwatch-card-arrow:hover .techwatch-card-arrow-icon {
-  transform: translate(-40%, -50%);
-  transition: transform 0.3s ease;
+  display: block;
 }
 
 .techwatch-card-content {
