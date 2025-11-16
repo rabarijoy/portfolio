@@ -612,8 +612,8 @@ export function TechStackGrid() {
         );
       })}
       
-      {/* Tooltip - affiché au-dessus de l'icône survolée */}
-      {hoveredIconId !== null && icons[hoveredIconId] && !icons[hoveredIconId].isEmpty && icons[hoveredIconId].name && (
+      {/* Tooltip - affiché au-dessus de l'icône survolée (desktop seulement) */}
+      {!isMobile && hoveredIconId !== null && icons[hoveredIconId] && !icons[hoveredIconId].isEmpty && icons[hoveredIconId].name && (
         <div
           className="tech-stack-tooltip"
           style={{
