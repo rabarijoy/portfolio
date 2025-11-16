@@ -65,7 +65,7 @@
     }
   },
   "portfolio": {
-    "title": "<projects>",
+    "title": "My Work",
     "subtitle": "Discover a selection of my recent work",
     "view_project": "View project",
     "view_all": "View all projects",
@@ -106,7 +106,7 @@
   "formation": {
     "training": {
       "badge": "Education",
-      "title": "<training>",
+      "title": "My Journey",
       "degree": {
         "name": "BTS SIO – SLAM",
         "subtitle": "IT Services for Organizations, Software Solutions and Business Applications option"
@@ -127,7 +127,7 @@
     },
     "careers": {
       "badge": "Career Goals",
-      "title": "<professional_project>",
+      "title": "My Professional Project",
       "main": {
         "title": "Web Developer",
         "description": "A field that attracts me with its diversity, rapid pace of evolution and creative possibilities it offers.",
@@ -148,7 +148,7 @@
     "subtitle": "Complete solutions to bring your web projects to life"
   },
   "skills": {
-    "title": "<skills>",
+    "title": "My Skills",
     "subtitle": "A set of technical skills acquired during my training and personal projects",
     "languages": {
       "title": "Languages",
@@ -203,7 +203,7 @@
     }
   },
   "techWatch": {
-    "title": "<tech_watch>",
+    "title": "Tech Watch",
     "subtitle": "I keep myself informed about the latest trends and technological innovations",
     "ai": {
       "title": "Artificial Intelligence",
@@ -264,7 +264,7 @@
     "disclaimer": "* All prices are indicative and may vary depending on specific project requirements"
   },
   "contact": {
-    "title": "<contact>",
+    "title": "Get in Touch",
     "subtitle": "Have a project? Let's talk about it",
     "name": "Name",
     "email": "Email",

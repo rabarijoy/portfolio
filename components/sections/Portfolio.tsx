@@ -85,7 +85,7 @@ export function Portfolio() {
         <div className="section-header-center">
           <div className="section-header-center-title">
             <h2 className="title-section-large">
-              &lt;projets&gt;
+              {t('title')}
             </h2>
           </div>
 
@@ -174,7 +174,7 @@ export function Portfolio() {
         >
           <div className="section-header-title">
             <h2 className="title-section">
-              &lt;compétences&gt;
+              Mes compétences
             </h2>
             <p className="subtitle-section">
               <span className="hidden lg:inline">Survolez pour découvrir</span>

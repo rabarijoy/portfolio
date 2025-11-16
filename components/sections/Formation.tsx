@@ -28,7 +28,7 @@ export function Formation() {
             <div style={{ marginBottom: '24px' }}>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '24px' }}>
                 <h2 className="title-section">
-                  &lt;formation&gt;
+                  {t('training.title')}
                 </h2>
               </div>
             </div>
@@ -116,7 +116,7 @@ export function Formation() {
             <div style={{ marginBottom: '24px' }}>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '24px' }}>
                 <h2 className="title-section">
-                  &lt;projet_professionnel&gt;
+                  {t('careers.title')}
                 </h2>
               </div>
             </div>
@@ -199,7 +199,7 @@ export function Formation() {
           >
             <div className="section-header-title">
               <h2 className="title-section">
-                &lt;veille_informationnelle&gt;
+                {tTechWatch('title')}
               </h2>
             </div>
           </motion.div>

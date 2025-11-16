@@ -9,11 +9,13 @@
    1. TYPOGRAPHY
    ============================================ */
 
-/* Section Titles (PP NeueBit) */
+/* Section Titles (Helvetica Bold) */
 .title-section {
-  font-family: 'PP NeueBit', sans-serif;
-  font-size: 50px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 40px;
   line-height: 1.1;
+  letter-spacing: -0.02em;
   color: #000000;
   margin-bottom: 8px;
   position: relative;
@@ -22,22 +24,24 @@
 
 @media (min-width: 1024px) {
   .title-section {
-    font-size: 58px;
+    font-size: 48px;
   }
 }
 
 /* Large Section Titles (Projects) */
 .title-section-large {
-  font-family: 'PP NeueBit', sans-serif;
-  font-size: 55px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 44px;
   line-height: 1.1;
+  letter-spacing: -0.02em;
   color: #000000;
   margin-bottom: 8px;
 }
 
 @media (min-width: 1024px) {
   .title-section-large {
-    font-size: 70px;
+    font-size: 56px;
   }
 }
 

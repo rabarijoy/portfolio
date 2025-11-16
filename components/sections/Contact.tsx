@@ -95,7 +95,7 @@ export function Contact() {
           <div className="section-header">
             <div className="section-header-title">
               <h2 className="title-section">
-                &lt;contact&gt;
+                {t('title')}
               </h2>
             </div>
           </div>
