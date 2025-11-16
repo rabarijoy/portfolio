@@ -357,15 +357,6 @@ export function TechStackGrid() {
     { icon: SiFigma, color: '#F24E1E', name: 'Figma' },
   ];
 
-  const specialIcons: Record<string, { bg: string; icon: React.ComponentType<{ size?: number; className?: string }>; color: string; name: string }> = {
-    '5': { bg: '#000000', icon: SiSymfony, color: '#ffffff', name: 'Symfony' },
-    '2': { bg: '#06B6D4', icon: SiTailwindcss, color: '#ffffff', name: 'Tailwind CSS' },
-    '15': { bg: '#2496ED', icon: SiDocker, color: '#ffffff', name: 'Docker' },
-    '8': { bg: '#000000', icon: SiVercel, color: '#ffffff', name: 'Vercel' },
-    '20': { bg: '#F24E1E', icon: SiFigma, color: '#ffffff', name: 'Figma' },
-    '25': { bg: '#336791', icon: SiPostgresql, color: '#ffffff', name: 'PostgreSQL' },
-  };
-
   const totalIcons = techList.length; // 32 icônes
 
   const gap = 10; // Écart fixe entre les carrés
@@ -406,24 +397,22 @@ export function TechStackGrid() {
     const iconsArray: GridIcon[] = [];
     
     // Créer les cases avec icônes (32 au maximum)
-    for (let i = 0; i < 32; i++) {
+    for (let i = 0; i < 32 && i < techList.length; i++) {
       const row = Math.floor(i / gridConfig.cols);
       const col = i % gridConfig.cols;
       
       // Vérifier si cette case est dans les limites de la grille
       if (row < gridConfig.rows && col < gridConfig.cols) {
-        const special = specialIcons[i.toString()];
-        const techIndex = i % techList.length;
-        const tech = techList[techIndex];
+        const tech = techList[i]; // Utiliser directement l'index i
         
         iconsArray.push({
           id: i,
           x: startX - gridTotalWidth / 2 + col * (calculatedCellSize + gap) + calculatedCellSize / 2,
           y: row * (calculatedCellSize + gap) + calculatedCellSize / 2 + startY,
-          bg: special?.bg || tech.color,
-          icon: special?.icon || tech.icon,
-          color: special?.color || '#ffffff',
-          name: special?.name || tech.name,
+          bg: tech.color,
+          icon: tech.icon,
+          color: '#ffffff',
+          name: tech.name,
           isEmpty: false,
         });
       }
