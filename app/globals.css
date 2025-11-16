@@ -14,16 +14,16 @@
 }
 
 @font-face {
-  font-family: 'PP Neue Montreal';
-  src: url('/assets/fonts/ppneuemontreal-book.otf') format('opentype');
+  font-family: 'Degular Display';
+  src: url('/assets/fonts/degular-display-regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'PP Neue Montreal';
-  src: url('/assets/fonts/ppneuemontreal-bold.otf') format('opentype');
+  font-family: 'Degular Display';
+  src: url('/assets/fonts/degular-display-bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -90,7 +90,7 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'PP Neue Montreal', Arial, sans-serif;
+  font-family: 'Degular Display', Arial, sans-serif;
   font-weight: 400;
 }
 
