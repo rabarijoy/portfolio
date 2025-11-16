@@ -397,6 +397,8 @@ export function TechStackGrid() {
         const opacity = isVisible ? 1 : 0;
         const scale = isVisible ? 1 : 0.8;
         const IconComponent = icon.icon;
+        const techName = techNames[icon.id] || 'Technology';
+        const showTooltip = hoveredIconId === icon.id && isVisible;
         
         return (
           <div
@@ -411,8 +413,23 @@ export function TechStackGrid() {
               opacity: opacity,
               backgroundColor: icon.bg,
             }}
+            onMouseEnter={() => setHoveredIconId(icon.id)}
+            onMouseLeave={() => setHoveredIconId(null)}
           >
             <IconComponent size={Math.floor(cellSize * 0.4)} style={{ color: icon.color }} />
+            {showTooltip && (
+              <div 
+                className="tech-stack-tooltip"
+                style={{
+                  left: '50%',
+                  top: '100%',
+                  transform: 'translateX(-50%)',
+                  marginTop: '8px',
+                }}
+              >
+                {techName}
+              </div>
+            )}
           </div>
         );
       })}
