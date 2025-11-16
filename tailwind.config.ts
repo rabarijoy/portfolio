@@ -18,7 +18,7 @@ const config: Config = {
       },
       fontFamily: {
         'ppneuebit': ['PP NeueBit', 'sans-serif'],
-        'helvetica': ['Degular Display', 'Arial', 'sans-serif'],
+        'helvetica': ['Hanken Grotesk', 'Arial', 'sans-serif'],
       },
       letterSpacing: {
         'tighter-2': '-0.02em',

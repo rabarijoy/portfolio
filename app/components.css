@@ -9,9 +9,9 @@
    1. TYPOGRAPHY
    ============================================ */
 
-/* Section Titles (Degular Display Bold) */
+/* Section Titles (Hanken Grotesk Bold) */
 .title-section {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 700;
   font-size: 40px;
   line-height: 1.1;
@@ -30,7 +30,7 @@
 
 /* Large Section Titles (Projects) */
 .title-section-large {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 700;
   font-size: 44px;
   line-height: 1.1;
@@ -47,7 +47,7 @@
 
 /* Hero Title */
 .title-hero {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 700;
   font-size: 32px;
   line-height: 0.84;
@@ -66,7 +66,7 @@
 
 /* Hero Subtitle */
 .subtitle-hero {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 700;
   font-size: 24px;
   line-height: 1.45;
@@ -76,14 +76,14 @@
 
 /* Body Text */
 .text-body {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: #374151;
 }
 
 .text-body-small {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 15px;
   line-height: 1.6;
   color: #4b5563;
@@ -97,7 +97,7 @@
 
 /* Card Title */
 .title-card {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 28px;
   font-weight: 600;
   color: #000000;
@@ -106,7 +106,7 @@
 
 /* Card Title - Apple Style (for project cards) */
 .title-card-apple {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 32px;
   font-weight: 700;
   color: #ffffff;
@@ -123,7 +123,7 @@
 
 /* Card Description */
 .text-card-description {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 17px;
   color: #6b7280;
   margin-bottom: 20px;
@@ -132,7 +132,7 @@
 
 /* Card Description - Apple Style (for project cards) */
 .text-card-description-apple {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
@@ -151,7 +151,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.85);
@@ -185,7 +185,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: var(--blue-accent);
@@ -218,7 +218,7 @@
 
 /* Section Subtitle */
 .subtitle-section {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #6b7280;
@@ -240,7 +240,7 @@
 .btn-primary {
   background-color: #000000;
   color: #ffffff;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 1.45;
@@ -263,7 +263,7 @@
 .btn-secondary {
   background-color: #ffffff;
   color: #000000;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 1.45;
@@ -286,7 +286,7 @@
 .btn-header {
   background-color: #000000;
   color: #ffffff;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 500;
   font-size: 15px;
   letter-spacing: -0.01em;
@@ -308,7 +308,7 @@
 
 /* Filter Button */
 .btn-filter {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   padding: 10px 24px;
   border-radius: 24px;
   font-size: 15px;
@@ -338,7 +338,7 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   padding: 14px 32px;
   background-color: #000000;
   color: #ffffff;
@@ -498,7 +498,7 @@
 }
 
 .card-skill-title {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 700;
   font-size: 20px;
   color: #000000;
@@ -533,7 +533,7 @@
 }
 
 .card-skill-text {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 15px;
   line-height: 1.6;
   color: #374151;
@@ -578,7 +578,7 @@
 }
 
 .card-formation-title {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 700;
   font-size: 24px;
   color: #000000;
@@ -885,7 +885,7 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: #ffffff;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 13px;
   font-weight: 500;
   white-space: nowrap;
@@ -934,7 +934,7 @@
   bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 14px;
   color: #9ca3af;
   text-align: center;
@@ -1151,7 +1151,7 @@
 }
 
 .nav-link {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 500;
   font-size: 15px;
   letter-spacing: -0.01em;
@@ -1190,7 +1190,7 @@
 /* Label */
 .form-label {
   display: block;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 600;
   font-size: 14px;
   color: #111827;
@@ -1206,7 +1206,7 @@
 .form-input {
   width: 100%;
   padding: 12px 16px;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 15px;
   color: #111827;
   background-color: #ffffff;
@@ -1234,7 +1234,7 @@
 .form-textarea {
   width: 100%;
   padding: 12px 16px;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 15px;
   color: #111827;
   background-color: #ffffff;
@@ -1266,7 +1266,7 @@
   align-items: center;
   gap: 6px;
   margin-top: 6px;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 13px;
   color: #ef4444;
 }
@@ -1277,7 +1277,7 @@
   padding: 14px 24px;
   background-color: #000000;
   color: #ffffff;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 600;
   font-size: 16px;
   border: none;
@@ -1302,7 +1302,7 @@
 .footer {
   position: relative;
   background-color: #ffffff;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
 }
 
 .footer-separator {
@@ -1364,7 +1364,7 @@
 }
 
 .footer-name {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 700;
   font-size: 20px;
   color: #000000;
@@ -1389,7 +1389,7 @@
 }
 
 .footer-location-text {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 15px;
 }
 
@@ -1434,7 +1434,7 @@
 }
 
 .footer-link-text {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 15px;
 }
 
@@ -1455,7 +1455,7 @@
    ============================================ */
 
 .tag {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   padding: 6px 14px;
   background-color: #f3f4f6;
   border-radius: 20px;
@@ -1516,7 +1516,7 @@
 
 /* View Project Link */
 .link-view-project {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   display: inline-flex;
   align-items: center;
   color: var(--blue-accent);
@@ -1771,7 +1771,7 @@
 }
 
 .about-title-line1 {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 700;
   font-size: 32px;
   line-height: 0.84;
@@ -1789,7 +1789,7 @@
 }
 
 .about-title-line2 {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 700;
   font-size: 32px;
   line-height: 0.84;
@@ -1877,7 +1877,7 @@
 }
 
 .formation-info-title {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 700;
   font-size: 18px;
   color: #000000;
@@ -1885,7 +1885,7 @@
 }
 
 .formation-info-text {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 15px;
   line-height: 1.7;
   color: #374151;
@@ -1901,7 +1901,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 500;
   font-size: 15px;
   color: var(--blue-accent);
@@ -1963,7 +1963,7 @@
 }
 
 .techwatch-resource-title {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 500;
   font-size: 15px;
   color: #111827;
@@ -1975,7 +1975,7 @@
 }
 
 .techwatch-resource-description {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 13px;
   color: #6b7280;
   margin-top: 2px;
@@ -2022,7 +2022,7 @@
   align-items: center;
   justify-content: center;
   color: #9ca3af;
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   text-align: center;
   padding: 32px;
 }
@@ -2209,7 +2209,7 @@
 }
 
 .timeline-title {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 700;
   font-size: 24px;
   line-height: 1.2;
@@ -2231,7 +2231,7 @@
 }
 
 .timeline-date {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 1.4;
@@ -2247,7 +2247,7 @@
 }
 
 .timeline-description {
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.6;

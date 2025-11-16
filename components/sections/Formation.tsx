@@ -64,7 +64,7 @@ export function Formation() {
                   </div>
 
                   <div>
-                    <h4 style={{ fontFamily: "'Degular Display', Arial, sans-serif", fontWeight: 700, fontSize: '16px', color: '#000000', marginBottom: '12px' }}>
+                    <h4 style={{ fontFamily: "'Hanken Grotesk', Arial, sans-serif", fontWeight: 700, fontSize: '16px', color: '#000000', marginBottom: '12px' }}>
                       {t('training.description.skills_title')}
                     </h4>
                     <ul style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
@@ -259,7 +259,7 @@ export function Formation() {
 
                     {/* Resources Section */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                      <h4 style={{ fontFamily: "'Degular Display', Arial, sans-serif", fontWeight: 600, fontSize: '16px', color: '#000000', marginBottom: '12px' }}>
+                      <h4 style={{ fontFamily: "'Hanken Grotesk', Arial, sans-serif", fontWeight: 600, fontSize: '16px', color: '#000000', marginBottom: '12px' }}>
                         Ressources
                       </h4>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>

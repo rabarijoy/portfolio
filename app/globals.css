@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,22 +10,6 @@
 @font-face {
   font-family: 'PP NeueBit';
   src: url('/assets/fonts/ppneuebit-bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Degular Display';
-  src: url('/assets/fonts/degular-display-regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Degular Display';
-  src: url('/assets/fonts/degular-display-bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -90,7 +76,7 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Degular Display', Arial, sans-serif;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 400;
 }
 
