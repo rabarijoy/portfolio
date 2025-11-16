@@ -279,16 +279,35 @@ export function TechStackGrid() {
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
   };
 
-  // Calculer les distances et trouver le carré directement sous le curseur + les 5 plus proches
-  // Exclure les cases vides du calcul de distance
+  // Trouver le carré exactement sous le curseur (le plus proche de la souris)
   const activeIcons = icons.filter(icon => !icon.isEmpty);
-  const iconsWithDistance = activeIcons.map(icon => ({
+  const iconsWithDistanceFromMouse = activeIcons.map(icon => ({
     ...icon,
     distance: getDistance(mousePos.x, mousePos.y, icon.x, icon.y)
   })).sort((a, b) => (a.distance || 0) - (b.distance || 0));
 
-  // Le carré directement sous le curseur (le plus proche) + les 5 autres plus proches = 6 au total
-  const closestSix = new Set(iconsWithDistance.slice(0, 6).map(icon => icon.id));
+  // Le carré directement sous le curseur (le plus proche de la souris)
+  const cursorIcon = iconsWithDistanceFromMouse[0];
+  
+  // Si on a trouvé un carré sous le curseur, trouver les 5 plus proches de ce carré
+  let closestSix = new Set<number>();
+  if (cursorIcon) {
+    closestSix.add(cursorIcon.id);
+    
+    // Trouver les 5 autres carrés les plus proches du carré sous le curseur
+    const iconsWithDistanceFromCursor = activeIcons
+      .filter(icon => icon.id !== cursorIcon.id)
+      .map(icon => ({
+        ...icon,
+        distance: getDistance(cursorIcon.x, cursorIcon.y, icon.x, icon.y)
+      }))
+      .sort((a, b) => (a.distance || 0) - (b.distance || 0));
+    
+    // Ajouter les 5 plus proches
+    iconsWithDistanceFromCursor.slice(0, 5).forEach(icon => {
+      closestSix.add(icon.id);
+    });
+  }
 
   const getOpacity = (iconId: number) => {
     return closestSix.has(iconId) ? 1 : 0;
