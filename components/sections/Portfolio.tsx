@@ -19,6 +19,7 @@ interface Project {
 
 export function Portfolio() {
   const t = useTranslations('portfolio');
+  const tSkills = useTranslations('skills');
   const [activeCategory, setActiveCategory] = useState('all');
 
   const categories = [
@@ -174,7 +175,7 @@ export function Portfolio() {
         >
           <div className="section-header-title">
             <h2 className="title-section">
-              {t('skills.title')}
+              {tSkills('title')}
             </h2>
             <p className="subtitle-section">
               <span className="hidden lg:inline">Survolez pour découvrir</span>
