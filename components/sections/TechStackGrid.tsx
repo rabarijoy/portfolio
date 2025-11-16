@@ -364,7 +364,6 @@ export function TechStackGrid() {
     '8': { bg: '#000000', icon: SiVercel, color: '#ffffff', name: 'Vercel' },
     '20': { bg: '#F24E1E', icon: SiFigma, color: '#ffffff', name: 'Figma' },
     '25': { bg: '#336791', icon: SiPostgresql, color: '#ffffff', name: 'PostgreSQL' },
-    '12': { bg: '#E34F26', icon: SiHtml5, color: '#ffffff', name: 'HTML5' },
   };
 
   const totalIcons = techList.length; // 32 icônes
