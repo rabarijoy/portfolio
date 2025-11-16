@@ -22,14 +22,15 @@ interface GridIcon {
   color: string;
   distance?: number;
   isEmpty?: boolean; // Case vide pour compléter la grille
+  name?: string; // Nom de la technologie
 }
 
 export function TechStackGrid() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [gridConfig, setGridConfig] = useState({ cols: 7, rows: 5 });
   const [blinkStates, setBlinkStates] = useState<Record<number, boolean>>({});
-  const [hoveredIconId, setHoveredIconId] = useState<number | null>(null);
   const [isClient, setIsClient] = useState(false);
+  const [hoveredIconId, setHoveredIconId] = useState<number | null>(null);
 
   useEffect(() => {
     setIsClient(true);
@@ -152,94 +153,55 @@ export function TechStackGrid() {
     return () => clearInterval(interval);
   }, [gridConfig.cols]);
 
-  // Technologies avec leurs couleurs officielles
+  // Technologies avec leurs couleurs officielles et noms
   const techList = [
-    { icon: SiHtml5, color: '#E34F26' },
-    { icon: SiCss3, color: '#1572B6' },
-    { icon: SiJavascript, color: '#F7DF1E' },
-    { icon: SiPhp, color: '#777BB4' },
-    { icon: Database, color: '#336791' },
-    { icon: Code2, color: '#ED8B00' },
-    { icon: Code2, color: '#239120' },
-    { icon: SiReact, color: '#61DAFB' },
-    { icon: SiSymfony, color: '#000000' },
-    { icon: SiTailwindcss, color: '#06B6D4' },
-    { icon: Code2, color: '#8BC0D0' },
-    { icon: Flame, color: '#FD4F00' },
-    { icon: Flame, color: '#FD4F00' },
-    { icon: SiPostgresql, color: '#336791' },
-    { icon: SiSqlite, color: '#003B57' },
-    { icon: SiClickhouse, color: '#FFCC02' },
-    { icon: SiGit, color: '#F05032' },
-    { icon: SiGithub, color: '#181717' },
-    { icon: SiGitlab, color: '#FC6D26' },
-    { icon: SiNpm, color: '#CB3837' },
-    { icon: SiDocker, color: '#2496ED' },
-    { icon: Box, color: '#3B82F6' },
-    { icon: SiWordpress, color: '#21759B' },
-    { icon: SiDrupal, color: '#0678BE' },
-    { icon: SiWebflow, color: '#4353FF' },
-    { icon: Layers, color: '#0055FF' },
-    { icon: Zap, color: '#FF6B6B' },
-    { icon: Zap, color: '#4ECDC4' },
-    { icon: SiJson, color: '#000000' },
-    { icon: SiVercel, color: '#000000' },
-    { icon: Code2, color: '#000000' },
-    { icon: Zap, color: '#000000' },
-    { icon: Zap, color: '#10A37F' },
-    { icon: SiFigma, color: '#F24E1E' },
-    { icon: Layers, color: '#E34F26' },
+    { icon: SiHtml5, color: '#E34F26', name: 'HTML5' },
+    { icon: SiCss3, color: '#1572B6', name: 'CSS3' },
+    { icon: SiJavascript, color: '#F7DF1E', name: 'JavaScript' },
+    { icon: SiPhp, color: '#777BB4', name: 'PHP' },
+    { icon: Database, color: '#336791', name: 'SQL' },
+    { icon: Code2, color: '#ED8B00', name: 'Java' },
+    { icon: Code2, color: '#239120', name: 'C#' },
+    { icon: SiReact, color: '#61DAFB', name: 'React' },
+    { icon: SiSymfony, color: '#000000', name: 'Symfony' },
+    { icon: SiTailwindcss, color: '#06B6D4', name: 'Tailwind CSS' },
+    { icon: Code2, color: '#8BC0D0', name: 'Alpine.js' },
+    { icon: Flame, color: '#FD4F00', name: 'Phoenix Framework' },
+    { icon: Flame, color: '#FD4F00', name: 'Phoenix LiveView' },
+    { icon: SiPostgresql, color: '#336791', name: 'PostgreSQL' },
+    { icon: SiSqlite, color: '#003B57', name: 'SQLite' },
+    { icon: SiClickhouse, color: '#FFCC02', name: 'ClickHouse' },
+    { icon: SiGit, color: '#F05032', name: 'Git' },
+    { icon: SiGithub, color: '#181717', name: 'GitHub' },
+    { icon: SiGitlab, color: '#FC6D26', name: 'GitLab' },
+    { icon: SiNpm, color: '#CB3837', name: 'npm' },
+    { icon: SiDocker, color: '#2496ED', name: 'Docker' },
+    { icon: Box, color: '#3B82F6', name: 'Lando' },
+    { icon: SiWordpress, color: '#21759B', name: 'WordPress' },
+    { icon: SiDrupal, color: '#0678BE', name: 'Drupal' },
+    { icon: SiWebflow, color: '#4353FF', name: 'Webflow' },
+    { icon: Layers, color: '#0055FF', name: 'Framer' },
+    { icon: Zap, color: '#FF6B6B', name: 'REST API' },
+    { icon: Zap, color: '#4ECDC4', name: 'API Calls' },
+    { icon: SiJson, color: '#000000', name: 'JSON' },
+    { icon: SiVercel, color: '#000000', name: 'Vercel' },
+    { icon: Code2, color: '#000000', name: 'Cursor' },
+    { icon: Zap, color: '#000000', name: 'Sonnet' },
+    { icon: Zap, color: '#10A37F', name: 'GPT' },
+    { icon: SiFigma, color: '#F24E1E', name: 'Figma' },
+    { icon: Layers, color: '#E34F26', name: 'UML' },
   ];
 
-  const specialIcons: Record<string, { bg: string; icon: React.ComponentType<{ size?: number; className?: string }>; color: string }> = {
-    '0': { bg: '#61DAFB', icon: SiReact, color: '#ffffff' },
-    '5': { bg: '#000000', icon: SiSymfony, color: '#ffffff' },
-    '10': { bg: '#F05032', icon: SiGit, color: '#ffffff' },
-    '2': { bg: '#06B6D4', icon: SiTailwindcss, color: '#ffffff' },
-    '15': { bg: '#2496ED', icon: SiDocker, color: '#ffffff' },
-    '8': { bg: '#000000', icon: SiVercel, color: '#ffffff' },
-    '20': { bg: '#F24E1E', icon: SiFigma, color: '#ffffff' },
-    '25': { bg: '#336791', icon: SiPostgresql, color: '#ffffff' },
-    '12': { bg: '#E34F26', icon: SiHtml5, color: '#ffffff' },
-  };
-
-  // Mapping des noms de technologies pour chaque position
-  const techNames: Record<number, string> = {
-    0: 'React',
-    1: 'HTML5',
-    2: 'CSS3',
-    3: 'JavaScript',
-    4: 'PHP',
-    5: 'SQL',
-    6: 'Java',
-    7: 'C#',
-    8: 'React',
-    9: 'Symfony',
-    10: 'Git',
-    11: 'Tailwind CSS',
-    12: 'HTML5',
-    13: 'Phoenix Framework',
-    14: 'Phoenix LiveView',
-    15: 'Docker',
-    16: 'PostgreSQL',
-    17: 'SQLite',
-    18: 'ClickHouse',
-    19: 'Git',
-    20: 'Figma',
-    21: 'GitHub',
-    22: 'GitLab',
-    23: 'npm',
-    24: 'Docker',
-    25: 'PostgreSQL',
-    26: 'Lando',
-    27: 'WordPress',
-    28: 'Drupal',
-    29: 'Webflow',
-    30: 'REST API',
-    31: 'JSON',
-    32: 'Vercel',
-    33: 'Cursor',
-    34: 'ChatGPT',
+  const specialIcons: Record<string, { bg: string; icon: React.ComponentType<{ size?: number; className?: string }>; color: string; name: string }> = {
+    '0': { bg: '#61DAFB', icon: SiReact, color: '#ffffff', name: 'React' },
+    '5': { bg: '#000000', icon: SiSymfony, color: '#ffffff', name: 'Symfony' },
+    '10': { bg: '#F05032', icon: SiGit, color: '#ffffff', name: 'Git' },
+    '2': { bg: '#06B6D4', icon: SiTailwindcss, color: '#ffffff', name: 'Tailwind CSS' },
+    '15': { bg: '#2496ED', icon: SiDocker, color: '#ffffff', name: 'Docker' },
+    '8': { bg: '#000000', icon: SiVercel, color: '#ffffff', name: 'Vercel' },
+    '20': { bg: '#F24E1E', icon: SiFigma, color: '#ffffff', name: 'Figma' },
+    '25': { bg: '#336791', icon: SiPostgresql, color: '#ffffff', name: 'PostgreSQL' },
+    '12': { bg: '#E34F26', icon: SiHtml5, color: '#ffffff', name: 'HTML5' },
   };
 
   const gap = 10; // Écart fixe entre les carrés
@@ -291,6 +253,7 @@ export function TechStackGrid() {
         bg: special?.bg || tech.color,
         icon: special?.icon || tech.icon,
         color: special?.color || '#ffffff',
+        name: special?.name || tech.name,
         isEmpty: false,
       });
     }
@@ -397,8 +360,6 @@ export function TechStackGrid() {
         const opacity = isVisible ? 1 : 0;
         const scale = isVisible ? 1 : 0.8;
         const IconComponent = icon.icon;
-        const techName = techNames[icon.id] || 'Technology';
-        const showTooltip = hoveredIconId === icon.id && isVisible;
         
         return (
           <div
@@ -417,17 +378,9 @@ export function TechStackGrid() {
             onMouseLeave={() => setHoveredIconId(null)}
           >
             <IconComponent size={Math.floor(cellSize * 0.4)} style={{ color: icon.color }} />
-            {showTooltip && (
-              <div 
-                className="tech-stack-tooltip"
-                style={{
-                  left: '50%',
-                  top: '100%',
-                  transform: 'translateX(-50%)',
-                  marginTop: '8px',
-                }}
-              >
-                {techName}
+            {hoveredIconId === icon.id && icon.name && (
+              <div className="tech-stack-tooltip">
+                {icon.name}
               </div>
             )}
           </div>
