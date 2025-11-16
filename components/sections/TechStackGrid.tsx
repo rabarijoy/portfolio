@@ -77,6 +77,34 @@ const GPTIcon = ({ size, className, style }: { size?: number; className?: string
   </svg>
 );
 
+const AlpineIcon = ({ size, className, style }: { size?: number; className?: string; style?: React.CSSProperties }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 128 128"
+    width={size || 24}
+    height={size || 24}
+    className={className}
+    style={style}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M98.444 35.562 126 62.997 98.444 90.432 70.889 62.997z" clipRule="evenodd"/>
+    <path fill="currentColor" fillRule="evenodd" d="m29.556 35.562 57.126 56.876H31.571L2 62.997z" clipRule="evenodd"/>
+  </svg>
+);
+
+const FramerIcon = ({ size, className, style }: { size?: number; className?: string; style?: React.CSSProperties }) => (
+  <svg
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    width={size || 24}
+    height={size || 24}
+    className={className}
+    style={style}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z"/>
+  </svg>
+);
+
 interface GridIcon {
   id: number;
   x: number;
@@ -137,8 +165,9 @@ export function TechStackGrid() {
         }
       }
       
-      const cols = bestCols;
-      const rows = Math.ceil(32 / cols); // 32 icônes au total
+      // Forcer 8 colonnes x 4 lignes pour exactement 32 icônes
+      const cols = 8;
+      const rows = 4;
       
       setGridConfig({ cols, rows });
     };
@@ -241,38 +270,48 @@ export function TechStackGrid() {
   }, [gridConfig.cols]);
 
   // Technologies avec leurs couleurs officielles et noms
+  // Organisées par ordre logique : du plus utilisé au plus niche
   const techList = [
+    // Langages de base (très utilisés)
     { icon: SiHtml5, color: '#E34F26', name: 'HTML5' },
     { icon: SiCss3, color: '#1572B6', name: 'CSS3' },
     { icon: SiJavascript, color: '#F7DF1E', name: 'JavaScript' },
     { icon: SiPhp, color: '#777BB4', name: 'PHP' },
     { icon: Database, color: '#336791', name: 'SQL' },
-    { icon: Code2, color: '#ED8B00', name: 'Java' },
-    { icon: Code2, color: '#239120', name: 'C#' },
+    // Frameworks frontend (très utilisés)
     { icon: SiReact, color: '#61DAFB', name: 'React' },
-    { icon: SiSymfony, color: '#000000', name: 'Symfony' },
     { icon: SiTailwindcss, color: '#06B6D4', name: 'Tailwind CSS' },
-    { icon: Code2, color: '#8BC0D0', name: 'Alpine.js' },
+    { icon: AlpineIcon, color: '#8BC0D0', name: 'Alpine.js' },
+    // Frameworks backend (utilisés)
+    { icon: SiSymfony, color: '#000000', name: 'Symfony' },
     { icon: Flame, color: '#FD4F00', name: 'Phoenix Framework' },
     { icon: Flame, color: '#FD4F00', name: 'Phoenix LiveView' },
+    // Bases de données (utilisées)
     { icon: SiPostgresql, color: '#336791', name: 'PostgreSQL' },
     { icon: SiSqlite, color: '#003B57', name: 'SQLite' },
     { icon: SiClickhouse, color: '#FFCC02', name: 'ClickHouse' },
+    // Outils de développement (très utilisés)
+    { icon: SiGit, color: '#F05032', name: 'Git' },
     { icon: SiGithub, color: '#181717', name: 'GitHub' },
     { icon: SiGitlab, color: '#FC6D26', name: 'GitLab' },
     { icon: SiNpm, color: '#CB3837', name: 'npm' },
     { icon: SiDocker, color: '#2496ED', name: 'Docker' },
     { icon: LandoIcon, color: '#3B82F6', name: 'Lando' },
+    // CMS/Plateformes (utilisés)
     { icon: SiWordpress, color: '#21759B', name: 'WordPress' },
     { icon: SiDrupal, color: '#0678BE', name: 'Drupal' },
     { icon: SiWebflow, color: '#4353FF', name: 'Webflow' },
-    { icon: Layers, color: '#0055FF', name: 'Framer' },
+    { icon: FramerIcon, color: '#0055FF', name: 'Framer' },
+    // Outils et services (utilisés)
     { icon: SiJson, color: '#000000', name: 'JSON' },
     { icon: SiVercel, color: '#000000', name: 'Vercel' },
     { icon: CursorIcon, color: '#000000', name: 'Cursor' },
     { icon: ClaudeIcon, color: '#000000', name: 'Sonnet' },
     { icon: GPTIcon, color: '#10A37F', name: 'GPT' },
     { icon: SiFigma, color: '#F24E1E', name: 'Figma' },
+    // Langages (moins utilisés dans ce contexte)
+    { icon: Code2, color: '#ED8B00', name: 'Java' },
+    { icon: Code2, color: '#239120', name: 'C#' },
   ];
 
   const specialIcons: Record<string, { bg: string; icon: React.ComponentType<{ size?: number; className?: string }>; color: string; name: string }> = {
@@ -286,7 +325,7 @@ export function TechStackGrid() {
     '12': { bg: '#E34F26', icon: SiHtml5, color: '#ffffff', name: 'HTML5' },
   };
 
-  const totalIcons = techList.length; // 32 icônes
+  const totalIcons = 32; // 8 colonnes x 4 lignes = 32 icônes exactement
 
   const gap = 10; // Écart fixe entre les carrés
 
@@ -349,8 +388,7 @@ export function TechStackGrid() {
       }
     }
     
-    // Compléter avec des cases vides si nécessaire
-    for (let i = 32; i < totalCells; i++) {
+    // Plus besoin de compléter avec des cases vides car on a exactement 32 icônes (8x4)
       const row = Math.floor(i / gridConfig.cols);
       const col = i % gridConfig.cols;
       
