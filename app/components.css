@@ -768,6 +768,7 @@
 /* Tech Stack Section Wrapper */
 .tech-stack-section-wrapper {
   margin-top: 100px;
+  margin-bottom: -70px; /* Compense le padding-bottom de la section parente pour équilibrer l'espacement */
   padding: 0;
   width: 100%;
   max-width: 100%;
