@@ -174,7 +174,7 @@ export function Portfolio() {
         >
           <div className="section-header-title">
             <h2 className="title-section">
-              Mes compétences
+              {t('skills.title')}
             </h2>
             <p className="subtitle-section">
               <span className="hidden lg:inline">Survolez pour découvrir</span>

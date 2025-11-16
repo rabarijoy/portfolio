@@ -12,10 +12,26 @@ const CAREER_IMAGE_PLACEHOLDER = 'https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44
 export function Formation() {
   const t = useTranslations('formation');
   const tTechWatch = useTranslations('techWatch');
+  const tSkills = useTranslations('skills');
 
   return (
     <Section id="formation" background="white" withSubtleSeparator>
       <div className="container">
+        {/* Section Title - Single title for both columns */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="section-header"
+        >
+          <div className="section-header-title" style={{ alignItems: 'flex-start', textAlign: 'left' }}>
+            <h2 className="title-section">
+              {t('title')}
+            </h2>
+          </div>
+        </motion.div>
+
         <div className="formation-grid">
           {/* Colonne gauche : Ma formation */}
           <motion.div
@@ -25,13 +41,6 @@ export function Formation() {
             transition={{ duration: 0.6 }}
             className="flex flex-col"
           >
-            <div style={{ marginBottom: '24px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '24px' }}>
-                <h2 className="title-section">
-                  {t('training.title')}
-                </h2>
-              </div>
-            </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               {/* Image placeholder - Formation */}
@@ -113,13 +122,6 @@ export function Formation() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col"
           >
-            <div style={{ marginBottom: '24px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '24px' }}>
-                <h2 className="title-section">
-                  {t('careers.title')}
-                </h2>
-              </div>
-            </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               {/* Image placeholder - Projet professionnel */}

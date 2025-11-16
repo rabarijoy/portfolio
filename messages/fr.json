@@ -104,6 +104,7 @@
     }
   },
   "formation": {
+    "title": "Je me forme pour devenir développeur web professionnel",
     "training": {
       "badge": "Formation",
       "title": "Mon parcours",
@@ -148,7 +149,7 @@
     "subtitle": "Des solutions complètes pour donner vie à vos projets web"
   },
   "skills": {
-    "title": "Mes compétences",
+    "title": "Je maîtrise un ensemble de technologies modernes",
     "subtitle": "Un ensemble de compétences techniques acquises durant ma formation et mes projets personnels",
     "languages": {
       "title": "Langages",

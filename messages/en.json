@@ -104,6 +104,7 @@
     }
   },
   "formation": {
+    "title": "I am training to become a professional web developer",
     "training": {
       "badge": "Education",
       "title": "My Journey",
@@ -148,7 +149,7 @@
     "subtitle": "Complete solutions to bring your web projects to life"
   },
   "skills": {
-    "title": "My Skills",
+    "title": "I master a set of modern technologies",
     "subtitle": "A set of technical skills acquired during my training and personal projects",
     "languages": {
       "title": "Languages",
