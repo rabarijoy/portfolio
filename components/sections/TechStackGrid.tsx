@@ -358,7 +358,6 @@ export function TechStackGrid() {
   ];
 
   const specialIcons: Record<string, { bg: string; icon: React.ComponentType<{ size?: number; className?: string }>; color: string; name: string }> = {
-    '0': { bg: '#61DAFB', icon: SiReact, color: '#ffffff', name: 'React' },
     '5': { bg: '#000000', icon: SiSymfony, color: '#ffffff', name: 'Symfony' },
     '2': { bg: '#06B6D4', icon: SiTailwindcss, color: '#ffffff', name: 'Tailwind CSS' },
     '15': { bg: '#2496ED', icon: SiDocker, color: '#ffffff', name: 'Docker' },
