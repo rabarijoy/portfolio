@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import {
   SiHtml5, SiCss3, SiJavascript, SiPhp,
   SiReact, SiSymfony, SiTailwindcss,
@@ -229,74 +229,83 @@ export function TechStackGrid() {
 
   const gap = 10; // Écart fixe entre les carrés
 
-  // Calculer la largeur disponible exacte du container (même que section projets)
-  // Utiliser une valeur par défaut pour le SSR pour éviter l'hydration mismatch
-  const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1280;
-  const containerMaxWidth = 1280;
-  const containerPadding = screenWidth >= 1024 ? 40 : 20; // Même padding que .container
-  
-  const containerWidth = Math.min(screenWidth, containerMaxWidth) - (2 * containerPadding);
-  const totalGapSpace = gap * (gridConfig.cols - 1);
-  const availableSpace = containerWidth - totalGapSpace;
-  const cellSize = availableSpace / gridConfig.cols;
+  // Calculer les positions des icônes avec useMemo pour éviter les recalculs inutiles
+  // et s'assurer que les valeurs sont toujours à jour
+  const { icons, cellSize } = useMemo(() => {
+    if (!isClient || gridConfig.cols === 0) {
+      return { icons: [], cellSize: 0 };
+    }
 
-  // Calculer la hauteur totale de la grille
-  const totalGridHeight = gridConfig.rows * cellSize + (gridConfig.rows - 1) * gap;
-  // Pas de centrage vertical - la grille commence directement en haut
-  const startY = cellSize / 2;
-
-  // Position de départ horizontale : aligner exactement avec le container
-  // Le container a max-width: 1280px, margin: 0 auto, padding: 20px/40px
-  // Le contenu du container commence à : (screenWidth - min(screenWidth, 1280)) / 2 + padding
-  const gridTotalWidth = gridConfig.cols * cellSize + (gridConfig.cols - 1) * gap;
-  const containerActualWidth = Math.min(screenWidth, containerMaxWidth);
-  const containerLeftEdge = (screenWidth - containerActualWidth) / 2;
-  const containerContentLeft = containerLeftEdge + containerPadding;
-  const startX = containerContentLeft + gridTotalWidth / 2;
-
-  // Calculer le nombre total de cases nécessaires pour un rectangle parfait
-  const totalCells = gridConfig.cols * gridConfig.rows;
-  const icons: GridIcon[] = [];
-  
-  // Créer les cases avec icônes (35 au maximum)
-  for (let i = 0; i < 35; i++) {
-    const row = Math.floor(i / gridConfig.cols);
-    const col = i % gridConfig.cols;
+    // Calculer la largeur disponible exacte du container (même que section projets)
+    const screenWidth = window.innerWidth;
+    const containerMaxWidth = 1280;
+    const containerPadding = screenWidth >= 1024 ? 40 : 20; // Même padding que .container
     
-    // Vérifier si cette case est dans les limites de la grille
-    if (row < gridConfig.rows && col < gridConfig.cols) {
-      const special = specialIcons[i.toString()];
-      const techIndex = i % techList.length;
-      const tech = techList[techIndex];
+    const containerWidth = Math.min(screenWidth, containerMaxWidth) - (2 * containerPadding);
+    const totalGapSpace = gap * (gridConfig.cols - 1);
+    const availableSpace = containerWidth - totalGapSpace;
+    const calculatedCellSize = availableSpace / gridConfig.cols;
+
+    // Calculer la hauteur totale de la grille
+    const totalGridHeight = gridConfig.rows * calculatedCellSize + (gridConfig.rows - 1) * gap;
+    // Pas de centrage vertical - la grille commence directement en haut
+    const startY = calculatedCellSize / 2;
+
+    // Position de départ horizontale : aligner exactement avec le container
+    // Le container a max-width: 1280px, margin: 0 auto, padding: 20px/40px
+    // Le contenu du container commence à : (screenWidth - min(screenWidth, 1280)) / 2 + padding
+    const gridTotalWidth = gridConfig.cols * calculatedCellSize + (gridConfig.cols - 1) * gap;
+    const containerActualWidth = Math.min(screenWidth, containerMaxWidth);
+    const containerLeftEdge = (screenWidth - containerActualWidth) / 2;
+    const containerContentLeft = containerLeftEdge + containerPadding;
+    const startX = containerContentLeft + gridTotalWidth / 2;
+
+    // Calculer le nombre total de cases nécessaires pour un rectangle parfait
+    const totalCells = gridConfig.cols * gridConfig.rows;
+    const iconsArray: GridIcon[] = [];
+    
+    // Créer les cases avec icônes (35 au maximum)
+    for (let i = 0; i < 35; i++) {
+      const row = Math.floor(i / gridConfig.cols);
+      const col = i % gridConfig.cols;
       
-      icons.push({
+      // Vérifier si cette case est dans les limites de la grille
+      if (row < gridConfig.rows && col < gridConfig.cols) {
+        const special = specialIcons[i.toString()];
+        const techIndex = i % techList.length;
+        const tech = techList[techIndex];
+        
+        iconsArray.push({
+          id: i,
+          x: startX - gridTotalWidth / 2 + col * (calculatedCellSize + gap) + calculatedCellSize / 2,
+          y: row * (calculatedCellSize + gap) + calculatedCellSize / 2 + startY,
+          bg: special?.bg || tech.color,
+          icon: special?.icon || tech.icon,
+          color: special?.color || '#ffffff',
+          name: special?.name || tech.name,
+          isEmpty: false,
+        });
+      }
+    }
+    
+    // Compléter avec des cases vides si nécessaire
+    for (let i = 35; i < totalCells; i++) {
+      const row = Math.floor(i / gridConfig.cols);
+      const col = i % gridConfig.cols;
+      
+      iconsArray.push({
         id: i,
-        x: startX - gridTotalWidth / 2 + col * (cellSize + gap) + cellSize / 2,
-        y: row * (cellSize + gap) + cellSize / 2 + startY,
-        bg: special?.bg || tech.color,
-        icon: special?.icon || tech.icon,
-        color: special?.color || '#ffffff',
-        name: special?.name || tech.name,
-        isEmpty: false,
+        x: startX - gridTotalWidth / 2 + col * (calculatedCellSize + gap) + calculatedCellSize / 2,
+        y: row * (calculatedCellSize + gap) + calculatedCellSize / 2 + startY,
+        bg: '#9ca3af', // Gris pour les cases vides
+        icon: () => null, // Pas d'icône
+        color: '#ffffff',
+        isEmpty: true,
       });
     }
-  }
-  
-  // Compléter avec des cases vides si nécessaire
-  for (let i = 35; i < totalCells; i++) {
-    const row = Math.floor(i / gridConfig.cols);
-    const col = i % gridConfig.cols;
-    
-    icons.push({
-      id: i,
-      x: startX - gridTotalWidth / 2 + col * (cellSize + gap) + cellSize / 2,
-      y: row * (cellSize + gap) + cellSize / 2 + startY,
-      bg: '#9ca3af', // Gris pour les cases vides
-      icon: () => null, // Pas d'icône
-      color: '#ffffff',
-      isEmpty: true,
-    });
-  }
+
+    return { icons: iconsArray, cellSize: calculatedCellSize };
+  }, [isClient, gridConfig.cols, gridConfig.rows]);
 
   const getDistance = (x1: number, y1: number, x2: number, y2: number) => {
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
