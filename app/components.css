@@ -2161,8 +2161,6 @@
   border-radius: 30px;
   margin-bottom: 25px;
   overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
 @media (min-width: 768px) {
@@ -2179,10 +2177,6 @@
   position: relative;
   z-index: 1;
   transition: transform 0.5s ease;
-}
-
-.techwatch-card:hover .techwatch-card-image {
-  transform: translateY(-4px);
 }
 
 .techwatch-card:hover .techwatch-card-image img {
