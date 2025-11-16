@@ -389,19 +389,6 @@ export function TechStackGrid() {
     }
     
     // Plus besoin de compléter avec des cases vides car on a exactement 32 icônes (8x4)
-      const row = Math.floor(i / gridConfig.cols);
-      const col = i % gridConfig.cols;
-      
-      iconsArray.push({
-        id: i,
-        x: startX - gridTotalWidth / 2 + col * (calculatedCellSize + gap) + calculatedCellSize / 2,
-        y: row * (calculatedCellSize + gap) + calculatedCellSize / 2 + startY,
-        bg: '#9ca3af', // Gris pour les cases vides
-        icon: () => null, // Pas d'icône
-        color: '#ffffff',
-        isEmpty: true,
-      });
-    }
 
     return { icons: iconsArray, cellSize: calculatedCellSize };
   }, [isClient, gridConfig.cols, gridConfig.rows]);
