@@ -889,6 +889,12 @@
   animation: tooltipFadeIn 0.2s ease forwards;
 }
 
+@media (max-width: 1023px) {
+  .tech-stack-tooltip {
+    display: none;
+  }
+}
+
 .tech-stack-tooltip::after {
   content: '';
   position: absolute;
@@ -927,6 +933,68 @@
 
 @media (max-width: 767px) {
   .tech-stack-hint-absolute {
+    display: none;
+  }
+}
+
+/* Tech Stack Mobile Carousel */
+.tech-stack-mobile-container {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.tech-stack-mobile-scroll {
+  display: flex;
+  align-items: center;
+  animation: scrollMobile 30s linear infinite;
+  will-change: transform;
+}
+
+.tech-stack-mobile-item {
+  flex-shrink: 0;
+  border-radius: 22%;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.08),
+    0 8px 16px rgba(0, 0, 0, 0.06),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.tech-stack-mobile-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+@keyframes scrollMobile {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .tech-stack-mobile-container {
     display: none;
   }
 }

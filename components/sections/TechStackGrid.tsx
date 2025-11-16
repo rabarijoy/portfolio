@@ -168,15 +168,23 @@ export function TechStackGrid() {
   const [blinkStates, setBlinkStates] = useState<Record<number, boolean>>({});
   const [isClient, setIsClient] = useState(false);
   const [hoveredIconId, setHoveredIconId] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
     
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+      if (!isMobile) {
+        setMousePos({ x: e.clientX, y: e.clientY });
+      }
     };
 
     const updateGrid = () => {
+      checkMobile();
       // Calculer la largeur disponible exacte du container (même que section projets)
       const screenWidth = window.innerWidth;
       const containerMaxWidth = 1280;
@@ -236,9 +244,13 @@ export function TechStackGrid() {
       updateGrid();
     };
 
+    checkMobile();
     updateGrid();
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('resize', updateGrid);
+    window.addEventListener('resize', () => {
+      checkMobile();
+      updateGrid();
+    });
     document.addEventListener('visibilitychange', handleVisibilityChange);
     window.addEventListener('focus', handleWindowFocus);
     
@@ -248,7 +260,7 @@ export function TechStackGrid() {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('focus', handleWindowFocus);
     };
-  }, []);
+  }, [isMobile]);
 
   // Gérer le clignotement aléatoire avec effet ripple
   useEffect(() => {
@@ -484,6 +496,40 @@ export function TechStackGrid() {
     return <div className="tech-stack-absolute-container" style={{ minHeight: '500px' }} />;
   }
 
+  // Version mobile : carrousel qui défile en continu
+  if (isMobile) {
+    const mobileIconSize = 80; // Taille des icônes sur mobile (identique à cellSize approximatif)
+    const mobileGap = 20; // Espacement entre les icônes
+    
+    // Dupliquer les icônes pour créer un défilement infini
+    const duplicatedIcons = [...techList, ...techList, ...techList];
+    
+    return (
+      <div className="tech-stack-mobile-container">
+        <div className="tech-stack-mobile-scroll">
+          {duplicatedIcons.map((tech, index) => {
+            const IconComponent = tech.icon;
+            return (
+              <div
+                key={`mobile-${index}`}
+                className="tech-stack-mobile-item"
+                style={{
+                  width: `${mobileIconSize}px`,
+                  height: `${mobileIconSize}px`,
+                  marginRight: `${mobileGap}px`,
+                  backgroundColor: tech.color,
+                }}
+              >
+                <IconComponent size={Math.floor(mobileIconSize * 0.4)} style={{ color: '#ffffff' }} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+
+  // Version desktop : grille interactive
   return (
     <div className="tech-stack-absolute-container">
       {/* Carrés de fond gris qui clignotent */}

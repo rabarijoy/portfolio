@@ -177,7 +177,8 @@ export function Portfolio() {
               &lt;compétences&gt;
             </h2>
             <p className="subtitle-section">
-              Survolez pour découvrir
+              <span className="hidden lg:inline">Survolez pour découvrir</span>
+              <span className="lg:hidden">Découvrez mes technologies</span>
             </p>
           </div>
         </motion.div>
