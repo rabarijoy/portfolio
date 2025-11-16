@@ -205,9 +205,12 @@
   "techWatch": {
     "title": "Tech Watch",
     "subtitle": "I keep myself informed about the latest trends and technological innovations",
+    "tag": "Watch",
+    "mainTitle": "Space for innovation, problem-solvers and developers",
     "ai": {
       "title": "Artificial Intelligence",
       "description": "AI is revolutionizing software development and opening exciting new possibilities.",
+      "tag": "AI",
       "resources": [
         {
           "type": "article",
@@ -232,6 +235,7 @@
     "cybersecurity": {
       "title": "Cybersecurity",
       "description": "Security is a major challenge in modern application development.",
+      "tag": "Security",
       "resources": [
         {
           "type": "article",

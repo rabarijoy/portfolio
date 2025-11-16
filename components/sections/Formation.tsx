@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { GraduationCap, Code, Bot, Shield, BookOpen, FileText, ExternalLink, Download } from 'lucide-react';
+import { GraduationCap, Code } from 'lucide-react';
 import { Section } from '../ui/Section';
 
 // Images placeholder - À remplacer par les vraies images
@@ -188,123 +188,75 @@ export function Formation() {
           </motion.div>
         </div>
 
-        {/* TechWatch Section */}
+        {/* TechWatch Section - New Design */}
         <div style={{ marginTop: '100px' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="section-header"
           >
-            <div className="section-header-title">
-              <h2 className="title-section">
-                {tTechWatch('title')}
-              </h2>
+            {/* Tag */}
+            <div className="techwatch-tag">
+              {tTechWatch('tag')}
             </div>
-          </motion.div>
 
-          <div className="techwatch-grid">
-            {[
-              {
-                icon: Bot,
-                titleKey: 'ai.title',
-                descriptionKey: 'ai.description',
-                resourcesKey: 'ai.resources',
-                gradient: 'from-blue-50 to-white',
-                borderColor: 'border-blue-accent',
-                iconBg: 'bg-blue-accent',
-              },
-              {
-                icon: Shield,
-                titleKey: 'cybersecurity.title',
-                descriptionKey: 'cybersecurity.description',
-                resourcesKey: 'cybersecurity.resources',
-                gradient: 'from-blue-50 to-white',
-                borderColor: 'border-blue-accent',
-                iconBg: 'bg-blue-accent',
-              },
-            ].map((topic, index) => {
-              const IconComponent = topic.icon;
-              return (
+            {/* Main Title */}
+            <h1 className="techwatch-title-large">
+              {tTechWatch('mainTitle')}
+            </h1>
+
+            {/* Cards Grid */}
+            <div className="techwatch-cards-grid">
+              {[
+                {
+                  titleKey: 'ai.title',
+                  descriptionKey: 'ai.description',
+                  tag: 'ai.tag',
+                },
+                {
+                  titleKey: 'cybersecurity.title',
+                  descriptionKey: 'cybersecurity.description',
+                  tag: 'cybersecurity.tag',
+                },
+                {
+                  titleKey: 'ai.title',
+                  descriptionKey: 'ai.description',
+                  tag: 'ai.tag',
+                },
+              ].map((topic, index) => (
                 <motion.div
-                  key={topic.titleKey}
-                  initial={{ opacity: 0, x: index === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  key={`${topic.titleKey}-${index}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="flex flex-col gap-6"
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="techwatch-card"
                 >
-                  {/* Image placeholder - Veille informationnelle */}
-                  <div className="formation-image image-placeholder-hover">
+                  <div className="techwatch-card-image">
                     <img 
                       src={FORMATION_IMAGE_PLACEHOLDER}
                       alt={tTechWatch(topic.titleKey)}
                     />
+                    <div className="techwatch-card-tag">
+                      {tTechWatch(topic.tag)}
+                    </div>
+                    <div className="techwatch-card-arrow">→</div>
                   </div>
-
-                  <div className="card-formation">
-                    <div className="card-formation-header">
-                      <div className="card-formation-icon">
-                        <IconComponent size={24} />
-                      </div>
-                      <h3 className="card-formation-title">
-                        {tTechWatch(topic.titleKey)}
-                      </h3>
-                    </div>
-
-                    <p className="formation-info-text" style={{ marginBottom: '24px' }}>
-                      {tTechWatch(topic.descriptionKey)}
-                    </p>
-
-                    {/* Resources Section */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                      <h4 style={{ fontFamily: "'Hanken Grotesk', Arial, sans-serif", fontWeight: 600, fontSize: '16px', color: '#000000', marginBottom: '12px' }}>
-                        Ressources
-                      </h4>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                        {tTechWatch.raw(topic.resourcesKey).map((resource: any, resourceIndex: number) => (
-                          <a
-                            key={resourceIndex}
-                            href={resource.url || resource.downloadUrl || '#'}
-                            target={resource.url ? '_blank' : undefined}
-                            rel={resource.url ? 'noopener noreferrer' : undefined}
-                            download={resource.downloadUrl ? true : undefined}
-                            className="techwatch-resource"
-                          >
-                            <div className="techwatch-resource-icon-wrapper">
-                              {resource.type === 'article' && (
-                                <ExternalLink size={16} className="techwatch-resource-icon" />
-                              )}
-                              {resource.type === 'note' && (
-                                <FileText size={16} className="techwatch-resource-icon" />
-                              )}
-                              {resource.type === 'reading' && (
-                                <BookOpen size={16} className="techwatch-resource-icon" />
-                              )}
-                            </div>
-                            <div className="techwatch-resource-content">
-                              <p className="techwatch-resource-title">
-                                {resource.title}
-                              </p>
-                              {resource.description && (
-                                <p className="techwatch-resource-description">
-                                  {resource.description}
-                                </p>
-                              )}
-                            </div>
-                            {resource.downloadUrl && (
-                              <Download size={16} className="techwatch-resource-download" />
-                            )}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
+                  <div className="techwatch-card-content">
+                    <h2 className="techwatch-card-title">
+                      {tTechWatch(topic.titleKey)}
+                    </h2>
+                    {tTechWatch(topic.descriptionKey) && (
+                      <p className="techwatch-card-description">
+                        {tTechWatch(topic.descriptionKey)}
+                      </p>
+                    )}
                   </div>
                 </motion.div>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </Section>

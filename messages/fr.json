@@ -205,9 +205,12 @@
   "techWatch": {
     "title": "Veille technologique",
     "subtitle": "Je me tiens informé des dernières tendances et innovations technologiques",
+    "tag": "Veille",
+    "mainTitle": "Espace pour l'innovation, les résolveurs de problèmes et les développeurs",
     "ai": {
       "title": "Intelligence Artificielle",
       "description": "L'IA révolutionne le développement logiciel et ouvre de nouvelles possibilités passionnantes.",
+      "tag": "IA",
       "resources": [
         {
           "type": "article",
@@ -232,6 +235,7 @@
     "cybersecurity": {
       "title": "Cybersécurité",
       "description": "La sécurité est un enjeu majeur dans le développement d'applications modernes.",
+      "tag": "Sécurité",
       "resources": [
         {
           "type": "article",
