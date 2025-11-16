@@ -10,7 +10,7 @@ import {
   SiJson, SiVercel, SiFigma,
 } from 'react-icons/si';
 import { 
-  Database, Package, Globe, FileJson, Code2, Flame, Layers
+  Database, Package, Globe, FileJson, Flame
 } from 'lucide-react';
 
 // Composants SVG personnalisés
@@ -88,6 +88,51 @@ const AlpineIcon = ({ size, className, style }: { size?: number; className?: str
   >
     <path fill="currentColor" fillRule="evenodd" d="M98.444 35.562 126 62.997 98.444 90.432 70.889 62.997z" clipRule="evenodd"/>
     <path fill="currentColor" fillRule="evenodd" d="m29.556 35.562 57.126 56.876H31.571L2 62.997z" clipRule="evenodd"/>
+  </svg>
+);
+
+const CSharpIcon = ({ size, className, style }: { size?: number; className?: string; style?: React.CSSProperties }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 128 128"
+    width={size || 24}
+    height={size || 24}
+    className={className}
+    style={style}
+  >
+    <path fill="currentColor" d="M115.4 30.7L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.4 1 3.5l106.8-62c-.6-1.2-1.5-2.1-2.4-2.7z"/>
+    <path fill="currentColor" d="M10.7 95.3c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c0-.9-.1-1.9-.6-2.8l-106.6 62z"/>
+    <path fill="currentColor" d="M85.3 76.1C81.1 83.5 73.1 88.5 64 88.5c-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5c9.1 0 17.1 5 21.3 12.5l13-7.5c-6.8-11.9-19.6-20-34.3-20-21.8 0-39.5 17.7-39.5 39.5s17.7 39.5 39.5 39.5c14.6 0 27.4-8 34.2-19.8l-12.9-7.6zM97 66.2l.9-4.3h-4.2v-4.7h5.1L100 51h4.9l-1.2 6.1h3.8l1.2-6.1h4.8l-1.2 6.1h2.4v4.7h-3.3l-.9 4.3h4.2v4.7h-5.1l-1.2 6h-4.9l1.2-6h-3.8l-1.2 6h-4.8l1.2-6h-2.4v-4.7H97zm4.8 0h3.8l.9-4.3h-3.8l-.9 4.3z"/>
+  </svg>
+);
+
+const PhoenixIcon = ({ size, className, style }: { size?: number; className?: string; style?: React.CSSProperties }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 128 128"
+    width={size || 24}
+    height={size || 24}
+    className={className}
+    style={style}
+  >
+    <path fill="currentColor" d="m48.067 81.275-1.006-.183c-7.145-1.329-11.66-5.65-13.797-12.447-1.337-4.237 1.087-7.355 5.53-7.56 3.637-.17 6.129 1.922 8.33 4.355 2.839 3.135 5.44 6.486 8.228 9.67 4.014 4.583 8.744 7.534 15.215 6.623 5.801-.816 10.86-3.144 15.258-6.977.661-.576 1.387-1.079 2.085-1.615l-.44-.518c-3.694 1.15-7.46 1.533-11.31 1.34-5.823-.292-11.373-1.51-16.338-4.706-4.531-2.918-7.873-6.828-9.46-12.05-1.283-4.22 1.34-7.171 5.715-6.561 1.727.242 3.181 1.02 4.489 2.122 1.062.9 2.083 1.85 3.167 2.722 5.104 4.102 12.235 4.33 18.71-.124-10.648-.048-17.893-5.907-24.256-13.33-2.49-2.905-4.921-5.861-7.464-8.722-4.919-5.533-10.375-10.407-17.844-12.072-9.548-2.122-18.762-.732-27.606 3.316-1.763.807-3.456 1.748-5.273 3.26.9 0 1.39.01 1.88 0 4.46-.117 7.802 1.864 10.212 5.512 1.754 2.655 2.58 5.657 3.21 8.745.935 4.584.45 9.255.991 13.861 1.387 11.837 7.437 20.097 18.701 24.327 4.132 1.552 8.368 2.068 13.072 1.01zm-28.471-54c-1.779.448-3.201-.27-4.666-1.753 2.51-.625 4.724-.868 7.103-.963-.195 1.546-1.107 2.38-2.435 2.716zm58.332 69.126c-.155-1.141-1.13-1.643-1.896-2.238-3.384-2.636-7.345-3.57-11.543-3.646-2.506-.047-4.986-.233-7.347-1.112-1.084-.4-2.298-.92-2.268-2.318.027-1.422 1.263-1.823 2.388-2.159.92-.272 1.87-.45 2.917-.695-2.661-1.706-5.261-1.941-8.726-.547-5.456 2.19-10.833 1.932-16.27-.03-3.07-1.11-5.795-2.85-8.63-4.39l-.078.055a5.395 5.395 0 0 0 .072-.054c-.07-.213-.195-.219-.359-.098l.222.195c2.351 3.855 5.53 6.957 9.121 9.608 6.914 5.103 14.465 8.148 23.302 6.798a121.601 121.601 0 0 1 8.608-1.008c3.61-.292 7.047.726 10.487 1.639zm-16.66-55.31c-.192-.138-.376-.484-.767-.126 3.181 4.302 7.264 7.47 12.182 9.466 7.936 3.221 15.991 3.773 24.23.93 6.397-2.206 10.995-.051 13.384 6.16.346-7.209-3.896-12.462-10.65-13.49-3.8-.58-7.31.68-10.867 1.713-9.905 2.872-19.112 1.455-27.513-4.653zm49.367 28.116c1.29.107 2.582.224 3.872.337-2.916-2.56-6.47-2.765-10.067-2.56-5.473.31-9.417 3.47-13.014 7.24-3.17 3.326-6.034 7.055-10.76 8.392.08.142.1.214.122.214.636.009 1.272.038 1.907.009 6.868-.31 13.338-1.759 18.483-6.744 1.622-1.568 3.07-3.311 4.636-4.94 1.306-1.36 2.887-2.113 4.821-1.95zm-15.954-8.512c-5.125.449-9.576 2.568-13.757 5.364-3.22 2.15-6.66 3.168-10.529 2.497-.68-.12-1.366-.208-2.049-.31l-.023.284c.246.128.483.275.738.378.645.255 1.28.562 1.95.72 7.442 1.77 14.568.864 20.991-3.286 4.049-2.616 8.24-3.112 12.783-2.436.46.07.917.151 1.378.196.426.04.872.463 1.449.005-3.971-2.869-8.25-3.82-12.931-3.412zM76.366 43.298c2.688.093 5.364-.26 8.177-1.93-.825.072-1.172.072-1.508.138-3.875.772-7.351-.073-10.45-2.521-1.135-.898-2.29-1.775-3.442-2.656-4.563-3.488-9.797-4.656-15.52-4.556.091.28.1.474.198.574 6.229 6.297 13.435 10.637 22.545 10.95zm45.07 32.319c-3.853-3.823-9.026-4.314-13.812-.979 3.168.141 5.546 1.152 7.474 3.15a23.695 23.695 0 0 0 2.155 2.015c2.917 2.352 7.858 2.465 10.747.282-3.392-1.323-3.392-1.323-6.563-4.468zm-38.384 29.272c-3.386-6.306-9.079-7.728-15.657-7.305a17.62 17.62 0 0 1 5.426 2.534c1.532 1.068 2.82 2.388 4.09 3.745 2.514 2.685 6.44 4.33 9.043 3.774-1.195-.751-2.257-1.547-2.902-2.748zm31.516-35.215c0-.042.001-.081.004-.124l-.01.011.01-.01-.065-.008.038.032.022.097zM78.114 96.55a13.871 13.871 0 0 0-.132-.076.232.232 0 0 0 .027.079c.01.015.07 0 .106-.003zm-.132-.076-.015-.061-.015.018.015-.018-.04-.01.01.046.043.025z"/>
+  </svg>
+);
+
+const JavaIcon = ({ size, className, style }: { size?: number; className?: string; style?: React.CSSProperties }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 128 128"
+    width={size || 24}
+    height={size || 24}
+    className={className}
+    style={style}
+  >
+    <path fill="currentColor" d="M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.13 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969zm-2.988-13.665s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336z"/>
+    <path fill="currentColor" d="M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 .001-42.731 10.67-22.324 34.187z"/>
+    <path fill="currentColor" d="M102.123 108.229s3.529 2.91-3.888 5.159c-14.102 4.272-58.706 5.56-71.094.171-4.451-1.938 3.899-4.625 6.526-5.192 2.739-.593 4.303-.485 4.303-.485-4.953-3.487-32.013 6.85-13.743 9.815 49.821 8.076 90.817-3.637 77.896-9.468zM49.912 70.294s-22.686 5.389-8.033 7.348c6.188.828 18.518.638 30.011-.326 9.39-.789 18.813-2.474 18.813-2.474s-3.308 1.419-5.704 3.053c-23.042 6.061-67.544 3.238-54.731-2.958 10.832-5.239 19.644-4.643 19.644-4.643zm40.697 22.747c23.421-12.167 12.591-23.86 5.032-22.285-1.848.385-2.677.72-2.677.72s.688-1.079 2-1.543c14.953-5.255 26.451 15.503-4.823 23.725 0-.002.359-.327.468-.617z"/>
+    <path fill="currentColor" d="M76.491 1.587S89.459 14.563 64.188 34.51c-20.266 16.006-4.621 25.13-.007 35.559-11.831-10.673-20.509-20.07-14.688-28.815C58.041 28.42 81.722 22.195 76.491 1.587z"/>
+    <path fill="currentColor" d="M52.214 126.021c22.476 1.437 57-.8 57.817-11.436 0 0-1.571 4.032-18.577 7.231-19.186 3.612-42.854 3.191-56.887.874 0 .001 2.875 2.381 17.647 3.331z"/>
   </svg>
 );
 
@@ -278,20 +323,21 @@ export function TechStackGrid() {
     { icon: SiJavascript, color: '#F7DF1E', name: 'JavaScript' },
     { icon: SiPhp, color: '#777BB4', name: 'PHP' },
     { icon: Database, color: '#336791', name: 'SQL' },
+    { icon: JavaIcon, color: '#ED8B00', name: 'Java' },
+    { icon: CSharpIcon, color: '#239120', name: 'C#' },
     // Frameworks frontend (très utilisés)
     { icon: SiReact, color: '#61DAFB', name: 'React' },
     { icon: SiTailwindcss, color: '#06B6D4', name: 'Tailwind CSS' },
     { icon: AlpineIcon, color: '#8BC0D0', name: 'Alpine.js' },
     // Frameworks backend (utilisés)
     { icon: SiSymfony, color: '#000000', name: 'Symfony' },
-    { icon: Flame, color: '#FD4F00', name: 'Phoenix Framework' },
+    { icon: PhoenixIcon, color: '#FD4F00', name: 'Phoenix Framework' },
     { icon: Flame, color: '#FD4F00', name: 'Phoenix LiveView' },
     // Bases de données (utilisées)
     { icon: SiPostgresql, color: '#336791', name: 'PostgreSQL' },
     { icon: SiSqlite, color: '#003B57', name: 'SQLite' },
     { icon: SiClickhouse, color: '#FFCC02', name: 'ClickHouse' },
     // Outils de développement (très utilisés)
-    { icon: SiGit, color: '#F05032', name: 'Git' },
     { icon: SiGithub, color: '#181717', name: 'GitHub' },
     { icon: SiGitlab, color: '#FC6D26', name: 'GitLab' },
     { icon: SiNpm, color: '#CB3837', name: 'npm' },
@@ -309,9 +355,6 @@ export function TechStackGrid() {
     { icon: ClaudeIcon, color: '#000000', name: 'Sonnet' },
     { icon: GPTIcon, color: '#10A37F', name: 'GPT' },
     { icon: SiFigma, color: '#F24E1E', name: 'Figma' },
-    // Langages (moins utilisés dans ce contexte)
-    { icon: Code2, color: '#ED8B00', name: 'Java' },
-    { icon: Code2, color: '#239120', name: 'C#' },
   ];
 
   const specialIcons: Record<string, { bg: string; icon: React.ComponentType<{ size?: number; className?: string }>; color: string; name: string }> = {
@@ -325,7 +368,7 @@ export function TechStackGrid() {
     '12': { bg: '#E34F26', icon: SiHtml5, color: '#ffffff', name: 'HTML5' },
   };
 
-  const totalIcons = 32; // 8 colonnes x 4 lignes = 32 icônes exactement
+  const totalIcons = techList.length; // 32 icônes
 
   const gap = 10; // Écart fixe entre les carrés
 
@@ -364,8 +407,8 @@ export function TechStackGrid() {
     const totalCells = gridConfig.cols * gridConfig.rows;
     const iconsArray: GridIcon[] = [];
     
-    // Créer les cases avec icônes (exactement 32, pas de cases vides)
-    for (let i = 0; i < totalIcons && i < totalCells; i++) {
+    // Créer les cases avec icônes (32 au maximum)
+    for (let i = 0; i < 32; i++) {
       const row = Math.floor(i / gridConfig.cols);
       const col = i % gridConfig.cols;
       
@@ -388,7 +431,21 @@ export function TechStackGrid() {
       }
     }
     
-    // Plus besoin de compléter avec des cases vides car on a exactement 32 icônes (8x4)
+    // Compléter avec des cases vides si nécessaire
+    for (let i = 32; i < totalCells; i++) {
+      const row = Math.floor(i / gridConfig.cols);
+      const col = i % gridConfig.cols;
+      
+      iconsArray.push({
+        id: i,
+        x: startX - gridTotalWidth / 2 + col * (calculatedCellSize + gap) + calculatedCellSize / 2,
+        y: row * (calculatedCellSize + gap) + calculatedCellSize / 2 + startY,
+        bg: '#9ca3af', // Gris pour les cases vides
+        icon: () => null, // Pas d'icône
+        color: '#ffffff',
+        isEmpty: true,
+      });
+    }
 
     return { icons: iconsArray, cellSize: calculatedCellSize };
   }, [isClient, gridConfig.cols, gridConfig.rows]);
