@@ -18,7 +18,7 @@ const config: Config = {
       },
       fontFamily: {
         'ppneuebit': ['PP NeueBit', 'sans-serif'],
-        'helvetica': ['Helvetica', 'Arial', 'sans-serif'],
+        'helvetica': ['PP Neue Montreal', 'Arial', 'sans-serif'],
       },
       letterSpacing: {
         'tighter-2': '-0.02em',
