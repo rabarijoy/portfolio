@@ -2227,14 +2227,14 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: opacity 0.3s ease;
+  transition: background-color 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   z-index: 1;
   flex-shrink: 0;
 }
 
 .techwatch-card-arrow:hover {
-  opacity: 0.9;
+  background-color: var(--blue-accent);
 }
 
 .techwatch-card-arrow-icon {
