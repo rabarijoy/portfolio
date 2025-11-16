@@ -955,7 +955,7 @@
 .tech-stack-mobile-scroll {
   display: flex;
   align-items: center;
-  animation: scrollMobile 30s linear infinite;
+  animation: scrollMobile 15s linear infinite;
   will-change: transform;
 }
 
@@ -971,23 +971,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-}
-
-.tech-stack-mobile-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 40%;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.25) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  pointer-events: none;
-  border-radius: inherit;
+  position: relative;
 }
 
 @keyframes scrollMobile {
