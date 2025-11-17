@@ -2228,6 +2228,11 @@
 
 .techwatch-card-content {
   padding: 0;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.techwatch-card:hover .techwatch-card-content {
+  transform: translateY(-4px);
 }
 
 .techwatch-card-title {
