@@ -98,6 +98,14 @@ export function LoadingScreen() {
     return () => clearInterval(interval);
   }, [isLoading]);
 
+  // Track previous word for smooth transition
+  const [prevWord, setPrevWord] = useState(0);
+  useEffect(() => {
+    if (currentWord !== prevWord) {
+      setPrevWord(currentWord);
+    }
+  }, [currentWord, prevWord]);
+
   if (!isLoading) return null;
 
   return (
@@ -111,16 +119,26 @@ export function LoadingScreen() {
           transition: 'opacity 0.8s ease-in-out',
         }}
       >
-        <div className="text-center" style={{ minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div 
+          className="text-center" 
+          style={{ 
+            minHeight: '80px', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            position: 'relative',
+            width: '100%',
+          }}
+        >
           <div
-            key={currentWord}
             className="text-[var(--blue-accent)] font-normal text-4xl md:text-5xl lg:text-6xl"
             style={{
               fontFamily: "'Hanken Grotesk', Arial, sans-serif",
-              transition: 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out',
+              position: 'absolute',
+              transition: 'opacity 0.5s ease-in-out',
               opacity: 1,
-              transform: 'translateY(0)',
             }}
+            key={currentWord}
           >
             {words[currentWord]}
           </div>
