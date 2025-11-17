@@ -87,7 +87,7 @@ export function LoadingScreen() {
     }, 100);
   }, []);
 
-  // Animate words - always animate at least once
+  // Animate words - always animate at least once with smooth transitions
   useEffect(() => {
     if (!isLoading || !animationStartedRef.current) return;
 
@@ -103,7 +103,7 @@ export function LoadingScreen() {
   return (
     <>
       <div
-        className={`fixed inset-0 z-[9999] bg-[var(--background)] flex items-center justify-center ease-in-out ${
+        className={`fixed inset-0 z-[9999] bg-[var(--background)] flex items-center justify-center ${
           isExiting ? 'opacity-0' : 'opacity-100'
         }`}
         style={{
@@ -111,31 +111,21 @@ export function LoadingScreen() {
           transition: 'opacity 0.8s ease-in-out',
         }}
       >
-        <div className="text-center">
+        <div className="text-center" style={{ minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <div
             key={currentWord}
             className="text-[var(--blue-accent)] font-normal text-4xl md:text-5xl lg:text-6xl"
             style={{
               fontFamily: "'Hanken Grotesk', Arial, sans-serif",
-              animation: 'fadeInWord 0.5s ease-in-out',
+              transition: 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out',
+              opacity: 1,
+              transform: 'translateY(0)',
             }}
           >
             {words[currentWord]}
           </div>
         </div>
       </div>
-      <style jsx global>{`
-        @keyframes fadeInWord {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </>
   );
 }
