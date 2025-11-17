@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { useRouter, usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { Section } from '../ui/Section';
 import { TechStackGrid } from './TechStackGrid';
 
@@ -21,6 +23,11 @@ export function Portfolio() {
   const t = useTranslations('portfolio');
   const tSkills = useTranslations('skills');
   const [activeCategory, setActiveCategory] = useState('all');
+  const router = useRouter();
+  const pathname = usePathname();
+  
+  // Get current locale from pathname
+  const locale = pathname?.split('/')[1] || 'fr';
 
   const categories = [
     { id: 'all', label: t('filters.all') },
@@ -111,13 +118,14 @@ export function Portfolio() {
         {/* Projects Grid */}
         <div className="grid-projects">
           {filteredProjects.map((project) => (
-            <motion.a
+            <motion.div
               key={project.id}
-              href={`#project-${project.id}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
               className="card-project"
+              onClick={() => router.push(`/${locale}/projects/${project.id}`)}
+              style={{ cursor: 'pointer' }}
             >
               {/* Project Image */}
               <div className="card-project-image">
@@ -143,10 +151,10 @@ export function Portfolio() {
                 </p>
                 {/* Click Indicator */}
                 <div className="card-project-indicator">
-                  <span>Voir le projet</span>
+                  <span>{t('view_project')}</span>
                 </div>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
 
