@@ -115,8 +115,12 @@ export function Timeline() {
         const itemHeight = activeItemRect.height;
         const offset = (itemHeight - imageHeight) / 2;
         
-        // Set the image position
-        setImageTop(`${Math.max(relativeTop + offset, 0)}px`);
+        // Calculate max top to prevent image from being clipped at the bottom
+        const wrapperHeight = wrapperRect.height;
+        const maxTop = wrapperHeight - imageHeight;
+        
+        // Set the image position, ensuring it doesn't go below the wrapper
+        setImageTop(`${Math.max(0, Math.min(relativeTop + offset, maxTop))}px`);
       }
     };
 
