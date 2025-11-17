@@ -103,11 +103,12 @@ export function LoadingScreen() {
   return (
     <>
       <div
-        className={`fixed inset-0 z-[9999] bg-[var(--background)] flex items-center justify-center transition-opacity duration-800 ease-in-out ${
+        className={`fixed inset-0 z-[9999] bg-[var(--background)] flex items-center justify-center ease-in-out ${
           isExiting ? 'opacity-0' : 'opacity-100'
         }`}
         style={{
           pointerEvents: isExiting ? 'none' : 'auto',
+          transition: 'opacity 0.8s ease-in-out',
         }}
       >
         <div className="text-center">
