@@ -145,7 +145,7 @@ export function LoadingScreen() {
             className="text-[var(--blue-accent)] font-normal text-4xl md:text-5xl lg:text-6xl"
             style={{
               fontFamily: "'Hanken Grotesk', Arial, sans-serif",
-              transition: 'opacity 0.5s ease-in-out',
+              transition: 'opacity 0.3s ease-in-out',
               opacity: fadeOut ? 0 : 1,
             }}
           >
