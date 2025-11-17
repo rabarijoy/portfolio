@@ -8,6 +8,7 @@ export function LoadingScreen() {
   const hasLoadedRef = useRef(false);
   const animationStartedRef = useRef(false);
   const minAnimationTimeRef = useRef(0);
+  const animationIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const words = ['Akory', 'Hello', 'Bonjour'];
   const MIN_ANIMATION_DURATION = 1500; // 1.5 seconds minimum (3 words × 0.5 second)
@@ -101,7 +102,6 @@ export function LoadingScreen() {
   // Track word display and fade state for smooth cross-fade
   const [displayWord, setDisplayWord] = useState(0);
   const [fadeOut, setFadeOut] = useState(false);
-  const animationIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Animate words - always animate at least once with smooth cross-fade (2x faster)
   useEffect(() => {
