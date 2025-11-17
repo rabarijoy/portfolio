@@ -98,13 +98,25 @@ export function LoadingScreen() {
     return () => clearInterval(interval);
   }, [isLoading]);
 
-  // Track previous word for smooth transition
-  const [prevWord, setPrevWord] = useState(0);
+  // Track previous word for smooth cross-fade
+  const [displayWord, setDisplayWord] = useState(0);
+  const [fadeOut, setFadeOut] = useState(false);
+
   useEffect(() => {
-    if (currentWord !== prevWord) {
-      setPrevWord(currentWord);
-    }
-  }, [currentWord, prevWord]);
+    if (!isLoading || !animationStartedRef.current) return;
+
+    const interval = setInterval(() => {
+      // Start fade out
+      setFadeOut(true);
+      // After fade out, change word and fade in
+      setTimeout(() => {
+        setDisplayWord((prev) => (prev + 1) % words.length);
+        setFadeOut(false);
+      }, 500); // Half of transition duration
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [isLoading]);
 
   if (!isLoading) return null;
 
@@ -134,13 +146,11 @@ export function LoadingScreen() {
             className="text-[var(--blue-accent)] font-normal text-4xl md:text-5xl lg:text-6xl"
             style={{
               fontFamily: "'Hanken Grotesk', Arial, sans-serif",
-              position: 'absolute',
               transition: 'opacity 0.5s ease-in-out',
-              opacity: 1,
+              opacity: fadeOut ? 0 : 1,
             }}
-            key={currentWord}
           >
-            {words[currentWord]}
+            {words[displayWord]}
           </div>
         </div>
       </div>
