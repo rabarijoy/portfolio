@@ -105,13 +105,13 @@ export function Timeline() {
         
         const activeItemRect = activeItem.getBoundingClientRect();
         const timelineRect = timelineContainer.getBoundingClientRect();
-        const imageWrapperRect = imageWrapper.getBoundingClientRect();
+        const wrapperRect = imageWrapper.getBoundingClientRect();
         
-        // Calculate the top position relative to the timeline container
-        const relativeTop = activeItemRect.top - timelineRect.top;
+        // Calculate the top position relative to the image wrapper
+        const relativeTop = activeItemRect.top - wrapperRect.top;
         
-        // Adjust to center the image with the active item (accounting for image height)
-        const imageHeight = 300; // Approximate image height
+        // Adjust to align the image with the active item (center vertically)
+        const imageHeight = 300; // Approximate image height based on aspect-ratio 4/3
         const itemHeight = activeItemRect.height;
         const offset = (itemHeight - imageHeight) / 2;
         
