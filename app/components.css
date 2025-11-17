@@ -212,7 +212,7 @@
   transform: translateX(2px);
 }
 
-/* Tertiary CTA Button - Based on card indicator style */
+/* Tertiary CTA Button - Uniform style based on card-project-indicator */
 .btn-tertiary {
   display: inline-flex;
   align-items: center;
@@ -220,13 +220,13 @@
   font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: var(--blue-accent);
+  color: rgba(255, 255, 255, 0.85);
   padding: 8px 16px;
-  background-color: rgba(109, 191, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(109, 191, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
   text-decoration: none;
   cursor: pointer;
@@ -234,8 +234,8 @@
 }
 
 .btn-tertiary:hover {
-  background-color: rgba(109, 191, 255, 0.15);
-  color: #2563eb;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 1);
   transform: translateX(4px);
 }
 
@@ -2224,6 +2224,42 @@
 .techwatch-card:hover .techwatch-card-see-more {
   transform: translateY(0);
   opacity: 1;
+}
+
+/* Uniformiser le style du bouton voir plus dans TechWatch avec card-project-indicator */
+.techwatch-card-see-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.techwatch-card-see-more:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 1);
+  transform: translateX(4px);
+}
+
+.techwatch-card-see-more .btn-tertiary-icon {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.techwatch-card-see-more:hover .btn-tertiary-icon {
+  transform: translateX(2px);
 }
 
 .techwatch-card-content {
