@@ -200,7 +200,6 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 10;
-  margin-top: auto;
 }
 
 .card-project-indicator::after {
