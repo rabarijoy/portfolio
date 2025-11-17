@@ -10,7 +10,7 @@ export function LoadingScreen() {
   const minAnimationTimeRef = useRef(0);
 
   const words = ['Akory', 'Hello', 'Bonjour'];
-  const MIN_ANIMATION_DURATION = 3000; // 3 seconds minimum (3 words × 1 second)
+  const MIN_ANIMATION_DURATION = 1500; // 1.5 seconds minimum (3 words × 0.5 second)
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -92,7 +92,7 @@ export function LoadingScreen() {
 
     const interval = setInterval(() => {
       setCurrentWord((prev) => (prev + 1) % words.length);
-    }, 500); // Change word every second
+    }, 00); // Change word every second
 
     return () => clearInterval(interval);
   }, [isLoading]);
@@ -112,7 +112,7 @@ export function LoadingScreen() {
         setDisplayWord((prev) => (prev + 1) % words.length);
         setFadeOut(false);
       }, 500); // Half of transition duration
-    }, 500);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [isLoading]);
