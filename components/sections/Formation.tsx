@@ -142,7 +142,7 @@ export function Formation() {
                   />
                   <div className="techwatch-card-hover-overlay">
                     <a href="#" className="btn-tertiary techwatch-card-see-more">
-                      <span>Voir plus</span>
+                      <span>{tTechWatch('see_more')}</span>
                     </a>
                   </div>
                 </div>
