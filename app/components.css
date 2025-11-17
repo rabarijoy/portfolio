@@ -2160,7 +2160,9 @@
   color: #999;
   border-radius: 30px;
   margin-bottom: 25px;
-  overflow: visible;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
 }
 
 @media (min-width: 768px) {
@@ -2176,20 +2178,33 @@
   border-radius: 30px;
   position: relative;
   z-index: 1;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
+  will-change: transform;
 }
 
-/* Overlay hover pour afficher "Voir plus" */
+.techwatch-card:hover .techwatch-card-image {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(109, 191, 255, 0.3);
+}
+
+.techwatch-card:hover .techwatch-card-image img {
+  transform: scale(1.08);
+  filter: brightness(0.85) saturate(1.2);
+}
+
+/* Overlay hover avec animation moderne */
 .techwatch-card-hover-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(135deg, rgba(109, 191, 255, 0.15) 0%, rgba(109, 191, 255, 0.05) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 30px;
   z-index: 10;
+  pointer-events: none;
 }
 
 .techwatch-card:hover .techwatch-card-hover-overlay {
@@ -2199,10 +2214,20 @@
 .techwatch-card-hover-text {
   font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-size: 18px;
-  font-weight: 600;
-  color: #ffffff;
+  font-weight: 700;
+  color: var(--blue-accent);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
+  transform: translateY(20px) scale(0.9);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 0 0 20px rgba(109, 191, 255, 0.5);
+  will-change: transform, opacity;
+}
+
+.techwatch-card:hover .techwatch-card-hover-text {
+  transform: translateY(0) scale(1);
+  opacity: 1;
 }
 
 @media (min-width: 1024px) {
