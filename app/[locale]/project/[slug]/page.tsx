@@ -29,23 +29,36 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug, locale } = await params;
+  const t = await getTranslations({ locale });
 
   return (
-    <div className="min-h-screen pt-24 pb-16 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen pt-24 pb-16">
+      <div className="container">
         {/* Back Button */}
         <Link
           href={`/${locale}#projects`}
-          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-8 transition-colors"
+          className="inline-flex items-center gap-2 mb-8 text-gray-600 hover:text-gray-900 transition-colors"
+          style={{ fontFamily: "'Hanken Grotesk', Arial, sans-serif" }}
         >
           <span>←</span>
-          <span>Retour aux projets</span>
+          <span>{t('portfolio.view_all') || 'Retour aux projets'}</span>
         </Link>
 
         {/* Project Content - Empty template for now */}
         <div className="mt-8">
-          <h1 className="text-4xl font-bold mb-4">Projet: {slug}</h1>
-          <p className="text-lg text-gray-600">
+          <h1 
+            className="title-section-large mb-4"
+            style={{ fontFamily: "'Hanken Grotesk', Arial, sans-serif" }}
+          >
+            Projet: {slug}
+          </h1>
+          <p 
+            className="text-card-description-apple"
+            style={{ 
+              fontFamily: "'Hanken Grotesk', Arial, sans-serif",
+              color: 'var(--foreground)'
+            }}
+          >
             Cette page sera personnalisée plus tard.
           </p>
         </div>
