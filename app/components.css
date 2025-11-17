@@ -297,10 +297,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 
 .btn-primary:hover {
   background-color: #1f2937;
+}
+
+/* Support for <a> tags with btn-primary */
+a.btn-primary {
+  text-decoration: none;
+  color: #ffffff;
 }
 
 /* Secondary CTA Button */
