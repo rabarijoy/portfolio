@@ -70,6 +70,18 @@ export function LoadingScreen() {
       const remainingTime = Math.max(0, MIN_ANIMATION_DURATION - elapsed);
       await new Promise((resolve) => setTimeout(resolve, remainingTime));
 
+      // Stop word animation to prevent overlap with exit fade
+      if (animationIntervalRef.current) {
+        clearInterval(animationIntervalRef.current);
+        animationIntervalRef.current = null;
+      }
+
+      // Ensure current word is fully visible (not fading)
+      setFadeOut(false);
+      
+      // Wait a bit for the word to be fully visible before starting exit fade
+      await new Promise((resolve) => setTimeout(resolve, 300));
+
       // Start exit animation (simple fade)
       setIsExiting(true);
       hasLoadedRef.current = true;
@@ -89,6 +101,7 @@ export function LoadingScreen() {
   // Track word display and fade state for smooth cross-fade
   const [displayWord, setDisplayWord] = useState(0);
   const [fadeOut, setFadeOut] = useState(false);
+  const animationIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Animate words - always animate at least once with smooth cross-fade (2x faster)
   useEffect(() => {
@@ -104,7 +117,14 @@ export function LoadingScreen() {
       }, 250); // Half of transition duration
     }, 500); // Change word every 500ms (2x faster)
 
-    return () => clearInterval(interval);
+    animationIntervalRef.current = interval;
+
+    return () => {
+      if (animationIntervalRef.current) {
+        clearInterval(animationIntervalRef.current);
+        animationIntervalRef.current = null;
+      }
+    };
   }, [isLoading]);
 
   if (!isLoading) return null;
