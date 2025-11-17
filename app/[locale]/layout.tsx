@@ -28,6 +28,8 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
+      <LoadingScreen />
+      <ScrollToTop />
       <PersonStructuredData />
       <LangUpdater locale={locale} />
       <ScrollbarSquish />
