@@ -213,6 +213,7 @@
 }
 
 /* Tertiary CTA Button - Uniform style based on card-project-indicator */
+/* Style pour fond sombre (comme sur les images de projets) */
 .btn-tertiary {
   display: inline-flex;
   align-items: center;
@@ -246,6 +247,20 @@
 
 .btn-tertiary:hover .btn-tertiary-icon {
   transform: translateX(2px);
+}
+
+/* Variante pour fond clair (dans les cartes formation) */
+.card-formation .btn-tertiary,
+.formation-info-box .btn-tertiary {
+  color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card-formation .btn-tertiary:hover,
+.formation-info-box .btn-tertiary:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 1);
 }
 
 /* Section Subtitle */
