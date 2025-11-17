@@ -1889,34 +1889,122 @@
   margin-top: 16px;
 }
 
-/* Formation Section */
-.formation-grid {
+/* Formation Section - New Card Design */
+.formation-cards-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 64px;
+  gap: 20px;
+  margin-top: 40px;
 }
 
 @media (min-width: 1024px) {
-  .formation-grid {
+  .formation-cards-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 80px;
+    gap: 20px;
   }
 }
 
-.formation-image {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 16px;
+.formation-card {
+  border-radius: 20px;
   overflow: hidden;
-  background-color: #f3f4f6;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
 }
 
-.formation-image img {
+.formation-card-header {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formation-card-primary .formation-card-header {
+  background-color: var(--blue-accent);
+}
+
+.formation-card-secondary .formation-card-header {
+  background-color: #e8e8e8;
+}
+
+.formation-card-title {
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .formation-card-title {
+    font-size: 42px;
+  }
+}
+
+.formation-card-description {
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .formation-card-description {
+    font-size: 15px;
+  }
+}
+
+.formation-card-image {
+  width: 100%;
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.formation-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.formation-card-read-more {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.formation-card-read-more::after {
+  content: '→';
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.formation-card-read-more:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: translateX(4px);
+}
+
+.formation-card-read-more:hover::after {
+  transform: translateX(2px);
 }
 
 .formation-info-box {
