@@ -496,7 +496,7 @@
 }
 
 .card-project:hover .card-project-title-default {
-  transform: translateY(-80px);
+  transform: translateY(-140px);
 }
 
 .card-project-content {
@@ -529,7 +529,7 @@
   }
 
   .card-project-title-default {
-    transform: translateY(-80px);
+    transform: translateY(-140px);
   }
 
   .card-project-content {
