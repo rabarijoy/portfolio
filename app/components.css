@@ -379,26 +379,41 @@
 
 /* GitHub Button */
 .btn-github {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-decoration: none;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  font-family: 'Hanken Grotesk', Arial, sans-serif;
-  padding: 14px 32px;
-  background-color: #000000;
-  color: #ffffff;
-  font-size: 17px;
-  font-weight: 500;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
+  gap: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.btn-github::after {
+  content: '→';
+  font-size: 18px;
+  transition: transform 0.3s ease;
 }
 
 .btn-github:hover {
-  background-color: #1f2937;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 1);
+  transform: translateX(4px);
+}
+
+.btn-github:hover::after {
+  transform: translateX(2px);
+}
+
+.btn-github svg {
+  display: none;
 }
 
 /* GitHub Button Container */
