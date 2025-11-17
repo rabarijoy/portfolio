@@ -2145,6 +2145,12 @@
   background: transparent;
   display: flex;
   flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.techwatch-card:hover {
+  transform: translateY(-8px);
 }
 
 .techwatch-card-image {
@@ -2161,8 +2167,11 @@
   border-radius: 30px;
   margin-bottom: 25px;
   overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.techwatch-card:hover .techwatch-card-image {
+  transform: scale(1.05);
 }
 
 @media (min-width: 768px) {
@@ -2178,28 +2187,22 @@
   border-radius: 30px;
   position: relative;
   z-index: 1;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
-  will-change: transform;
-}
-
-.techwatch-card:hover .techwatch-card-image {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(109, 191, 255, 0.3);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .techwatch-card:hover .techwatch-card-image img {
-  transform: scale(1.08);
-  filter: brightness(0.85) saturate(1.2);
+  transform: scale(1.1);
 }
 
-/* Overlay hover avec animation moderne */
+/* Overlay hover pour afficher le bouton "Voir plus" */
 .techwatch-card-hover-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(109, 191, 255, 0.15) 0%, rgba(109, 191, 255, 0.05) 100%);
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  padding-bottom: 20px;
   opacity: 0;
   transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 30px;
@@ -2211,29 +2214,16 @@
   opacity: 1;
 }
 
-.techwatch-card-hover-text {
-  font-family: 'Hanken Grotesk', Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--blue-accent);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  transform: translateY(20px) scale(0.9);
+.techwatch-card-see-more {
+  pointer-events: auto;
+  transform: translateY(10px);
   opacity: 0;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  text-shadow: 0 0 20px rgba(109, 191, 255, 0.5);
-  will-change: transform, opacity;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.techwatch-card:hover .techwatch-card-hover-text {
-  transform: translateY(0) scale(1);
+.techwatch-card:hover .techwatch-card-see-more {
+  transform: translateY(0);
   opacity: 1;
-}
-
-@media (min-width: 1024px) {
-  .techwatch-card-hover-text {
-    font-size: 20px;
-  }
 }
 
 .techwatch-card-content {

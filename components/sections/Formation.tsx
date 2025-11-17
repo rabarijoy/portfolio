@@ -236,7 +236,14 @@ export function Formation() {
                     alt={tTechWatch(topic.titleKey)}
                   />
                   <div className="techwatch-card-hover-overlay">
-                    <span className="techwatch-card-hover-text">Voir plus</span>
+                    <a href="#" className="btn-tertiary techwatch-card-see-more">
+                      <span>Voir plus</span>
+                      <span className="btn-tertiary-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                      </span>
+                    </a>
                   </div>
                 </div>
                 <div className="techwatch-card-content">
