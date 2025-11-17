@@ -1,34 +1,12 @@
-import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://portfolio-joy.vercel.app';
-
 interface ProjectPageProps {
-  params: Promise<{ slug: string; locale: string }>;
-}
-
-export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
-  const { slug, locale } = await params;
-  const t = await getTranslations({ locale });
-
-  return {
-    title: `Project - ${slug}`,
-    description: t('portfolio.subtitle'),
-    openGraph: {
-      title: `Project - ${slug}`,
-      description: t('portfolio.subtitle'),
-      url: `${baseUrl}/${locale}/project/${slug}`,
-      siteName: 'Portfolio - Aina Joy Rabarijaona',
-      locale: locale === 'fr' ? 'fr_FR' : 'en_US',
-      type: 'website',
-    },
-  };
+  params: Promise<{ locale: string }>;
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const { slug, locale } = await params;
+  const { locale } = await params;
   const t = await getTranslations({ locale });
 
   return (
@@ -50,7 +28,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             className="title-section-large mb-4"
             style={{ fontFamily: "'Hanken Grotesk', Arial, sans-serif" }}
           >
-            Projet: {slug}
+            Projet
           </h1>
           <p 
             className="text-card-description-apple"

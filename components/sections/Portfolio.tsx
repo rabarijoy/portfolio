@@ -121,7 +121,7 @@ export function Portfolio() {
               transition={{ duration: 0.3 }}
             >
               <Link
-                href={`/${locale}/project/${project.id}`}
+                href={`/${locale}/project`}
                 className="card-project"
               >
               {/* Project Image */}

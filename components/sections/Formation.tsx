@@ -89,7 +89,7 @@ export function Formation() {
                 alt={t('careers.main.title')}
               />
               <Link
-                href={`/${locale}/project/developpeur-web`}
+                href={`/${locale}/project`}
                 className="formation-card-read-more"
               >
                 {t('careers.see_more')}
@@ -145,7 +145,7 @@ export function Formation() {
                   />
                   <div className="techwatch-card-hover-overlay">
                     <Link 
-                      href={`/${locale}/project/${topic.titleKey.replace('.title', '')}`}
+                      href={`/${locale}/project`}
                       className="btn-tertiary techwatch-card-see-more"
                     >
                       <span>{tTechWatch('see_more')}</span>
