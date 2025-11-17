@@ -15,7 +15,7 @@
     "about": "À propos",
     "projects": "Projets",
     "formation": "Formation",
-    "contact": "Contact"
+    "contact": "Discutons"
   },
   "hero": {
     "greeting": "Bonjour, je suis",
@@ -23,10 +23,10 @@
     "title": "Développeur Web Full-Stack",
     "subtitle": "Étudiant en développement logiciel",
     "description": "Je crée des expériences web modernes, performantes et accessibles. Spécialisé en React, Next.js et Node.js.",
-    "contact": "Me contacter",
+    "contact": "Discutons",
     "downloadCV": "Télécharger mon CV",
-    "cta_projects": "Voir mes projets",
-    "cta_contact": "Me contacter"
+    "cta_projects": "Découvrir mes projets",
+    "cta_contact": "Discutons"
   },
   "about": {
     "title": "À propos de moi",
@@ -67,8 +67,9 @@
   "portfolio": {
     "title": "Mes réalisations",
     "subtitle": "Découvrez une sélection de mes réalisations récentes",
-    "view_project": "Voir le projet",
+    "view_project": "Découvrir le projet",
     "view_all": "Voir tous les projets",
+    "view_github": "Explorer mes projets sur GitHub",
     "filters": {
       "all": "Tous",
       "web": "Web",
@@ -124,7 +125,7 @@
         "title": "Expérience en entreprise",
         "text": "Elle m'a aussi permis de découvrir le monde professionnel grâce à des stages en entreprise répartis sur les deux années de formation."
       },
-      "see_more": "Voir plus"
+      "see_more": "En savoir plus"
     },
     "careers": {
       "badge": "Métiers visés",
@@ -141,7 +142,7 @@
         "title": "Ma vision",
         "text": "Ce choix s'inscrit naturellement dans la continuité de ma formation en BTS SIO option SLAM, et me permet d'envisager plusieurs voies : travailler en entreprise ou évoluer en tant que freelance. Cette flexibilité est un atout majeur pour moi, car elle me laisse la liberté d'explorer différents contextes professionnels."
       },
-      "see_more": "Voir plus"
+      "see_more": "En savoir plus"
     }
   },
   "services": {

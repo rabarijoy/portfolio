@@ -15,7 +15,7 @@
     "about": "About",
     "projects": "Projects",
     "formation": "Formation",
-    "contact": "Contact"
+    "contact": "Let's talk"
   },
   "hero": {
     "greeting": "Hello, I'm",
@@ -23,10 +23,10 @@
     "title": "Full-Stack Web Developer",
     "subtitle": "Software Development Student",
     "description": "I create modern, performant and accessible web experiences. Specialized in React, Next.js and Node.js.",
-    "contact": "Contact me",
+    "contact": "Let's talk",
     "downloadCV": "Download my CV",
-    "cta_projects": "View my projects",
-    "cta_contact": "Contact me"
+    "cta_projects": "Discover my projects",
+    "cta_contact": "Let's talk"
   },
   "about": {
     "title": "About me",
@@ -67,8 +67,9 @@
   "portfolio": {
     "title": "My Work",
     "subtitle": "Discover a selection of my recent work",
-    "view_project": "View project",
+    "view_project": "Discover project",
     "view_all": "View all projects",
+    "view_github": "Explore my projects on GitHub",
     "filters": {
       "all": "All",
       "web": "Web",
@@ -124,7 +125,7 @@
         "title": "Professional Experience",
         "text": "It also allowed me to discover the professional world through internships in companies spread over the two years of training."
       },
-      "see_more": "See more"
+      "see_more": "Learn more"
     },
     "careers": {
       "badge": "Career Goals",
@@ -141,7 +142,7 @@
         "title": "My Vision",
         "text": "This choice naturally follows from my BTS SIO SLAM training, and allows me to consider several paths: working in a company or evolving as a freelancer. This flexibility is a major asset for me, as it gives me the freedom to explore different professional contexts."
       },
-      "see_more": "See more"
+      "see_more": "Learn more"
     }
   },
   "services": {
