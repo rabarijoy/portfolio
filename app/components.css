@@ -178,89 +178,86 @@
   }
 }
 
-/* Card Click Indicator */
+/* Card Click Indicator - Flat style uniformisé */
 .card-project-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-decoration: none;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Hanken Grotesk', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
-  padding: 8px 16px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  will-change: transform;
+  z-index: 10;
 }
 
-.card-project:hover .card-project-indicator {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 1);
+.card-project-indicator::after {
+  content: '→';
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.card-project-indicator:hover {
+  background-color: rgba(255, 255, 255, 1);
   transform: translateX(4px);
+}
+
+.card-project-indicator:hover::after {
+  transform: translateX(2px);
 }
 
 .card-project-indicator-icon {
-  font-size: 16px;
-  transition: transform 0.3s ease;
+  display: none;
 }
 
-.card-project:hover .card-project-indicator-icon {
-  transform: translateX(2px);
-}
-
-/* Tertiary CTA Button - Uniform style based on card-project-indicator */
-/* Style pour fond sombre (comme sur les images de projets) */
+/* Tertiary CTA Button - Flat style uniformisé */
 .btn-tertiary {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-decoration: none;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Hanken Grotesk', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
-  padding: 8px 16px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  text-decoration: none;
-  cursor: pointer;
-  will-change: transform;
 }
 
-.btn-tertiary:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 1);
-  transform: translateX(4px);
-}
-
-.btn-tertiary-icon {
-  font-size: 16px;
+.btn-tertiary::after {
+  content: '→';
+  font-size: 18px;
   transition: transform 0.3s ease;
 }
 
-.btn-tertiary:hover .btn-tertiary-icon {
+.btn-tertiary:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: translateX(4px);
+}
+
+.btn-tertiary:hover::after {
   transform: translateX(2px);
 }
 
-/* Variante pour fond clair (dans les cartes formation) */
-.card-formation .btn-tertiary,
-.formation-info-box .btn-tertiary {
-  color: rgba(0, 0, 0, 0.85);
-  background-color: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.card-formation .btn-tertiary:hover,
-.formation-info-box .btn-tertiary:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 1);
+.btn-tertiary-icon {
+  display: none;
 }
 
 /* Section Subtitle */
@@ -2345,40 +2342,43 @@
   opacity: 1;
 }
 
-/* Uniformiser le style du bouton voir plus dans TechWatch avec card-project-indicator */
+/* Uniformiser le style du bouton voir plus dans TechWatch avec style flat */
 .techwatch-card-see-more {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-decoration: none;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Hanken Grotesk', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
-  padding: 8px 16px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  text-decoration: none;
-  cursor: pointer;
-  will-change: transform;
 }
 
-.techwatch-card-see-more:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 1);
-  transform: translateX(4px);
-}
-
-.techwatch-card-see-more .btn-tertiary-icon {
-  font-size: 16px;
+.techwatch-card-see-more::after {
+  content: '→';
+  font-size: 18px;
   transition: transform 0.3s ease;
 }
 
-.techwatch-card-see-more:hover .btn-tertiary-icon {
+.techwatch-card-see-more:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: translateX(4px);
+}
+
+.techwatch-card-see-more:hover::after {
   transform: translateX(2px);
+}
+
+.techwatch-card-see-more .btn-tertiary-icon {
+  display: none;
 }
 
 .techwatch-card-content {
