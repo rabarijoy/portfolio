@@ -5,6 +5,8 @@ import { locales } from '@/i18n';
 import { LangUpdater } from '@/components/LangUpdater';
 import { ScrollbarSquish } from '@/components/ScrollbarSquish';
 import { SmoothScroll } from '@/components/SmoothScroll';
+import { ScrollToTop } from '@/components/ScrollToTop';
+import { LoadingScreen } from '@/components/LoadingScreen';
 import { PersonStructuredData } from '@/components/StructuredData';
 
 export function generateStaticParams() {
