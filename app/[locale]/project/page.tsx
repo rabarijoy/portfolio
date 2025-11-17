@@ -7,9 +7,17 @@ interface ProjectPageProps {
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { locale } = await params;
-  const t = await getTranslations({ locale });
+  const t = await getTranslations('project');
 
-  const projectTitle = 'Synchronize';
+  const projectTitle = t('title');
+
+  // Parse title with highlight
+  const titleParts = t('header.title').split('<highlight>');
+  const hasHighlight = titleParts.length > 1;
+  const beforeHighlight = titleParts[0];
+  const afterHighlight = hasHighlight ? titleParts[1].split('</highlight>') : [];
+  const highlightText = hasHighlight ? afterHighlight[0] : '';
+  const afterHighlightText = hasHighlight ? afterHighlight[1] : '';
 
   return (
     <>
@@ -20,13 +28,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="project-header">
           <div className="project-header-left">
             <h1>
-              Synchronize is an <span className="project-highlight">e-learning platform</span> designed to help people learn wide range of new skills with a totally new online experience.
+              {beforeHighlight}
+              {hasHighlight && <span className="project-highlight">{highlightText}</span>}
+              {afterHighlightText}
             </h1>
           </div>
           <div className="project-header-right">
-            <div className="project-label">Project overview</div>
+            <div className="project-label">{t('header.overview_label')}</div>
             <p className="project-description">
-              The project provides an opportunity for lovers of cinema, science and math to get serious experize from the best specialists in these fields in Russia, without interrupting their main work.
+              {t('header.description')}
             </p>
           </div>
         </div>
@@ -34,68 +44,68 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {/* Gallery Section */}
         <div className="project-gallery">
           <div className="project-gallery-item large">
-            <div className="project-gallery-placeholder">Image 1</div>
-            <div className="project-online-badge">Online</div>
+            <div className="project-gallery-placeholder">{t('gallery.image_1')}</div>
+            <div className="project-online-badge">{t('gallery.online_badge')}</div>
             <div className="project-gallery-caption">
-              <div className="project-website-badge">synchron.com</div>
-              <div>We have more than 100+ online courses to try this year!</div>
+              <div className="project-website-badge">{t('gallery.website')}</div>
+              <div>{t('gallery.caption')}</div>
             </div>
           </div>
           
           <div className="project-gallery-item">
-            <div className="project-gallery-placeholder">Image 2</div>
+            <div className="project-gallery-placeholder">{t('gallery.image_2')}</div>
           </div>
           
           <div className="project-gallery-item">
-            <div className="project-gallery-placeholder">Image 3</div>
+            <div className="project-gallery-placeholder">{t('gallery.image_3')}</div>
           </div>
           
           <div className="project-gallery-item">
-            <div className="project-gallery-placeholder">Image 4</div>
+            <div className="project-gallery-placeholder">{t('gallery.image_4')}</div>
           </div>
           
           <div className="project-gallery-item">
-            <div className="project-gallery-placeholder">Image 5</div>
+            <div className="project-gallery-placeholder">{t('gallery.image_5')}</div>
           </div>
         </div>
 
         {/* Content Section */}
         <div className="project-content-grid">
           <div className="project-content-section">
-            <h2>Key Task</h2>
-            <h3>Context</h3>
+            <h2>{t('content.key_task')}</h2>
+            <h3>{t('content.context')}</h3>
             <p>
-              The training takes place on its own educational LMS-platform. Unfortunately, there is no mobile application that would make the learning process simple and convenient.
+              {t('content.context_description')}
             </p>
             <br />
-            <h2>Solution</h2>
+            <h2>{t('content.solution')}</h2>
             <p>
-              The app will allow students to watch lectures, courses and communicate effectively without a computer. The schedule that suits your pace.
+              {t('content.solution_description')}
             </p>
           </div>
 
           <div className="project-content-section">
-            <h2>Facts</h2>
+            <h2>{t('content.facts')}</h2>
             <div className="project-stats">
               <div className="project-stat-item">
                 <div className="project-stat-value">2015</div>
-                <div className="project-stat-label">Year of the foundation</div>
+                <div className="project-stat-label">{t('content.year_label')}</div>
               </div>
               <div className="project-stat-item">
                 <div className="project-stat-value">50k+</div>
-                <div className="project-stat-label">Total students</div>
+                <div className="project-stat-label">{t('content.students_label')}</div>
               </div>
               <div className="project-stat-item">
                 <div className="project-stat-value">55+</div>
-                <div className="project-stat-label">Countries</div>
+                <div className="project-stat-label">{t('content.countries_label')}</div>
               </div>
             </div>
           </div>
 
           <div className="project-content-section">
-            <h2>About</h2>
+            <h2>{t('content.about')}</h2>
             <p style={{ color: 'var(--gray-300)', fontStyle: 'italic' }}>
-              Content placeholder for additional information about the platform and its features.
+              {t('content.about_placeholder')}
             </p>
           </div>
         </div>

@@ -287,6 +287,37 @@
     "navigation": "Navigation",
     "social": "Restons connectés",
     "copyright": "Tous droits réservés."
+  },
+  "project": {
+    "title": "Synchronize",
+    "header": {
+      "title": "Synchronize est une <highlight>plateforme e-learning</highlight> conçue pour aider les gens à apprendre une large gamme de nouvelles compétences avec une expérience en ligne totalement nouvelle.",
+      "overview_label": "Aperçu du projet",
+      "description": "Le projet offre une opportunité aux amateurs de cinéma, de sciences et de mathématiques d'acquérir une expertise sérieuse auprès des meilleurs spécialistes de ces domaines en Russie, sans interrompre leur travail principal."
+    },
+    "gallery": {
+      "image_1": "Image 1",
+      "image_2": "Image 2",
+      "image_3": "Image 3",
+      "image_4": "Image 4",
+      "image_5": "Image 5",
+      "online_badge": "En ligne",
+      "website": "synchron.com",
+      "caption": "Nous avons plus de 100+ cours en ligne à essayer cette année !"
+    },
+    "content": {
+      "key_task": "Tâche principale",
+      "context": "Contexte",
+      "context_description": "La formation se déroule sur sa propre plateforme LMS éducative. Malheureusement, il n'existe pas d'application mobile qui rendrait le processus d'apprentissage simple et pratique.",
+      "solution": "Solution",
+      "solution_description": "L'application permettra aux étudiants de regarder des conférences, des cours et de communiquer efficacement sans ordinateur. Le planning qui correspond à votre rythme.",
+      "facts": "Faits",
+      "year_label": "Année de fondation",
+      "students_label": "Total d'étudiants",
+      "countries_label": "Pays",
+      "about": "À propos",
+      "about_placeholder": "Contenu placeholder pour des informations supplémentaires sur la plateforme et ses fonctionnalités."
+    }
   }
 }
 
