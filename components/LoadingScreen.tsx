@@ -7,8 +7,11 @@ export function LoadingScreen() {
   const [currentWord, setCurrentWord] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
   const hasLoadedRef = useRef(false);
+  const animationStartedRef = useRef(false);
+  const minAnimationTimeRef = useRef(0);
 
   const words = ['Akory', 'Hello', 'Bonjour'];
+  const MIN_ANIMATION_DURATION = 3000; // 3 seconds minimum (3 words × 1 second)
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -17,6 +20,11 @@ export function LoadingScreen() {
     // Always show loading on mount (refresh or first visit)
     setIsLoading(true);
     setIsExiting(false);
+    animationStartedRef.current = false;
+    minAnimationTimeRef.current = Date.now();
+
+    // Start word animation immediately
+    animationStartedRef.current = true;
 
     const loadResources = async () => {
       // Wait for document to be ready
@@ -58,17 +66,19 @@ export function LoadingScreen() {
 
       await Promise.all(imagePromises);
 
-      // Additional wait for any remaining resources
-      await new Promise((resolve) => setTimeout(resolve, 300));
+      // Ensure minimum animation duration (at least one full cycle)
+      const elapsed = Date.now() - minAnimationTimeRef.current;
+      const remainingTime = Math.max(0, MIN_ANIMATION_DURATION - elapsed);
+      await new Promise((resolve) => setTimeout(resolve, remainingTime));
 
-      // Start exit animation
+      // Start exit animation (simple fade)
       setIsExiting(true);
       hasLoadedRef.current = true;
       
-      // Hide after transition
+      // Hide after fade transition
       setTimeout(() => {
         setIsLoading(false);
-      }, 1000);
+      }, 800); // Fade duration
     };
 
     // Small delay before starting to ensure DOM is ready
@@ -77,23 +87,23 @@ export function LoadingScreen() {
     }, 100);
   }, []);
 
-  // Animate words
+  // Animate words - always animate at least once
   useEffect(() => {
-    if (!isLoading || isExiting) return;
+    if (!isLoading || !animationStartedRef.current) return;
 
     const interval = setInterval(() => {
       setCurrentWord((prev) => (prev + 1) % words.length);
     }, 1000); // Change word every second
 
     return () => clearInterval(interval);
-  }, [isLoading, isExiting]);
+  }, [isLoading]);
 
   if (!isLoading) return null;
 
   return (
     <>
       <div
-        className={`fixed inset-0 z-[9999] bg-[var(--background)] flex items-center justify-center transition-opacity duration-1000 ${
+        className={`fixed inset-0 z-[9999] bg-[var(--background)] flex items-center justify-center transition-opacity duration-800 ease-in-out ${
           isExiting ? 'opacity-0' : 'opacity-100'
         }`}
         style={{
