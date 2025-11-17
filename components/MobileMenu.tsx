@@ -5,7 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
-export function MobileMenu({ activeSection }: { activeSection: string }) {
+interface MobileMenuProps {
+  activeSection: string;
+  projectTitle?: string;
+}
+
+export function MobileMenu({ activeSection, projectTitle }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations('nav');
 
@@ -91,8 +96,13 @@ export function MobileMenu({ activeSection }: { activeSection: string }) {
               className="fixed inset-0 bg-white/95 blur-backdrop z-40 lg:hidden overflow-hidden"
             >
               <nav className="flex flex-col items-center justify-center h-full px-[5vw] overflow-y-auto overscroll-contain">
-                <ul className="flex flex-col gap-2 w-full max-w-xs">
-                  {menuItems.map((item, index) => (
+                {projectTitle ? (
+                  <div className="font-helvetica font-medium text-[18px] tracking-tight text-center text-black">
+                    {projectTitle}
+                  </div>
+                ) : (
+                  <ul className="flex flex-col gap-2 w-full max-w-xs">
+                    {menuItems.map((item, index) => (
                     <motion.li
                       key={item.key}
                       initial={{ opacity: 0, y: 20 }}
@@ -112,11 +122,14 @@ export function MobileMenu({ activeSection }: { activeSection: string }) {
                         {t(item.key)}
                       </motion.a>
                     </motion.li>
-                  ))}
-                </ul>
+                    ))}
+                  </ul>
+                )}
                 
-                {/* Call to Action Button */}
-                <motion.div 
+                {!projectTitle && (
+                  <>
+                    {/* Call to Action Button */}
+                    <motion.div 
                   className="mt-8 w-full max-w-xs"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -145,6 +158,8 @@ export function MobileMenu({ activeSection }: { activeSection: string }) {
                      >
                        <LanguageSwitcher mobile={true} />
                      </motion.div>
+                   </>
+                 )}
               </nav>
             </motion.div>
           </>

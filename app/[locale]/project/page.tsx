@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
+import { Header } from '@/components/Header';
 
 interface ProjectPageProps {
   params: Promise<{ locale: string }>;
@@ -9,8 +10,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const { locale } = await params;
   const t = await getTranslations({ locale });
 
+  const projectTitle = 'Synchronize';
+
   return (
-    <div className="min-h-screen pt-24 pb-16">
+    <>
+      <Header projectTitle={projectTitle} />
+      <div className="min-h-screen pt-24 pb-16">
       <div className="project-page-container">
         {/* Back Button */}
         <Link
@@ -107,6 +112,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

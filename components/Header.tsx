@@ -83,7 +83,11 @@ function NavLinks({ activeSection }: { activeSection: string }) {
   );
 }
 
-export function Header() {
+interface HeaderProps {
+  projectTitle?: string;
+}
+
+export function Header({ projectTitle }: HeaderProps = {}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
@@ -97,6 +101,8 @@ export function Header() {
   }, []);
 
   useEffect(() => {
+    if (projectTitle) return; // Skip section observer on project pages
+    
     const sections = ['about', 'projects', 'formation', 'contact'];
     
     const observer = new IntersectionObserver(
@@ -131,7 +137,7 @@ export function Header() {
         }
       });
     };
-  }, []);
+  }, [projectTitle]);
 
   const t = useTranslations('nav');
 
@@ -151,20 +157,28 @@ export function Header() {
           
           {/* Navigation au centre - Desktop only */}
           <nav className="header-center">
-            <NavLinks activeSection={activeSection} />
+            {projectTitle ? (
+              <div className="nav-link-project-title">
+                {projectTitle}
+              </div>
+            ) : (
+              <NavLinks activeSection={activeSection} />
+            )}
           </nav>
 
           {/* CTA Contact et Language Switcher à droite - Desktop only */}
           <div className="header-right">
             <LanguageSwitcher />
-            <PrimaryButton onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-              {t('contact')}
-            </PrimaryButton>
+            {!projectTitle && (
+              <PrimaryButton onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                {t('contact')}
+              </PrimaryButton>
+            )}
           </div>
 
           {/* Mobile Menu */}
           <div className="header-mobile">
-            <MobileMenu activeSection={activeSection} />
+            <MobileMenu activeSection={activeSection} projectTitle={projectTitle} />
           </div>
         </div>
       </div>
