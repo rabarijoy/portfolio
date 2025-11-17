@@ -1,26 +1,21 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useLoading } from '@/contexts/LoadingContext';
 
 export function LoadingScreen() {
+  const { isLoading: contextLoading, showLoading } = useLoading();
   const [isLoading, setIsLoading] = useState(true);
   const [currentWord, setCurrentWord] = useState(0);
-  const [isFirstVisit, setIsFirstVisit] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
 
   const words = ['Akory', 'Hello', 'Bonjour'];
 
   useEffect(() => {
-    // Check if this is the first visit
     if (typeof window === 'undefined') return;
 
-    const hasVisited = localStorage.getItem('hasVisited');
-    if (hasVisited) {
-      setIsLoading(false);
-      return;
-    }
-
-    setIsFirstVisit(true);
+    // Always show loading on mount (refresh or first visit)
+    setIsLoading(true);
 
     const loadResources = async () => {
       // Wait for document to be ready
@@ -65,9 +60,6 @@ export function LoadingScreen() {
       // Additional wait for any remaining resources
       await new Promise((resolve) => setTimeout(resolve, 300));
 
-      // Mark as visited
-      localStorage.setItem('hasVisited', 'true');
-
       // Start exit animation
       setIsExiting(true);
       
@@ -83,18 +75,26 @@ export function LoadingScreen() {
     }, 100);
   }, []);
 
+  // Sync with context
+  useEffect(() => {
+    if (contextLoading) {
+      setIsLoading(true);
+      setIsExiting(false);
+    }
+  }, [contextLoading]);
+
   // Animate words
   useEffect(() => {
-    if (!isFirstVisit || !isLoading || isExiting) return;
+    if (!isLoading || isExiting) return;
 
     const interval = setInterval(() => {
       setCurrentWord((prev) => (prev + 1) % words.length);
     }, 1000); // Change word every second
 
     return () => clearInterval(interval);
-  }, [isFirstVisit, isLoading, isExiting]);
+  }, [isLoading, isExiting]);
 
-  if (!isFirstVisit || !isLoading) return null;
+  if (!isLoading) return null;
 
   return (
     <>

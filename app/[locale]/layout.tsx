@@ -7,6 +7,7 @@ import { ScrollbarSquish } from '@/components/ScrollbarSquish';
 import { SmoothScroll } from '@/components/SmoothScroll';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import { LoadingScreen } from '@/components/LoadingScreen';
+import { LoadingProvider } from '@/contexts/LoadingContext';
 import { PersonStructuredData } from '@/components/StructuredData';
 
 export function generateStaticParams() {
@@ -28,13 +29,15 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
-      <PersonStructuredData />
-      <LoadingScreen />
-      <ScrollToTop />
-      <LangUpdater locale={locale} />
-      <ScrollbarSquish />
-      <SmoothScroll />
-      {children}
+      <LoadingProvider>
+        <PersonStructuredData />
+        <LoadingScreen />
+        <ScrollToTop />
+        <LangUpdater locale={locale} />
+        <ScrollbarSquish />
+        <SmoothScroll />
+        {children}
+      </LoadingProvider>
     </NextIntlClientProvider>
   );
 }

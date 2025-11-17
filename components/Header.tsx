@@ -3,12 +3,29 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { MobileMenu } from './MobileMenu';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { useLoading } from '@/contexts/LoadingContext';
 
 function Company() {
+  const { showLoading } = useLoading();
+  const router = useRouter();
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Show loading screen
+    showLoading();
+    // Reload page after a short delay to trigger loading screen
+    setTimeout(() => {
+      window.location.href = '/';
+    }, 100);
+  };
+
   return (
-    <a href="#" className="logo" data-name="Company">
+    <a href="/" onClick={handleLogoClick} className="logo" data-name="Company">
       <div className="logo-text">
         <p>&lt;aina joy&gt;</p>
       </div>
