@@ -125,15 +125,19 @@ export function Portfolio() {
                   src={PROJECT_IMAGE_PLACEHOLDER}
                   alt={project.title}
                 />
-                {/* Gradient Overlay */}
+                {/* Gradient Overlay - Always visible for title contrast */}
                 <div className="card-project-overlay"></div>
+                
+                {/* Title - Always visible with gradient */}
+                <div className="card-project-title-default">
+                  <h3 className="title-card-apple">
+                    {project.title}
+                  </h3>
+                </div>
               </div>
 
-              {/* Project Content - Visible on hover */}
+              {/* Project Content - Visible on hover (description + button) */}
               <div className="card-project-content">
-                <h3 className="title-card-apple">
-                  {project.title}
-                </h3>
                 <p className="text-card-description-apple">
                   {project.description}
                 </p>
