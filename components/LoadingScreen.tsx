@@ -112,7 +112,7 @@ export function LoadingScreen() {
         setDisplayWord((prev) => (prev + 1) % words.length);
         setFadeOut(false);
       }, 500); // Half of transition duration
-    }, 1000);
+    }, 500);
 
     return () => clearInterval(interval);
   }, [isLoading]);
