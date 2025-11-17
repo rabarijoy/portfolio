@@ -1488,6 +1488,13 @@ a.btn-primary {
   gap: 16px;
 }
 
+/* Uniform spacing on mobile */
+@media (max-width: 1023px) {
+  .footer-left {
+    gap: 24px;
+  }
+}
+
 .footer-name {
   font-family: 'Hanken Grotesk', Arial, sans-serif;
   font-weight: 700;
@@ -1528,6 +1535,17 @@ a.btn-primary {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+/* Uniform spacing on mobile */
+@media (max-width: 1023px) {
+  .footer-right {
+    gap: 24px;
+  }
+  
+  .footer-contact-group {
+    gap: 24px;
+  }
 }
 
 .footer-contact-group {
