@@ -86,21 +86,11 @@ export function LoadingScreen() {
     }, 100);
   }, []);
 
-  // Animate words - always animate at least once with smooth transitions
-  useEffect(() => {
-    if (!isLoading || !animationStartedRef.current) return;
-
-    const interval = setInterval(() => {
-      setCurrentWord((prev) => (prev + 1) % words.length);
-    }, 00); // Change word every second
-
-    return () => clearInterval(interval);
-  }, [isLoading]);
-
-  // Track previous word for smooth cross-fade
+  // Track word display and fade state for smooth cross-fade
   const [displayWord, setDisplayWord] = useState(0);
   const [fadeOut, setFadeOut] = useState(false);
 
+  // Animate words - always animate at least once with smooth cross-fade (2x faster)
   useEffect(() => {
     if (!isLoading || !animationStartedRef.current) return;
 
@@ -111,8 +101,8 @@ export function LoadingScreen() {
       setTimeout(() => {
         setDisplayWord((prev) => (prev + 1) % words.length);
         setFadeOut(false);
-      }, 500); // Half of transition duration
-    }, 1000);
+      }, 250); // Half of transition duration
+    }, 500); // Change word every 500ms (2x faster)
 
     return () => clearInterval(interval);
   }, [isLoading]);
