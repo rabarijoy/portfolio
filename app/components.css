@@ -2179,17 +2179,19 @@
 }
 
 /* Conteneur du bouton avec coin arrondi pour l'effet de creusement */
+/* Taille calculée pour correspondre au border-radius de l'image (30px) */
+/* border-top-left-radius: 50% sur 60px = 30px de rayon */
 .techwatch-card-arrow-container {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 90px;
-  height: 90px;
+  width: 60px;
+  height: 60px;
   background-color: var(--background);
   border-top-left-radius: 50%;
-  padding: 15px;
-  margin-right: -15px;
-  margin-bottom: -15px;
+  padding: 0;
+  margin-right: 0;
+  margin-bottom: 0;
   z-index: 2;
   display: flex;
   align-items: center;
