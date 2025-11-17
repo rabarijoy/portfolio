@@ -10,14 +10,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const t = await getTranslations('project');
 
   const projectTitle = t('title');
+  const titleText = t('header.title');
+  const highlightText = t('header.title_highlight');
 
-  // Parse title with highlight
-  const titleParts = t('header.title').split('<highlight>');
-  const hasHighlight = titleParts.length > 1;
-  const beforeHighlight = titleParts[0];
-  const afterHighlight = hasHighlight ? titleParts[1].split('</highlight>') : [];
-  const highlightText = hasHighlight ? afterHighlight[0] : '';
-  const afterHighlightText = hasHighlight ? afterHighlight[1] : '';
+  // Replace highlight text in title with styled span
+  const titleWithHighlight = titleText.replace(
+    highlightText,
+    `<span class="project-highlight">${highlightText}</span>`
+  );
 
   return (
     <>
@@ -27,11 +27,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {/* Header Section */}
         <div className="project-header">
           <div className="project-header-left">
-            <h1>
-              {beforeHighlight}
-              {hasHighlight && <span className="project-highlight">{highlightText}</span>}
-              {afterHighlightText}
-            </h1>
+            <h1 dangerouslySetInnerHTML={{ __html: titleWithHighlight }} />
           </div>
           <div className="project-header-right">
             <div className="project-label">{t('header.overview_label')}</div>

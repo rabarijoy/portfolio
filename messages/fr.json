@@ -291,7 +291,8 @@
   "project": {
     "title": "Synchronize",
     "header": {
-      "title": "Synchronize est une <highlight>plateforme e-learning</highlight> conçue pour aider les gens à apprendre une large gamme de nouvelles compétences avec une expérience en ligne totalement nouvelle.",
+      "title": "Synchronize est une plateforme e-learning conçue pour aider les gens à apprendre une large gamme de nouvelles compétences avec une expérience en ligne totalement nouvelle.",
+      "title_highlight": "plateforme e-learning",
       "overview_label": "Aperçu du projet",
       "description": "Le projet offre une opportunité aux amateurs de cinéma, de sciences et de mathématiques d'acquérir une expertise sérieuse auprès des meilleurs spécialistes de ces domaines en Russie, sans interrompre leur travail principal."
     },
