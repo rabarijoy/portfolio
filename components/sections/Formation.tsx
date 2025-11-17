@@ -38,7 +38,7 @@ export function Formation() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="formation-card formation-card-primary"
+            className="formation-card formation-card-secondary"
           >
             <div className="formation-card-header">
               <h2 className="formation-card-title">
@@ -70,7 +70,7 @@ export function Formation() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="formation-card formation-card-secondary"
+            className="formation-card formation-card-primary"
           >
             <div className="formation-card-header">
               <h2 className="formation-card-title">
