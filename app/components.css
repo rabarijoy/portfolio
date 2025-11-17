@@ -2179,23 +2179,34 @@
 }
 
 /* Conteneur du bouton avec coin arrondi pour l'effet de creusement */
-/* Taille calculée pour correspondre au border-radius de l'image (30px) */
-/* border-top-left-radius: 50% sur 60px = 30px de rayon */
 .techwatch-card-arrow-container {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 60px;
-  height: 60px;
-  background-color: var(--background);
-  border-top-left-radius: 50%;
-  padding: 5px;
-  margin-right: -5px;
-  margin-bottom: -5px;
+  width: 70px;
+  height: 70px;
   z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  padding: 10px;
+  margin-right: -10px;
+  margin-bottom: -10px;
+}
+
+.techwatch-card-arrow-container svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+.techwatch-card-arrow-container svg:first-child {
+  z-index: 1;
+}
+
+.techwatch-card-arrow-container svg:last-child {
+  z-index: 3;
 }
 
 .techwatch-card-tag {
@@ -2213,7 +2224,10 @@
 }
 
 .techwatch-card-arrow {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 60px;
   height: 60px;
   min-width: 60px;
@@ -2231,7 +2245,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 2;
   flex-shrink: 0;
 }
 
