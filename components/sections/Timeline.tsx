@@ -15,8 +15,10 @@ export function Timeline() {
   const t = useTranslations('timeline');
   const [activeIndex, setActiveIndex] = useState(0);
   const [progressHeight, setProgressHeight] = useState('0px');
+  const [imageTop, setImageTop] = useState('0px');
   const timelineRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const imageWrapperRef = useRef<HTMLDivElement>(null);
 
   const timelineData: TimelineItemData[] = [
     {
@@ -94,6 +96,28 @@ export function Timeline() {
         
         setProgressHeight(`${Math.max(distanceToActive, 0)}px`);
       }
+
+      // Update image position to follow active item
+      if (itemRefs.current[closestIndex] && imageWrapperRef.current && timelineRef.current) {
+        const activeItem = itemRefs.current[closestIndex];
+        const timelineContainer = timelineRef.current;
+        const imageWrapper = imageWrapperRef.current;
+        
+        const activeItemRect = activeItem.getBoundingClientRect();
+        const timelineRect = timelineContainer.getBoundingClientRect();
+        const imageWrapperRect = imageWrapper.getBoundingClientRect();
+        
+        // Calculate the top position relative to the timeline container
+        const relativeTop = activeItemRect.top - timelineRect.top;
+        
+        // Adjust to center the image with the active item (accounting for image height)
+        const imageHeight = 300; // Approximate image height
+        const itemHeight = activeItemRect.height;
+        const offset = (itemHeight - imageHeight) / 2;
+        
+        // Set the image position
+        setImageTop(`${Math.max(relativeTop + offset, 0)}px`);
+      }
     };
 
     // Use passive event listener for better performance
@@ -169,13 +193,19 @@ export function Timeline() {
           </div>
 
           {/* Right: Sticky Image */}
-          <div className="timeline-image-wrapper">
+          <div ref={imageWrapperRef} className="timeline-image-wrapper">
             <motion.div
               key={activeIndex}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
               className="timeline-image"
+              style={{ 
+                position: 'absolute',
+                top: imageTop,
+                width: '100%',
+                transition: 'top 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+              }}
             >
               <div className="timeline-image-placeholder">
                 <div>
