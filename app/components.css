@@ -522,31 +522,26 @@
   margin-bottom: 20px;
 }
 
-/* Mobile and Tablet: Always show hover state */
+/* Mobile and Tablet: Show only title, no hover effects */
 @media (max-width: 1023px) {
   .card-project-overlay {
     opacity: 1;
   }
 
   .card-project-title-default {
-    transform: translateY(-140px);
-  }
-
-  .card-project-content {
-    opacity: 1;
     transform: translateY(0);
   }
 
+  .card-project-content {
+    display: none; /* Hide description and button on mobile */
+  }
+
+  /* Remove all hover effects on mobile */
   .card-project:hover .card-project-overlay {
     opacity: 1;
   }
 
   .card-project:hover .card-project-title-default {
-    transform: translateY(-80px);
-  }
-
-  .card-project:hover .card-project-content {
-    opacity: 1;
     transform: translateY(0);
   }
 
@@ -557,6 +552,16 @@
   .card-project:hover {
     transform: scale(1);
     box-shadow: none;
+  }
+
+  /* Touch effect: lighter image on active */
+  .card-project:active .card-project-image img {
+    filter: brightness(1.2);
+    transition: filter 0.2s ease;
+  }
+
+  .card-project-image img {
+    transition: filter 0.2s ease;
   }
 }
 
