@@ -16,6 +16,7 @@ export function Timeline() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [progressHeight, setProgressHeight] = useState('0px');
   const [imageTop, setImageTop] = useState('0px');
+  const [wrapperHeight, setWrapperHeight] = useState('auto');
   const timelineRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageWrapperRef = useRef<HTMLDivElement>(null);
@@ -95,6 +96,13 @@ export function Timeline() {
         const distanceToActive = activeDotCenter - firstDotCenter;
         
         setProgressHeight(`${Math.max(distanceToActive, 0)}px`);
+      }
+
+      // Update wrapper height to match timeline container height
+      if (timelineRef.current && imageWrapperRef.current) {
+        const timelineContainer = timelineRef.current;
+        const timelineHeight = timelineContainer.scrollHeight;
+        setWrapperHeight(`${timelineHeight}px`);
       }
 
       // Update image position to follow active item
@@ -197,7 +205,11 @@ export function Timeline() {
           </div>
 
           {/* Right: Sticky Image */}
-          <div ref={imageWrapperRef} className="timeline-image-wrapper">
+          <div 
+            ref={imageWrapperRef} 
+            className="timeline-image-wrapper"
+            style={{ height: wrapperHeight }}
+          >
             <motion.div
               key={activeIndex}
               initial={{ opacity: 0, scale: 0.95 }}
