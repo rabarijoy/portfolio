@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useRouter, usePathname } from 'next/navigation';
+import { useLocale } from 'next-intl';
+import Link from 'next/link';
 import { Section } from '../ui/Section';
 
 // Images placeholder - À remplacer par les vraies images
@@ -12,11 +13,7 @@ const CAREER_IMAGE_PLACEHOLDER = 'https://i.pinimg.com/1200x/7f/fa/70/7ffa706f44
 export function Formation() {
   const t = useTranslations('formation');
   const tTechWatch = useTranslations('techWatch');
-  const router = useRouter();
-  const pathname = usePathname();
-  
-  // Get current locale from pathname
-  const locale = pathname?.split('/')[1] || 'fr';
+  const locale = useLocale();
 
   return (
     <Section id="formation" background="white" withSubtleSeparator>
@@ -91,16 +88,12 @@ export function Formation() {
                 src={CAREER_IMAGE_PLACEHOLDER}
                 alt={t('careers.main.title')}
               />
-              <a
-                href={`/${locale}/projects/career`}
+              <Link
+                href={`/${locale}/project/developpeur-web`}
                 className="formation-card-read-more"
-                onClick={(e) => {
-                  e.preventDefault();
-                  router.push(`/${locale}/projects/career`);
-                }}
               >
                 {t('careers.see_more')}
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -151,17 +144,12 @@ export function Formation() {
                     alt={tTechWatch(topic.titleKey)}
                   />
                   <div className="techwatch-card-hover-overlay">
-                    <a 
-                      href={`/${locale}/projects/${topic.titleKey === 'ai.title' ? 'ai' : 'cybersecurity'}`}
+                    <Link 
+                      href={`/${locale}/project/${topic.titleKey.replace('.title', '')}`}
                       className="btn-tertiary techwatch-card-see-more"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const projectId = topic.titleKey === 'ai.title' ? 'ai' : 'cybersecurity';
-                        router.push(`/${locale}/projects/${projectId}`);
-                      }}
                     >
                       <span>{tTechWatch('see_more')}</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="techwatch-card-content">

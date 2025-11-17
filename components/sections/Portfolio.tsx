@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useRouter, usePathname } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { Section } from '../ui/Section';
 import { TechStackGrid } from './TechStackGrid';
@@ -22,12 +22,8 @@ interface Project {
 export function Portfolio() {
   const t = useTranslations('portfolio');
   const tSkills = useTranslations('skills');
+  const locale = useLocale();
   const [activeCategory, setActiveCategory] = useState('all');
-  const router = useRouter();
-  const pathname = usePathname();
-  
-  // Get current locale from pathname
-  const locale = pathname?.split('/')[1] || 'fr';
 
   const categories = [
     { id: 'all', label: t('filters.all') },
@@ -123,10 +119,11 @@ export function Portfolio() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="card-project"
-              onClick={() => router.push(`/${locale}/projects/${project.id}`)}
-              style={{ cursor: 'pointer' }}
             >
+              <Link
+                href={`/${locale}/project/${project.id}`}
+                className="card-project"
+              >
               {/* Project Image */}
               <div className="card-project-image">
                 <img 
@@ -154,6 +151,7 @@ export function Portfolio() {
                   <span>{t('view_project')}</span>
                 </div>
               </div>
+              </Link>
             </motion.div>
           ))}
         </div>

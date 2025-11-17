@@ -1,9 +1,8 @@
 import { Metadata } from 'next';
+import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
 import { ProjectStructuredData } from '@/components/StructuredData';
+import { notFound } from 'next/navigation';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://portfolio-joy.vercel.app';
 
@@ -37,20 +36,6 @@ const projects: Record<string, { title: string; description: string; image?: str
     title: 'Dashboard Analytics',
     description: 'Visualisation de données en temps réel avec graphiques interactifs.',
   },
-  // Formation projects
-  'career': {
-    title: 'Développeur Web',
-    description: 'Un domaine qui m\'attire par sa diversité, son rythme d\'évolution rapide et les possibilités de création qu\'il offre.',
-  },
-  // TechWatch projects
-  'ai': {
-    title: 'Intelligence Artificielle',
-    description: 'L\'IA révolutionne le développement logiciel et ouvre de nouvelles possibilités passionnantes.',
-  },
-  'cybersecurity': {
-    title: 'Cybersécurité',
-    description: 'La sécurité est un enjeu majeur dans le développement d\'applications modernes.',
-  },
 };
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
@@ -61,6 +46,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     return {};
   }
 
+  const t = await getTranslations({ locale, namespace: 'portfolio' });
   const projectTitle = project.title;
   const projectDescription = project.description;
 
@@ -108,19 +94,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         url={`${baseUrl}/${locale}/projects/${id}`}
         image={project.image}
       />
-      <Header />
-      <main>
-        <div className="container" style={{ paddingTop: '140px', paddingBottom: '140px' }}>
-          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <h1 className="title-section-large">{project.title}</h1>
-            <p className="text-body" style={{ marginTop: '24px', fontSize: '18px' }}>
-              {project.description}
-            </p>
-            {/* Content will be added here later */}
-          </div>
+      <div className="min-h-screen pt-24 pb-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
+          <p className="text-lg text-gray-600 mb-8">{project.description}</p>
+          {/* Add more project details here */}
         </div>
-      </main>
-      <Footer />
+      </div>
     </>
   );
 }
+
+
+
