@@ -1,23 +1,23 @@
 'use client';
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode, useCallback } from 'react';
 
 interface LoadingContextType {
-  showLoading: () => void;
-  isLoading: boolean;
+  triggerLoading: () => void;
 }
 
 const LoadingContext = createContext<LoadingContextType | undefined>(undefined);
 
 export function LoadingProvider({ children }: { children: ReactNode }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [loadingKey, setLoadingKey] = useState(0);
 
-  const showLoading = () => {
-    setIsLoading(true);
-  };
+  const triggerLoading = useCallback(() => {
+    // Force re-render of LoadingScreen by changing key
+    setLoadingKey((prev) => prev + 1);
+  }, []);
 
   return (
-    <LoadingContext.Provider value={{ showLoading, isLoading }}>
+    <LoadingContext.Provider value={{ triggerLoading }}>
       {children}
     </LoadingContext.Provider>
   );

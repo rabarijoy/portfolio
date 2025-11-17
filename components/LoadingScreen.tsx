@@ -1,21 +1,22 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useLoading } from '@/contexts/LoadingContext';
+import { useEffect, useState, useRef } from 'react';
 
 export function LoadingScreen() {
-  const { isLoading: contextLoading, showLoading } = useLoading();
   const [isLoading, setIsLoading] = useState(true);
   const [currentWord, setCurrentWord] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
+  const hasLoadedRef = useRef(false);
 
   const words = ['Akory', 'Hello', 'Bonjour'];
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    if (hasLoadedRef.current) return; // Prevent multiple loads
 
     // Always show loading on mount (refresh or first visit)
     setIsLoading(true);
+    setIsExiting(false);
 
     const loadResources = async () => {
       // Wait for document to be ready
@@ -62,6 +63,7 @@ export function LoadingScreen() {
 
       // Start exit animation
       setIsExiting(true);
+      hasLoadedRef.current = true;
       
       // Hide after transition
       setTimeout(() => {
@@ -74,14 +76,6 @@ export function LoadingScreen() {
       loadResources();
     }, 100);
   }, []);
-
-  // Sync with context
-  useEffect(() => {
-    if (contextLoading) {
-      setIsLoading(true);
-      setIsExiting(false);
-    }
-  }, [contextLoading]);
 
   // Animate words
   useEffect(() => {

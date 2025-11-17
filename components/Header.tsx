@@ -3,25 +3,28 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { MobileMenu } from './MobileMenu';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { useLoading } from '@/contexts/LoadingContext';
 
 function Company() {
-  const { showLoading } = useLoading();
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Show loading screen
-    showLoading();
-    // Reload page after a short delay to trigger loading screen
-    setTimeout(() => {
-      window.location.href = '/';
-    }, 100);
+    // Reload page to trigger loading screen
+    if (pathname === '/fr' || pathname === '/en' || pathname === '/') {
+      window.location.reload();
+    } else {
+      // Navigate to home and reload
+      router.push('/');
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
+    }
   };
 
   return (
