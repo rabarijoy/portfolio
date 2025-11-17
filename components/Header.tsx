@@ -15,16 +15,9 @@ function Company() {
     e.preventDefault();
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Reload page to trigger loading screen
-    if (pathname === '/fr' || pathname === '/en' || pathname === '/') {
-      window.location.reload();
-    } else {
-      // Navigate to home and reload
-      router.push('/');
-      setTimeout(() => {
-        window.location.reload();
-      }, 100);
-    }
+    // Navigate to home without reload
+    const locale = pathname?.split('/')[1] || 'fr';
+    router.push(`/${locale}`);
   };
 
   return (
