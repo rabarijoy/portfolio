@@ -97,69 +97,73 @@ export function MobileMenu({ activeSection, projectTitle }: MobileMenuProps) {
             >
               <nav className="flex flex-col items-center justify-center h-full px-[5vw] overflow-y-auto overscroll-contain">
                 {projectTitle ? (
-                  <div className="font-helvetica font-medium text-[18px] tracking-tight text-center text-black">
-                    {projectTitle}
-                  </div>
+                  /* Project page: Only show language switcher */
+                  <motion.div 
+                    className="w-full max-w-xs"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <LanguageSwitcher mobile={true} />
+                  </motion.div>
                 ) : (
-                  <ul className="flex flex-col gap-2 w-full max-w-xs">
-                    {menuItems.map((item, index) => (
-                    <motion.li
-                      key={item.key}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                    >
-                      <motion.a
-                        href={item.href}
-                        onClick={(e) => handleLinkClick(e, item.href.replace('#', ''))}
-                        whileTap={{ scale: 0.95 }}
-                        className={`block font-helvetica font-medium text-[18px] tracking-tight text-center py-4 px-6 rounded-xl transition-colors ${
-                          activeSection === item.key 
-                            ? 'bg-gray-100 text-black' 
-                            : 'text-black hover:bg-gray-50 active:bg-gray-100'
-                        }`}
-                      >
-                        {t(item.key)}
-                      </motion.a>
-                    </motion.li>
-                    ))}
-                  </ul>
-                )}
-                
-                {!projectTitle && (
                   <>
+                    <ul className="flex flex-col gap-2 w-full max-w-xs">
+                      {menuItems.map((item, index) => (
+                      <motion.li
+                        key={item.key}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                      >
+                        <motion.a
+                          href={item.href}
+                          onClick={(e) => handleLinkClick(e, item.href.replace('#', ''))}
+                          whileTap={{ scale: 0.95 }}
+                          className={`block font-helvetica font-medium text-[18px] tracking-tight text-center py-4 px-6 rounded-xl transition-colors ${
+                            activeSection === item.key 
+                              ? 'bg-gray-100 text-black' 
+                              : 'text-black hover:bg-gray-50 active:bg-gray-100'
+                          }`}
+                        >
+                          {t(item.key)}
+                        </motion.a>
+                      </motion.li>
+                      ))}
+                    </ul>
+                    
                     {/* Call to Action Button */}
                     <motion.div 
-                  className="mt-8 w-full max-w-xs"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: menuItems.length * 0.1 }}
-                >
-                  <motion.button
-                    onClick={() => {
-                      handleLinkClick();
-                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-full bg-black flex gap-2 items-center justify-center px-6 py-4 rounded-xl active:bg-gray-800 transition-colors"
-                  >
-                    <span className="font-helvetica font-medium text-[18px] text-white tracking-tight">
-                      {t('contact')}
-                    </span>
-                  </motion.button>
-                </motion.div>
+                      className="mt-8 w-full max-w-xs"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: menuItems.length * 0.1 }}
+                    >
+                      <motion.button
+                        onClick={() => {
+                          handleLinkClick();
+                          document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                        className="w-full bg-black flex gap-2 items-center justify-center px-6 py-4 rounded-xl active:bg-gray-800 transition-colors"
+                      >
+                        <span className="font-helvetica font-medium text-[18px] text-white tracking-tight">
+                          {t('contact')}
+                        </span>
+                      </motion.button>
+                    </motion.div>
 
-                     {/* Language Switcher */}
-                     <motion.div 
-                       className="mt-6 w-full max-w-xs"
-                       initial={{ opacity: 0, y: 20 }}
-                       animate={{ opacity: 1, y: 0 }}
-                       transition={{ delay: (menuItems.length + 1) * 0.1 }}
-                     >
-                       <LanguageSwitcher mobile={true} />
-                     </motion.div>
-                   </>
-                 )}
+                    {/* Language Switcher */}
+                    <motion.div 
+                      className="mt-6 w-full max-w-xs"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: (menuItems.length + 1) * 0.1 }}
+                    >
+                      <LanguageSwitcher mobile={true} />
+                    </motion.div>
+                  </>
+                )}
               </nav>
             </motion.div>
           </>

@@ -105,6 +105,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </p>
           </div>
         </div>
+
+        {/* View Source Button */}
+        <div style={{ marginTop: '60px', display: 'flex', justifyContent: 'center' }}>
+          <a
+            href="https://github.com/rabarijoy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            {t('content.view_source')}
+          </a>
+        </div>
       </div>
     </div>
     </>

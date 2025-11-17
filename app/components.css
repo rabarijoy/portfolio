@@ -1184,6 +1184,11 @@
   justify-content: center;
 }
 
+/* Show center nav on mobile when it contains project title */
+.header-center:has(.nav-link-project-title) {
+  display: flex;
+}
+
 @media (min-width: 1024px) {
   .header-center {
     display: flex;

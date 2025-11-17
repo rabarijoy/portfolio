@@ -317,7 +317,8 @@
       "students_label": "Total d'étudiants",
       "countries_label": "Pays",
       "about": "À propos",
-      "about_placeholder": "Contenu placeholder pour des informations supplémentaires sur la plateforme et ses fonctionnalités."
+      "about_placeholder": "Contenu placeholder pour des informations supplémentaires sur la plateforme et ses fonctionnalités.",
+      "view_source": "Voir le code source"
     }
   }
 }

@@ -148,14 +148,16 @@ export function Header({ projectTitle }: HeaderProps = {}) {
             <Company />
           </div>
           
-          {/* Navigation au centre - Desktop only */}
+          {/* Navigation au centre - Always visible when projectTitle, Desktop only otherwise */}
           <nav className="header-center">
             {projectTitle ? (
               <div className="nav-link-project-title">
                 {projectTitle}
               </div>
             ) : (
-              <NavLinks activeSection={activeSection} />
+              <>
+                <NavLinks activeSection={activeSection} />
+              </>
             )}
           </nav>
 
