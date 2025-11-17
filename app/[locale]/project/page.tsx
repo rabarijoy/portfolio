@@ -1,5 +1,4 @@
 import { getTranslations } from 'next-intl/server';
-import Link from 'next/link';
 import { Header } from '@/components/Header';
 
 interface ProjectPageProps {
