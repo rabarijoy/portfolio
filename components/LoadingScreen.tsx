@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from 'react';
 
 export function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
-  const [currentWord, setCurrentWord] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
   const hasLoadedRef = useRef(false);
   const animationStartedRef = useRef(false);
@@ -93,7 +92,7 @@ export function LoadingScreen() {
 
     const interval = setInterval(() => {
       setCurrentWord((prev) => (prev + 1) % words.length);
-    }, 1000); // Change word every second
+    }, 500); // Change word every second
 
     return () => clearInterval(interval);
   }, [isLoading]);
