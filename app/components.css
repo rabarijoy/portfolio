@@ -2551,6 +2551,7 @@
 @media (max-width: 767px) {
   .project-gallery-item.large {
     grid-row: span 1;
+    aspect-ratio: 1;
   }
 }
 

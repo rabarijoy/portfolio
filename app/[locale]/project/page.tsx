@@ -17,16 +17,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <Header projectTitle={projectTitle} />
       <div className="min-h-screen pt-24 pb-16">
       <div className="project-page-container">
-        {/* Back Button */}
-        <Link
-          href={`/${locale}#projects`}
-          className="inline-flex items-center gap-2 mb-12 text-gray-600 hover:text-gray-900 transition-colors"
-          style={{ fontFamily: "'Hanken Grotesk', Arial, sans-serif" }}
-        >
-          <span>←</span>
-          <span>{t('portfolio.view_all') || 'Retour aux projets'}</span>
-        </Link>
-
         {/* Header Section */}
         <div className="project-header">
           <div className="project-header-left">
